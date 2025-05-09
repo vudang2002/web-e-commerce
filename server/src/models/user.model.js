@@ -24,6 +24,16 @@ const userSchema = new mongoose.Schema(
       type: String,
       default: "user",
     },
+    isSeller: { 
+      type: Boolean, 
+      default: false 
+    },
+    storeName: { 
+      type: String 
+    },
+    storeDescription: { 
+      type: String 
+    },
   },
   {
     timestamps: true,
