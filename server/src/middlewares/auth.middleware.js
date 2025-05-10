@@ -4,26 +4,30 @@ import User from "../models/user.model.js";
 export const authMiddleware = (requiredRole = null) => {
   return async (req, res, next) => {
     try {
-      const token = req.headers.authorization?.split(" ")[1];
-      if (!token) {
+      const authHeader = req.headers.authorization;
+      if (!authHeader || !authHeader.startsWith("Bearer ")) {
         return res
           .status(401)
           .json({ success: false, message: "Access token is missing" });
       }
 
+      const token = authHeader.split(" ")[1];
       const decoded = jwt.verify(token, process.env.JWT_SECRET);
-      req.user = await User.findById(decoded.id);
 
-      if (!req.user) {
+      const user = await User.findById(decoded.id);
+      if (!user) {
         return res
           .status(401)
           .json({ success: false, message: "Invalid token" });
       }
 
+      req.user = user;
+
+      // Nếu có yêu cầu role thì kiểm tra
       if (
         requiredRole &&
-        req.user.role !== requiredRole &&
-        req.user._id.toString() !== req.params.id
+        user.role !== requiredRole &&
+        user._id.toString() !== req.params.id
       ) {
         return res
           .status(403)
@@ -31,8 +35,21 @@ export const authMiddleware = (requiredRole = null) => {
       }
 
       next();
-    } catch (error) {
-      res.status(401).json({ success: false, message: "Unauthorized" });
+    } catch (err) {
+      return res.status(401).json({ success: false, message: "Unauthorized" });
     }
+  };
+};
+
+// Chỉ cho admin hoặc seller truy cập
+export const authorizeAdminOrSeller = () => {
+  return (req, res, next) => {
+    if (req.user?.role === "admin" || req.user?.isSeller) {
+      return next();
+    }
+    return res.status(403).json({
+      success: false,
+      message: "Access denied. Only admin or sellers are allowed.",
+    });
   };
 };
