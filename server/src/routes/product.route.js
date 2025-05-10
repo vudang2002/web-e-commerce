@@ -29,12 +29,17 @@ router.put(
   validate(productValidationRules),
   productController.updateProduct
 );
-router.delete("/:id", authMiddleware("admin"), productController.deleteProduct);
+router.delete(
+  "/:id",
+  authMiddleware("admin"),
+  checkOwnershipOrAdmin,
+  productController.deleteProduct
+);
 
 router.patch(
   "/:id/status",
   authMiddleware("admin"),
-
+  checkOwnershipOrAdmin,
   productController.updateProductStatus
 );
 router.patch(

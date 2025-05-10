@@ -27,6 +27,18 @@ export const updateBrand = async (req, res) => {
 
 export const deleteBrand = async (req, res) => {
   const { id } = req.params;
+  const brand = await brandService.getBrandById(id);
+
+  if (!brand) {
+    return res.status(404).json({
+      success: false,
+      message: "Brand not found",
+    });
+  }
+
   await brandService.deleteBrand(id);
-  res.status(204).send();
+  res.json({
+    success: true,
+    message: "Brand deleted successfully",
+  });
 };
