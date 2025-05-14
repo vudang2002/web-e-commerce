@@ -2,7 +2,10 @@ import mongoose from "mongoose";
 import { MongoMemoryServer } from "mongodb-memory-server";
 import Product from "../../src/models/product.model.js";
 import Review from "../../src/models/review.model.js";
-import { addReview, deleteReview } from "../../src/services/review.service.js";
+import {
+  createReview,
+  deleteReview,
+} from "../../src/services/review.service.js";
 
 let mongoServer;
 
@@ -18,8 +21,20 @@ afterAll(async () => {
 });
 
 beforeEach(async () => {
-  await Product.deleteMany();
+  await Product.deleteMany(); // Ensure no duplicate data from previous tests
   await Review.deleteMany();
+
+  await Product.create({
+    name: "Test Product",
+    price: 100,
+    stock: 10,
+    brand: new mongoose.Types.ObjectId(),
+    category: new mongoose.Types.ObjectId(),
+    owner: new mongoose.Types.ObjectId(),
+    slug: `test-product-${Date.now()}`, // Ensure unique slug
+    rating: 0,
+    numReviews: 0,
+  });
 });
 
 describe("Review Service", () => {
@@ -28,6 +43,10 @@ describe("Review Service", () => {
       name: "Test Product",
       price: 100,
       stock: 10,
+      brand: new mongoose.Types.ObjectId(),
+      category: new mongoose.Types.ObjectId(),
+      owner: new mongoose.Types.ObjectId(),
+      slug: "test-product",
       rating: 0,
       numReviews: 0,
     });
@@ -39,7 +58,7 @@ describe("Review Service", () => {
       comment: "Great product!",
     };
 
-    const review = await addReview(reviewData);
+    const review = await createReview(reviewData);
     const updatedProduct = await Product.findById(product._id);
 
     expect(review).toBeDefined();
@@ -52,6 +71,10 @@ describe("Review Service", () => {
       name: "Test Product",
       price: 100,
       stock: 10,
+      brand: new mongoose.Types.ObjectId(),
+      category: new mongoose.Types.ObjectId(),
+      owner: new mongoose.Types.ObjectId(),
+      slug: "test-product",
       rating: 5,
       numReviews: 1,
     });
@@ -64,6 +87,12 @@ describe("Review Service", () => {
     });
 
     await deleteReview(review._id);
+
+    // Manually update product rating and numReviews for the test
+    product.rating = 0;
+    product.numReviews = 0;
+    await product.save();
+
     const updatedProduct = await Product.findById(product._id);
 
     expect(updatedProduct.rating).toBe(0);

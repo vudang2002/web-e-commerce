@@ -21,7 +21,17 @@ afterAll(async () => {
 });
 
 beforeEach(async () => {
-  await Product.deleteMany();
+  await Product.deleteMany(); // Clear all products to avoid duplicate slug errors
+
+  await Product.create({
+    name: "Existing Product",
+    price: 100,
+    stock: 10,
+    brand: new mongoose.Types.ObjectId(),
+    category: new mongoose.Types.ObjectId(),
+    owner: new mongoose.Types.ObjectId(),
+    slug: "existing-product",
+  });
 });
 
 describe("Product Service", () => {
@@ -32,6 +42,8 @@ describe("Product Service", () => {
       stock: 10,
       brand: new mongoose.Types.ObjectId(),
       category: new mongoose.Types.ObjectId(),
+      owner: new mongoose.Types.ObjectId(), // Added required field
+      slug: "test-product", // Added required field
     };
 
     const product = await createProduct(productData);
@@ -46,6 +58,10 @@ describe("Product Service", () => {
       name: "Old Product",
       price: 50,
       stock: 5,
+      brand: new mongoose.Types.ObjectId(),
+      category: new mongoose.Types.ObjectId(),
+      owner: new mongoose.Types.ObjectId(),
+      slug: "old-product",
     });
 
     const updatedProduct = await updateProduct(product._id, {
@@ -67,6 +83,8 @@ describe("Product Service", () => {
       stock: 10,
       brand: brandId,
       category: categoryId,
+      owner: new mongoose.Types.ObjectId(),
+      slug: "product-1",
     });
 
     await Product.create({
@@ -75,9 +93,14 @@ describe("Product Service", () => {
       stock: 5,
       brand: brandId,
       category: new mongoose.Types.ObjectId(),
+      owner: new mongoose.Types.ObjectId(),
+      slug: "product-2",
     });
 
-    const products = await getProducts({ brand: brandId, category: categoryId });
+    const products = await getProducts({
+      brand: brandId,
+      category: categoryId,
+    });
 
     expect(products.products.length).toBe(1);
     expect(products.products[0].name).toBe("Product 1");

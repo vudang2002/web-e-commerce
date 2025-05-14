@@ -22,8 +22,18 @@ afterAll(async () => {
 });
 
 beforeEach(async () => {
-  await Cart.deleteMany();
-  await Product.deleteMany();
+  await Product.deleteMany(); // Clear all products to avoid duplicate slug errors
+  await Cart.deleteMany(); // Clear all carts to ensure clean state
+
+  await Product.create({
+    name: "Test Product",
+    price: 100,
+    stock: 10,
+    brand: new mongoose.Types.ObjectId(),
+    category: new mongoose.Types.ObjectId(),
+    owner: new mongoose.Types.ObjectId(),
+    slug: "unique-test-product",
+  });
 });
 
 describe("Cart Service", () => {
@@ -33,6 +43,10 @@ describe("Cart Service", () => {
       name: "Test Product",
       price: 100,
       stock: 10,
+      brand: new mongoose.Types.ObjectId(),
+      category: new mongoose.Types.ObjectId(),
+      owner: new mongoose.Types.ObjectId(),
+      slug: "test-product",
     });
 
     const cart = await addToCart(userId, product._id, 2);
@@ -49,9 +63,18 @@ describe("Cart Service", () => {
       name: "Test Product",
       price: 100,
       stock: 10,
+      brand: new mongoose.Types.ObjectId(),
+      category: new mongoose.Types.ObjectId(),
+      owner: new mongoose.Types.ObjectId(),
+      slug: "test-product-update",
     });
 
-    await addToCart(userId, product._id, 2);
+    // Add the product to the cart
+    const cart = await addToCart(userId, product._id, 2);
+    expect(cart.cartItems.length).toBe(1);
+    expect(cart.cartItems[0].product.toString()).toBe(product._id.toString());
+
+    // Update the quantity of the product in the cart
     const updatedCart = await updateCartItem(userId, product._id, 5);
 
     expect(updatedCart.cartItems[0].quantity).toBe(5);
@@ -63,6 +86,10 @@ describe("Cart Service", () => {
       name: "Test Product",
       price: 100,
       stock: 10,
+      brand: new mongoose.Types.ObjectId(),
+      category: new mongoose.Types.ObjectId(),
+      owner: new mongoose.Types.ObjectId(),
+      slug: "test-product",
     });
 
     await addToCart(userId, product._id, 2);
