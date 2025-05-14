@@ -30,7 +30,7 @@ export const updateCartItem = async (userId, productId, quantity) => {
   if (!cart) throw new Error("Cart not found");
 
   const item = cart.cartItems.find(
-    (item) => item.product.toString() === productId
+    (item) => item.product.toString() === productId.toString()
   );
 
   if (!item) throw new Error("Product not found in cart");
@@ -60,4 +60,17 @@ export const clearCart = async (userId) => {
   cart.cartItems = [];
 
   return await cart.save();
+};
+
+export const removeFromCart = async (userId, productId) => {
+  const cart = await Cart.findOne({ user: userId });
+
+  if (!cart) throw new Error("Cart not found");
+
+  cart.cartItems = cart.cartItems.filter(
+    (item) => item.product.toString() !== productId.toString()
+  );
+
+  await cart.save();
+  return cart;
 };

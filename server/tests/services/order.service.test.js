@@ -32,13 +32,19 @@ beforeEach(async () => {
 describe("Order Service", () => {
   it("should create an order successfully", async () => {
     const user = await User.create({
+      name: "Test User",
       email: "test@example.com",
       password: "password",
     });
+
     const product = await Product.create({
       name: "Test Product",
       price: 100,
       stock: 10,
+      brand: new mongoose.Types.ObjectId(),
+      category: new mongoose.Types.ObjectId(),
+      owner: new mongoose.Types.ObjectId(),
+      slug: "test-product",
     });
 
     const orderData = {
@@ -49,6 +55,7 @@ describe("Order Service", () => {
       itemsPrice: 200,
       shippingPrice: 10,
       totalPrice: 210,
+      orderStatus: "Processing", // Valid enum value
     };
 
     const order = await createOrder(orderData);
@@ -68,12 +75,12 @@ describe("Order Service", () => {
       itemsPrice: 100,
       shippingPrice: 10,
       totalPrice: 110,
-      orderStatus: "Processing",
+      orderStatus: "Processing", // Valid enum value
     });
 
-    const updatedOrder = await updateOrderStatus(order._id, "Shipped");
+    const updatedOrder = await updateOrderStatus(order._id, "Shipping");
 
-    expect(updatedOrder.orderStatus).toBe("Shipped");
+    expect(updatedOrder.orderStatus).toBe("Shipping");
   });
 
   it("should mark an order as paid", async () => {
