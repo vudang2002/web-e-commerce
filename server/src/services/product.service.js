@@ -48,6 +48,93 @@ export const updateProduct = async (id, data) => {
   return await Product.findByIdAndUpdate(id, data, { new: true }).lean();
 };
 
+export const searchProducts = async (queryParams) => {
+  try {
+    // Chỉ giữ lại các tham số tìm kiếm phổ biến và đơn giản
+    const {
+      keyword,
+      category,
+      brand,
+      minPrice,
+      maxPrice,
+      sortBy = "createdAt",
+      sortOrder = "desc",
+      page = 1,
+      limit = 10,
+      inStock = false,
+    } = queryParams;
+
+    // Xây dựng query filter
+    const filter = {};
+
+    // Tìm kiếm theo từ khóa trong tên và mô tả sản phẩm
+    if (keyword) {
+      filter.$or = [
+        { name: { $regex: keyword, $options: "i" } },
+        { description: { $regex: keyword, $options: "i" } },
+      ];
+    }
+
+    // Lọc theo category
+    if (category) {
+      filter.category = category;
+    }
+
+    // Lọc theo brand
+    if (brand) {
+      filter.brand = brand;
+    }
+
+    // Lọc theo khoảng giá
+    if (minPrice !== undefined || maxPrice !== undefined) {
+      filter.price = {};
+      if (minPrice !== undefined) filter.price.$gte = Number(minPrice);
+      if (maxPrice !== undefined) filter.price.$lte = Number(maxPrice);
+    }
+
+    // Chỉ lấy sản phẩm còn hàng nếu có yêu cầu
+    if (inStock === true || inStock === "true") {
+      filter.stock = { $gt: 0 };
+    }
+
+    // Cấu hình sắp xếp đơn giản
+    const sort = {};
+    sort[sortBy] = sortOrder === "asc" ? 1 : -1;
+
+    // Phân trang
+    const skip = (parseInt(page) - 1) * parseInt(limit);
+    const limitValue = parseInt(limit);
+
+    // Truy vấn database
+    const [products, total] = await Promise.all([
+      Product.find(filter)
+        .populate("brand", "name slug logo") // Populate thông tin brand
+        .populate("category", "name slug image") // Populate thông tin category
+        .sort(sort)
+        .skip(skip)
+        .limit(limitValue)
+        .lean(), // Chuyển đổi từ mongoose document sang plain javascript object
+      Product.countDocuments(filter),
+    ]);
+
+    // Tính toán thông tin phân trang đơn giản
+    const totalPages = Math.ceil(total / limitValue);
+
+    return {
+      products,
+      pagination: {
+        total,
+        limit: limitValue,
+        page: parseInt(page),
+        totalPages,
+      },
+    };
+  } catch (error) {
+    console.error("[searchProducts] Error:", error);
+    throw error;
+  }
+};
+
 export const deleteProduct = async (id) => {
   return await Product.findByIdAndDelete(id);
 };

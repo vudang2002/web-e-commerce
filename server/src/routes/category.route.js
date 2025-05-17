@@ -48,6 +48,41 @@ import { categoryValidationRules } from "../validators/category.validator.js";
 
 /**
  * @swagger
+ * /api/categories/slug/{slug}:
+ *   get:
+ *     summary: Get a category by slug
+ *     tags: [Categories]
+ *     parameters:
+ *       - in: path
+ *         name: slug
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: Category slug
+ *     responses:
+ *       200:
+ *         description: Category details
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 _id:
+ *                   type: string
+ *                 name:
+ *                   type: string
+ *                 slug:
+ *                   type: string
+ *                 description:
+ *                   type: string
+ *                 image:
+ *                   type: string
+ *       404:
+ *         description: Category not found
+ */
+
+/**
+ * @swagger
  * /api/categories/{id}:
  *   get:
  *     summary: Get a category by ID
@@ -157,6 +192,9 @@ router.get("/", categoryController.getCategories);
 
 // Get a category by ID
 router.get("/:id", categoryController.getCategoryById);
+
+// Get a category by slug
+router.get("/slug/:slug", categoryController.getCategoryBySlug);
 
 // Create a new category
 router.post(
