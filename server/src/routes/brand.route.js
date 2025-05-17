@@ -48,6 +48,46 @@ import { brandValidationRules } from "../validators/brand.validator.js";
 
 /**
  * @swagger
+ * /api/brands/slug/{slug}:
+ *   get:
+ *     summary: Get a brand by slug
+ *     tags: [Brands]
+ *     parameters:
+ *       - in: path
+ *         name: slug
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: Brand slug
+ *     responses:
+ *       200:
+ *         description: Brand details
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 success:
+ *                   type: boolean
+ *                 data:
+ *                   type: object
+ *                   properties:
+ *                     _id:
+ *                       type: string
+ *                     name:
+ *                       type: string
+ *                     slug:
+ *                       type: string
+ *                     description:
+ *                       type: string
+ *                     logo:
+ *                       type: string
+ *       404:
+ *         description: Brand not found
+ */
+
+/**
+ * @swagger
  * /api/brands/{id}:
  *   get:
  *     summary: Get a brand by ID
@@ -153,6 +193,7 @@ import { brandValidationRules } from "../validators/brand.validator.js";
 const router = express.Router();
 
 router.get("/", authMiddleware("admin"), brandController.getBrands);
+router.get("/slug/:slug", brandController.getBrandBySlug);
 router.get("/:id", brandController.getBrandById);
 router.post(
   "/",

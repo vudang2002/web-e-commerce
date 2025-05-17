@@ -8,6 +8,10 @@ export const getBrandById = async (id) => {
   return await Brand.findById(id);
 };
 
+export const getBrandBySlug = async (slug) => {
+  return await Brand.findOne({ slug });
+};
+
 export const createBrand = async (brandData) => {
   return await Brand.create(brandData);
 };

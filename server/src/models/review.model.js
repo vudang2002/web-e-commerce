@@ -17,6 +17,7 @@ const reviewSchema = new mongoose.Schema(
     },
     rating: { type: Number, required: true, min: 1, max: 5 },
     comment: { type: String },
+    images: [{ type: String, trim: true, maxlength: 5 }], // Tối đa 5 ảnh
   },
   { timestamps: true }
 );

@@ -8,6 +8,11 @@ import {
   loginValidationRules,
   updateUserValidationRules,
 } from "../validators/user.validator.js";
+import {
+  authLimiter,
+  createAccountLimiter,
+  sensitiveApiLimiter,
+} from "../middlewares/rate-limit.middleware.js";
 
 const router = express.Router();
 
@@ -187,18 +192,25 @@ const router = express.Router();
 // Public routes
 router.post(
   "/auth/register",
+  createAccountLimiter, // Giới hạn tạo tài khoản để ngăn spam
   validate(registerValidationRules),
   userController.registerUser
 );
 
 router.post(
   "/auth/login",
+  authLimiter, // Giới hạn đăng nhập để ngăn brute force
   validate(loginValidationRules),
   userController.loginUser
 );
 
 // Protected routes
-router.get("/users", authMiddleware("admin"), userController.getAllUsers);
+router.get(
+  "/users",
+  sensitiveApiLimiter, // Bảo vệ API admin
+  authMiddleware("admin"),
+  userController.getAllUsers
+);
 router.get("/users/:id", authMiddleware(), userController.getUserById);
 router.put(
   "/users/:id",
@@ -208,6 +220,7 @@ router.put(
 );
 router.delete(
   "/users/:id",
+  sensitiveApiLimiter, // Bảo vệ API xóa người dùng
   authMiddleware("admin", "self"),
   userController.deleteUser
 );

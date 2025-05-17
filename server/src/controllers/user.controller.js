@@ -1,8 +1,15 @@
 import * as userService from "../services/user.service.js";
 import { formatResponse } from "../utils/response.util.js";
 
+const DEFAULT_AVATAR =
+  "https://res.cloudinary.com/daoxcmuum/image/upload/v1747379207/avatar_default_ete63o.jpg";
+
 export const registerUser = async (req, res) => {
   try {
+    // Nếu không có avatar, gán mặc định
+    if (!req.body.avatar) {
+      req.body.avatar = DEFAULT_AVATAR;
+    }
     const user = await userService.createUser(req.body);
     res
       .status(201)

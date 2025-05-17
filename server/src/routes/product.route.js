@@ -41,6 +41,111 @@ import { checkOwnershipOrAdmin } from "../middlewares/ownership.middleware.js";
 
 /**
  * @swagger
+ * /api/products/search:
+ *   get:
+ *     summary: Tìm kiếm sản phẩm
+ *     tags: [Products]
+ *     parameters:
+ *       - in: query
+ *         name: keyword
+ *         schema:
+ *           type: string
+ *         description: Từ khóa tìm kiếm (tìm trong tên và mô tả)
+ *       - in: query
+ *         name: category
+ *         schema:
+ *           type: string
+ *         description: ID của danh mục
+ *       - in: query
+ *         name: brand
+ *         schema:
+ *           type: string
+ *         description: ID của thương hiệu
+ *       - in: query
+ *         name: minPrice
+ *         schema:
+ *           type: number
+ *         description: Giá tối thiểu
+ *       - in: query
+ *         name: maxPrice
+ *         schema:
+ *           type: number
+ *         description: Giá tối đa
+ *       - in: query
+ *         name: sortBy
+ *         schema:
+ *           type: string
+ *           enum: [createdAt, price, name]
+ *         description: Trường để sắp xếp
+ *       - in: query
+ *         name: sortOrder
+ *         schema:
+ *           type: string
+ *           enum: [asc, desc]
+ *         description: Thứ tự sắp xếp (tăng dần/giảm dần)
+ *       - in: query
+ *         name: page
+ *         schema:
+ *           type: integer
+ *           default: 1
+ *         description: Số trang
+ *       - in: query
+ *         name: limit
+ *         schema:
+ *           type: integer
+ *           default: 10
+ *         description: Số sản phẩm trên một trang
+ *       - in: query
+ *         name: inStock
+ *         schema:
+ *           type: boolean
+ *         description: Chỉ tìm sản phẩm còn hàng
+ *     responses:
+ *       200:
+ *         description: Danh sách sản phẩm tìm thấy
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 success:
+ *                   type: boolean
+ *                   example: true
+ *                 message:
+ *                   type: string
+ *                   example: Products retrieved successfully
+ *                 data:
+ *                   type: array
+ *                   items:
+ *                     type: object
+ *                     properties:
+ *                       _id:
+ *                         type: string
+ *                       name:
+ *                         type: string
+ *                       price:
+ *                         type: number
+ *                       description:
+ *                         type: string
+ *                 pagination:
+ *                   type: object
+ *                   properties:
+ *                     total:
+ *                       type: integer
+ *                       example: 100
+ *                     page:
+ *                       type: integer
+ *                       example: 1
+ *                     limit:
+ *                       type: integer
+ *                       example: 10
+ *                     totalPages:
+ *                       type: integer
+ *                       example: 10
+ */
+
+/**
+ * @swagger
  * /api/products/{id}:
  *   get:
  *     summary: Get a product by ID
@@ -149,10 +254,11 @@ import { checkOwnershipOrAdmin } from "../middlewares/ownership.middleware.js";
 
 const router = express.Router();
 
-router.get("/", productController.getProducts);
-router.get("/:id", productController.getProductById);
-router.get("/slug/:slug", productController.getProductBySlug);
+router.get("/search", productController.searchProducts);
 router.get("/featured", productController.getFeaturedProducts);
+router.get("/slug/:slug", productController.getProductBySlug);
+router.get("/:id", productController.getProductById);
+router.get("/", productController.getProducts);
 
 router.post(
   "/",

@@ -12,6 +12,20 @@ export const getBrandById = async (req, res) => {
   res.json(createResponse(brand));
 };
 
+export const getBrandBySlug = async (req, res) => {
+  const { slug } = req.params;
+  const brand = await brandService.getBrandBySlug(slug);
+
+  if (!brand) {
+    return res.status(404).json({
+      success: false,
+      message: "Brand not found",
+    });
+  }
+
+  res.json(createResponse(brand));
+};
+
 export const createBrand = async (req, res) => {
   const brandData = req.body;
   const newBrand = await brandService.createBrand(brandData);

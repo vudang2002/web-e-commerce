@@ -24,6 +24,19 @@ export const getCategoryById = async (req, res) => {
   }
 };
 
+// Get category by slug
+export const getCategoryBySlug = async (req, res) => {
+  try {
+    const category = await Category.findOne({ slug: req.params.slug });
+    if (!category) {
+      return res.status(404).json({ message: "Category not found" });
+    }
+    res.status(200).json(category);
+  } catch (error) {
+    formatResponse(res, error);
+  }
+};
+
 // Create a new category
 export const createCategory = async (req, res) => {
   try {
