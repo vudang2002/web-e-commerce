@@ -4,5 +4,28 @@
   "register": "Register",
   "add_to_cart": "Add to Cart",
   "price": "Price",
-  "description": "Description"
+  "description": "Description",
+  "search": "Search",
+  "banner_title": "Summer Sale on All Swimwear and Free Fast Shipping - 50% OFF!",
+  "navbar": {
+    "home": "Home",
+    "products": "Products",
+    "about": "About",
+    "contact": "Contact",
+    "cart": "Cart",
+    "profile": "Profile"
+  },
+  "register": "Register",
+  "login": "Login",
+  "logout": "Logout",
+  "profile": "Profile",
+  "register_success": "Registration successful",
+  "register_failed": "Registration failed",
+  "login_success": "Login successful",
+  "login_failed": "Login failed",
+  "logout_success": "Logout successful",
+  "don't_have_an_account?": "Don't have an account?",
+  "already_have_an_account?": "Already have an account?",
+  "sign_in": "Sign In",
+  "sign_up": "Sign Up"
 }

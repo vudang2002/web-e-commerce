@@ -4,5 +4,28 @@
   "register": "Đăng ký",
   "add_to_cart": "Thêm vào giỏ hàng",
   "price": "Giá",
-  "description": "Mô tả"
+  "description": "Mô tả",
+  "search": "Tìm kiếm",
+  "banner_title": "Khuyến mãi mùa hè cho tất cả đồ bơi và giao hàng nhanh miễn phí – GIẢM 50%!",
+  "navbar": {
+    "home": "Trang chủ",
+    "products": "Sản phẩm",
+    "about": "Giới thiệu",
+    "contact": "Liên hệ",
+    "cart": "Giỏ hàng",
+    "profile": "Hồ sơ"
+  },
+  "register": "Đăng ký",
+  "login": "Đăng nhập",
+  "logout": "Đăng xuất",
+  "profile": "Hồ sơ",
+  "register_success": "Đăng ký thành công",
+  "register_failed": "Đăng ký thất bại",
+  "login_success": "Đăng nhập thành công",
+  "login_failed": "Đăng nhập thất bại",
+  "logout_success": "Đăng xuất thành công",
+  "don't_have_an_account?": "Bạn chưa có tài khoản?",
+  "already_have_an_account?": "Bạn đã có tài khoản?",
+  "sign_in": "Đăng nhập",
+  "sign_up": "Đăng ký"
 }

@@ -1,12 +1,38 @@
-import { useTranslation } from "react-i18next";
-import LanguageSwitcher from "./components/common/LanguageSwitcher";
+import HomePage from "./pages/Home";
+import { Routes, Route } from "react-router-dom";
+import routes from "./routes";
+import adminRoutes from "./routes/adminRoutes";
+import UserLayout from "./components/layout/UserLayout";
+import NotFound from "./pages/NotFound";
+import AdminLayout from "./components/admin/layout/AdminLayout";
+import AdminProtectedRoute from "./components/auth/AdminProtectedRoute";
+import AdminLogin from "./pages/admin/AdminLogin";
+
 function App() {
-  const { t } = useTranslation();
   return (
-    <div className="text-xl text-neutral-500 items-center justify-center">
-      <h1>{t("welcome")}</h1>
-      <div className="flex items-center gap-2 text-cyan-300">
-        <LanguageSwitcher />
+    <div>
+      {/* Add padding to prevent header from overlapping content */}
+      <div className=" bg-[#f5f5f5] min-h-screen">
+        <Routes>
+          <Route element={<UserLayout />}>
+            {routes.map(({ path, element }, idx) => (
+              <Route key={idx} path={path} element={element} />
+            ))}
+            <Route path="*" element={<NotFound />} />
+          </Route>
+
+          {/* Admin Login */}
+          <Route path="/admin/login" element={<AdminLogin />} />
+
+          {/* Protected Admin routes */}
+          <Route path="/admin" element={<AdminProtectedRoute />}>
+            <Route element={<AdminLayout />}>
+              {adminRoutes.map(({ path, element }, idx) => (
+                <Route key={idx} path={path} element={element} />
+              ))}
+            </Route>
+          </Route>
+        </Routes>
       </div>
     </div>
   );
