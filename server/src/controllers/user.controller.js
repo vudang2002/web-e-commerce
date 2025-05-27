@@ -6,16 +6,74 @@ const DEFAULT_AVATAR =
 
 export const registerUser = async (req, res) => {
   try {
-    // Nếu không có avatar, gán mặc định
-    if (!req.body.avatar) {
-      req.body.avatar = DEFAULT_AVATAR;
+    // Log để debug
+    console.log("Request body:", req.body);
+    console.log("Request file:", req.file);
+
+    // Xử lý dữ liệu từ form/request
+    const userData = {
+      name: req.body.name,
+      email: req.body.email,
+      password: req.body.password,
+      role: req.body.role || "user",
+    };
+
+    // Xử lý boolean từ FormData (FormData gửi string "true"/"false" thay vì boolean)
+    if (req.body.isSeller !== undefined) {
+      userData.isSeller =
+        req.body.isSeller === "true" || req.body.isSeller === true;
     }
-    const user = await userService.createUser(req.body);
+
+    // Thêm thông tin cửa hàng nếu là seller
+    if (userData.isSeller) {
+      userData.storeName = req.body.storeName;
+      userData.storeDescription = req.body.storeDescription || "";
+    }
+
+    // Xử lý avatar từ multer
+    if (req.file) {
+      // Cloudinary trả về URL trong các trường khác nhau tùy theo cấu hình
+      userData.avatar = req.file.path || req.file.secure_url || req.file.url;
+      console.log("Avatar URL:", userData.avatar);
+    } else if (!req.body.avatar) {
+      userData.avatar = DEFAULT_AVATAR;
+    }
+
+    // Validate dữ liệu trước khi tạo
+    if (!userData.name) {
+      return res.status(400).json(formatResponse(false, "Name is required"));
+    }
+    if (!userData.email) {
+      return res.status(400).json(formatResponse(false, "Email is required"));
+    }
+    if (!userData.password) {
+      return res
+        .status(400)
+        .json(formatResponse(false, "Password is required"));
+    }
+    if (userData.isSeller && !userData.storeName) {
+      return res
+        .status(400)
+        .json(formatResponse(false, "Store name is required for sellers"));
+    }
+
+    console.log("Creating user with data:", userData);
+
+    const user = await userService.createUser(userData);
     res
       .status(201)
       .json(formatResponse(true, "User registered successfully", user));
   } catch (error) {
-    res.status(400).json(formatResponse(false, error.message));
+    console.error("Error creating user:", error);
+    // Xử lý lỗi MongoDB unique email
+    if (error.code === 11000) {
+      return res
+        .status(400)
+        .json(formatResponse(false, "Email already exists"));
+    }
+    res
+      .status(400)
+      .json(formatResponse(false, error.message || "Error creating user"));
   }
 };
 

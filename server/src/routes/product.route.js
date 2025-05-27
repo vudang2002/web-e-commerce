@@ -5,8 +5,14 @@ import {
   authorizeAdminOrSeller,
 } from "../middlewares/auth.middleware.js";
 import { validate } from "../middlewares/validate.middleware.js";
-import { productValidationRules } from "../validators/product.validator.js";
-import { checkOwnershipOrAdmin } from "../middlewares/ownership.middleware.js";
+import {
+  productValidationRules,
+  bulkProductValidationRules,
+} from "../validators/product.validator.js";
+import {
+  checkOwnershipOrAdmin,
+  checkBulkOwnershipOrAdmin,
+} from "../middlewares/ownership.middleware.js";
 
 /**
  * @swagger
@@ -252,12 +258,66 @@ import { checkOwnershipOrAdmin } from "../middlewares/ownership.middleware.js";
  *         description: Product not found
  */
 
+/**
+ * @swagger
+ * /api/products/bulk:
+ *   post:
+ *     summary: Create multiple products at once
+ *     tags: [Products]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: array
+ *             items:
+ *               type: object
+ *               properties:
+ *                 name:
+ *                   type: string
+ *                 price:
+ *                   type: number
+ *     responses:
+ *       200:
+ *         description: Products created successfully
+ *       400:
+ *         description: Validation error
+ */
+
+/**
+ * @swagger
+ * /api/products/bulk-delete:
+ *   delete:
+ *     summary: Delete multiple products at once
+ *     tags: [Products]
+ *     security:
+ *       - bearerAuth: []
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               productIds:
+ *                 type: array
+ *                 items:
+ *                   type: string
+ *                 description: Array of product IDs to delete
+ *     responses:
+ *       200:
+ *         description: Products deleted successfully
+ *       400:
+ *         description: Invalid request
+ *       403:
+ *         description: Access denied
+ */
+
 const router = express.Router();
 
 router.get("/search", productController.searchProducts);
 router.get("/featured", productController.getFeaturedProducts);
 router.get("/slug/:slug", productController.getProductBySlug);
-router.get("/:id", productController.getProductById);
 router.get("/", productController.getProducts);
 
 router.post(
@@ -267,6 +327,26 @@ router.post(
   validate(productValidationRules),
   productController.createProduct
 );
+
+router.post(
+  "/bulk",
+  authMiddleware(), // Cho phép cả admin và seller
+  authorizeAdminOrSeller(),
+  validate(bulkProductValidationRules),
+  productController.createBulkProducts
+);
+
+// Đặt route bulk-delete trước các route có tham số id để tránh xung đột
+router.delete(
+  "/bulk-delete",
+  authMiddleware(),
+  authorizeAdminOrSeller(),
+  checkBulkOwnershipOrAdmin,
+  productController.deleteBulkProducts
+);
+
+// Các route có tham số id phải đặt sau các route cố định
+router.get("/:id", productController.getProductById);
 router.put(
   "/:id",
   authMiddleware(),
@@ -290,8 +370,11 @@ router.patch(
 router.patch(
   "/:id/feature",
   authMiddleware("admin"),
-
+  checkOwnershipOrAdmin,
   productController.toggleProductFeature
 );
+
+// Thêm route để kiểm tra stock availability
+router.post("/check-stock", productController.checkStockAvailability);
 
 export default router;

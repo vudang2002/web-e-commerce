@@ -1,5 +1,6 @@
 // File: services/product.service.js
 import Product from "../models/product.model.js";
+import slugify from "slugify";
 
 export const createProduct = async (data) => {
   try {
@@ -15,6 +16,47 @@ export const createProduct = async (data) => {
     return savedProduct;
   } catch (error) {
     console.error("[createProduct] Error:", error);
+    throw error;
+  }
+};
+
+// New method for bulk product creation
+export const createBulkProducts = async (productsData) => {
+  try {
+    if (!Array.isArray(productsData) || productsData.length === 0) {
+      throw new Error("Invalid products data provided");
+    }
+
+    console.log(
+      `[createBulkProducts] Creating ${productsData.length} products`
+    );
+
+    // Process each product to add a slug
+    const processedProducts = productsData.map((product) => {
+      // Generate a unique slug for each product
+      const timestamp = Date.now() + Math.floor(Math.random() * 1000); // Add randomness to ensure uniqueness
+      const slug = `${slugify(product.name, {
+        lower: true,
+        strict: true,
+      })}-${timestamp}`;
+
+      return {
+        ...product,
+        slug,
+      };
+    });
+
+    // Create all products in one operation
+    const products = await Product.insertMany(processedProducts, {
+      ordered: false,
+    });
+
+    console.log(
+      `[createBulkProducts] ${products.length} products created successfully`
+    );
+    return products;
+  } catch (error) {
+    console.error("[createBulkProducts] Error:", error);
     throw error;
   }
 };
@@ -152,4 +194,33 @@ export const toggleProductFeature = async (id, isFeatured) => {
     { isFeatured },
     { new: true }
   ).lean();
+};
+
+// Bulk delete products by IDs
+export const deleteBulkProducts = async (productIds, userId, isAdmin) => {
+  try {
+    if (!Array.isArray(productIds) || productIds.length === 0) {
+      throw new Error("Invalid product IDs provided");
+    }
+
+    console.log(
+      `[deleteBulkProducts] Attempting to delete ${productIds.length} products`
+    );
+
+    // We don't need to filter by owner here anymore since the middleware already checked
+    // that the user either owns all the products or is an admin
+    let deleteFilter = { _id: { $in: productIds } };
+
+    const result = await Product.deleteMany(deleteFilter);
+
+    console.log(`[deleteBulkProducts] Deleted ${result.deletedCount} products`);
+
+    return {
+      deletedCount: result.deletedCount,
+      requestedCount: productIds.length,
+    };
+  } catch (error) {
+    console.error("[deleteBulkProducts] Error:", error);
+    throw error;
+  }
 };

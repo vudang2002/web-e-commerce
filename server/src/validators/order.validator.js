@@ -1,4 +1,80 @@
 import { body } from "express-validator";
+import Product from "../models/product.model.js";
+
+// Custom middleware để kiểm tra stock availability
+export const validateStockAvailability = async (req, res, next) => {
+  try {
+    const { items } = req.body;
+
+    if (!items || !Array.isArray(items)) {
+      return res.status(400).json({
+        success: false,
+        message: "Items must be provided as an array",
+      });
+    }
+
+    const stockErrors = [];
+
+    // Kiểm tra từng sản phẩm
+    for (const item of items) {
+      const product = await Product.findById(item.productId);
+
+      if (!product) {
+        stockErrors.push({
+          productId: item.productId,
+          message: "Product not found",
+        });
+        continue;
+      }
+
+      // Kiểm tra trạng thái sản phẩm
+      if (product.status === "inactive") {
+        stockErrors.push({
+          productId: item.productId,
+          productName: product.name,
+          message: "Product is currently inactive",
+        });
+        continue;
+      }
+
+      // Kiểm tra số lượng tồn kho
+      if (product.stock < item.quantity) {
+        stockErrors.push({
+          productId: item.productId,
+          productName: product.name,
+          requestedQuantity: item.quantity,
+          availableStock: product.stock,
+          message: `Insufficient stock. Requested: ${item.quantity}, Available: ${product.stock}`,
+        });
+      }
+
+      // Kiểm tra số lượng đặt hàng hợp lý (không quá 100 sản phẩm cùng loại)
+      if (item.quantity > 100) {
+        stockErrors.push({
+          productId: item.productId,
+          productName: product.name,
+          message: "Cannot order more than 100 units of the same product",
+        });
+      }
+    }
+
+    if (stockErrors.length > 0) {
+      return res.status(400).json({
+        success: false,
+        message: "Stock validation failed",
+        errors: stockErrors,
+      });
+    }
+
+    next();
+  } catch (error) {
+    console.error("Stock validation error:", error);
+    res.status(500).json({
+      success: false,
+      message: "Error validating stock availability",
+    });
+  }
+};
 
 export const createOrderValidationRules = [
   body("items")

@@ -13,6 +13,7 @@ import {
   createAccountLimiter,
   sensitiveApiLimiter,
 } from "../middlewares/rate-limit.middleware.js";
+import { uploadUserAvatar } from "../middlewares/upload.middleware.js";
 
 const router = express.Router();
 
@@ -199,7 +200,7 @@ router.post(
 
 router.post(
   "/auth/login",
-  authLimiter, // Giới hạn đăng nhập để ngăn brute force
+  //authLimiter, // Giới hạn đăng nhập để ngăn brute force
   validate(loginValidationRules),
   userController.loginUser
 );
@@ -210,6 +211,14 @@ router.get(
   sensitiveApiLimiter, // Bảo vệ API admin
   authMiddleware("admin"),
   userController.getAllUsers
+);
+router.post(
+  "/users",
+  sensitiveApiLimiter,
+  authMiddleware("admin"),
+  uploadUserAvatar.single("avatar"), // Xử lý upload avatar
+  validate(registerValidationRules),
+  userController.registerUser // Sử dụng hàm registerUser hiện có để tạo user mới
 );
 router.get("/users/:id", authMiddleware(), userController.getUserById);
 router.put(

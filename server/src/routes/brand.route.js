@@ -192,8 +192,17 @@ import { brandValidationRules } from "../validators/brand.validator.js";
 
 const router = express.Router();
 
-router.get("/", authMiddleware("admin"), brandController.getBrands);
+router.get("/", brandController.getBrands);
 router.get("/slug/:slug", brandController.getBrandBySlug);
+
+// Đặt route bulk-delete trước các route có tham số id để tránh xung đột
+router.delete(
+  "/bulk-delete",
+  authMiddleware("admin"),
+  authorizeAdminOrSeller(),
+  brandController.deleteBulkBrands
+);
+
 router.get("/:id", brandController.getBrandById);
 router.post(
   "/",

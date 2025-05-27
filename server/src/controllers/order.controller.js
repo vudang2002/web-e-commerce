@@ -6,13 +6,14 @@ export const createOrder = async (req, res) => {
   try {
     const { items, shippingAddress, paymentMethod } = req.body;
 
-    // Ánh xạ productId thành product
+    // Ánh xạ productId thành product (validation đã được thực hiện ở middleware)
     const orderItems = await Promise.all(
       items.map(async (item) => {
         const product = await Product.findById(item.productId);
         if (!product) {
           throw new Error(`Product with ID ${item.productId} not found`);
         }
+
         return {
           product: product._id,
           quantity: item.quantity,
@@ -52,6 +53,9 @@ export const createOrder = async (req, res) => {
     // Tính toán totalPrice
     const totalPrice = itemsPrice + shippingPrice;
 
+    // Cập nhật stock và sold với transaction (xử lý race condition)
+    await orderService.updateProductStockOnOrderCreate(orderItems);
+
     // Tạo đơn hàng
     const order = await orderService.createOrder({
       user: req.user._id,
@@ -69,10 +73,28 @@ export const createOrder = async (req, res) => {
       order,
     });
   } catch (error) {
-    console.error(error);
+    console.error("Create order error:", error);
+
+    // Xử lý các loại lỗi khác nhau
+    if (error.message.includes("Insufficient stock")) {
+      return res.status(400).json({
+        success: false,
+        message: error.message,
+        type: "INSUFFICIENT_STOCK",
+      });
+    }
+
+    if (error.message.includes("inactive")) {
+      return res.status(400).json({
+        success: false,
+        message: error.message,
+        type: "PRODUCT_INACTIVE",
+      });
+    }
+
     res.status(500).json({
       success: false,
-      message: "An error occurred while creating the order",
+      message: error.message || "An error occurred while creating the order",
     });
   }
 };
@@ -89,16 +111,71 @@ export const getUserOrders = async (req, res) => {
 };
 
 export const updateOrderStatus = async (req, res) => {
-  const { id } = req.params;
-  const { status } = req.body;
-  const updatedOrder = await orderService.updateOrderStatus(id, status);
-  res.json(createResponse(updatedOrder));
+  try {
+    const { id } = req.params;
+    const { status } = req.body;
+
+    // Lấy thông tin đơn hàng hiện tại
+    const currentOrder = await orderService.getOrderById(id);
+    if (!currentOrder) {
+      return res.status(404).json({
+        success: false,
+        message: "Order not found",
+      });
+    }
+
+    // Nếu đơn hàng được hủy, hoàn lại stock và sold
+    if (status === "Cancelled" && currentOrder.orderStatus !== "Cancelled") {
+      await orderService.revertProductStockOnOrderCancel(
+        currentOrder.orderItems
+      );
+    }
+
+    // Cập nhật trạng thái đơn hàng
+    const updatedOrder = await orderService.updateOrderStatus(id, status);
+
+    res.json(createResponse(updatedOrder, "Order status updated successfully"));
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({
+      success: false,
+      message: error.message || "An error occurred while updating order status",
+    });
+  }
 };
 
 export const deleteOrder = async (req, res) => {
-  const { id } = req.params;
-  await orderService.deleteOrder(id);
-  res.json({ success: true, message: "Order deleted successfully" });
+  try {
+    const { id } = req.params;
+
+    // Lấy thông tin đơn hàng trước khi xóa
+    const order = await orderService.getOrderById(id);
+    if (!order) {
+      return res.status(404).json({
+        success: false,
+        message: "Order not found",
+      });
+    }
+
+    // Hoàn lại stock và sold nếu đơn hàng chưa bị hủy
+    if (order.orderStatus !== "Cancelled") {
+      await orderService.revertProductStockOnOrderCancel(order.orderItems);
+    }
+
+    // Xóa đơn hàng
+    await orderService.deleteOrder(id);
+
+    res.json({
+      success: true,
+      message: "Order deleted successfully",
+    });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({
+      success: false,
+      message: error.message || "An error occurred while deleting the order",
+    });
+  }
 };
 
 export const getAllOrders = async (req, res) => {

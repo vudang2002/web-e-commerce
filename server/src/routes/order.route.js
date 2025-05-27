@@ -7,6 +7,7 @@ import {
   updateOrderStatusValidationRules,
   markAsPaidValidationRules,
   refundOrderValidationRules,
+  validateStockAvailability,
 } from "../validators/order.validator.js";
 
 /**
@@ -173,6 +174,7 @@ router.post(
   "/",
   authMiddleware(),
   validate(createOrderValidationRules),
+  validateStockAvailability,
   orderController.createOrder
 );
 router.get("/all", authMiddleware("admin"), orderController.getAllOrders);
