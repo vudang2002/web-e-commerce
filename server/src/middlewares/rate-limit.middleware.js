@@ -49,7 +49,7 @@ export const createAccountLimiter = rateLimit({
 // Giới hạn cho các API nhạy cảm như API quản trị
 export const sensitiveApiLimiter = rateLimit({
   windowMs: 10 * 60 * 1000, // 10 phút
-  max: 20, // Giới hạn 20 request trong 10 phút
+  max: 2000, // Giới hạn 2000 request trong 10 phút
   standardHeaders: true,
   legacyHeaders: false,
   message: formatResponse(

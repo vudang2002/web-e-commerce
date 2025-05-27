@@ -20,6 +20,13 @@ const brandSchema = new mongoose.Schema(
       type: String,
       trim: true,
     },
+    // Thêm trường categories để lưu danh sách các danh mục liên quan
+    categories: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Category",
+      },
+    ],
   },
   {
     timestamps: true,
