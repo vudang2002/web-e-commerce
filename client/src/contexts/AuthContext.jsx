@@ -1,0 +1,62 @@
+import React, { createContext, useState, useEffect, useContext } from "react";
+import { getCurrentUser, logout } from "../services/authService";
+import { useNavigate } from "react-router-dom";
+
+// Create context
+const AuthContext = createContext();
+
+export const AuthProvider = ({ children }) => {
+  const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const navigate = useNavigate();
+
+  // Load user from localStorage on mount
+  useEffect(() => {
+    const loadUser = () => {
+      const currentUser = getCurrentUser();
+      setUser(currentUser);
+      setLoading(false);
+    };
+
+    loadUser();
+  }, []);
+
+  // Login function - can be used by login forms
+  const loginUser = (userData) => {
+    setUser(userData);
+  };
+
+  // Logout function
+  const logoutUser = () => {
+    logout();
+    setUser(null);
+    navigate("/");
+  };
+
+  // Check if user is admin
+  const isAdmin = () => {
+    return user && user.role === "admin";
+  };
+
+  // Context value
+  const value = {
+    user,
+    loading,
+    loginUser,
+    logoutUser,
+    isAdmin,
+  };
+
+  return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
+};
+
+// Custom hook to use auth context
+export const useAuth = () => {
+  const context = useContext(AuthContext);
+  if (!context) {
+    throw new Error("useAuth must be used within an AuthProvider");
+  }
+  return context;
+};
+
+export default AuthContext;
