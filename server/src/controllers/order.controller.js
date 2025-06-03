@@ -4,7 +4,7 @@ import Product from "../models/product.model.js";
 
 export const createOrder = async (req, res) => {
   try {
-    const { items, shippingAddress, paymentMethod } = req.body;
+    const { items, shippingAddress, paymentMethod, voucherCode } = req.body;
 
     // Ánh xạ productId thành product (validation đã được thực hiện ở middleware)
     const orderItems = await Promise.all(
@@ -34,43 +34,32 @@ export const createOrder = async (req, res) => {
       phoneNo: req.body.phoneNo,
     };
 
-    // Tính toán itemsPrice
-    let itemsPrice = 0;
-    for (const item of items) {
-      const product = await Product.findById(item.productId);
-      if (!product) {
-        return res.status(404).json({
-          success: false,
-          message: `Product with ID ${item.productId} not found`,
-        });
-      }
-      itemsPrice += product.price * item.quantity;
-    }
-
     // Tính toán shippingPrice (giả sử cố định là 10)
     const shippingPrice = 10;
 
-    // Tính toán totalPrice
-    const totalPrice = itemsPrice + shippingPrice;
+    // Tạo order data base
+    let orderData = {
+      user: req.user._id,
+      orderItems,
+      shippingInfo,
+      paymentMethod,
+      shippingPrice,
+      voucherCode: voucherCode || null,
+    };
+
+    // Áp dụng voucher và tính toán giá cuối cùng
+    orderData = await orderService.applyVoucherToOrder(orderData);
 
     // Cập nhật stock và sold với transaction (xử lý race condition)
     await orderService.updateProductStockOnOrderCreate(orderItems);
 
     // Tạo đơn hàng
-    const order = await orderService.createOrder({
-      user: req.user._id,
-      orderItems,
-      shippingInfo,
-      paymentMethod,
-      itemsPrice,
-      shippingPrice,
-      totalPrice,
-    });
+    const order = await orderService.createOrder(orderData);
 
     res.status(201).json({
       success: true,
       message: "Order created successfully",
-      order,
+      data: order,
     });
   } catch (error) {
     console.error("Create order error:", error);
@@ -89,6 +78,14 @@ export const createOrder = async (req, res) => {
         success: false,
         message: error.message,
         type: "PRODUCT_INACTIVE",
+      });
+    }
+
+    if (error.message.includes("Voucher")) {
+      return res.status(400).json({
+        success: false,
+        message: error.message,
+        type: "VOUCHER_ERROR",
       });
     }
 

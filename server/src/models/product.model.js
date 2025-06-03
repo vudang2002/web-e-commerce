@@ -28,6 +28,12 @@ const productSchema = new mongoose.Schema(
       },
     ],
     price: { type: Number, required: true, min: 0 },
+    discount: {
+      type: Number, // phần trăm giảm giá, ví dụ: 20 = 20%
+      default: 0,
+      min: 0,
+      max: 100,
+    },
     stock: { type: Number, default: 0, min: 0 },
     sold: { type: Number, default: 0, min: 0 },
     images: [{ type: String }],

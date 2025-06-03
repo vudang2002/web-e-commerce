@@ -98,6 +98,10 @@ export const createOrderValidationRules = [
     .withMessage("Payment method is required")
     .isIn(["COD", "Online"])
     .withMessage("Payment method must be either 'COD' or 'Online'"),
+  body("voucherCode")
+    .optional()
+    .isLength({ min: 3, max: 20 })
+    .withMessage("Voucher code must be between 3 and 20 characters"),
 ];
 
 export const updateOrderStatusValidationRules = [
