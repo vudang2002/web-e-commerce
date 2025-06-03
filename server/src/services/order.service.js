@@ -1,5 +1,6 @@
 import Order from "../models/order.model.js";
 import Product from "../models/product.model.js";
+import * as voucherService from "./voucher.service.js";
 import mongoose from "mongoose";
 
 export const createOrder = async (orderData) => {
@@ -51,6 +52,63 @@ export const refundOrder = async (orderId) => {
 
   order.isRefunded = true;
   return await order.save();
+};
+
+// Tính toán giá cuối cùng của sản phẩm có discount
+export const calculateFinalPrice = (price, discount = 0) => {
+  return price * (1 - discount / 100);
+};
+
+// Tính toán tổng giá trị đơn hàng với discount của sản phẩm
+export const calculateOrderValue = async (orderItems) => {
+  let totalValue = 0;
+
+  for (const item of orderItems) {
+    const product = await Product.findById(item.product);
+    if (!product) {
+      throw new Error(`Product with ID ${item.product} not found`);
+    }
+    
+    const finalPrice = calculateFinalPrice(product.price, product.discount);
+    totalValue += finalPrice * item.quantity;
+  }
+
+  return totalValue;
+};
+
+// Logic áp dụng voucher khi tạo đơn hàng
+export const applyVoucherToOrder = async (orderData) => {
+  try {
+    const { voucherCode, orderItems } = orderData;
+    let result = { ...orderData };
+
+    // Nếu có voucher code, kiểm tra và áp dụng
+    if (voucherCode && voucherCode.trim()) {
+      // Tính tổng giá trị đơn hàng (đã bao gồm discount của sản phẩm)
+      const orderValue = await calculateOrderValue(orderItems);
+      
+      // Áp dụng voucher
+      const voucherResult = await voucherService.applyVoucher(voucherCode, orderValue);
+      
+      // Cập nhật order data với thông tin voucher
+      result.voucherCode = voucherResult.voucher.code;
+      result.voucherDiscount = voucherResult.discountAmount;
+      result.itemsPrice = orderValue; // Giá sản phẩm đã có discount
+      result.totalPrice = voucherResult.finalAmount + (result.shippingPrice || 0);
+      
+      // Đánh dấu voucher đã được sử dụng
+      await voucherService.markVoucherAsUsed(voucherCode);
+    } else {
+      // Không có voucher, chỉ tính discount của sản phẩm
+      const orderValue = await calculateOrderValue(orderItems);
+      result.itemsPrice = orderValue;
+      result.totalPrice = orderValue + (result.shippingPrice || 0);
+    }
+
+    return result;
+  } catch (error) {
+    throw error;
+  }
 };
 
 // Cập nhật stock và sold khi tạo đơn hàng với transaction để tránh race condition

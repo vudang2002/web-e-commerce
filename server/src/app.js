@@ -13,6 +13,7 @@ import reviewRoutes from "./routes/review.route.js";
 import cartRoutes from "./routes/cart.route.js";
 import orderRoutes from "./routes/order.route.js";
 import uploadRoutes from "./routes/upload.route.js";
+import voucherRoutes from "./routes/voucher.route.js";
 import healthRoutes from "./routes/health.route.js";
 import setupSwagger from "./swagger.js";
 import { errorHandler, notFoundHandler } from "./middlewares/errorHandler.js";
@@ -105,6 +106,7 @@ app.use("/api/brands", brandRoutes);
 app.use("/api/reviews", reviewRoutes);
 app.use("/api/cart", cartRoutes);
 app.use("/api/orders", orderRoutes);
+app.use("/api/vouchers", voucherRoutes);
 app.use("/api/upload", uploadRoutes);
 
 // Error handling middleware
