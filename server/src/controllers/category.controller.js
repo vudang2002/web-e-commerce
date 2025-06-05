@@ -5,7 +5,11 @@ import { formatResponse, createResponse } from "../utils/response.util.js";
 export const getCategories = async (req, res) => {
   try {
     const categories = await Category.find();
-    res.status(200).json(createResponse(categories));
+    res
+      .status(200)
+      .json(
+        formatResponse(true, "Categories retrieved successfully", categories)
+      );
   } catch (error) {
     res
       .status(500)
@@ -22,7 +26,9 @@ export const getCategoryById = async (req, res) => {
     if (!category) {
       return res.status(404).json(formatResponse(false, "Category not found"));
     }
-    res.status(200).json(createResponse(category));
+    res
+      .status(200)
+      .json(formatResponse(true, "Category retrieved successfully", category));
   } catch (error) {
     res.status(500).json(formatResponse(false, `Error: ${error.message}`));
   }
@@ -35,7 +41,9 @@ export const getCategoryBySlug = async (req, res) => {
     if (!category) {
       return res.status(404).json(formatResponse(false, "Category not found"));
     }
-    res.status(200).json(createResponse(category));
+    res
+      .status(200)
+      .json(formatResponse(true, "Category retrieved successfully", category));
   } catch (error) {
     res.status(500).json(formatResponse(false, `Error: ${error.message}`));
   }
@@ -48,7 +56,7 @@ export const createCategory = async (req, res) => {
     await category.save();
     res
       .status(201)
-      .json(createResponse(category, "Category created successfully"));
+      .json(formatResponse(true, "Category created successfully", category));
   } catch (error) {
     res
       .status(500)
@@ -68,7 +76,7 @@ export const updateCategory = async (req, res) => {
     }
     res
       .status(200)
-      .json(createResponse(category, "Category updated successfully"));
+      .json(formatResponse(true, "Category updated successfully", category));
   } catch (error) {
     res
       .status(500)

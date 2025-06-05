@@ -68,7 +68,7 @@ export const calculateOrderValue = async (orderItems) => {
     if (!product) {
       throw new Error(`Product with ID ${item.product} not found`);
     }
-    
+
     const finalPrice = calculateFinalPrice(product.price, product.discount);
     totalValue += finalPrice * item.quantity;
   }
@@ -86,16 +86,20 @@ export const applyVoucherToOrder = async (orderData) => {
     if (voucherCode && voucherCode.trim()) {
       // Tính tổng giá trị đơn hàng (đã bao gồm discount của sản phẩm)
       const orderValue = await calculateOrderValue(orderItems);
-      
+
       // Áp dụng voucher
-      const voucherResult = await voucherService.applyVoucher(voucherCode, orderValue);
-      
+      const voucherResult = await voucherService.applyVoucher(
+        voucherCode,
+        orderValue
+      );
+
       // Cập nhật order data với thông tin voucher
       result.voucherCode = voucherResult.voucher.code;
       result.voucherDiscount = voucherResult.discountAmount;
       result.itemsPrice = orderValue; // Giá sản phẩm đã có discount
-      result.totalPrice = voucherResult.finalAmount + (result.shippingPrice || 0);
-      
+      result.totalPrice =
+        voucherResult.finalAmount + (result.shippingPrice || 0);
+
       // Đánh dấu voucher đã được sử dụng
       await voucherService.markVoucherAsUsed(voucherCode);
     } else {

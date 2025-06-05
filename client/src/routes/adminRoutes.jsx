@@ -37,6 +37,19 @@ const UserList = lazy(() => import("../components/admin/user/UserList"));
 const UserCreate = lazy(() => import("../components/admin/user/UserCreate"));
 const UserDetail = lazy(() => import("../components/admin/user/UserDetail"));
 const UserUpdate = lazy(() => import("../components/admin/user/UserUpdate"));
+// Voucher management components
+const VoucherList = lazy(() =>
+  import("../components/admin/voucher/VoucherList")
+);
+const VoucherCreate = lazy(() =>
+  import("../components/admin/voucher/VoucherCreate")
+);
+const VoucherDetail = lazy(() =>
+  import("../components/admin/voucher/VoucherDetail")
+);
+const VoucherUpdate = lazy(() =>
+  import("../components/admin/voucher/VoucherUpdate")
+);
 
 const adminRoutes = [
   {
@@ -176,6 +189,39 @@ const adminRoutes = [
     element: (
       <Suspense fallback={<div>Loading...</div>}>
         <UserUpdate />
+      </Suspense>
+    ),
+  },
+  // Voucher management routes
+  {
+    path: "vouchers",
+    element: (
+      <Suspense fallback={<div>Loading...</div>}>
+        <VoucherList />
+      </Suspense>
+    ),
+  },
+  {
+    path: "vouchers/create",
+    element: (
+      <Suspense fallback={<div>Loading...</div>}>
+        <VoucherCreate />
+      </Suspense>
+    ),
+  },
+  {
+    path: "vouchers/:id",
+    element: (
+      <Suspense fallback={<div>Loading...</div>}>
+        <VoucherDetail />
+      </Suspense>
+    ),
+  },
+  {
+    path: "vouchers/update/:id",
+    element: (
+      <Suspense fallback={<div>Loading...</div>}>
+        <VoucherUpdate />
       </Suspense>
     ),
   },

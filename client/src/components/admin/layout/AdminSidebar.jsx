@@ -42,7 +42,7 @@ const AdminSidebar = () => {
           }`}
         >
           <FiShoppingBag size={16} />
-          All Products
+          Product Management
         </Link>
         <Link
           to="/admin/users"
@@ -53,19 +53,19 @@ const AdminSidebar = () => {
           }`}
         >
           <FiShoppingBag size={16} />
-          User
+          User Management
         </Link>
 
         <Link
           to="/admin/brands"
           className={`flex items-center gap-2 px-3 py-2 rounded ${
-            isActive("/admin/orders")
+            isActive("/admin/brands")
               ? "bg-blue-900 text-white"
               : "text-gray-700 hover:bg-gray-100"
           }`}
         >
           <FiFileText size={16} />
-          Brand List
+          Brand Management
         </Link>
         <Link
           to="/admin/categories"
@@ -76,7 +76,19 @@ const AdminSidebar = () => {
           }`}
         >
           <FiFileText size={16} />
-          Categories List
+          Category Management
+        </Link>
+
+        <Link
+          to="/admin/vouchers"
+          className={`flex items-center gap-2 px-3 py-2 rounded ${
+            isActive("/admin/vouchers")
+              ? "bg-blue-900 text-white"
+              : "text-gray-700 hover:bg-gray-100"
+          }`}
+        >
+          <FiFileText size={16} />
+          Voucher Management
         </Link>
       </nav>
 

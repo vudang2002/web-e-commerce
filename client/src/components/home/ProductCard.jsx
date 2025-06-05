@@ -1,15 +1,12 @@
 import { Link } from "react-router-dom";
+import AddToCartButton from "../cart/AddToCartButton";
 
 const ProductCard = ({ id, image, title, price, sold, discount, badge }) => {
   return (
-    <Link
-      to={id ? `/product/${id}` : "#"}
-      className="text-inherit no-underline"
-    >
-      <div
-        className="relative group hover:shadow-lg transition duration-300 hover:scale-105
-          overflow-hidden cursor-pointer"
-        style={{ minHeight: "270px" }}
+    <div className="relative group hover:shadow-lg transition duration-300 hover:scale-105 overflow-hidden">
+      <Link
+        to={id ? `/product/${id}` : "#"}
+        className="text-inherit no-underline block"
       >
         <div
           className="group bg-white rounded hover:rounded-b-none shadow-sm border p-2 hover:shadow-md transition
@@ -43,19 +40,25 @@ const ProductCard = ({ id, image, title, price, sold, discount, badge }) => {
             <p className="text-xs text-gray-500 mt-1">Đã bán {sold}</p>
           </div>
         </div>
-        <button
-          className="group-hover:block hidden
-         bg-orange-500 text-white text-sm 
-          hover:bg-orange-600 w-full absolute bottom-0 left-0 rounded-b"
-          onClick={(e) => {
-            e.preventDefault();
-            // Future implementation for finding similar products
-          }}
+      </Link>
+
+      {/* Add to Cart Button - appears on hover */}
+      <div
+        className="group-hover:block hidden absolute bottom-0 left-0 w-full z-10"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <AddToCartButton
+          productId={id}
+          quantity={1}
+          size="small"
+          variant="red"
+          className="w-full rounded-none rounded-b text-xs py-2"
+          showIcon={false}
         >
-          Tìm sản phẩm tương tự
-        </button>
+          Thêm vào giỏ hàng
+        </AddToCartButton>
       </div>
-    </Link>
+    </div>
   );
 };
 

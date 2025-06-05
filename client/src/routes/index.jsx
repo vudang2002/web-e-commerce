@@ -7,6 +7,9 @@ const About = lazy(() => import("../pages/About"));
 const Contact = lazy(() => import("../pages/Contact"));
 const ProductDetail = lazy(() => import("../pages/ProductDetail"));
 const Cart = lazy(() => import("../pages/Cart"));
+const Checkout = lazy(() => import("../pages/Checkout"));
+const Orders = lazy(() => import("../pages/Orders"));
+const OrderDetail = lazy(() => import("../pages/OrderDetail"));
 
 const routes = [
   {
@@ -30,6 +33,30 @@ const routes = [
     element: (
       <Suspense fallback={<div>Loading...</div>}>
         <Cart />
+      </Suspense>
+    ),
+  },
+  {
+    path: "/checkout",
+    element: (
+      <Suspense fallback={<div>Loading...</div>}>
+        <Checkout />
+      </Suspense>
+    ),
+  },
+  {
+    path: "/orders",
+    element: (
+      <Suspense fallback={<div>Loading...</div>}>
+        <Orders />
+      </Suspense>
+    ),
+  },
+  {
+    path: "/orders/:orderId",
+    element: (
+      <Suspense fallback={<div>Loading...</div>}>
+        <OrderDetail />
       </Suspense>
     ),
   },
