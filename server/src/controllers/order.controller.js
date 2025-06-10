@@ -4,7 +4,8 @@ import Product from "../models/product.model.js";
 
 export const createOrder = async (req, res) => {
   try {
-    const { items, shippingAddress, paymentMethod, voucherCode } = req.body;
+    const { items, shippingAddress, paymentMethod, voucherCode, phoneNo } =
+      req.body;
 
     // Ánh xạ productId thành product (validation đã được thực hiện ở middleware)
     const orderItems = await Promise.all(
@@ -22,16 +23,16 @@ export const createOrder = async (req, res) => {
     );
 
     // Kiểm tra và thêm phoneNo vào shippingInfo
-    if (!req.body.phoneNo) {
+    if (!phoneNo) {
       return res.status(400).json({
         success: false,
-        message: "Phone number is required in shippingInfo",
+        message: "Phone number is required",
       });
     }
 
     const shippingInfo = {
       address: shippingAddress,
-      phoneNo: req.body.phoneNo,
+      phoneNo: phoneNo,
     };
 
     // Tính toán shippingPrice (giả sử cố định là 10)
@@ -99,18 +100,23 @@ export const createOrder = async (req, res) => {
 export const getOrderById = async (req, res) => {
   const { id } = req.params;
   const order = await orderService.getOrderById(id);
-  res.json(createResponse(order));
+  res.json(createResponse(true, "Order retrieved successfully", order));
 };
 
 export const getUserOrders = async (req, res) => {
-  const orders = await orderService.getOrdersByUser(req.user._id);
-  res.json(createResponse(orders));
+  const { page = 1, limit = 10 } = req.query;
+  const result = await orderService.getOrdersByUser(
+    req.user._id,
+    parseInt(page),
+    parseInt(limit)
+  );
+  res.json(createResponse(true, "Orders retrieved successfully", result));
 };
 
 export const updateOrderStatus = async (req, res) => {
   try {
     const { id } = req.params;
-    const { status } = req.body;
+    const { orderStatus } = req.body;
 
     // Lấy thông tin đơn hàng hiện tại
     const currentOrder = await orderService.getOrderById(id);
@@ -122,14 +128,17 @@ export const updateOrderStatus = async (req, res) => {
     }
 
     // Nếu đơn hàng được hủy, hoàn lại stock và sold
-    if (status === "Cancelled" && currentOrder.orderStatus !== "Cancelled") {
+    if (
+      orderStatus === "Cancelled" &&
+      currentOrder.orderStatus !== "Cancelled"
+    ) {
       await orderService.revertProductStockOnOrderCancel(
         currentOrder.orderItems
       );
     }
 
     // Cập nhật trạng thái đơn hàng
-    const updatedOrder = await orderService.updateOrderStatus(id, status);
+    const updatedOrder = await orderService.updateOrderStatus(id, orderStatus);
 
     res.json(createResponse(updatedOrder, "Order status updated successfully"));
   } catch (error) {
@@ -137,6 +146,52 @@ export const updateOrderStatus = async (req, res) => {
     res.status(500).json({
       success: false,
       message: error.message || "An error occurred while updating order status",
+    });
+  }
+};
+
+export const updateOrder = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const updateData = req.body;
+
+    // Check if order exists
+    const existingOrder = await orderService.getOrderById(id);
+    if (!existingOrder) {
+      return res.status(404).json({
+        success: false,
+        message: "Order not found",
+      });
+    }
+
+    // Prevent updating orders that are already delivered or cancelled
+    if (
+      existingOrder.orderStatus === "Delivered" ||
+      existingOrder.orderStatus === "Cancelled"
+    ) {
+      return res.status(400).json({
+        success: false,
+        message: "Cannot update orders that are already delivered or cancelled",
+      });
+    }
+
+    // Update the order
+    const updatedOrder = await orderService.updateOrder(id, updateData);
+
+    res.json(createResponse(updatedOrder, "Order updated successfully"));
+  } catch (error) {
+    console.error("Update order error:", error);
+
+    if (error.message.includes("not found")) {
+      return res.status(404).json({
+        success: false,
+        message: error.message,
+      });
+    }
+
+    res.status(500).json({
+      success: false,
+      message: error.message || "An error occurred while updating the order",
     });
   }
 };

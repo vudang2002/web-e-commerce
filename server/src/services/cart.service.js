@@ -41,25 +41,67 @@ export const updateCartItem = async (userId, productId, quantity) => {
 };
 
 export const removeCartItem = async (userId, productId) => {
-  const cart = await Cart.findOne({ user: userId });
+  try {
+    const result = await Cart.findOneAndUpdate(
+      { user: userId },
+      { $pull: { cartItems: { product: productId } } },
+      { new: true }
+    ).populate("cartItems.product");
 
-  if (!cart) throw new Error("Cart not found");
+    if (!result) {
+      throw new Error("Cart not found");
+    }
 
-  cart.cartItems = cart.cartItems.filter(
-    (item) => item.product.toString() !== productId
-  );
+    return result;
+  } catch (error) {
+    // If it's a version error, retry once
+    if (error.name === "VersionError") {
+      const result = await Cart.findOneAndUpdate(
+        { user: userId },
+        { $pull: { cartItems: { product: productId } } },
+        { new: true }
+      ).populate("cartItems.product");
 
-  return await cart.save();
+      if (!result) {
+        throw new Error("Cart not found");
+      }
+
+      return result;
+    }
+    throw error;
+  }
 };
 
 export const clearCart = async (userId) => {
-  const cart = await Cart.findOne({ user: userId });
+  try {
+    const result = await Cart.findOneAndUpdate(
+      { user: userId },
+      { $set: { cartItems: [] } },
+      { new: true }
+    ).populate("cartItems.product");
 
-  if (!cart) throw new Error("Cart not found");
+    if (!result) {
+      throw new Error("Cart not found");
+    }
 
-  cart.cartItems = [];
+    return result;
+  } catch (error) {
+    // If it's a version error, retry once
+    if (error.name === "VersionError") {
+      const result = await Cart.findOneAndUpdate(
+        { user: userId },
+        { $set: { cartItems: [] } },
+        { new: true }
+      ).populate("cartItems.product");
 
-  return await cart.save();
+      if (!result) {
+        throw new Error("Cart not found");
+      }
+
+      return result;
+    }
+    throw error;
+  }
 };
 
 export const removeFromCart = async (userId, productId) => {

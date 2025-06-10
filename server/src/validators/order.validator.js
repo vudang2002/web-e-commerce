@@ -93,6 +93,11 @@ export const createOrderValidationRules = [
   body("shippingAddress")
     .notEmpty()
     .withMessage("Shipping address is required"),
+  body("phoneNo")
+    .notEmpty()
+    .withMessage("Phone number is required")
+    .isMobilePhone()
+    .withMessage("Please provide a valid phone number"),
   body("paymentMethod")
     .notEmpty()
     .withMessage("Payment method is required")
@@ -104,11 +109,56 @@ export const createOrderValidationRules = [
     .withMessage("Voucher code must be between 3 and 20 characters"),
 ];
 
+export const updateOrderValidationRules = [
+  body("items")
+    .optional()
+    .isArray({ min: 1 })
+    .withMessage("Items must be an array with at least one item"),
+  body("items.*.productId")
+    .optional()
+    .isMongoId()
+    .withMessage("Product ID must be a valid MongoDB ID"),
+  body("items.*.quantity")
+    .optional()
+    .isInt({ min: 1 })
+    .withMessage("Quantity must be at least 1"),
+  body("shippingInfo.address")
+    .optional()
+    .notEmpty()
+    .withMessage("Shipping address cannot be empty"),
+  body("shippingInfo.phoneNo")
+    .optional()
+    .isMobilePhone()
+    .withMessage("Please provide a valid phone number"),
+  body("paymentMethod")
+    .optional()
+    .isIn(["COD", "Online"])
+    .withMessage("Payment method must be either 'COD' or 'Online'"),
+  body("orderStatus")
+    .optional()
+    .isIn([
+      "Processing",
+      "Confirmed",
+      "Shipping",
+      "Delivered",
+      "Cancelled",
+      "Failed",
+    ])
+    .withMessage("Invalid status value"),
+];
+
 export const updateOrderStatusValidationRules = [
-  body("status")
+  body("orderStatus")
     .notEmpty()
     .withMessage("Status is required")
-    .isIn(["Pending", "Shipped", "Delivered", "Cancelled"])
+    .isIn([
+      "Processing",
+      "Confirmed",
+      "Shipping",
+      "Delivered",
+      "Cancelled",
+      "Failed",
+    ])
     .withMessage("Invalid status value"),
 ];
 

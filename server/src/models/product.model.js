@@ -4,6 +4,7 @@ import slugify from "slugify";
 const productSchema = new mongoose.Schema(
   {
     name: { type: String, required: true, trim: true },
+    normalizedName: { type: String }, // Tên sản phẩm không dấu để tìm kiếm
     slug: {
       type: String,
       unique: true,
@@ -11,6 +12,7 @@ const productSchema = new mongoose.Schema(
       trim: true,
     },
     description: { type: String },
+    tags: [{ type: String }], // Tags để tìm kiếm
     brand: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Brand",
@@ -54,26 +56,37 @@ const productSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-// Middleware tạo slug tự động trước khi lưu
+// Middleware tạo slug và normalizedName tự động trước khi lưu
 productSchema.pre("save", function (next) {
-  if (!this.isModified("name")) return next(); // chỉ tạo slug nếu name mới
+  if (this.isModified("name")) {
+    // Tạo slug kèm timestamp để đảm bảo tính duy nhất
+    this.slug = `${slugify(this.name, {
+      lower: true,
+      strict: true,
+    })}-${Date.now()}`;
 
-  // Tạo slug kèm timestamp để đảm bảo tính duy nhất
-  this.slug = `${slugify(this.name, {
-    lower: true,
-    strict: true,
-  })}-${Date.now()}`;
+    // Tạo normalizedName để tìm kiếm không dấu
+    this.normalizedName = this.name
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .replace(/đ/g, "d")
+      .replace(/Đ/g, "D")
+      .toLowerCase();
+  }
   next();
 });
 
 // Thêm indexes để tối ưu hóa tìm kiếm
-productSchema.index({ name: "text", description: "text" }); // Text index để tìm kiếm nhanh
+productSchema.index({ name: "text", description: "text", tags: "text" }); // Text index để tìm kiếm nhanh
+productSchema.index({ normalizedName: 1 }); // Index cho tìm kiếm không dấu
 productSchema.index({ category: 1 }); // Index cho tìm kiếm theo danh mục
 productSchema.index({ brand: 1 }); // Index cho tìm kiếm theo thương hiệu
 productSchema.index({ price: 1 }); // Index cho tìm kiếm và sắp xếp theo giá
 productSchema.index({ createdAt: -1 }); // Index cho sắp xếp theo ngày tạo
 productSchema.index({ slug: 1 }, { unique: true }); // Đảm bảo slug là duy nhất
 productSchema.index({ isFeatured: 1 }); // Index cho việc tìm kiếm sản phẩm nổi bật
+productSchema.index({ status: 1 }); // Index cho tìm kiếm theo status
+productSchema.index({ tags: 1 }); // Index cho tìm kiếm theo tags
 
 const Product = mongoose.model("Product", productSchema);
 export default Product;

@@ -1,0 +1,80 @@
+2025-06-09 10:41:22:4122 [31merror[39m: [31munhandledRejection: Query timeout[39m
+[31mError: Query timeout[39m
+[31m    at Timeout._onTimeout (file:///E:/Javascript/web-e-commerce/server/src/services/search.service.js:16:33)[39m
+[31m    at listOnTimeout (node:internal/timers:594:17)[39m
+[31m    at process.processTimers (node:internal/timers:529:7)[39m
+2025-06-09 10:43:37:4337 [31merror[39m: [31munhandledRejection: Query timeout[39m
+[31mError: Query timeout[39m
+[31m    at Timeout._onTimeout (file:///E:/Javascript/web-e-commerce/server/src/services/search.service.js:227:33)[39m
+[31m    at listOnTimeout (node:internal/timers:594:17)[39m
+[31m    at process.processTimers (node:internal/timers:529:7)[39m
+2025-06-09 10:44:39:4439 [31merror[39m: [31munhandledRejection: Query timeout[39m
+[31mError: Query timeout[39m
+[31m    at Timeout._onTimeout (file:///E:/Javascript/web-e-commerce/server/src/services/search.service.js:227:33)[39m
+[31m    at listOnTimeout (node:internal/timers:594:17)[39m
+[31m    at process.processTimers (node:internal/timers:529:7)[39m
+2025-06-09 10:47:34:4734 [31merror[39m: [31munhandledRejection: Query timeout[39m
+[31mError: Query timeout[39m
+[31m    at Timeout._onTimeout (file:///E:/Javascript/web-e-commerce/server/src/services/search.service.js:227:33)[39m
+[31m    at listOnTimeout (node:internal/timers:594:17)[39m
+[31m    at process.processTimers (node:internal/timers:529:7)[39m
+2025-06-09 10:48:04:484 [31merror[39m: [31munhandledRejection: Query timeout[39m
+[31mError: Query timeout[39m
+[31m    at Timeout._onTimeout (file:///E:/Javascript/web-e-commerce/server/src/services/search.service.js:227:33)[39m
+[31m    at listOnTimeout (node:internal/timers:594:17)[39m
+[31m    at process.processTimers (node:internal/timers:529:7)[39m
+2025-06-09 11:10:39:1039 [31merror[39m: [31munhandledRejection: Query timeout[39m
+[31mError: Query timeout[39m
+[31m    at Timeout._onTimeout (file:///E:/Javascript/web-e-commerce/server/src/services/search.service.js:104:33)[39m
+[31m    at listOnTimeout (node:internal/timers:594:17)[39m
+[31m    at process.processTimers (node:internal/timers:529:7)[39m
+2025-06-09 11:10:39:1039 [31merror[39m: [31munhandledRejection: Query timeout[39m
+[31mError: Query timeout[39m
+[31m    at Timeout._onTimeout (file:///E:/Javascript/web-e-commerce/server/src/services/search.service.js:104:33)[39m
+[31m    at listOnTimeout (node:internal/timers:594:17)[39m
+[31m    at process.processTimers (node:internal/timers:529:7)[39m
+2025-06-09 11:57:03:573 [31merror[39m: [31munhandledRejection: Query timeout[39m
+[31mError: Query timeout[39m
+[31m    at Timeout._onTimeout (file:///E:/Javascript/web-e-commerce/server/src/services/search.service.js:266:33)[39m
+[31m    at listOnTimeout (node:internal/timers:594:17)[39m
+[31m    at process.processTimers (node:internal/timers:529:7)[39m
+2025-06-09 12:00:34:034 [31merror[39m: [31munhandledRejection: Query timeout[39m
+[31mError: Query timeout[39m
+[31m    at Timeout._onTimeout (file:///E:/Javascript/web-e-commerce/server/src/services/search.service.js:290:33)[39m
+[31m    at listOnTimeout (node:internal/timers:594:17)[39m
+[31m    at process.processTimers (node:internal/timers:529:7)[39m
+2025-06-09 12:31:55:3155 [31merror[39m: [31munhandledRejection: Timeout[39m
+[31mError: Timeout[39m
+[31m    at Timeout._onTimeout (file:///E:/Javascript/web-e-commerce/server/src/routes/search.route.js:307:31)[39m
+[31m    at listOnTimeout (node:internal/timers:594:17)[39m
+[31m    at process.processTimers (node:internal/timers:529:7)[39m
+2025-06-09 12:32:54:3254 [31merror[39m: [31munhandledRejection: Timeout[39m
+[31mError: Timeout[39m
+[31m    at Timeout._onTimeout (file:///E:/Javascript/web-e-commerce/server/src/routes/search.route.js:392:31)[39m
+[31m    at listOnTimeout (node:internal/timers:594:17)[39m
+[31m    at process.processTimers (node:internal/timers:529:7)[39m
+2025-06-09 12:32:54:3254 [31merror[39m: [31munhandledRejection: Timeout[39m
+[31mError: Timeout[39m
+[31m    at Timeout._onTimeout (file:///E:/Javascript/web-e-commerce/server/src/routes/search.route.js:392:31)[39m
+[31m    at listOnTimeout (node:internal/timers:594:17)[39m
+[31m    at process.processTimers (node:internal/timers:529:7)[39m
+2025-06-09 12:33:09:339 [31merror[39m: [31munhandledRejection: Timeout[39m
+[31mError: Timeout[39m
+[31m    at Timeout._onTimeout (file:///E:/Javascript/web-e-commerce/server/src/routes/search.route.js:392:31)[39m
+[31m    at listOnTimeout (node:internal/timers:594:17)[39m
+[31m    at process.processTimers (node:internal/timers:529:7)[39m
+2025-06-09 12:33:09:339 [31merror[39m: [31munhandledRejection: Timeout[39m
+[31mError: Timeout[39m
+[31m    at Timeout._onTimeout (file:///E:/Javascript/web-e-commerce/server/src/routes/search.route.js:392:31)[39m
+[31m    at listOnTimeout (node:internal/timers:594:17)[39m
+[31m    at process.processTimers (node:internal/timers:529:7)[39m
+2025-06-09 12:36:19:3619 [31merror[39m: [31munhandledRejection: Timeout[39m
+[31mError: Timeout[39m
+[31m    at Timeout._onTimeout (file:///E:/Javascript/web-e-commerce/server/src/routes/search.route.js:392:31)[39m
+[31m    at listOnTimeout (node:internal/timers:594:17)[39m
+[31m    at process.processTimers (node:internal/timers:529:7)[39m
+2025-06-09 12:36:19:3619 [31merror[39m: [31munhandledRejection: Timeout[39m
+[31mError: Timeout[39m
+[31m    at Timeout._onTimeout (file:///E:/Javascript/web-e-commerce/server/src/routes/search.route.js:392:31)[39m
+[31m    at listOnTimeout (node:internal/timers:594:17)[39m
+[31m    at process.processTimers (node:internal/timers:529:7)[39m

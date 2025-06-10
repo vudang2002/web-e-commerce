@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import CategoryCard from "./CategoryCard";
-import {
-  getCategories,
-  deleteCategory,
-} from "../../../services/categoryService";
+import { deleteCategory } from "../../../services/categoryService";
+import { useCategories } from "../../../hooks/useProductData";
 import { IoMdAddCircleOutline } from "react-icons/io";
 import { FiChevronLeft, FiChevronRight, FiEdit } from "react-icons/fi";
 import { RiDeleteBin6Line } from "react-icons/ri";
@@ -13,66 +11,52 @@ import "react-toastify/dist/ReactToastify.css";
 import ConfirmModal from "../../common/ConfirmModal";
 
 const CategoryList = () => {
+  // Sử dụng hook useCategories để fetch dữ liệu
+  const {
+    data: categoriesData,
+    isLoading,
+    error: queryError,
+    refetch,
+  } = useCategories();
+
   const [categories, setCategories] = useState([]);
-  const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
   const [categoryToDelete, setCategoryToDelete] = useState(null);
   const [pagination, setPagination] = useState({
     page: 1,
-    limit: 12,
+    limit: 8,
     total: 0,
     totalPages: 0,
   });
-  const fetchCategories = (page = 1) => {
-    // Không cho phép gọi page < 1
-    if (page < 1) page = 1;
-    // Nếu đã biết tổng số trang, không cho phép vượt quá
-    if (pagination.totalPages && page > pagination.totalPages)
-      page = pagination.totalPages;
 
-    setLoading(true);
-    // Truyền tham số page và limit vào API
-    getCategories(`?page=${page}&limit=12`)
-      .then((response) => {
-        // Check if the response has the expected structure based on server response format
-        if (response?.success && Array.isArray(response?.data)) {
-          setCategories(response.data);
-          // Cập nhật thông tin phân trang
-          setPagination({
-            page: response.page || 1,
-            limit: response.limit || 12,
-            total: response.total || response.data.length,
-            totalPages: Math.ceil(
-              (response.total || response.data.length) / (response.limit || 12)
-            ),
-          });
-        } else {
-          // If the structure is unexpected, log it for debugging
-          console.error("Unexpected API response structure:", response);
-          if (Array.isArray(response)) {
-            setCategories(response);
-            setPagination({
-              ...pagination,
-              total: response.length,
-              totalPages: Math.ceil(response.length / pagination.limit),
-            });
-          } else {
-            setCategories([]);
-            setError("Invalid data format received from server");
-          }
-        }
-      })
-      .catch((err) => {
-        console.error("API Error:", err);
-        setError(err.message || "Error fetching categories");
-      })
-      .finally(() => setLoading(false));
-  };
+  // Cập nhật categories khi data từ hook thay đổi
   useEffect(() => {
-    fetchCategories();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+    if (categoriesData) {
+      setCategories(categoriesData);
+      setPagination((prev) => ({
+        ...prev,
+        total: categoriesData.length,
+        totalPages: Math.ceil(categoriesData.length / prev.limit),
+      }));
+      setError(null);
+    }
+    if (queryError) {
+      setError(queryError.message || "Error fetching categories");
+    }
+  }, [categoriesData, queryError]);
+  // Tính toán dữ liệu cho trang hiện tại
+  const startIndex = (pagination.page - 1) * pagination.limit;
+  const endIndex = startIndex + pagination.limit;
+  const currentPageCategories = categories.slice(startIndex, endIndex);
+
+  const handlePageChange = (newPage) => {
+    if (newPage >= 1 && newPage <= pagination.totalPages) {
+      setPagination((prev) => ({ ...prev, page: newPage }));
+    }
+  };
+
+  // Không cần useEffect để fetch ban đầu vì hook đã tự động fetch
 
   const handleDeleteClick = (category) => {
     setCategoryToDelete(category);
@@ -86,7 +70,7 @@ const CategoryList = () => {
       const response = await deleteCategory(categoryToDelete._id);
       if (response?.success) {
         toast.success("Xóa danh mục thành công!");
-        fetchCategories(pagination.page); // Tải lại danh sách với trang hiện tại
+        refetch(); // Refresh dữ liệu sau khi xóa
       } else {
         toast.error(
           "Xóa danh mục thất bại: " +
@@ -101,7 +85,7 @@ const CategoryList = () => {
     }
   };
 
-  if (loading)
+  if (isLoading)
     return (
       <div className="flex justify-center p-10">
         <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
@@ -133,7 +117,7 @@ const CategoryList = () => {
       </div>
 
       <div>
-        {categories.length > 0 ? (
+        {currentPageCategories.length > 0 ? (
           <>
             <div className="overflow-x-auto">
               <table className="w-full border-collapse">
@@ -160,7 +144,7 @@ const CategoryList = () => {
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-gray-200">
-                  {categories.map((category) => (
+                  {currentPageCategories.map((category) => (
                     <tr key={category._id} className="hover:bg-gray-50">
                       <td className="px-4 py-4">
                         {category.image ? (
@@ -227,7 +211,7 @@ const CategoryList = () => {
               <div className="flex justify-center mt-8">
                 <nav className="flex items-center">
                   <button
-                    onClick={() => fetchCategories(pagination.page - 1)}
+                    onClick={() => handlePageChange(pagination.page - 1)}
                     disabled={pagination.page === 1}
                     className={`p-2 mx-1 rounded-md ${
                       pagination.page === 1
@@ -257,7 +241,7 @@ const CategoryList = () => {
                           <span className="p-2 mx-1">...</span>
                         )}
                         <button
-                          onClick={() => fetchCategories(page)}
+                          onClick={() => handlePageChange(page)}
                           className={`px-4 py-2 mx-1 rounded-md ${
                             pagination.page === page
                               ? "bg-blue-600 text-white"
@@ -270,7 +254,7 @@ const CategoryList = () => {
                     ))}
 
                   <button
-                    onClick={() => fetchCategories(pagination.page + 1)}
+                    onClick={() => handlePageChange(pagination.page + 1)}
                     disabled={pagination.page === pagination.totalPages}
                     className={`p-2 mx-1 rounded-md ${
                       pagination.page === pagination.totalPages

@@ -8,6 +8,11 @@ export const getUsers = async (query = "") => {
   return await axiosClient.get(`${API_URL}${query}`);
 };
 
+export const getAllUsers = async (params = {}) => {
+  const { page = 1, limit = 1000 } = params;
+  return await axiosClient.get(`${API_URL}?page=${page}&limit=${limit}`);
+};
+
 export const getUserById = async (id) => {
   return await axiosClient.get(`${API_URL}/${id}`);
 };

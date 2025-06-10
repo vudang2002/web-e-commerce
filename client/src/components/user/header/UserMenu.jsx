@@ -31,10 +31,10 @@ export default function UserMenu({ user, onLogout }) {
             Log out
           </button>
           <Link
-            to="/profile"
+            to="/orders"
             className="block w-full text-left px-4 py-2 hover:bg-gray-100"
           >
-            Edit Profile
+            Order
           </Link>
         </div>
       )}

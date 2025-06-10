@@ -6,8 +6,11 @@ import UserMenu from "./UserMenu";
 import { useEffect } from "react";
 import { logout } from "../../../services/authService";
 import AuthModal from "../../auth/AuthModal";
+import { useNavigate } from "react-router-dom";
+
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const navigate = useNavigate();
 
   const [user, setUser] = useState(null);
 
@@ -42,7 +45,10 @@ const Header = () => {
         mx-auto px-4 py-4 border-b"
       >
         {/* Logo */}
-        <div className="flex-shrink-0">
+        <div
+          className="flex-shrink-0 cursor-pointer"
+          onClick={() => navigate("/")}
+        >
           <img
             src="images/logo.jpg"
             alt="logo"

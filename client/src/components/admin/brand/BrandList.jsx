@@ -1,10 +1,7 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import {
-  getBrands,
-  deleteBrand,
-  deleteBulkBrands,
-} from "../../../services/brandService";
+import { deleteBrand, deleteBulkBrands } from "../../../services/brandService";
+import { useBrands } from "../../../hooks/useProductData";
 import { AiOutlineLoading3Quarters, AiOutlinePlus } from "react-icons/ai";
 import { FiEdit } from "react-icons/fi";
 import { RiDeleteBin6Line } from "react-icons/ri";
@@ -17,8 +14,15 @@ import Pagination from "../../common/Pagination";
 
 const BrandList = () => {
   const navigate = useNavigate();
+  // Sử dụng hook useBrands để fetch dữ liệu
+  const {
+    data: brandsData,
+    isLoading,
+    error: queryError,
+    refetch,
+  } = useBrands();
+
   const [brands, setBrands] = useState([]);
-  const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
@@ -30,23 +34,24 @@ const BrandList = () => {
   const [showConfirmModal, setShowConfirmModal] = useState(false);
   const [isBulkDelete, setIsBulkDelete] = useState(false);
 
-  const fetchBrands = useCallback(async () => {
-    setLoading(true);
-    try {
-      const response = await getBrands();
-      if (response?.success && Array.isArray(response.data)) {
-        setBrands(response.data);
-        // Tính toán số trang
-        setTotalPages(Math.ceil(response.data.length / 10));
-      } else {
-        setError("Không thể tải danh sách nhãn hàng");
-      }
-    } catch (err) {
-      setError(err.message || "Có lỗi xảy ra khi tải danh sách nhãn hàng");
-    } finally {
-      setLoading(false);
+  // Cập nhật brands khi data từ hook thay đổi
+  useEffect(() => {
+    if (brandsData) {
+      setBrands(brandsData);
+      setTotalPages(Math.ceil(brandsData.length / 8));
+      setError(null);
     }
-  }, []);
+    if (queryError) {
+      setError(
+        queryError.message || "Có lỗi xảy ra khi tải danh sách nhãn hàng"
+      );
+    }
+  }, [brandsData, queryError]);
+
+  const fetchBrands = useCallback(async () => {
+    // Refresh dữ liệu từ hook
+    refetch();
+  }, [refetch]);
 
   useEffect(() => {
     fetchBrands();
@@ -198,7 +203,7 @@ const BrandList = () => {
     Object.keys(selectedBrands).length === currentBrands.length &&
     Object.values(selectedBrands).every(Boolean);
 
-  if (loading) {
+  if (isLoading) {
     return (
       <div className="flex items-center justify-center p-10">
         <AiOutlineLoading3Quarters className="animate-spin mr-2 text-blue-600" />
