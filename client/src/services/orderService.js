@@ -1,71 +1,62 @@
-import axios from "axios";
+import axiosClient from "../utils/axiosClient";
 
-const API_BASE_URL =
-  process.env.REACT_APP_API_URL || "http://localhost:3001/api";
-
-// Create axios instance with default config
-const orderAPI = axios.create({
-  baseURL: `${API_BASE_URL}/orders`,
-});
-
-// Add auth token to requests
-orderAPI.interceptors.request.use((config) => {
-  const token = localStorage.getItem("token");
-  if (token) {
-    config.headers.Authorization = `Bearer ${token}`;
-  }
-  return config;
-});
+const API_URL = "/orders";
 
 // Create order
 export const createOrder = async (orderData) => {
-  const response = await orderAPI.post("/", orderData);
-  return response.data;
+  return await axiosClient.post(API_URL, orderData);
 };
 
 // Get user orders
 export const getUserOrders = async (page = 1, limit = 10) => {
-  try {
-    console.log("Making API call to get user orders:", { page, limit });
-    const response = await orderAPI.get(`/user?page=${page}&limit=${limit}`);
-    console.log("API response:", response);
-    console.log("Response data:", response.data);
-    return response.data;
-  } catch (error) {
-    console.error("Error fetching user orders:", error);
-    throw error;
-  }
+  return await axiosClient.get(`${API_URL}/user?page=${page}&limit=${limit}`);
+};
+
+// Get all orders (for admin)
+export const getAllOrders = async (page = 1, limit = 10) => {
+  return await axiosClient.get(`${API_URL}/all?page=${page}&limit=${limit}`);
 };
 
 // Get order by ID
 export const getOrderById = async (orderId) => {
-  const response = await orderAPI.get(`/${orderId}`);
-  return response.data;
+  return await axiosClient.get(`${API_URL}/${orderId}`);
 };
 
 // Update order status (for admin)
 export const updateOrderStatus = async (orderId, status) => {
-  const response = await orderAPI.patch(`/${orderId}/status`, { status });
-  return response.data;
+  return await axiosClient.patch(`${API_URL}/${orderId}/status`, {
+    orderStatus: status,
+  });
+};
+
+// Update order (for admin)
+export const updateOrder = async (orderId, orderData) => {
+  return await axiosClient.put(`${API_URL}/${orderId}`, orderData);
 };
 
 // Cancel order
 export const cancelOrder = async (orderId) => {
-  const response = await orderAPI.patch(`/${orderId}/cancel`);
-  return response.data;
+  return await axiosClient.patch(`${API_URL}/${orderId}/cancel`);
+};
+
+// Delete order (for admin)
+export const deleteOrder = async (orderId) => {
+  return await axiosClient.delete(`${API_URL}/${orderId}`);
 };
 
 // Get order statistics (for admin)
 export const getOrderStats = async () => {
-  const response = await orderAPI.get("/stats");
-  return response.data;
+  return await axiosClient.get(`${API_URL}/stats`);
 };
 
 export default {
   createOrder,
   getUserOrders,
+  getAllOrders,
   getOrderById,
   updateOrderStatus,
+  updateOrder,
   cancelOrder,
+  deleteOrder,
   getOrderStats,
 };

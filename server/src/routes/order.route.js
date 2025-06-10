@@ -4,6 +4,7 @@ import { authMiddleware } from "../middlewares/auth.middleware.js";
 import { validate } from "../middlewares/validate.middleware.js";
 import {
   createOrderValidationRules,
+  updateOrderValidationRules,
   updateOrderStatusValidationRules,
   markAsPaidValidationRules,
   refundOrderValidationRules,
@@ -178,8 +179,14 @@ router.post(
   orderController.createOrder
 );
 router.get("/all", authMiddleware("admin"), orderController.getAllOrders);
+router.get("/user", authMiddleware(), orderController.getUserOrders);
 router.get("/:id", authMiddleware(), orderController.getOrderById);
-router.get("/", authMiddleware(), orderController.getUserOrders);
+router.put(
+  "/:id",
+  authMiddleware("admin"),
+  validate(updateOrderValidationRules),
+  orderController.updateOrder
+);
 router.patch(
   "/:id/status",
   authMiddleware("admin"),

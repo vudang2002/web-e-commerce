@@ -1,0 +1,120 @@
+2025-06-05 20:11:39:1139 [31merror[39m: [31muncaughtException: argument handler must be a function[39m
+[31mTypeError: argument handler must be a function[39m
+[31m    at Route.<computed> [as get] (E:\Javascript\web-e-commerce\server\node_modules\router\lib\route.js:228:15)[39m
+[31m    at Router.<computed> [as get] (E:\Javascript\web-e-commerce\server\node_modules\router\index.js:448:19)[39m
+[31m    at file:///E:/Javascript/web-e-commerce/server/src/routes/order.route.js:182:8[39m
+[31m    at ModuleJob.run (node:internal/modules/esm/module_job:271:25)[39m
+[31m    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:578:26)[39m
+[31m    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:116:5)[39m
+2025-06-05 20:11:48:1148 [31merror[39m: [31muncaughtException: argument handler must be a function[39m
+[31mTypeError: argument handler must be a function[39m
+[31m    at Route.<computed> [as get] (E:\Javascript\web-e-commerce\server\node_modules\router\lib\route.js:228:15)[39m
+[31m    at Router.<computed> [as get] (E:\Javascript\web-e-commerce\server\node_modules\router\index.js:448:19)[39m
+[31m    at file:///E:/Javascript/web-e-commerce/server/src/routes/order.route.js:182:8[39m
+[31m    at ModuleJob.run (node:internal/modules/esm/module_job:271:25)[39m
+[31m    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:578:26)[39m
+[31m    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:116:5)[39m
+2025-06-05 20:11:55:1155 [31merror[39m: [31muncaughtException: argument handler must be a function[39m
+[31mTypeError: argument handler must be a function[39m
+[31m    at Route.<computed> [as get] (E:\Javascript\web-e-commerce\server\node_modules\router\lib\route.js:228:15)[39m
+[31m    at Router.<computed> [as get] (E:\Javascript\web-e-commerce\server\node_modules\router\index.js:448:19)[39m
+[31m    at file:///E:/Javascript/web-e-commerce/server/src/routes/order.route.js:182:8[39m
+[31m    at ModuleJob.run (node:internal/modules/esm/module_job:271:25)[39m
+[31m    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:578:26)[39m
+[31m    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:116:5)[39m
+2025-06-05 20:12:45:1245 [31merror[39m: [31muncaughtException: argument handler must be a function[39m
+[31mTypeError: argument handler must be a function[39m
+[31m    at Route.<computed> [as get] (E:\Javascript\web-e-commerce\server\node_modules\router\lib\route.js:228:15)[39m
+[31m    at Router.<computed> [as get] (E:\Javascript\web-e-commerce\server\node_modules\router\index.js:448:19)[39m
+[31m    at file:///E:/Javascript/web-e-commerce/server/src/routes/order.route.js:182:8[39m
+[31m    at ModuleJob.run (node:internal/modules/esm/module_job:271:25)[39m
+[31m    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:578:26)[39m
+[31m    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:116:5)[39m
+2025-06-05 20:16:02:162 [31merror[39m: [31muncaughtException: argument handler must be a function[39m
+[31mTypeError: argument handler must be a function[39m
+[31m    at Route.<computed> [as get] (E:\Javascript\web-e-commerce\server\node_modules\router\lib\route.js:228:15)[39m
+[31m    at Router.<computed> [as get] (E:\Javascript\web-e-commerce\server\node_modules\router\index.js:448:19)[39m
+[31m    at file:///E:/Javascript/web-e-commerce/server/src/routes/order.route.js:182:8[39m
+[31m    at ModuleJob.run (node:internal/modules/esm/module_job:271:25)[39m
+[31m    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:578:26)[39m
+[31m    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:116:5)[39m
+2025-06-05 20:17:04:174 [31merror[39m: [31muncaughtException: argument handler must be a function[39m
+[31mTypeError: argument handler must be a function[39m
+[31m    at Route.<computed> [as get] (E:\Javascript\web-e-commerce\server\node_modules\router\lib\route.js:228:15)[39m
+[31m    at Router.<computed> [as get] (E:\Javascript\web-e-commerce\server\node_modules\router\index.js:448:19)[39m
+[31m    at file:///E:/Javascript/web-e-commerce/server/src/routes/order.route.js:182:8[39m
+[31m    at ModuleJob.run (node:internal/modules/esm/module_job:271:25)[39m
+[31m    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:578:26)[39m
+[31m    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:116:5)[39m
+2025-06-05 20:17:04:174 [31merror[39m: [31muncaughtException: argument handler must be a function[39m
+[31mTypeError: argument handler must be a function[39m
+[31m    at Route.<computed> [as get] (E:\Javascript\web-e-commerce\server\node_modules\router\lib\route.js:228:15)[39m
+[31m    at Router.<computed> [as get] (E:\Javascript\web-e-commerce\server\node_modules\router\index.js:448:19)[39m
+[31m    at file:///E:/Javascript/web-e-commerce/server/src/routes/order.route.js:182:8[39m
+[31m    at ModuleJob.run (node:internal/modules/esm/module_job:271:25)[39m
+[31m    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:578:26)[39m
+[31m    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:116:5)[39m
+2025-06-05 20:17:23:1723 [31merror[39m: [31muncaughtException: argument handler must be a function[39m
+[31mTypeError: argument handler must be a function[39m
+[31m    at Route.<computed> [as get] (E:\Javascript\web-e-commerce\server\node_modules\router\lib\route.js:228:15)[39m
+[31m    at Router.<computed> [as get] (E:\Javascript\web-e-commerce\server\node_modules\router\index.js:448:19)[39m
+[31m    at file:///E:/Javascript/web-e-commerce/server/src/routes/order.route.js:182:8[39m
+[31m    at ModuleJob.run (node:internal/modules/esm/module_job:271:25)[39m
+[31m    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:578:26)[39m
+[31m    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:116:5)[39m
+2025-06-05 20:17:23:1723 [31merror[39m: [31muncaughtException: argument handler must be a function[39m
+[31mTypeError: argument handler must be a function[39m
+[31m    at Route.<computed> [as get] (E:\Javascript\web-e-commerce\server\node_modules\router\lib\route.js:228:15)[39m
+[31m    at Router.<computed> [as get] (E:\Javascript\web-e-commerce\server\node_modules\router\index.js:448:19)[39m
+[31m    at file:///E:/Javascript/web-e-commerce/server/src/routes/order.route.js:182:8[39m
+[31m    at ModuleJob.run (node:internal/modules/esm/module_job:271:25)[39m
+[31m    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:578:26)[39m
+[31m    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:116:5)[39m
+2025-06-05 20:18:17:1817 [31merror[39m: [31muncaughtException: argument handler must be a function[39m
+[31mTypeError: argument handler must be a function[39m
+[31m    at Route.<computed> [as get] (E:\Javascript\web-e-commerce\server\node_modules\router\lib\route.js:228:15)[39m
+[31m    at Router.<computed> [as get] (E:\Javascript\web-e-commerce\server\node_modules\router\index.js:448:19)[39m
+[31m    at file:///E:/Javascript/web-e-commerce/server/src/routes/order.route.js:182:8[39m
+[31m    at ModuleJob.run (node:internal/modules/esm/module_job:271:25)[39m
+[31m    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:578:26)[39m
+[31m    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:116:5)[39m
+2025-06-05 20:18:29:1829 [31merror[39m: [31muncaughtException: argument handler must be a function[39m
+[31mTypeError: argument handler must be a function[39m
+[31m    at Route.<computed> [as get] (E:\Javascript\web-e-commerce\server\node_modules\router\lib\route.js:228:15)[39m
+[31m    at Router.<computed> [as get] (E:\Javascript\web-e-commerce\server\node_modules\router\index.js:448:19)[39m
+[31m    at file:///E:/Javascript/web-e-commerce/server/src/routes/order.route.js:182:8[39m
+[31m    at ModuleJob.run (node:internal/modules/esm/module_job:271:25)[39m
+[31m    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:578:26)[39m
+[31m    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:116:5)[39m
+2025-06-08 12:32:29:3229 [31merror[39m: [31muncaughtException: argument handler must be a function[39m
+[31mTypeError: argument handler must be a function[39m
+[31m    at Route.<computed> [as put] (E:\Javascript\web-e-commerce\server\node_modules\router\lib\route.js:228:15)[39m
+[31m    at Router.<computed> [as put] (E:\Javascript\web-e-commerce\server\node_modules\router\index.js:448:19)[39m
+[31m    at file:///E:/Javascript/web-e-commerce/server/src/routes/order.route.js:184:8[39m
+[31m    at ModuleJob.run (node:internal/modules/esm/module_job:271:25)[39m
+[31m    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:578:26)[39m
+[31m    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:116:5)[39m
+2025-06-08 12:33:33:3333 [31merror[39m: [31muncaughtException: argument handler must be a function[39m
+[31mTypeError: argument handler must be a function[39m
+[31m    at Route.<computed> [as put] (E:\Javascript\web-e-commerce\server\node_modules\router\lib\route.js:228:15)[39m
+[31m    at Router.<computed> [as put] (E:\Javascript\web-e-commerce\server\node_modules\router\index.js:448:19)[39m
+[31m    at file:///E:/Javascript/web-e-commerce/server/src/routes/order.route.js:184:8[39m
+[31m    at ModuleJob.run (node:internal/modules/esm/module_job:271:25)[39m
+[31m    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:578:26)[39m
+[31m    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:116:5)[39m
+2025-06-08 12:34:55:3455 [31merror[39m: [31muncaughtException: argument handler must be a function[39m
+[31mTypeError: argument handler must be a function[39m
+[31m    at Route.<computed> [as put] (E:\Javascript\web-e-commerce\server\node_modules\router\lib\route.js:228:15)[39m
+[31m    at Router.<computed> [as put] (E:\Javascript\web-e-commerce\server\node_modules\router\index.js:448:19)[39m
+[31m    at file:///E:/Javascript/web-e-commerce/server/src/routes/order.route.js:184:8[39m
+[31m    at ModuleJob.run (node:internal/modules/esm/module_job:271:25)[39m
+[31m    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:578:26)[39m
+[31m    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:116:5)[39m
+2025-06-08 12:35:22:3522 [31merror[39m: [31muncaughtException: argument handler must be a function[39m
+[31mTypeError: argument handler must be a function[39m
+[31m    at Route.<computed> [as put] (E:\Javascript\web-e-commerce\server\node_modules\router\lib\route.js:228:15)[39m
+[31m    at Router.<computed> [as put] (E:\Javascript\web-e-commerce\server\node_modules\router\index.js:448:19)[39m
+[31m    at file:///E:/Javascript/web-e-commerce/server/src/routes/order.route.js:184:8[39m
+[31m    at ModuleJob.run (node:internal/modules/esm/module_job:271:25)[39m
+[31m    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:578:26)[39m
+[31m    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:116:5)[39m

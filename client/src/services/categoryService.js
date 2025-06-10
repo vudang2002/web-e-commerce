@@ -10,6 +10,10 @@ export const getCategoryById = async (id) => {
   return await axiosClient.get(`${API_URL}/${id}`);
 };
 
+export const getCategoryBySlug = async (slug) => {
+  return await axiosClient.get(`${API_URL}/slug/${slug}`);
+};
+
 export const createCategory = async (data) => {
   return await axiosClient.post(API_URL, data);
 };

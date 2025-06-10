@@ -50,6 +50,11 @@ const VoucherDetail = lazy(() =>
 const VoucherUpdate = lazy(() =>
   import("../components/admin/voucher/VoucherUpdate")
 );
+// Order management components
+const OrderList = lazy(() => import("../components/admin/order/OrderList"));
+const OrderCreate = lazy(() => import("../components/admin/order/OrderCreate"));
+const OrderDetail = lazy(() => import("../components/admin/order/OrderDetail"));
+const OrderEdit = lazy(() => import("../components/admin/order/OrderEdit"));
 
 const adminRoutes = [
   {
@@ -222,6 +227,39 @@ const adminRoutes = [
     element: (
       <Suspense fallback={<div>Loading...</div>}>
         <VoucherUpdate />
+      </Suspense>
+    ),
+  },
+  // Order management routes
+  {
+    path: "orders",
+    element: (
+      <Suspense fallback={<div>Loading...</div>}>
+        <OrderList />
+      </Suspense>
+    ),
+  },
+  {
+    path: "orders/create",
+    element: (
+      <Suspense fallback={<div>Loading...</div>}>
+        <OrderCreate />
+      </Suspense>
+    ),
+  },
+  {
+    path: "orders/:id",
+    element: (
+      <Suspense fallback={<div>Loading...</div>}>
+        <OrderDetail />
+      </Suspense>
+    ),
+  },
+  {
+    path: "orders/:id/edit",
+    element: (
+      <Suspense fallback={<div>Loading...</div>}>
+        <OrderEdit />
       </Suspense>
     ),
   },

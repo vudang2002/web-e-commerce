@@ -3,6 +3,7 @@ import axios from "axios";
 const axiosClient = axios.create({
   // eslint-disable-next-line no-undef
   baseURL: process.env.REACT_APP_API_BASE_URL || "http://localhost:5000/api", // Sử dụng biến môi trường từ React
+  timeout: 5000, // 5 seconds timeout
   headers: {
     "Content-Type": "application/json",
   },

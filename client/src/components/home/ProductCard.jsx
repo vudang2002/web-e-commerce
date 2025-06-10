@@ -1,11 +1,40 @@
 import { Link } from "react-router-dom";
 import AddToCartButton from "../cart/AddToCartButton";
 
-const ProductCard = ({ id, image, title, price, sold, discount, badge }) => {
+const ProductCard = ({
+  product,
+  id,
+  image,
+  title,
+  price,
+  sold,
+  discount,
+  badge,
+}) => {
+  // Support both direct props and product object
+  const productData = product || {
+    _id: id,
+    images: image ? [image] : [],
+    name: title,
+    price: price,
+    sold: sold,
+    discount: discount,
+    badge: badge,
+  };
+
+  const {
+    _id: productId,
+    images,
+    name,
+    price: productPrice,
+    sold: productSold,
+    discount: productDiscount,
+    badge: productBadge,
+  } = productData;
   return (
     <div className="relative group hover:shadow-lg transition duration-300 hover:scale-105 overflow-hidden">
       <Link
-        to={id ? `/product/${id}` : "#"}
+        to={productId ? `/product/${productId}` : "#"}
         className="text-inherit no-underline block"
       >
         <div
@@ -17,27 +46,29 @@ const ProductCard = ({ id, image, title, price, sold, discount, badge }) => {
             <div className="relative">
               <img
                 src={
-                  image.length > 0 ? image[0] : "/images/products/manhinh.png"
+                  images && images.length > 0
+                    ? images[0]
+                    : "/images/products/manhinh.png"
                 }
-                alt={title}
+                alt={name}
                 className="w-full h-40 object-cover rounded"
               />
-              {discount && discount > 0 && (
+              {productDiscount && productDiscount > 0 && (
                 <span className="absolute top-2 left-2 bg-red-500 text-white text-xs px-1 py-0.5 rounded">
-                  -{discount}%
+                  -{productDiscount}%
                 </span>
               )}
-              {badge && (
+              {productBadge && (
                 <span className="absolute bottom-2 left-2 bg-orange-400 text-white text-xs px-1 py-0.5 rounded">
-                  {badge}
+                  {productBadge}
                 </span>
               )}
             </div>
-            <p className="mt-2 text-sm font-medium line-clamp-2">{title}</p>
+            <p className="mt-2 text-sm font-medium line-clamp-2">{name}</p>
             <p className="text-red-500 font-bold mt-1 text-sm">
-              ₫{price.toLocaleString()}
+              ₫{productPrice?.toLocaleString()}
             </p>
-            <p className="text-xs text-gray-500 mt-1">Đã bán {sold}</p>
+            <p className="text-xs text-gray-500 mt-1">Đã bán {productSold}</p>
           </div>
         </div>
       </Link>
@@ -48,7 +79,7 @@ const ProductCard = ({ id, image, title, price, sold, discount, badge }) => {
         onClick={(e) => e.stopPropagation()}
       >
         <AddToCartButton
-          productId={id}
+          productId={productId}
           quantity={1}
           size="small"
           variant="red"

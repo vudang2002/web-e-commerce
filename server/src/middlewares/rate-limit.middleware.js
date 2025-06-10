@@ -60,3 +60,22 @@ export const sensitiveApiLimiter = rateLimit({
     res.status(options.statusCode).json(options.message);
   },
 });
+
+// Function tạo rate limiter tùy chỉnh
+export const rateLimitMiddleware = (options = {}) => {
+  const defaultOptions = {
+    windowMs: 15 * 60 * 1000, // 15 phút
+    max: 100, // 100 requests per windowMs
+    standardHeaders: true,
+    legacyHeaders: false,
+    message: formatResponse(
+      false,
+      options.message || "Quá nhiều yêu cầu, vui lòng thử lại sau"
+    ),
+    handler: (req, res, next, rateLimitOptions) => {
+      res.status(rateLimitOptions.statusCode).json(rateLimitOptions.message);
+    },
+  };
+
+  return rateLimit({ ...defaultOptions, ...options });
+};

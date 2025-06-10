@@ -10,6 +10,8 @@ const Cart = lazy(() => import("../pages/Cart"));
 const Checkout = lazy(() => import("../pages/Checkout"));
 const Orders = lazy(() => import("../pages/Orders"));
 const OrderDetail = lazy(() => import("../pages/OrderDetail"));
+const SearchResults = lazy(() => import("../pages/SearchResults"));
+const CategoryPage = lazy(() => import("../pages/CategoryPage"));
 
 const routes = [
   {
@@ -17,6 +19,14 @@ const routes = [
     element: (
       <Suspense fallback={<div>Loading...</div>}>
         <Home />
+      </Suspense>
+    ),
+  },
+  {
+    path: "/category/:slug",
+    element: (
+      <Suspense fallback={<div>Loading...</div>}>
+        <CategoryPage />
       </Suspense>
     ),
   },
@@ -78,6 +88,14 @@ const routes = [
           <Contact />
         </Suspense>
       </UserLayout>
+    ),
+  },
+  {
+    path: "/search",
+    element: (
+      <Suspense fallback={<div>Loading...</div>}>
+        <SearchResults />
+      </Suspense>
     ),
   },
 ];

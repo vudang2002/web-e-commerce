@@ -1,7 +1,11 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
-import { useCartStats, useClearCart } from "../hooks/useCart";
+import {
+  useCartStats,
+  useClearCart,
+  useRemoveCartItem,
+} from "../hooks/useCart";
 import { useCreateOrder } from "../hooks/useOrder";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -11,18 +15,30 @@ export default function Checkout() {
   const navigate = useNavigate();
   const { cartItems, totalPrice, isEmpty } = useCartStats();
   const clearCartMutation = useClearCart();
+  const removeCartItemMutation = useRemoveCartItem();
   const createOrderMutation = useCreateOrder();
-
   // Check for Buy Now data in sessionStorage
   const buyNowData = React.useMemo(() => {
     const stored = sessionStorage.getItem("buyNowData");
     return stored ? JSON.parse(stored) : null;
   }, []);
 
-  // Use Buy Now data if available, otherwise use cart data
-  const checkoutItems = buyNowData?.items || cartItems;
-  const checkoutTotal = buyNowData?.totalPrice || totalPrice;
-  const isCheckoutEmpty = buyNowData ? checkoutItems.length === 0 : isEmpty;
+  // Check for Cart Checkout data in sessionStorage
+  const cartCheckoutData = React.useMemo(() => {
+    const stored = sessionStorage.getItem("checkoutData");
+    return stored ? JSON.parse(stored) : null;
+  }, []);
+
+  // Use priority: Cart Checkout > Buy Now > Cart data
+  const checkoutItems =
+    cartCheckoutData?.items || buyNowData?.items || cartItems;
+  const checkoutTotal =
+    cartCheckoutData?.totalPrice || buyNowData?.totalPrice || totalPrice;
+  const isCheckoutEmpty = cartCheckoutData
+    ? checkoutItems.length === 0
+    : buyNowData
+    ? checkoutItems.length === 0
+    : isEmpty;
 
   const [formData, setFormData] = useState({
     shippingAddress: "",
@@ -68,21 +84,24 @@ export default function Checkout() {
           productId: item.product._id,
           quantity: item.quantity,
         })),
-        shippingAddress: {
-          address: formData.shippingAddress,
-          phoneNumber: formData.phoneNo,
-          fullName: user.name || "Customer",
-        },
+        shippingAddress: formData.shippingAddress,
+        phoneNo: formData.phoneNo,
         paymentMethod: formData.paymentMethod,
         voucherCode: formData.voucherCode || undefined,
       };
 
       // Create order using the mutation
       const result = await createOrderMutation.mutateAsync(orderData);
-
       if (result.success) {
-        // Clear sessionStorage if it was a Buy Now order
-        if (buyNowData) {
+        // Clear sessionStorage based on the source
+        if (cartCheckoutData) {
+          // Clear checkout data and remove purchased items from cart
+          sessionStorage.removeItem("checkoutData");
+          // Remove each purchased item from cart
+          cartCheckoutData.items.forEach((item) => {
+            removeCartItemMutation.mutate(item.product._id);
+          });
+        } else if (buyNowData) {
           sessionStorage.removeItem("buyNowData");
         } else {
           // Clear cart after successful order if it was from cart

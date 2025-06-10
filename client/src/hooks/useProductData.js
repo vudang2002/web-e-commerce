@@ -12,6 +12,8 @@ import {
   updateVoucher,
   deleteVoucher,
 } from "../services/voucherService";
+import orderService from "../services/orderService";
+import { searchProducts } from "../services/searchService";
 
 // Hook để fetch danh sách brands
 export const useBrands = () => {
@@ -315,6 +317,42 @@ export const useActiveVouchers = () => {
   );
 };
 
+// Hook để fetch danh sách orders cho admin
+export const useOrders = () => {
+  return useQuery(
+    "orders",
+    async () => {
+      console.log("Đang fetch danh sách orders...");
+      const response = await orderService.getAllOrders();
+
+      // Xử lý các định dạng phản hồi khác nhau
+      if (response?.success && Array.isArray(response?.data)) {
+        return response.data;
+      } else if (Array.isArray(response)) {
+        return response;
+      } else if (response && typeof response === "object") {
+        // Tìm mảng trong object
+        const possibleArray = Object.values(response).find((val) =>
+          Array.isArray(val)
+        );
+        if (possibleArray) {
+          return possibleArray;
+        }
+      }
+
+      // Trường hợp không tìm thấy dữ liệu
+      console.warn("Không thể tìm thấy mảng orders trong response:", response);
+      return [];
+    },
+    {
+      refetchOnWindowFocus: false,
+      onError: (error) => {
+        console.error("Lỗi khi lấy danh sách orders:", error);
+      },
+    }
+  );
+};
+
 // ===== VOUCHER MUTATION HOOKS =====
 
 // Hook để tạo voucher mới
@@ -365,4 +403,55 @@ export const useDeleteVoucher = () => {
       console.error("Lỗi khi xóa voucher:", error);
     },
   });
+};
+
+// Hook để fetch sản phẩm theo category
+export const useProductsByCategory = (categoryId, filters = {}) => {
+  const {
+    page = 1,
+    limit = 20,
+    sortBy = "createdAt",
+    sortOrder = "desc",
+    minPrice,
+    maxPrice,
+  } = filters;
+
+  return useQuery(
+    ["productsByCategory", categoryId, filters],
+    async () => {
+      if (!categoryId) return { products: [], pagination: {} };
+
+      console.log(`Đang fetch sản phẩm theo category ID: ${categoryId}...`);
+
+      const searchFilters = {
+        category: categoryId,
+        sortBy,
+        sortOrder,
+        page,
+        limit,
+      };
+
+      if (minPrice) searchFilters.minPrice = minPrice;
+      if (maxPrice) searchFilters.maxPrice = maxPrice;
+
+      const response = await searchProducts(searchFilters);
+
+      if (response?.success && response?.data) {
+        return {
+          products: response.data.products || [],
+          pagination: response.data.pagination || {},
+        };
+      }
+
+      return { products: [], pagination: {} };
+    },
+    {
+      enabled: !!categoryId,
+      refetchOnWindowFocus: false,
+      staleTime: 5 * 60 * 1000, // 5 phút
+      onError: (error) => {
+        console.error("Lỗi khi lấy sản phẩm theo category:", error);
+      },
+    }
+  );
 };

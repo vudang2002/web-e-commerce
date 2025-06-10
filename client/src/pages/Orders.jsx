@@ -1,358 +1,377 @@
-import React, { useState } from "react";
+import React, { useState, useMemo, useCallback, Suspense } from "react";
 import { useNavigate } from "react-router-dom";
-import { useAuth } from "../contexts/AuthContext";
-import { useUserOrders, useCancelOrder } from "../hooks/useOrder";
-import {
-  FiPackage,
-  FiTruck,
-  FiCheck,
-  FiX,
-  FiEye,
-  FiClock,
-} from "react-icons/fi";
+import { useUserOrders } from "../hooks/useOrder";
+import { FiPackage, FiSearch } from "react-icons/fi";
 import { toast } from "react-toastify";
 
-const OrderStatusIcon = ({ status }) => {
-  const iconProps = { size: 16, className: "inline" };
+// Import OrderStates directly (not lazy) because it has complex structure
+import OrderStates from "../components/order/OrderStates";
 
-  switch (status?.toLowerCase()) {
-    case "pending":
-      return <FiClock {...iconProps} className="text-yellow-500" />;
-    case "confirmed":
-      return <FiPackage {...iconProps} className="text-blue-500" />;
-    case "shipped":
-      return <FiTruck {...iconProps} className="text-purple-500" />;
-    case "delivered":
-      return <FiCheck {...iconProps} className="text-green-500" />;
-    case "cancelled":
-      return <FiX {...iconProps} className="text-red-500" />;
-    default:
-      return <FiClock {...iconProps} className="text-gray-500" />;
-  }
-};
-
-const OrderStatusBadge = ({ status }) => {
-  const getStatusColor = (status) => {
-    switch (status?.toLowerCase()) {
-      case "pending":
-        return "bg-yellow-100 text-yellow-800 border-yellow-200";
-      case "confirmed":
-        return "bg-blue-100 text-blue-800 border-blue-200";
-      case "shipped":
-        return "bg-purple-100 text-purple-800 border-purple-200";
-      case "delivered":
-        return "bg-green-100 text-green-800 border-green-200";
-      case "cancelled":
-        return "bg-red-100 text-red-800 border-red-200";
-      default:
-        return "bg-gray-100 text-gray-800 border-gray-200";
-    }
-  };
-
-  return (
-    <span
-      className={`inline-flex items-center gap-1 px-2 py-1 rounded-full text-xs font-medium border ${getStatusColor(
-        status
-      )}`}
-    >
-      <OrderStatusIcon status={status} />
-      {status?.charAt(0).toUpperCase() + status?.slice(1) || "Unknown"}
-    </span>
-  );
-};
-
-const OrderItem = ({ item }) => (
-  <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg">
-    <img
-      src={item.product?.images?.[0] || "/images/placeholder.jpg"}
-      alt={item.product?.name}
-      className="w-12 h-12 object-cover rounded-md"
-    />
-    <div className="flex-1 min-w-0">
-      <h4 className="text-sm font-medium text-gray-900 truncate">
-        {item.product?.name || "Product Unavailable"}
-      </h4>
-      <p className="text-xs text-gray-500">
-        Quantity: {item.quantity} ×{" "}
-        {new Intl.NumberFormat("vi-VN", {
-          style: "currency",
-          currency: "VND",
-        }).format(item.price)}
-      </p>
-    </div>
-    <div className="text-sm font-medium text-gray-900">
-      {new Intl.NumberFormat("vi-VN", {
-        style: "currency",
-        currency: "VND",
-      }).format(item.quantity * item.price)}
-    </div>
-  </div>
+// Lazy load other components for better performance
+const OrderCard = React.lazy(() => import("../components/order/OrderCard"));
+const OrderFilters = React.lazy(() =>
+  import("../components/order/OrderFilters")
 );
 
-const OrderCard = ({ order }) => {
-  const navigate = useNavigate();
-  const cancelOrderMutation = useCancelOrder();
-
-  const handleCancelOrder = async (orderId) => {
-    if (window.confirm("Are you sure you want to cancel this order?")) {
-      try {
-        await cancelOrderMutation.mutateAsync(orderId);
-      } catch {
-        // Error is handled by the mutation hook
-      }
-    }
-  };
-
-  const canCancelOrder = order.status?.toLowerCase() === "pending";
-
-  return (
-    <div className="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow">
-      {/* Order Header */}
-      <div className="flex justify-between items-start mb-4">
-        <div>
-          <h3 className="text-lg font-semibold text-gray-900">
-            Order #{order._id?.slice(-8).toUpperCase()}
-          </h3>
-          <p className="text-sm text-gray-500">
-            {new Date(order.createdAt).toLocaleDateString("vi-VN", {
-              year: "numeric",
-              month: "long",
-              day: "numeric",
-              hour: "2-digit",
-              minute: "2-digit",
-            })}
-          </p>
-        </div>
-        <OrderStatusBadge status={order.status} />
-      </div>
-
-      {/* Order Items */}
-      <div className="space-y-2 mb-4">
-        {order.items?.map((item, index) => (
-          <OrderItem key={index} item={item} />
-        ))}
-      </div>
-
-      {/* Order Summary */}
-      <div className="border-t pt-4">
-        <div className="flex justify-between items-center mb-2">
-          <span className="text-sm text-gray-600">Subtotal:</span>
-          <span className="text-sm">
-            {new Intl.NumberFormat("vi-VN", {
-              style: "currency",
-              currency: "VND",
-            }).format(order.totalAmount - (order.shippingFee || 0))}
-          </span>
-        </div>
-        {order.shippingFee > 0 && (
-          <div className="flex justify-between items-center mb-2">
-            <span className="text-sm text-gray-600">Shipping:</span>
-            <span className="text-sm">
-              {new Intl.NumberFormat("vi-VN", {
-                style: "currency",
-                currency: "VND",
-              }).format(order.shippingFee)}
-            </span>
-          </div>
-        )}
-        {order.voucherDiscount > 0 && (
-          <div className="flex justify-between items-center mb-2">
-            <span className="text-sm text-green-600">Discount:</span>
-            <span className="text-sm text-green-600">
-              -
-              {new Intl.NumberFormat("vi-VN", {
-                style: "currency",
-                currency: "VND",
-              }).format(order.voucherDiscount)}
-            </span>
-          </div>
-        )}
-        <div className="flex justify-between items-center pt-2 border-t">
-          <span className="font-semibold text-gray-900">Total:</span>
-          <span className="font-semibold text-lg text-gray-900">
-            {new Intl.NumberFormat("vi-VN", {
-              style: "currency",
-              currency: "VND",
-            }).format(order.totalAmount)}
-          </span>
-        </div>
-      </div>
-
-      {/* Action Buttons */}
-      <div className="flex gap-3 mt-4 pt-4 border-t">
-        <button
-          onClick={() => navigate(`/orders/${order._id}`)}
-          className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 border border-gray-300 rounded-md hover:bg-gray-200 transition-colors"
-        >
-          <FiEye size={16} />
-          View Details
-        </button>
-        {canCancelOrder && (
-          <button
-            onClick={() => handleCancelOrder(order._id)}
-            disabled={cancelOrderMutation.isPending}
-            className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-red-700 bg-red-50 border border-red-300 rounded-md hover:bg-red-100 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-          >
-            <FiX size={16} />
-            {cancelOrderMutation.isPending ? "Cancelling..." : "Cancel Order"}
-          </button>
-        )}
-      </div>
-    </div>
-  );
-};
+// Import utilities
+import { useDebounce } from "../utils/formatters";
 
 const Orders = () => {
-  const { user } = useAuth();
   const navigate = useNavigate();
+
+  // State management
   const [currentPage, setCurrentPage] = useState(1);
-  const ordersPerPage = 10;
+  const [searchTerm, setSearchTerm] = useState("");
+  const [statusFilter, setStatusFilter] = useState("all");
+  const [sortBy, setSortBy] = useState("newest");
+  const [itemsPerPage] = useState(6);
 
-  // Redirect if not logged in
-  React.useEffect(() => {
-    if (!user) {
-      toast.error("Please log in to view your orders");
-      navigate("/login");
+  // Debounced search for performance
+  const debouncedSearchTerm = useDebounce(searchTerm, 300); // Data fetching
+  const { data: orders = [], isLoading, error, refetch } = useUserOrders(); // Debug logging
+  console.log("Orders component - orders data:", orders);
+  console.log("Orders component - orders length:", orders?.length);
+  console.log("Orders component - orders type:", typeof orders);
+  console.log("Orders component - is array:", Array.isArray(orders));
+  console.log("Orders component - isLoading:", isLoading);
+  console.log("Orders component - error:", error);
+  // Memoized filtered and sorted orders
+  const filteredAndSortedOrders = useMemo(() => {
+    // Ensure orders is always an array
+    if (!Array.isArray(orders) || orders.length === 0) {
+      return [];
     }
-  }, [user, navigate]);
-  const { data, isLoading, error, refetch } = useUserOrders(
-    currentPage,
-    ordersPerPage
+
+    let filtered = [...orders]; // Create a copy to avoid mutations
+
+    // Apply search filter
+    if (debouncedSearchTerm) {
+      filtered = filtered.filter(
+        (order) =>
+          order._id.toLowerCase().includes(debouncedSearchTerm.toLowerCase()) ||
+          order.items.some((item) =>
+            item.product?.name
+              ?.toLowerCase()
+              .includes(debouncedSearchTerm.toLowerCase())
+          )
+      );
+    } // Apply status filter
+    if (statusFilter !== "all") {
+      filtered = filtered.filter((order) => {
+        const orderStatus = (
+          order.orderStatus ||
+          order.status ||
+          ""
+        ).toLowerCase();
+        return orderStatus === statusFilter.toLowerCase();
+      });
+    }
+
+    // Apply sorting
+    const sorted = filtered.sort((a, b) => {
+      switch (sortBy) {
+        case "newest":
+          return new Date(b.createdAt) - new Date(a.createdAt);
+        case "oldest":
+          return new Date(a.createdAt) - new Date(b.createdAt);
+        case "total-high":
+          return b.totalAmount - a.totalAmount;
+        case "total-low":
+          return a.totalAmount - b.totalAmount;
+        case "status": {
+          const statusA = (a.orderStatus || a.status || "").toLowerCase();
+          const statusB = (b.orderStatus || b.status || "").toLowerCase();
+          return statusA.localeCompare(statusB);
+        }
+        default:
+          return 0;
+      }
+    });
+    return sorted;
+  }, [orders, debouncedSearchTerm, statusFilter, sortBy]);
+  // Memoized pagination
+  const paginatedOrders = useMemo(() => {
+    if (!Array.isArray(filteredAndSortedOrders)) {
+      return [];
+    }
+    const startIndex = (currentPage - 1) * itemsPerPage;
+    return filteredAndSortedOrders.slice(startIndex, startIndex + itemsPerPage);
+  }, [filteredAndSortedOrders, currentPage, itemsPerPage]);
+
+  const totalPages = useMemo(() => {
+    if (!Array.isArray(filteredAndSortedOrders)) {
+      return 0;
+    }
+    return Math.ceil(filteredAndSortedOrders.length / itemsPerPage);
+  }, [filteredAndSortedOrders, itemsPerPage]);
+
+  // Memoized callbacks
+  const handlePageChange = useCallback((page) => {
+    setCurrentPage(page);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
+
+  const handleSearch = useCallback((term) => {
+    setSearchTerm(term);
+    setCurrentPage(1);
+  }, []);
+
+  const handleStatusFilter = useCallback((status) => {
+    setStatusFilter(status);
+    setCurrentPage(1);
+  }, []);
+
+  const handleSort = useCallback((sort) => {
+    setSortBy(sort);
+    setCurrentPage(1);
+  }, []);
+
+  const handleRetry = useCallback(() => {
+    refetch();
+  }, [refetch]);
+
+  const handleOrderStatusChange = useCallback(
+    (orderId, newStatus) => {
+      // This would typically trigger a mutation to update order status
+      toast.success(`Order status updated to ${newStatus}`);
+      refetch();
+    },
+    [refetch]
   );
+  const handleCreateNewOrder = useCallback(() => {
+    navigate("/");
+  }, [navigate]);
 
-  // Debug: Log the data from API
-  React.useEffect(() => {
-    if (data) {
-      console.log("Orders data from API:", data);
-      console.log("Orders array:", data?.orders);
-      console.log("Total orders:", data?.total);
-    }
-  }, [data]);
-
-  if (!user) {
-    return null; // Will redirect
-  }
-
+  // Render loading state
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
-        <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
-          <p className="text-gray-600">Loading your orders...</p>
+      <div className="min-h-screen bg-gray-50 py-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {" "}
+          <div className="mb-8">
+            <div className="h-8 bg-gray-200 rounded w-48 mb-4 animate-pulse"></div>
+            <div className="h-4 bg-gray-200 rounded w-64 animate-pulse"></div>
+          </div>
+          <OrderStates.LoadingSkeleton count={3} />
         </div>
       </div>
     );
   }
 
+  // Render error state
   if (error) {
     return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
-        <div className="text-center">
-          <div className="text-red-500 mb-4">
-            <FiX size={48} className="mx-auto" />
+      <div className="min-h-screen bg-gray-50 py-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <OrderStates.ErrorState
+            message={error.message}
+            onRetry={handleRetry}
+          />
+        </div>
+      </div>
+    );
+  } // Render empty state
+  if (!Array.isArray(orders) || orders.length === 0) {
+    return (
+      <div className="min-h-screen bg-gray-50 py-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <OrderStates.EmptyState onCreateOrder={handleCreateNewOrder} />
+          {/* Debug info */}
+          <div className="mt-8 p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
+            <h3 className="text-sm font-medium text-yellow-800 mb-2">
+              Debug Info:
+            </h3>
+            <p className="text-xs text-yellow-700">
+              Orders length: {orders?.length}
+            </p>
+            <p className="text-xs text-yellow-700">
+              Is Array: {Array.isArray(orders) ? "Yes" : "No"}
+            </p>
+            <p className="text-xs text-yellow-700">
+              Loading: {isLoading ? "Yes" : "No"}
+            </p>
+            <p className="text-xs text-yellow-700">
+              Error: {error ? error.message : "None"}
+            </p>
           </div>
-          <h2 className="text-xl font-semibold text-gray-900 mb-2">
-            Failed to load orders
-          </h2>
-          <p className="text-gray-600 mb-4">
-            {error.response?.data?.message || "Something went wrong"}
-          </p>
-          <button
-            onClick={() => refetch()}
-            className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors"
-          >
-            Try Again
-          </button>
         </div>
       </div>
     );
   }
-
-  const orders = data?.orders || [];
-  const totalPages = Math.ceil((data?.total || 0) / ordersPerPage);
 
   return (
     <div className="min-h-screen bg-gray-50 py-8">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-900">My Orders</h1>
-          <p className="text-gray-600 mt-2">Track and manage your orders</p>
+          <div className="flex items-center justify-between">
+            <div>
+              <h1 className="text-3xl font-bold text-gray-900 flex items-center gap-3">
+                <FiPackage className="text-indigo-600" />
+                My Orders
+              </h1>
+              <p className="text-gray-600 mt-2">Track and manage your orders</p>
+            </div>{" "}
+            <div className="text-right">
+              <p className="text-sm text-gray-500">
+                Total Orders: {Array.isArray(orders) ? orders.length : 0}
+              </p>
+              <p className="text-sm text-gray-500">
+                Showing:{" "}
+                {Array.isArray(filteredAndSortedOrders)
+                  ? filteredAndSortedOrders.length
+                  : 0}
+              </p>
+            </div>
+          </div>
         </div>
 
-        {/* Orders List */}
-        {orders.length === 0 ? (
-          <div className="text-center py-12">
-            <FiPackage size={48} className="mx-auto text-gray-400 mb-4" />
-            <h2 className="text-xl font-semibold text-gray-900 mb-2">
-              No orders yet
-            </h2>
-            <p className="text-gray-600 mb-6">
-              You haven't placed any orders yet.
-            </p>
-            <button
-              onClick={() => navigate("/")}
-              className="px-6 py-3 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors"
-            >
-              Start Shopping
-            </button>
-          </div>
-        ) : (
+        {/* Filters and Search */}
+        <div className="mb-8">
+          <Suspense
+            fallback={
+              <div className="bg-white p-4 rounded-lg shadow-sm border animate-pulse">
+                <div className="h-10 bg-gray-200 rounded"></div>
+              </div>
+            }
+          >
+            <OrderFilters
+              searchTerm={searchTerm}
+              onSearchChange={handleSearch}
+              statusFilter={statusFilter}
+              onStatusFilterChange={handleStatusFilter}
+              sortBy={sortBy}
+              onSortChange={handleSort}
+            />
+          </Suspense>
+        </div>
+
+        {/* Orders Grid */}
+        {paginatedOrders.length > 0 ? (
           <>
-            <div className="space-y-6">
-              {orders.map((order) => (
-                <OrderCard key={order._id} order={order} />
+            <div className="grid gap-6 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-1 mb-8">
+              {paginatedOrders.map((order) => (
+                <Suspense
+                  key={order._id}
+                  fallback={
+                    <div className="bg-white border border-gray-200 rounded-lg p-6 animate-pulse">
+                      <div className="flex justify-between items-start mb-4">
+                        <div>
+                          <div className="h-5 bg-gray-200 rounded w-32 mb-2"></div>
+                          <div className="h-4 bg-gray-200 rounded w-24"></div>
+                        </div>
+                        <div className="h-6 bg-gray-200 rounded w-20"></div>
+                      </div>
+                      <div className="space-y-2 mb-4">
+                        <div className="h-16 bg-gray-100 rounded-lg"></div>
+                      </div>
+                      <div className="border-t pt-4">
+                        <div className="h-4 bg-gray-200 rounded w-20 ml-auto"></div>
+                      </div>
+                    </div>
+                  }
+                >
+                  <OrderCard
+                    order={order}
+                    onStatusChange={handleOrderStatusChange}
+                  />
+                </Suspense>
               ))}
             </div>
 
             {/* Pagination */}
             {totalPages > 1 && (
-              <div className="flex justify-center mt-8">
-                <nav className="flex items-center space-x-2">
-                  <button
-                    onClick={() =>
-                      setCurrentPage((prev) => Math.max(prev - 1, 1))
-                    }
-                    disabled={currentPage === 1}
-                    className="px-3 py-2 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-md hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
-                  >
-                    Previous
-                  </button>
+              <div className="flex justify-center items-center gap-2 mt-8">
+                <button
+                  onClick={() => handlePageChange(currentPage - 1)}
+                  disabled={currentPage === 1}
+                  className="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  Previous
+                </button>
 
+                <div className="flex gap-1">
                   {[...Array(totalPages)].map((_, index) => {
                     const page = index + 1;
-                    return (
-                      <button
-                        key={page}
-                        onClick={() => setCurrentPage(page)}
-                        className={`px-3 py-2 text-sm font-medium rounded-md ${
-                          currentPage === page
-                            ? "text-blue-600 bg-blue-50 border border-blue-300"
-                            : "text-gray-500 bg-white border border-gray-300 hover:bg-gray-50"
-                        }`}
-                      >
-                        {page}
-                      </button>
-                    );
-                  })}
+                    const isCurrentPage = page === currentPage;
 
-                  <button
-                    onClick={() =>
-                      setCurrentPage((prev) => Math.min(prev + 1, totalPages))
+                    // Show first page, last page, current page, and adjacent pages
+                    if (
+                      page === 1 ||
+                      page === totalPages ||
+                      (page >= currentPage - 1 && page <= currentPage + 1)
+                    ) {
+                      return (
+                        <button
+                          key={page}
+                          onClick={() => handlePageChange(page)}
+                          className={`px-3 py-2 text-sm font-medium rounded-md ${
+                            isCurrentPage
+                              ? "bg-indigo-600 text-white"
+                              : "text-gray-700 bg-white border border-gray-300 hover:bg-gray-50"
+                          }`}
+                        >
+                          {page}
+                        </button>
+                      );
                     }
-                    disabled={currentPage === totalPages}
-                    className="px-3 py-2 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-md hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
-                  >
-                    Next
-                  </button>
-                </nav>
+
+                    // Show ellipsis
+                    if (
+                      (page === currentPage - 2 && currentPage > 3) ||
+                      (page === currentPage + 2 && currentPage < totalPages - 2)
+                    ) {
+                      return (
+                        <span
+                          key={page}
+                          className="px-3 py-2 text-sm text-gray-500"
+                        >
+                          ...
+                        </span>
+                      );
+                    }
+
+                    return null;
+                  })}
+                </div>
+
+                <button
+                  onClick={() => handlePageChange(currentPage + 1)}
+                  disabled={currentPage === totalPages}
+                  className="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  Next
+                </button>
               </div>
             )}
           </>
+        ) : (
+          /* No results after filtering */
+          <div className="text-center py-12">
+            <FiSearch className="mx-auto h-12 w-12 text-gray-400 mb-4" />
+            <h3 className="text-lg font-medium text-gray-900 mb-2">
+              No orders found
+            </h3>
+            <p className="text-gray-500 mb-6">
+              Try adjusting your search terms or filters.
+            </p>
+            <button
+              onClick={() => {
+                setSearchTerm("");
+                setStatusFilter("all");
+                setCurrentPage(1);
+              }}
+              className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-indigo-600 bg-indigo-100 hover:bg-indigo-200"
+            >
+              Clear filters
+            </button>
+          </div>
         )}
       </div>
     </div>
   );
 };
+
+Orders.displayName = "Orders";
 
 export default Orders;

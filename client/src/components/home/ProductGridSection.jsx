@@ -29,8 +29,8 @@ const ProductGridSection = () => {
               image={product.images || "/images/products/manhinh.png"}
               title={product.name}
               price={product.price}
-              sold={product.numReviews || 0}
-              discount={0} // Không có trường discount trong dữ liệu trả về
+              sold={product.sold}
+              discount={product.discount} // Không có trường discount trong dữ liệu trả về
               badge={product.isFeatured ? "Nổi bật" : null}
             />
           ))}

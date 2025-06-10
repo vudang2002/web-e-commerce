@@ -18,10 +18,45 @@ export const useUserOrders = (page = 1, limit = 10) => {
       console.log("Fetching user orders with page:", page, "limit:", limit);
       const result = await orderService.getUserOrders(page, limit);
       console.log("User orders result:", result);
-      return result;
+      // Handle the API response structure: {success: true, data: {orders: [...], total: n}, message: '...'}
+      if (result && typeof result === "object") {
+        // If result has data.orders property and it's an array (new structure)
+        if (
+          result.data &&
+          result.data.orders &&
+          Array.isArray(result.data.orders)
+        ) {
+          console.log("Returning result.data.orders:", result.data.orders);
+          return result.data.orders;
+        }
+        // If result has data property and it's an array (old structure)
+        else if (result.data && Array.isArray(result.data)) {
+          console.log("Returning result.data:", result.data);
+          return result.data;
+        }
+        // If result itself is an array
+        else if (Array.isArray(result)) {
+          console.log("Returning result (array):", result);
+          return result;
+        }
+        // If result has orders property
+        else if (result.orders && Array.isArray(result.orders)) {
+          console.log("Returning result.orders:", result.orders);
+          return result.orders;
+        }
+      }
+
+      console.warn("Unexpected orders data structure:", result);
+      return [];
     },
     staleTime: 5 * 60 * 1000, // 5 minutes
     retry: 3,
+    onSuccess: (data) => {
+      console.log("useUserOrders - Final data:", data);
+    },
+    onError: (error) => {
+      console.error("useUserOrders - Error:", error);
+    },
   });
 };
 

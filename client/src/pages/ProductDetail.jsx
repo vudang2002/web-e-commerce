@@ -73,7 +73,10 @@ export default function ProductDetail() {
   if (!product) return <div>Không tìm thấy sản phẩm.</div>;
 
   return (
-    <div className="flex flex-col md:flex-row bg-white rounded-lg shadow px-4 py-2 mt-2 w-full max-w-7xl mx-auto">
+    <div
+      className="flex flex-col md:flex-row bg-white rounded-lg shadow px-4 py-2 
+    mt-2 w-full max-w-7xl mx-auto"
+    >
       {/* Hình ảnh sản phẩm */}
       <div className="flex flex-col items-center w-full max-w-[500px] mx-auto md:mx-0">
         {/* Ảnh lớn */}

@@ -173,7 +173,8 @@ const OrderDetail = () => {
     }
   }, [user, navigate]);
 
-  const { data: order, isLoading, error, refetch } = useOrderById(orderId);
+  const { data, isLoading, error, refetch } = useOrderById(orderId);
+  const order = data?.data;
 
   const handleCancelOrder = async () => {
     if (window.confirm("Are you sure you want to cancel this order?")) {

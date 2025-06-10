@@ -405,3 +405,772 @@
 {"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-05 10:42:46:4246"}
 {"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-05 10:42:46:4246"}
 {"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-05 10:42:46:4246"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-05 13:25:17:2517"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-05 13:25:17:2517"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-05 13:25:17:2517"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-05 13:25:17:2517"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-05 14:43:48:4348"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-05 14:43:48:4348"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-05 14:43:48:4348"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-05 14:43:48:4348"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-05 20:22:48:2248"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-05 20:22:48:2248"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-05 20:22:48:2248"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-05 20:22:48:2248"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-05 20:22:48:2248"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-05 20:22:48:2248"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-05 20:22:48:2248"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-05 20:22:48:2248"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-05 20:22:48:2248"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-05 20:22:48:2248"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-05 20:22:48:2248"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-05 20:22:48:2248"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-07 09:45:43:4543"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-07 09:45:43:4543"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-07 09:45:43:4543"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-07 09:45:43:4543"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-07 09:51:49:5149"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-07 09:51:49:5149"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-07 09:51:49:5149"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-07 09:51:49:5149"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-07 09:52:01:521"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-07 09:52:01:521"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-07 09:52:01:521"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-07 09:52:01:521"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-07 09:54:54:5454"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-07 09:54:54:5454"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-07 09:54:54:5454"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-07 09:54:54:5454"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-07 09:55:07:557"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-07 09:55:07:557"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-07 09:55:07:557"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-07 09:55:07:557"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-07 09:55:21:5521"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-07 09:55:21:5521"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-07 09:55:21:5521"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-07 09:55:21:5521"}
+{"ip":"::1","level":"\u001b[31merror\u001b[39m","message":"\u001b[31mError VersionError: No matching document found for id \"683d834cb40b56eacb0575cc\" version 18 modifiedPaths \"cartItems\"\u001b[39m","method":"DELETE","stack":"VersionError: No matching document found for id \"683d834cb40b56eacb0575cc\" version 18 modifiedPaths \"cartItems\"\n    at generateVersionError (E:\\Javascript\\web-e-commerce\\server\\node_modules\\mongoose\\lib\\model.js:572:10)\n    at model.save (E:\\Javascript\\web-e-commerce\\server\\node_modules\\mongoose\\lib\\model.js:630:28)\n    at Module.removeCartItem (file:///E:/Javascript/web-e-commerce/server/src/services/cart.service.js:52:21)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async removeCartItem (file:///E:/Javascript/web-e-commerce/server/src/controllers/cart.controller.js:27:16)","timestamp":"2025-06-07 09:55:51:5551","url":"/api/cart/remove","userAgent":"Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Mobile Safari/537.36","userId":"6826e2a2e6acf3928fe1236c"}
+{"body":{"productId":"682db70bd4979ff54f3dfc66"},"error":{"modifiedPaths":["cartItems"],"version":18},"level":"\u001b[31merror\u001b[39m","message":"\u001b[31mUnhandled Server Error:\u001b[39m","method":"DELETE","params":{},"query":{},"stack":"VersionError: No matching document found for id \"683d834cb40b56eacb0575cc\" version 18 modifiedPaths \"cartItems\"\n    at generateVersionError (E:\\Javascript\\web-e-commerce\\server\\node_modules\\mongoose\\lib\\model.js:572:10)\n    at model.save (E:\\Javascript\\web-e-commerce\\server\\node_modules\\mongoose\\lib\\model.js:630:28)\n    at Module.removeCartItem (file:///E:/Javascript/web-e-commerce/server/src/services/cart.service.js:52:21)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async removeCartItem (file:///E:/Javascript/web-e-commerce/server/src/controllers/cart.controller.js:27:16)","timestamp":"2025-06-07 09:55:51:5551","url":"/api/cart/remove"}
+{"ip":"::1","level":"\u001b[31merror\u001b[39m","message":"\u001b[31mError CastError: Cast to ObjectId failed for value \"user\" (type string) at path \"_id\" for model \"Order\"\u001b[39m","method":"GET","stack":"CastError: Cast to ObjectId failed for value \"user\" (type string) at path \"_id\" for model \"Order\"\n    at SchemaObjectId.cast (E:\\Javascript\\web-e-commerce\\server\\node_modules\\mongoose\\lib\\schema\\objectId.js:251:11)\n    at SchemaType.applySetters (E:\\Javascript\\web-e-commerce\\server\\node_modules\\mongoose\\lib\\schemaType.js:1255:12)\n    at SchemaType.castForQuery (E:\\Javascript\\web-e-commerce\\server\\node_modules\\mongoose\\lib\\schemaType.js:1673:17)\n    at cast (E:\\Javascript\\web-e-commerce\\server\\node_modules\\mongoose\\lib\\cast.js:390:32)\n    at Query.cast (E:\\Javascript\\web-e-commerce\\server\\node_modules\\mongoose\\lib\\query.js:4999:12)\n    at Query._castConditions (E:\\Javascript\\web-e-commerce\\server\\node_modules\\mongoose\\lib\\query.js:2325:10)\n    at model.Query._findOne (E:\\Javascript\\web-e-commerce\\server\\node_modules\\mongoose\\lib\\query.js:2648:8)\n    at model.Query.exec (E:\\Javascript\\web-e-commerce\\server\\node_modules\\mongoose\\lib\\query.js:4548:80)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async Module.getOrderById (file:///E:/Javascript/web-e-commerce/server/src/services/order.service.js:12:10)\n    at async getOrderById (file:///E:/Javascript/web-e-commerce/server/src/controllers/order.controller.js:101:17)","timestamp":"2025-06-07 09:55:53:5553","url":"/api/orders/user?page=1&limit=10","userAgent":"Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Mobile Safari/537.36","userId":"6826e2a2e6acf3928fe1236c"}
+{"ip":"::1","level":"\u001b[31merror\u001b[39m","message":"\u001b[31mError CastError: Cast to ObjectId failed for value \"user\" (type string) at path \"_id\" for model \"Order\"\u001b[39m","method":"GET","stack":"CastError: Cast to ObjectId failed for value \"user\" (type string) at path \"_id\" for model \"Order\"\n    at SchemaObjectId.cast (E:\\Javascript\\web-e-commerce\\server\\node_modules\\mongoose\\lib\\schema\\objectId.js:251:11)\n    at SchemaType.applySetters (E:\\Javascript\\web-e-commerce\\server\\node_modules\\mongoose\\lib\\schemaType.js:1255:12)\n    at SchemaType.castForQuery (E:\\Javascript\\web-e-commerce\\server\\node_modules\\mongoose\\lib\\schemaType.js:1673:17)\n    at cast (E:\\Javascript\\web-e-commerce\\server\\node_modules\\mongoose\\lib\\cast.js:390:32)\n    at Query.cast (E:\\Javascript\\web-e-commerce\\server\\node_modules\\mongoose\\lib\\query.js:4999:12)\n    at Query._castConditions (E:\\Javascript\\web-e-commerce\\server\\node_modules\\mongoose\\lib\\query.js:2325:10)\n    at model.Query._findOne (E:\\Javascript\\web-e-commerce\\server\\node_modules\\mongoose\\lib\\query.js:2648:8)\n    at model.Query.exec (E:\\Javascript\\web-e-commerce\\server\\node_modules\\mongoose\\lib\\query.js:4548:80)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async Module.getOrderById (file:///E:/Javascript/web-e-commerce/server/src/services/order.service.js:12:10)\n    at async getOrderById (file:///E:/Javascript/web-e-commerce/server/src/controllers/order.controller.js:101:17)","timestamp":"2025-06-07 09:57:37:5737","url":"/api/orders/user?page=1&limit=10","userAgent":"Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Mobile Safari/537.36","userId":"6826e2a2e6acf3928fe1236c"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-07 09:58:20:5820"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-07 09:58:20:5820"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-07 09:58:20:5820"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-07 09:58:20:5820"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-07 09:58:31:5831"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-07 09:58:31:5831"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-07 09:58:31:5831"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-07 09:58:31:5831"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-07 09:58:38:5838"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-07 09:58:38:5838"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-07 09:58:38:5838"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-07 09:58:38:5838"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-07 09:58:50:5850"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-07 09:58:50:5850"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-07 09:58:50:5850"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-07 09:58:50:5850"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-07 09:59:07:597"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-07 09:59:07:597"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-07 09:59:07:597"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-07 09:59:07:597"}
+{"ip":"::1","level":"\u001b[33mwarn\u001b[39m","message":"\u001b[33m404 - Route not found: GET /api/orders\u001b[39m","timestamp":"2025-06-07 10:02:46:246","userAgent":"PostmanRuntime/7.44.0"}
+{"ip":"::1","level":"\u001b[31merror\u001b[39m","message":"\u001b[31mError CastError: Cast to ObjectId failed for value \"users\" (type string) at path \"_id\" for model \"Order\"\u001b[39m","method":"GET","stack":"CastError: Cast to ObjectId failed for value \"users\" (type string) at path \"_id\" for model \"Order\"\n    at SchemaObjectId.cast (E:\\Javascript\\web-e-commerce\\server\\node_modules\\mongoose\\lib\\schema\\objectId.js:251:11)\n    at SchemaType.applySetters (E:\\Javascript\\web-e-commerce\\server\\node_modules\\mongoose\\lib\\schemaType.js:1255:12)\n    at SchemaType.castForQuery (E:\\Javascript\\web-e-commerce\\server\\node_modules\\mongoose\\lib\\schemaType.js:1673:17)\n    at cast (E:\\Javascript\\web-e-commerce\\server\\node_modules\\mongoose\\lib\\cast.js:390:32)\n    at Query.cast (E:\\Javascript\\web-e-commerce\\server\\node_modules\\mongoose\\lib\\query.js:4999:12)\n    at Query._castConditions (E:\\Javascript\\web-e-commerce\\server\\node_modules\\mongoose\\lib\\query.js:2325:10)\n    at model.Query._findOne (E:\\Javascript\\web-e-commerce\\server\\node_modules\\mongoose\\lib\\query.js:2648:8)\n    at model.Query.exec (E:\\Javascript\\web-e-commerce\\server\\node_modules\\mongoose\\lib\\query.js:4548:80)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async Module.getOrderById (file:///E:/Javascript/web-e-commerce/server/src/services/order.service.js:12:10)\n    at async getOrderById (file:///E:/Javascript/web-e-commerce/server/src/controllers/order.controller.js:101:17)","timestamp":"2025-06-07 10:03:00:30","url":"/api/orders/users","userAgent":"PostmanRuntime/7.44.0","userId":"6826e2a2e6acf3928fe1236c"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-07 10:05:33:533"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-07 10:05:33:533"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-07 10:05:33:533"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-07 10:05:33:533"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-07 10:06:40:640"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-07 10:06:40:640"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-07 10:06:40:640"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-07 10:06:40:640"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-07 10:52:46:5246"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-07 10:52:46:5246"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-07 10:52:46:5246"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-07 10:52:46:5246"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-07 13:15:02:152"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-07 13:15:02:152"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-07 13:15:02:152"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-07 13:15:02:152"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-07 14:21:55:2155"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-07 14:21:55:2155"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-07 14:21:55:2155"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-07 14:21:55:2155"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-08 12:11:52:1152"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-08 12:11:52:1152"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-08 12:11:52:1152"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-08 12:11:52:1152"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-08 12:14:58:1458"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-08 12:14:58:1458"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-08 12:14:58:1458"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-08 12:14:58:1458"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-08 12:15:11:1511"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-08 12:15:11:1511"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-08 12:15:11:1511"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-08 12:15:11:1511"}
+{"ip":"::1","level":"\u001b[33mwarn\u001b[39m","message":"\u001b[33m404 - Route not found: PUT /api/orders/6843aa3655086ee362c68948\u001b[39m","timestamp":"2025-06-08 12:17:18:1718","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36"}
+{"ip":"::1","level":"\u001b[33mwarn\u001b[39m","message":"\u001b[33m404 - Route not found: PUT /api/orders/6843aa3655086ee362c68948\u001b[39m","timestamp":"2025-06-08 12:17:21:1721","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36"}
+{"ip":"::1","level":"\u001b[33mwarn\u001b[39m","message":"\u001b[33m404 - Route not found: PUT /api/orders/6843aa3655086ee362c68948\u001b[39m","timestamp":"2025-06-08 12:27:41:2741","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36"}
+{"ip":"::1","level":"\u001b[33mwarn\u001b[39m","message":"\u001b[33m404 - Route not found: PUT /api/orders/6843aa3655086ee362c68948\u001b[39m","timestamp":"2025-06-08 12:27:44:2744","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36"}
+{"ip":"::1","level":"\u001b[33mwarn\u001b[39m","message":"\u001b[33m404 - Route not found: PUT /api/orders/6843aa3655086ee362c68948\u001b[39m","timestamp":"2025-06-08 12:27:46:2746","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36"}
+{"ip":"::1","level":"\u001b[33mwarn\u001b[39m","message":"\u001b[33m404 - Route not found: PUT /api/orders/6843aa3655086ee362c68948\u001b[39m","timestamp":"2025-06-08 12:27:49:2749","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36"}
+{"ip":"::1","level":"\u001b[33mwarn\u001b[39m","message":"\u001b[33m404 - Route not found: PUT /api/orders/6843aa3655086ee362c68948\u001b[39m","timestamp":"2025-06-08 12:28:04:284","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-08 12:32:16:3216"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-08 12:32:16:3216"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-08 12:32:16:3216"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-08 12:32:16:3216"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-08 12:32:24:3224"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-08 12:32:24:3224"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-08 12:32:24:3224"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-08 12:32:24:3224"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-08 12:34:05:345"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-08 12:34:05:345"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-08 12:34:05:345"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-08 12:34:05:345"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-08 12:35:50:3550"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-08 12:35:50:3550"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-08 12:35:50:3550"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-08 12:35:50:3550"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-08 12:38:49:3849"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-08 12:38:49:3849"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-08 12:38:49:3849"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-08 12:38:49:3849"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 08:16:06:166"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 08:16:06:166"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 08:16:06:166"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 08:16:06:166"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 09:33:27:3327"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 09:33:27:3327"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 09:33:27:3327"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 09:33:27:3327"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 09:33:46:3346"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 09:33:46:3346"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 09:33:46:3346"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 09:33:46:3346"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 09:34:01:341"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 09:34:01:341"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 09:34:01:341"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 09:34:01:341"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 09:34:09:349"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 09:34:09:349"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 09:34:09:349"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 09:34:09:349"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 09:34:25:3425"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 09:34:25:3425"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 09:34:25:3425"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 09:34:25:3425"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 09:34:33:3433"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 09:34:33:3433"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 09:34:33:3433"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 09:34:33:3433"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 09:34:45:3445"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 09:34:45:3445"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 09:34:45:3445"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 09:34:45:3445"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 09:35:20:3520"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 09:35:20:3520"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 09:35:20:3520"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 09:35:20:3520"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 09:35:40:3540"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 09:35:40:3540"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 09:35:40:3540"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 09:35:40:3540"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 09:36:26:3626"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 09:36:26:3626"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 09:36:26:3626"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 09:36:26:3626"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 09:36:51:3651"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 09:36:51:3651"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 09:36:51:3651"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 09:36:51:3651"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 09:36:54:3654"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 09:36:54:3654"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 09:36:54:3654"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 09:36:54:3654"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 09:41:39:4139"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 09:41:39:4139"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 09:41:39:4139"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 09:41:39:4139"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 09:41:57:4157"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 09:41:57:4157"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 09:41:57:4157"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 09:41:57:4157"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 09:44:06:446"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 09:44:06:446"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 09:44:06:446"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 09:44:06:446"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 10:20:03:203"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 10:20:03:203"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 10:20:03:203"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 10:20:03:203"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 10:30:40:3040"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 10:30:40:3040"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 10:30:40:3040"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 10:30:40:3040"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 10:30:40:3040"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 10:30:40:3040"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 10:30:40:3040"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 10:30:40:3040"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 10:41:20:4120"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 10:41:20:4120"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 10:41:20:4120"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 10:41:20:4120"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 10:41:20:4120"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 10:41:20:4120"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 10:41:20:4120"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 10:41:20:4120"}
+{"date":"Mon Jun 09 2025 10:41:22 GMT+0700 (GMT+07:00)","error":{},"level":"\u001b[31merror\u001b[39m","message":"\u001b[31munhandledRejection: Query timeout\u001b[39m\n\u001b[31mError: Query timeout\u001b[39m\n\u001b[31m    at Timeout._onTimeout (file:///E:/Javascript/web-e-commerce/server/src/services/search.service.js:16:33)\u001b[39m\n\u001b[31m    at listOnTimeout (node:internal/timers:594:17)\u001b[39m\n\u001b[31m    at process.processTimers (node:internal/timers:529:7)\u001b[39m","os":{"loadavg":[0,0,0],"uptime":11309.5},"process":{"argv":["node","E:\\Javascript\\web-e-commerce\\server\\server.js"],"cwd":"E:\\Javascript\\web-e-commerce\\server","execPath":"C:\\Program Files\\nodejs\\node.exe","gid":null,"memoryUsage":{"arrayBuffers":18381825,"external":21679388,"heapTotal":83890176,"heapUsed":48939888,"rss":135942144},"pid":11680,"uid":null,"version":"v22.14.0"},"rejection":true,"stack":"Error: Query timeout\n    at Timeout._onTimeout (file:///E:/Javascript/web-e-commerce/server/src/services/search.service.js:16:33)\n    at listOnTimeout (node:internal/timers:594:17)\n    at process.processTimers (node:internal/timers:529:7)","timestamp":"2025-06-09 10:41:22:4122","trace":[{"column":33,"file":"file:///E:/Javascript/web-e-commerce/server/src/services/search.service.js","function":"Timeout._onTimeout","line":16,"method":"_onTimeout","native":false},{"column":17,"file":"node:internal/timers","function":"listOnTimeout","line":594,"method":null,"native":false},{"column":7,"file":"node:internal/timers","function":"process.processTimers","line":529,"method":"processTimers","native":false}]}
+{"level":"\u001b[31merror\u001b[39m","message":"\u001b[31mUnhandled Rejection at:\u001b[39m","timestamp":"2025-06-09 10:41:22:4122"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 10:41:49:4149"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 10:41:49:4149"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 10:41:49:4149"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 10:41:49:4149"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 10:41:49:4149"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 10:41:49:4149"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 10:41:49:4149"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 10:41:49:4149"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 10:42:11:4211"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 10:42:11:4211"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 10:42:11:4211"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 10:42:11:4211"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 10:42:11:4211"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 10:42:11:4211"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 10:42:11:4211"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 10:42:11:4211"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 10:42:27:4227"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 10:42:27:4227"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 10:42:27:4227"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 10:42:27:4227"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 10:42:27:4227"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 10:42:27:4227"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 10:42:27:4227"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 10:42:27:4227"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 10:42:47:4247"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 10:42:47:4247"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 10:42:47:4247"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 10:42:47:4247"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 10:42:47:4247"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 10:42:47:4247"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 10:42:47:4247"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 10:42:47:4247"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 10:43:06:436"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 10:43:06:436"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 10:43:06:436"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 10:43:06:436"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 10:43:06:436"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 10:43:06:436"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 10:43:06:436"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 10:43:06:436"}
+{"date":"Mon Jun 09 2025 10:43:37 GMT+0700 (GMT+07:00)","error":{},"level":"\u001b[31merror\u001b[39m","message":"\u001b[31munhandledRejection: Query timeout\u001b[39m\n\u001b[31mError: Query timeout\u001b[39m\n\u001b[31m    at Timeout._onTimeout (file:///E:/Javascript/web-e-commerce/server/src/services/search.service.js:227:33)\u001b[39m\n\u001b[31m    at listOnTimeout (node:internal/timers:594:17)\u001b[39m\n\u001b[31m    at process.processTimers (node:internal/timers:529:7)\u001b[39m","os":{"loadavg":[0,0,0],"uptime":11444.312},"process":{"argv":["node","E:\\Javascript\\web-e-commerce\\server\\server.js"],"cwd":"E:\\Javascript\\web-e-commerce\\server","execPath":"C:\\Program Files\\nodejs\\node.exe","gid":null,"memoryUsage":{"arrayBuffers":18391073,"external":21654316,"heapTotal":49549312,"heapUsed":46808192,"rss":105254912},"pid":8344,"uid":null,"version":"v22.14.0"},"rejection":true,"stack":"Error: Query timeout\n    at Timeout._onTimeout (file:///E:/Javascript/web-e-commerce/server/src/services/search.service.js:227:33)\n    at listOnTimeout (node:internal/timers:594:17)\n    at process.processTimers (node:internal/timers:529:7)","timestamp":"2025-06-09 10:43:37:4337","trace":[{"column":33,"file":"file:///E:/Javascript/web-e-commerce/server/src/services/search.service.js","function":"Timeout._onTimeout","line":227,"method":"_onTimeout","native":false},{"column":17,"file":"node:internal/timers","function":"listOnTimeout","line":594,"method":null,"native":false},{"column":7,"file":"node:internal/timers","function":"process.processTimers","line":529,"method":"processTimers","native":false}]}
+{"level":"\u001b[31merror\u001b[39m","message":"\u001b[31mUnhandled Rejection at:\u001b[39m","timestamp":"2025-06-09 10:43:37:4337"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 10:44:27:4427"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 10:44:27:4427"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 10:44:27:4427"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 10:44:27:4427"}
+{"date":"Mon Jun 09 2025 10:44:39 GMT+0700 (GMT+07:00)","error":{},"level":"\u001b[31merror\u001b[39m","message":"\u001b[31munhandledRejection: Query timeout\u001b[39m\n\u001b[31mError: Query timeout\u001b[39m\n\u001b[31m    at Timeout._onTimeout (file:///E:/Javascript/web-e-commerce/server/src/services/search.service.js:227:33)\u001b[39m\n\u001b[31m    at listOnTimeout (node:internal/timers:594:17)\u001b[39m\n\u001b[31m    at process.processTimers (node:internal/timers:529:7)\u001b[39m","os":{"loadavg":[0,0,0],"uptime":11506.406},"process":{"argv":["node","E:\\Javascript\\web-e-commerce\\server\\server.js"],"cwd":"E:\\Javascript\\web-e-commerce\\server","execPath":"C:\\Program Files\\nodejs\\node.exe","gid":null,"memoryUsage":{"arrayBuffers":18358116,"external":21625649,"heapTotal":52957184,"heapUsed":46511536,"rss":105304064},"pid":20852,"uid":null,"version":"v22.14.0"},"rejection":true,"stack":"Error: Query timeout\n    at Timeout._onTimeout (file:///E:/Javascript/web-e-commerce/server/src/services/search.service.js:227:33)\n    at listOnTimeout (node:internal/timers:594:17)\n    at process.processTimers (node:internal/timers:529:7)","timestamp":"2025-06-09 10:44:39:4439","trace":[{"column":33,"file":"file:///E:/Javascript/web-e-commerce/server/src/services/search.service.js","function":"Timeout._onTimeout","line":227,"method":"_onTimeout","native":false},{"column":17,"file":"node:internal/timers","function":"listOnTimeout","line":594,"method":null,"native":false},{"column":7,"file":"node:internal/timers","function":"process.processTimers","line":529,"method":"processTimers","native":false}]}
+{"level":"\u001b[31merror\u001b[39m","message":"\u001b[31mUnhandled Rejection at:\u001b[39m","timestamp":"2025-06-09 10:44:39:4439"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 10:47:17:4717"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 10:47:17:4717"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 10:47:17:4717"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 10:47:17:4717"}
+{"date":"Mon Jun 09 2025 10:47:34 GMT+0700 (GMT+07:00)","error":{},"level":"\u001b[31merror\u001b[39m","message":"\u001b[31munhandledRejection: Query timeout\u001b[39m\n\u001b[31mError: Query timeout\u001b[39m\n\u001b[31m    at Timeout._onTimeout (file:///E:/Javascript/web-e-commerce/server/src/services/search.service.js:227:33)\u001b[39m\n\u001b[31m    at listOnTimeout (node:internal/timers:594:17)\u001b[39m\n\u001b[31m    at process.processTimers (node:internal/timers:529:7)\u001b[39m","os":{"loadavg":[0,0,0],"uptime":11680.89},"process":{"argv":["node","E:\\Javascript\\web-e-commerce\\server\\server.js"],"cwd":"E:\\Javascript\\web-e-commerce\\server","execPath":"C:\\Program Files\\nodejs\\node.exe","gid":null,"memoryUsage":{"arrayBuffers":18474465,"external":21737708,"heapTotal":50597888,"heapUsed":47489488,"rss":107642880},"pid":10436,"uid":null,"version":"v22.14.0"},"rejection":true,"stack":"Error: Query timeout\n    at Timeout._onTimeout (file:///E:/Javascript/web-e-commerce/server/src/services/search.service.js:227:33)\n    at listOnTimeout (node:internal/timers:594:17)\n    at process.processTimers (node:internal/timers:529:7)","timestamp":"2025-06-09 10:47:34:4734","trace":[{"column":33,"file":"file:///E:/Javascript/web-e-commerce/server/src/services/search.service.js","function":"Timeout._onTimeout","line":227,"method":"_onTimeout","native":false},{"column":17,"file":"node:internal/timers","function":"listOnTimeout","line":594,"method":null,"native":false},{"column":7,"file":"node:internal/timers","function":"process.processTimers","line":529,"method":"processTimers","native":false}]}
+{"level":"\u001b[31merror\u001b[39m","message":"\u001b[31mUnhandled Rejection at:\u001b[39m","timestamp":"2025-06-09 10:47:34:4734"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 10:47:58:4758"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 10:47:58:4758"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 10:47:58:4758"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 10:47:58:4758"}
+{"date":"Mon Jun 09 2025 10:48:04 GMT+0700 (GMT+07:00)","error":{},"level":"\u001b[31merror\u001b[39m","message":"\u001b[31munhandledRejection: Query timeout\u001b[39m\n\u001b[31mError: Query timeout\u001b[39m\n\u001b[31m    at Timeout._onTimeout (file:///E:/Javascript/web-e-commerce/server/src/services/search.service.js:227:33)\u001b[39m\n\u001b[31m    at listOnTimeout (node:internal/timers:594:17)\u001b[39m\n\u001b[31m    at process.processTimers (node:internal/timers:529:7)\u001b[39m","os":{"loadavg":[0,0,0],"uptime":11711.078},"process":{"argv":["node","E:\\Javascript\\web-e-commerce\\server\\server.js"],"cwd":"E:\\Javascript\\web-e-commerce\\server","execPath":"C:\\Program Files\\nodejs\\node.exe","gid":null,"memoryUsage":{"arrayBuffers":18388555,"external":21686118,"heapTotal":83365888,"heapUsed":50046088,"rss":135856128},"pid":23040,"uid":null,"version":"v22.14.0"},"rejection":true,"stack":"Error: Query timeout\n    at Timeout._onTimeout (file:///E:/Javascript/web-e-commerce/server/src/services/search.service.js:227:33)\n    at listOnTimeout (node:internal/timers:594:17)\n    at process.processTimers (node:internal/timers:529:7)","timestamp":"2025-06-09 10:48:04:484","trace":[{"column":33,"file":"file:///E:/Javascript/web-e-commerce/server/src/services/search.service.js","function":"Timeout._onTimeout","line":227,"method":"_onTimeout","native":false},{"column":17,"file":"node:internal/timers","function":"listOnTimeout","line":594,"method":null,"native":false},{"column":7,"file":"node:internal/timers","function":"process.processTimers","line":529,"method":"processTimers","native":false}]}
+{"level":"\u001b[31merror\u001b[39m","message":"\u001b[31mUnhandled Rejection at:\u001b[39m","timestamp":"2025-06-09 10:48:04:484"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 10:49:21:4921"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 10:49:21:4921"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 10:49:21:4921"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 10:49:21:4921"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 10:49:21:4921"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 10:49:21:4921"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 10:49:21:4921"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 10:49:21:4921"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 10:52:48:5248"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 10:52:48:5248"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 10:52:48:5248"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 10:52:48:5248"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 10:53:48:5348"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 10:53:48:5348"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 10:53:48:5348"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 10:53:48:5348"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 10:53:48:5348"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 10:53:48:5348"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 10:53:48:5348"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 10:53:48:5348"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 11:00:06:06"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 11:00:06:06"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 11:00:06:06"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 11:00:06:06"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 11:00:06:06"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 11:00:06:06"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 11:00:06:06"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 11:00:06:06"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 11:01:55:155"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 11:01:55:155"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 11:01:55:155"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 11:01:55:155"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 11:01:55:155"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 11:01:55:155"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 11:01:55:155"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 11:01:55:155"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 11:03:39:339"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 11:03:39:339"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 11:03:39:339"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 11:03:39:339"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 11:03:39:339"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 11:03:39:339"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 11:03:39:339"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 11:03:39:339"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 11:04:07:47"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 11:04:07:47"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 11:04:07:47"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 11:04:07:47"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 11:04:07:47"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 11:04:07:47"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 11:04:07:47"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 11:04:07:47"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 11:04:33:433"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 11:04:33:433"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 11:04:33:433"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 11:04:33:433"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 11:04:33:433"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 11:04:33:433"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 11:04:33:433"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 11:04:33:433"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 11:04:54:454"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 11:04:54:454"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 11:04:54:454"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 11:04:54:454"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 11:05:52:552"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 11:05:52:552"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 11:05:52:552"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 11:05:52:552"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 11:05:52:552"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 11:05:52:552"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 11:05:52:552"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 11:05:52:552"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 11:08:30:830"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 11:08:30:830"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 11:08:30:830"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 11:08:30:830"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 11:08:30:830"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 11:08:30:830"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 11:08:30:830"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 11:08:30:830"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 11:10:36:1036"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 11:10:36:1036"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 11:10:36:1036"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 11:10:36:1036"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 11:10:36:1036"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 11:10:36:1036"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 11:10:36:1036"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 11:10:36:1036"}
+{"date":"Mon Jun 09 2025 11:10:39 GMT+0700 (GMT+07:00)","error":{},"level":"\u001b[31merror\u001b[39m","message":"\u001b[31munhandledRejection: Query timeout\u001b[39m\n\u001b[31mError: Query timeout\u001b[39m\n\u001b[31m    at Timeout._onTimeout (file:///E:/Javascript/web-e-commerce/server/src/services/search.service.js:104:33)\u001b[39m\n\u001b[31m    at listOnTimeout (node:internal/timers:594:17)\u001b[39m\n\u001b[31m    at process.processTimers (node:internal/timers:529:7)\u001b[39m","os":{"loadavg":[0,0,0],"uptime":13066.375},"process":{"argv":["node","E:\\Javascript\\web-e-commerce\\server\\server.js"],"cwd":"E:\\Javascript\\web-e-commerce\\server","execPath":"C:\\Program Files\\nodejs\\node.exe","gid":null,"memoryUsage":{"arrayBuffers":18359235,"external":21656798,"heapTotal":83365888,"heapUsed":48747008,"rss":133955584},"pid":6488,"uid":null,"version":"v22.14.0"},"rejection":true,"stack":"Error: Query timeout\n    at Timeout._onTimeout (file:///E:/Javascript/web-e-commerce/server/src/services/search.service.js:104:33)\n    at listOnTimeout (node:internal/timers:594:17)\n    at process.processTimers (node:internal/timers:529:7)","timestamp":"2025-06-09 11:10:39:1039","trace":[{"column":33,"file":"file:///E:/Javascript/web-e-commerce/server/src/services/search.service.js","function":"Timeout._onTimeout","line":104,"method":"_onTimeout","native":false},{"column":17,"file":"node:internal/timers","function":"listOnTimeout","line":594,"method":null,"native":false},{"column":7,"file":"node:internal/timers","function":"process.processTimers","line":529,"method":"processTimers","native":false}]}
+{"level":"\u001b[31merror\u001b[39m","message":"\u001b[31mUnhandled Rejection at:\u001b[39m","timestamp":"2025-06-09 11:10:39:1039"}
+{"date":"Mon Jun 09 2025 11:10:39 GMT+0700 (GMT+07:00)","error":{},"level":"\u001b[31merror\u001b[39m","message":"\u001b[31munhandledRejection: Query timeout\u001b[39m\n\u001b[31mError: Query timeout\u001b[39m\n\u001b[31m    at Timeout._onTimeout (file:///E:/Javascript/web-e-commerce/server/src/services/search.service.js:104:33)\u001b[39m\n\u001b[31m    at listOnTimeout (node:internal/timers:594:17)\u001b[39m\n\u001b[31m    at process.processTimers (node:internal/timers:529:7)\u001b[39m","os":{"loadavg":[0,0,0],"uptime":13066.375},"process":{"argv":["node","E:\\Javascript\\web-e-commerce\\server\\server.js"],"cwd":"E:\\Javascript\\web-e-commerce\\server","execPath":"C:\\Program Files\\nodejs\\node.exe","gid":null,"memoryUsage":{"arrayBuffers":18359259,"external":21656862,"heapTotal":83365888,"heapUsed":48926264,"rss":133988352},"pid":6488,"uid":null,"version":"v22.14.0"},"rejection":true,"stack":"Error: Query timeout\n    at Timeout._onTimeout (file:///E:/Javascript/web-e-commerce/server/src/services/search.service.js:104:33)\n    at listOnTimeout (node:internal/timers:594:17)\n    at process.processTimers (node:internal/timers:529:7)","timestamp":"2025-06-09 11:10:39:1039","trace":[{"column":33,"file":"file:///E:/Javascript/web-e-commerce/server/src/services/search.service.js","function":"Timeout._onTimeout","line":104,"method":"_onTimeout","native":false},{"column":17,"file":"node:internal/timers","function":"listOnTimeout","line":594,"method":null,"native":false},{"column":7,"file":"node:internal/timers","function":"process.processTimers","line":529,"method":"processTimers","native":false}]}
+{"level":"\u001b[31merror\u001b[39m","message":"\u001b[31mUnhandled Rejection at:\u001b[39m","timestamp":"2025-06-09 11:10:39:1039"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 11:11:38:1138"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 11:11:38:1138"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 11:11:38:1138"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 11:11:38:1138"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 11:11:38:1138"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 11:11:38:1138"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 11:11:38:1138"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 11:11:38:1138"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 11:11:46:1146"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 11:11:46:1146"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 11:11:46:1146"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 11:11:46:1146"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 11:13:11:1311"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 11:13:11:1311"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 11:13:11:1311"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 11:13:11:1311"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 11:13:11:1311"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 11:13:11:1311"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 11:13:11:1311"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 11:13:11:1311"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 11:14:18:1418"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 11:14:18:1418"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 11:14:18:1418"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 11:14:18:1418"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 11:14:18:1418"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 11:14:18:1418"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 11:14:18:1418"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 11:14:18:1418"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 11:14:41:1441"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 11:14:41:1441"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 11:14:41:1441"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 11:14:41:1441"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 11:16:47:1647"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 11:16:47:1647"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 11:16:47:1647"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 11:16:47:1647"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 11:16:47:1647"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 11:16:47:1647"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 11:16:47:1647"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 11:16:47:1647"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 11:18:12:1812"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 11:18:12:1812"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 11:18:12:1812"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 11:18:12:1812"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 11:22:21:2221"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 11:22:21:2221"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 11:22:21:2221"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 11:22:21:2221"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 11:25:16:2516"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 11:25:16:2516"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 11:25:16:2516"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 11:25:16:2516"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 11:25:54:2554"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 11:25:54:2554"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 11:25:54:2554"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 11:25:54:2554"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 11:35:51:3551"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 11:35:51:3551"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 11:35:51:3551"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 11:35:51:3551"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 11:36:17:3617"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 11:36:17:3617"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 11:36:17:3617"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 11:36:17:3617"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 11:36:43:3643"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 11:36:43:3643"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 11:36:43:3643"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 11:36:43:3643"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 11:38:25:3825"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 11:38:25:3825"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 11:38:25:3825"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 11:38:25:3825"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 11:39:16:3916"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 11:39:16:3916"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 11:39:16:3916"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 11:39:16:3916"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 11:39:28:3928"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 11:39:28:3928"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 11:39:28:3928"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 11:39:28:3928"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 11:40:29:4029"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 11:40:29:4029"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 11:40:29:4029"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 11:40:29:4029"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 11:41:06:416"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 11:41:06:416"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 11:41:06:416"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 11:41:06:416"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 11:43:43:4343"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 11:43:43:4343"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 11:43:43:4343"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 11:43:43:4343"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 11:53:33:5333"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 11:53:33:5333"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 11:53:33:5333"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 11:53:33:5333"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 11:54:53:5453"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 11:54:53:5453"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 11:54:53:5453"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 11:54:53:5453"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 11:55:43:5543"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 11:55:43:5543"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 11:55:43:5543"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 11:55:43:5543"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 11:56:03:563"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 11:56:03:563"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 11:56:03:563"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 11:56:03:563"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 11:56:21:5621"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 11:56:21:5621"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 11:56:21:5621"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 11:56:21:5621"}
+{"date":"Mon Jun 09 2025 11:57:03 GMT+0700 (GMT+07:00)","error":{},"level":"\u001b[31merror\u001b[39m","message":"\u001b[31munhandledRejection: Query timeout\u001b[39m\n\u001b[31mError: Query timeout\u001b[39m\n\u001b[31m    at Timeout._onTimeout (file:///E:/Javascript/web-e-commerce/server/src/services/search.service.js:266:33)\u001b[39m\n\u001b[31m    at listOnTimeout (node:internal/timers:594:17)\u001b[39m\n\u001b[31m    at process.processTimers (node:internal/timers:529:7)\u001b[39m","os":{"loadavg":[0,0,0],"uptime":2199.437},"process":{"argv":["node","E:\\Javascript\\web-e-commerce\\server\\server.js"],"cwd":"E:\\Javascript\\web-e-commerce\\server","execPath":"C:\\Program Files\\nodejs\\node.exe","gid":null,"memoryUsage":{"arrayBuffers":18597213,"external":21860456,"heapTotal":50860032,"heapUsed":48465112,"rss":105795584},"pid":15108,"uid":null,"version":"v22.14.0"},"rejection":true,"stack":"Error: Query timeout\n    at Timeout._onTimeout (file:///E:/Javascript/web-e-commerce/server/src/services/search.service.js:266:33)\n    at listOnTimeout (node:internal/timers:594:17)\n    at process.processTimers (node:internal/timers:529:7)","timestamp":"2025-06-09 11:57:03:573","trace":[{"column":33,"file":"file:///E:/Javascript/web-e-commerce/server/src/services/search.service.js","function":"Timeout._onTimeout","line":266,"method":"_onTimeout","native":false},{"column":17,"file":"node:internal/timers","function":"listOnTimeout","line":594,"method":null,"native":false},{"column":7,"file":"node:internal/timers","function":"process.processTimers","line":529,"method":"processTimers","native":false}]}
+{"level":"\u001b[31merror\u001b[39m","message":"\u001b[31mUnhandled Rejection at:\u001b[39m","timestamp":"2025-06-09 11:57:03:573"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 11:58:29:5829"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 11:58:29:5829"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 11:58:29:5829"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 11:58:29:5829"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 11:58:36:5836"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 11:58:36:5836"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 11:58:36:5836"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 11:58:36:5836"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 11:58:43:5843"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 11:58:43:5843"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 11:58:43:5843"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 11:58:43:5843"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 11:59:14:5914"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 11:59:14:5914"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 11:59:14:5914"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 11:59:14:5914"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 12:00:02:02"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 12:00:02:02"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 12:00:02:02"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 12:00:02:02"}
+{"date":"Mon Jun 09 2025 12:00:34 GMT+0700 (GMT+07:00)","error":{},"level":"\u001b[31merror\u001b[39m","message":"\u001b[31munhandledRejection: Query timeout\u001b[39m\n\u001b[31mError: Query timeout\u001b[39m\n\u001b[31m    at Timeout._onTimeout (file:///E:/Javascript/web-e-commerce/server/src/services/search.service.js:290:33)\u001b[39m\n\u001b[31m    at listOnTimeout (node:internal/timers:594:17)\u001b[39m\n\u001b[31m    at process.processTimers (node:internal/timers:529:7)\u001b[39m","os":{"loadavg":[0,0,0],"uptime":2410.312},"process":{"argv":["node","E:\\Javascript\\web-e-commerce\\server\\server.js"],"cwd":"E:\\Javascript\\web-e-commerce\\server","execPath":"C:\\Program Files\\nodejs\\node.exe","gid":null,"memoryUsage":{"arrayBuffers":18483704,"external":21746947,"heapTotal":51384320,"heapUsed":47153064,"rss":106201088},"pid":14944,"uid":null,"version":"v22.14.0"},"rejection":true,"stack":"Error: Query timeout\n    at Timeout._onTimeout (file:///E:/Javascript/web-e-commerce/server/src/services/search.service.js:290:33)\n    at listOnTimeout (node:internal/timers:594:17)\n    at process.processTimers (node:internal/timers:529:7)","timestamp":"2025-06-09 12:00:34:034","trace":[{"column":33,"file":"file:///E:/Javascript/web-e-commerce/server/src/services/search.service.js","function":"Timeout._onTimeout","line":290,"method":"_onTimeout","native":false},{"column":17,"file":"node:internal/timers","function":"listOnTimeout","line":594,"method":null,"native":false},{"column":7,"file":"node:internal/timers","function":"process.processTimers","line":529,"method":"processTimers","native":false}]}
+{"level":"\u001b[31merror\u001b[39m","message":"\u001b[31mUnhandled Rejection at:\u001b[39m","timestamp":"2025-06-09 12:00:34:034"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 12:04:33:433"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 12:04:33:433"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 12:04:33:433"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 12:04:33:433"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 12:05:18:518"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 12:05:18:518"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 12:05:18:518"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 12:05:18:518"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 12:05:59:559"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 12:05:59:559"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 12:05:59:559"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 12:05:59:559"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 12:06:57:657"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 12:06:57:657"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 12:06:57:657"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 12:06:57:657"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 12:09:43:943"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 12:09:43:943"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 12:09:43:943"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 12:09:43:943"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 12:29:46:2946"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 12:29:46:2946"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 12:29:46:2946"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 12:29:46:2946"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 12:31:10:3110"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 12:31:10:3110"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 12:31:10:3110"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 12:31:10:3110"}
+{"date":"Mon Jun 09 2025 12:31:55 GMT+0700 (GMT+07:00)","error":{},"level":"\u001b[31merror\u001b[39m","message":"\u001b[31munhandledRejection: Timeout\u001b[39m\n\u001b[31mError: Timeout\u001b[39m\n\u001b[31m    at Timeout._onTimeout (file:///E:/Javascript/web-e-commerce/server/src/routes/search.route.js:307:31)\u001b[39m\n\u001b[31m    at listOnTimeout (node:internal/timers:594:17)\u001b[39m\n\u001b[31m    at process.processTimers (node:internal/timers:529:7)\u001b[39m","os":{"loadavg":[0,0,0],"uptime":4291.031},"process":{"argv":["node","E:\\Javascript\\web-e-commerce\\server\\server.js"],"cwd":"E:\\Javascript\\web-e-commerce\\server","execPath":"C:\\Program Files\\nodejs\\node.exe","gid":null,"memoryUsage":{"arrayBuffers":18344620,"external":21632705,"heapTotal":47714304,"heapUsed":44785296,"rss":101793792},"pid":14160,"uid":null,"version":"v22.14.0"},"rejection":true,"stack":"Error: Timeout\n    at Timeout._onTimeout (file:///E:/Javascript/web-e-commerce/server/src/routes/search.route.js:307:31)\n    at listOnTimeout (node:internal/timers:594:17)\n    at process.processTimers (node:internal/timers:529:7)","timestamp":"2025-06-09 12:31:55:3155","trace":[{"column":31,"file":"file:///E:/Javascript/web-e-commerce/server/src/routes/search.route.js","function":"Timeout._onTimeout","line":307,"method":"_onTimeout","native":false},{"column":17,"file":"node:internal/timers","function":"listOnTimeout","line":594,"method":null,"native":false},{"column":7,"file":"node:internal/timers","function":"process.processTimers","line":529,"method":"processTimers","native":false}]}
+{"level":"\u001b[31merror\u001b[39m","message":"\u001b[31mUnhandled Rejection at:\u001b[39m","timestamp":"2025-06-09 12:31:55:3155"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 12:32:17:3217"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 12:32:17:3217"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 12:32:17:3217"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 12:32:17:3217"}
+{"date":"Mon Jun 09 2025 12:32:54 GMT+0700 (GMT+07:00)","error":{},"level":"\u001b[31merror\u001b[39m","message":"\u001b[31munhandledRejection: Timeout\u001b[39m\n\u001b[31mError: Timeout\u001b[39m\n\u001b[31m    at Timeout._onTimeout (file:///E:/Javascript/web-e-commerce/server/src/routes/search.route.js:392:31)\u001b[39m\n\u001b[31m    at listOnTimeout (node:internal/timers:594:17)\u001b[39m\n\u001b[31m    at process.processTimers (node:internal/timers:529:7)\u001b[39m","os":{"loadavg":[0,0,0],"uptime":4350.171},"process":{"argv":["node","E:\\Javascript\\web-e-commerce\\server\\server.js"],"cwd":"E:\\Javascript\\web-e-commerce\\server","execPath":"C:\\Program Files\\nodejs\\node.exe","gid":null,"memoryUsage":{"arrayBuffers":18385648,"external":21648891,"heapTotal":49025024,"heapUsed":46190344,"rss":103743488},"pid":20688,"uid":null,"version":"v22.14.0"},"rejection":true,"stack":"Error: Timeout\n    at Timeout._onTimeout (file:///E:/Javascript/web-e-commerce/server/src/routes/search.route.js:392:31)\n    at listOnTimeout (node:internal/timers:594:17)\n    at process.processTimers (node:internal/timers:529:7)","timestamp":"2025-06-09 12:32:54:3254","trace":[{"column":31,"file":"file:///E:/Javascript/web-e-commerce/server/src/routes/search.route.js","function":"Timeout._onTimeout","line":392,"method":"_onTimeout","native":false},{"column":17,"file":"node:internal/timers","function":"listOnTimeout","line":594,"method":null,"native":false},{"column":7,"file":"node:internal/timers","function":"process.processTimers","line":529,"method":"processTimers","native":false}]}
+{"level":"\u001b[31merror\u001b[39m","message":"\u001b[31mUnhandled Rejection at:\u001b[39m","timestamp":"2025-06-09 12:32:54:3254"}
+{"date":"Mon Jun 09 2025 12:32:54 GMT+0700 (GMT+07:00)","error":{},"level":"\u001b[31merror\u001b[39m","message":"\u001b[31munhandledRejection: Timeout\u001b[39m\n\u001b[31mError: Timeout\u001b[39m\n\u001b[31m    at Timeout._onTimeout (file:///E:/Javascript/web-e-commerce/server/src/routes/search.route.js:392:31)\u001b[39m\n\u001b[31m    at listOnTimeout (node:internal/timers:594:17)\u001b[39m\n\u001b[31m    at process.processTimers (node:internal/timers:529:7)\u001b[39m","os":{"loadavg":[0,0,0],"uptime":4350.171},"process":{"argv":["node","E:\\Javascript\\web-e-commerce\\server\\server.js"],"cwd":"E:\\Javascript\\web-e-commerce\\server","execPath":"C:\\Program Files\\nodejs\\node.exe","gid":null,"memoryUsage":{"arrayBuffers":18393864,"external":21657147,"heapTotal":49025024,"heapUsed":46375808,"rss":103776256},"pid":20688,"uid":null,"version":"v22.14.0"},"rejection":true,"stack":"Error: Timeout\n    at Timeout._onTimeout (file:///E:/Javascript/web-e-commerce/server/src/routes/search.route.js:392:31)\n    at listOnTimeout (node:internal/timers:594:17)\n    at process.processTimers (node:internal/timers:529:7)","timestamp":"2025-06-09 12:32:54:3254","trace":[{"column":31,"file":"file:///E:/Javascript/web-e-commerce/server/src/routes/search.route.js","function":"Timeout._onTimeout","line":392,"method":"_onTimeout","native":false},{"column":17,"file":"node:internal/timers","function":"listOnTimeout","line":594,"method":null,"native":false},{"column":7,"file":"node:internal/timers","function":"process.processTimers","line":529,"method":"processTimers","native":false}]}
+{"level":"\u001b[31merror\u001b[39m","message":"\u001b[31mUnhandled Rejection at:\u001b[39m","timestamp":"2025-06-09 12:32:54:3254"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 12:33:05:335"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 12:33:05:335"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 12:33:05:335"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 12:33:05:335"}
+{"date":"Mon Jun 09 2025 12:33:09 GMT+0700 (GMT+07:00)","error":{},"level":"\u001b[31merror\u001b[39m","message":"\u001b[31munhandledRejection: Timeout\u001b[39m\n\u001b[31mError: Timeout\u001b[39m\n\u001b[31m    at Timeout._onTimeout (file:///E:/Javascript/web-e-commerce/server/src/routes/search.route.js:392:31)\u001b[39m\n\u001b[31m    at listOnTimeout (node:internal/timers:594:17)\u001b[39m\n\u001b[31m    at process.processTimers (node:internal/timers:529:7)\u001b[39m","os":{"loadavg":[0,0,0],"uptime":4365.578},"process":{"argv":["node","E:\\Javascript\\web-e-commerce\\server\\server.js"],"cwd":"E:\\Javascript\\web-e-commerce\\server","execPath":"C:\\Program Files\\nodejs\\node.exe","gid":null,"memoryUsage":{"arrayBuffers":18551684,"external":21849247,"heapTotal":83628032,"heapUsed":51905832,"rss":135749632},"pid":21404,"uid":null,"version":"v22.14.0"},"rejection":true,"stack":"Error: Timeout\n    at Timeout._onTimeout (file:///E:/Javascript/web-e-commerce/server/src/routes/search.route.js:392:31)\n    at listOnTimeout (node:internal/timers:594:17)\n    at process.processTimers (node:internal/timers:529:7)","timestamp":"2025-06-09 12:33:09:339","trace":[{"column":31,"file":"file:///E:/Javascript/web-e-commerce/server/src/routes/search.route.js","function":"Timeout._onTimeout","line":392,"method":"_onTimeout","native":false},{"column":17,"file":"node:internal/timers","function":"listOnTimeout","line":594,"method":null,"native":false},{"column":7,"file":"node:internal/timers","function":"process.processTimers","line":529,"method":"processTimers","native":false}]}
+{"level":"\u001b[31merror\u001b[39m","message":"\u001b[31mUnhandled Rejection at:\u001b[39m","timestamp":"2025-06-09 12:33:09:339"}
+{"date":"Mon Jun 09 2025 12:33:09 GMT+0700 (GMT+07:00)","error":{},"level":"\u001b[31merror\u001b[39m","message":"\u001b[31munhandledRejection: Timeout\u001b[39m\n\u001b[31mError: Timeout\u001b[39m\n\u001b[31m    at Timeout._onTimeout (file:///E:/Javascript/web-e-commerce/server/src/routes/search.route.js:392:31)\u001b[39m\n\u001b[31m    at listOnTimeout (node:internal/timers:594:17)\u001b[39m\n\u001b[31m    at process.processTimers (node:internal/timers:529:7)\u001b[39m","os":{"loadavg":[0,0,0],"uptime":4365.593},"process":{"argv":["node","E:\\Javascript\\web-e-commerce\\server\\server.js"],"cwd":"E:\\Javascript\\web-e-commerce\\server","execPath":"C:\\Program Files\\nodejs\\node.exe","gid":null,"memoryUsage":{"arrayBuffers":18559900,"external":21857503,"heapTotal":83628032,"heapUsed":52090008,"rss":135962624},"pid":21404,"uid":null,"version":"v22.14.0"},"rejection":true,"stack":"Error: Timeout\n    at Timeout._onTimeout (file:///E:/Javascript/web-e-commerce/server/src/routes/search.route.js:392:31)\n    at listOnTimeout (node:internal/timers:594:17)\n    at process.processTimers (node:internal/timers:529:7)","timestamp":"2025-06-09 12:33:09:339","trace":[{"column":31,"file":"file:///E:/Javascript/web-e-commerce/server/src/routes/search.route.js","function":"Timeout._onTimeout","line":392,"method":"_onTimeout","native":false},{"column":17,"file":"node:internal/timers","function":"listOnTimeout","line":594,"method":null,"native":false},{"column":7,"file":"node:internal/timers","function":"process.processTimers","line":529,"method":"processTimers","native":false}]}
+{"level":"\u001b[31merror\u001b[39m","message":"\u001b[31mUnhandled Rejection at:\u001b[39m","timestamp":"2025-06-09 12:33:09:339"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 12:35:01:351"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 12:35:01:351"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 12:35:01:351"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 12:35:01:351"}
+{"date":"Mon Jun 09 2025 12:36:19 GMT+0700 (GMT+07:00)","error":{},"level":"\u001b[31merror\u001b[39m","message":"\u001b[31munhandledRejection: Timeout\u001b[39m\n\u001b[31mError: Timeout\u001b[39m\n\u001b[31m    at Timeout._onTimeout (file:///E:/Javascript/web-e-commerce/server/src/routes/search.route.js:392:31)\u001b[39m\n\u001b[31m    at listOnTimeout (node:internal/timers:594:17)\u001b[39m\n\u001b[31m    at process.processTimers (node:internal/timers:529:7)\u001b[39m","os":{"loadavg":[0,0,0],"uptime":4554.75},"process":{"argv":["node","E:\\Javascript\\web-e-commerce\\server\\server.js"],"cwd":"E:\\Javascript\\web-e-commerce\\server","execPath":"C:\\Program Files\\nodejs\\node.exe","gid":null,"memoryUsage":{"arrayBuffers":18505530,"external":21768773,"heapTotal":50335744,"heapUsed":46822432,"rss":104185856},"pid":6544,"uid":null,"version":"v22.14.0"},"rejection":true,"stack":"Error: Timeout\n    at Timeout._onTimeout (file:///E:/Javascript/web-e-commerce/server/src/routes/search.route.js:392:31)\n    at listOnTimeout (node:internal/timers:594:17)\n    at process.processTimers (node:internal/timers:529:7)","timestamp":"2025-06-09 12:36:19:3619","trace":[{"column":31,"file":"file:///E:/Javascript/web-e-commerce/server/src/routes/search.route.js","function":"Timeout._onTimeout","line":392,"method":"_onTimeout","native":false},{"column":17,"file":"node:internal/timers","function":"listOnTimeout","line":594,"method":null,"native":false},{"column":7,"file":"node:internal/timers","function":"process.processTimers","line":529,"method":"processTimers","native":false}]}
+{"level":"\u001b[31merror\u001b[39m","message":"\u001b[31mUnhandled Rejection at:\u001b[39m","timestamp":"2025-06-09 12:36:19:3619"}
+{"date":"Mon Jun 09 2025 12:36:19 GMT+0700 (GMT+07:00)","error":{},"level":"\u001b[31merror\u001b[39m","message":"\u001b[31munhandledRejection: Timeout\u001b[39m\n\u001b[31mError: Timeout\u001b[39m\n\u001b[31m    at Timeout._onTimeout (file:///E:/Javascript/web-e-commerce/server/src/routes/search.route.js:392:31)\u001b[39m\n\u001b[31m    at listOnTimeout (node:internal/timers:594:17)\u001b[39m\n\u001b[31m    at process.processTimers (node:internal/timers:529:7)\u001b[39m","os":{"loadavg":[0,0,0],"uptime":4554.75},"process":{"argv":["node","E:\\Javascript\\web-e-commerce\\server\\server.js"],"cwd":"E:\\Javascript\\web-e-commerce\\server","execPath":"C:\\Program Files\\nodejs\\node.exe","gid":null,"memoryUsage":{"arrayBuffers":18513746,"external":21777029,"heapTotal":50597888,"heapUsed":47004280,"rss":104349696},"pid":6544,"uid":null,"version":"v22.14.0"},"rejection":true,"stack":"Error: Timeout\n    at Timeout._onTimeout (file:///E:/Javascript/web-e-commerce/server/src/routes/search.route.js:392:31)\n    at listOnTimeout (node:internal/timers:594:17)\n    at process.processTimers (node:internal/timers:529:7)","timestamp":"2025-06-09 12:36:19:3619","trace":[{"column":31,"file":"file:///E:/Javascript/web-e-commerce/server/src/routes/search.route.js","function":"Timeout._onTimeout","line":392,"method":"_onTimeout","native":false},{"column":17,"file":"node:internal/timers","function":"listOnTimeout","line":594,"method":null,"native":false},{"column":7,"file":"node:internal/timers","function":"process.processTimers","line":529,"method":"processTimers","native":false}]}
+{"level":"\u001b[31merror\u001b[39m","message":"\u001b[31mUnhandled Rejection at:\u001b[39m","timestamp":"2025-06-09 12:36:19:3619"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 12:37:17:3717"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 12:37:17:3717"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 12:37:17:3717"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 12:37:17:3717"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 12:37:24:3724"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 12:37:24:3724"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 12:37:24:3724"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 12:37:24:3724"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 12:37:31:3731"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 12:37:31:3731"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 12:37:31:3731"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 12:37:31:3731"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 12:37:36:3736"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 12:37:36:3736"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 12:37:36:3736"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 12:37:36:3736"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 12:50:33:5033"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 12:50:33:5033"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 12:50:33:5033"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 12:50:33:5033"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 13:00:33:033"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 13:00:33:033"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 13:00:33:033"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 13:00:33:033"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 13:39:48:3948"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 13:39:48:3948"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 13:39:48:3948"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 13:39:48:3948"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 13:40:06:406"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 13:40:06:406"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 13:40:06:406"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 13:40:06:406"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 13:55:10:5510"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 13:55:10:5510"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 13:55:10:5510"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 13:55:10:5510"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 13:55:32:5532"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 13:55:32:5532"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 13:55:32:5532"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 13:55:32:5532"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 13:55:41:5541"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 13:55:41:5541"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 13:55:41:5541"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 13:55:41:5541"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 13:55:50:5550"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 13:55:50:5550"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 13:55:50:5550"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 13:55:50:5550"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 13:59:06:596"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 13:59:06:596"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 13:59:06:596"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 13:59:06:596"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 14:00:52:052"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 14:00:52:052"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 14:00:52:052"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 14:00:52:052"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 14:01:01:11"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 14:01:01:11"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 14:01:01:11"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 14:01:01:11"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 14:01:14:114"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 14:01:14:114"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 14:01:14:114"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 14:01:14:114"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 14:01:23:123"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 14:01:23:123"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 14:01:23:123"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 14:01:23:123"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 14:56:43:5643"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 14:56:43:5643"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 14:56:43:5643"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 14:56:43:5643"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 15:01:31:131"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 15:01:31:131"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 15:01:31:131"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 15:01:31:131"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 15:01:40:140"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 15:01:40:140"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 15:01:40:140"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 15:01:40:140"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 15:01:49:149"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 15:01:49:149"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 15:01:49:149"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 15:01:49:149"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 15:03:53:353"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 15:03:53:353"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 15:03:53:353"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 15:03:53:353"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 15:04:03:43"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 15:04:03:43"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 15:04:03:43"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 15:04:03:43"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 15:04:21:421"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 15:04:21:421"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 15:04:21:421"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 15:04:21:421"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 15:06:36:636"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 15:06:36:636"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 15:06:36:636"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 15:06:36:636"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 15:06:56:656"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 15:06:56:656"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 15:06:56:656"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 15:06:56:656"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 15:07:06:76"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 15:07:06:76"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 15:07:06:76"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 15:07:06:76"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 15:07:18:718"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 15:07:18:718"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 15:07:18:718"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 15:07:18:718"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 15:07:35:735"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 15:07:35:735"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 15:07:35:735"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 15:07:35:735"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 15:07:55:755"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 15:07:55:755"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 15:07:55:755"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 15:07:55:755"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 15:09:45:945"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 15:09:45:945"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 15:09:45:945"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 15:09:45:945"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 15:10:04:104"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 15:10:04:104"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 15:10:04:104"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 15:10:04:104"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 15:10:16:1016"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 15:10:16:1016"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 15:10:16:1016"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 15:10:16:1016"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 15:10:28:1028"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 15:10:28:1028"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 15:10:28:1028"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 15:10:28:1028"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 15:10:38:1038"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 15:10:38:1038"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 15:10:38:1038"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 15:10:38:1038"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 15:11:00:110"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 15:11:00:110"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 15:11:00:110"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 15:11:00:110"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 15:13:29:1329"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 15:13:29:1329"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 15:13:29:1329"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 15:13:29:1329"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 15:13:42:1342"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 15:13:42:1342"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 15:13:42:1342"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 15:13:42:1342"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 15:14:01:141"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 15:14:01:141"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 15:14:01:141"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 15:14:01:141"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 15:14:10:1410"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 15:14:10:1410"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 15:14:10:1410"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 15:14:10:1410"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 15:16:48:1648"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 15:16:48:1648"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 15:16:48:1648"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 15:16:48:1648"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 15:17:03:173"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 15:17:03:173"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 15:17:03:173"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 15:17:03:173"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 15:17:12:1712"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 15:17:12:1712"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 15:17:12:1712"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 15:17:12:1712"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 15:17:22:1722"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 15:17:22:1722"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 15:17:22:1722"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 15:17:22:1722"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 15:17:29:1729"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 15:17:29:1729"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 15:17:29:1729"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 15:17:29:1729"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 15:17:38:1738"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 15:17:38:1738"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 15:17:38:1738"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 15:17:38:1738"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 15:17:48:1748"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 15:17:48:1748"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 15:17:48:1748"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 15:17:48:1748"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 16:08:11:811"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 16:08:11:811"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 16:08:11:811"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 16:08:11:811"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 16:08:52:852"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 16:08:52:852"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 16:08:52:852"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 16:08:52:852"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 16:25:40:2540"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 16:25:40:2540"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 16:25:40:2540"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 16:25:40:2540"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 17:00:33:033"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 17:00:33:033"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 17:00:33:033"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 17:00:33:033"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-09 18:40:28:4028"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-09 18:40:28:4028"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-09 18:40:28:4028"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-09 18:40:28:4028"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-10 09:18:55:1855"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-10 09:18:55:1855"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-10 09:18:55:1855"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-10 09:18:55:1855"}

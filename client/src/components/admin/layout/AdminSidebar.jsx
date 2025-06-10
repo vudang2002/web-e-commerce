@@ -5,6 +5,10 @@ import {
   FiFileText,
   FiChevronDown,
   FiChevronUp,
+  FiPackage,
+  FiUsers,
+  FiTag,
+  FiShoppingCart,
 } from "react-icons/fi";
 
 const AdminSidebar = () => {
@@ -44,6 +48,19 @@ const AdminSidebar = () => {
           <FiShoppingBag size={16} />
           Product Management
         </Link>
+
+        <Link
+          to="/admin/orders"
+          className={`flex items-center gap-2 px-3 py-2 rounded ${
+            isActive("/admin/orders")
+              ? "bg-blue-900 text-white"
+              : "text-gray-700 hover:bg-gray-100"
+          }`}
+        >
+          <FiShoppingCart size={16} />
+          Order Management
+        </Link>
+
         <Link
           to="/admin/users"
           className={`flex items-center gap-2 px-3 py-2 rounded ${
@@ -52,7 +69,7 @@ const AdminSidebar = () => {
               : "text-gray-700 hover:bg-gray-100"
           }`}
         >
-          <FiShoppingBag size={16} />
+          <FiUsers size={16} />
           User Management
         </Link>
 

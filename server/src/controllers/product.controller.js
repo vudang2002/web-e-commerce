@@ -65,7 +65,20 @@ export const createBulkProducts = async (req, res) => {
 export const getProducts = async (req, res) => {
   try {
     const { filter, ...options } = req.query;
-    const result = await productService.getProducts(filter, options);
+
+    // Parse filter from JSON string if provided
+    let parsedFilter = {};
+    if (filter) {
+      try {
+        parsedFilter = JSON.parse(filter);
+      } catch (e) {
+        // If filter is not JSON, treat it as empty filter
+        console.warn("Invalid filter JSON:", filter);
+        parsedFilter = {};
+      }
+    }
+
+    const result = await productService.getProducts(parsedFilter, options);
     res.json(formatResponse(true, "Products fetched successfully", result));
   } catch (error) {
     res.status(500).json(formatResponse(false, error.message));

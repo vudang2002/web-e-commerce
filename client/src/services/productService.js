@@ -6,6 +6,11 @@ export const getProducts = async (queryParams = "") => {
   return await axiosClient.get(`${API_URL}${queryParams}`);
 };
 
+export const getAllProducts = async (params = {}) => {
+  const { page = 1, limit = 1000 } = params;
+  return await axiosClient.get(`${API_URL}?page=${page}&limit=${limit}`);
+};
+
 export const getProductById = async (id) => {
   return await axiosClient.get(`${API_URL}/${id}`);
 };
