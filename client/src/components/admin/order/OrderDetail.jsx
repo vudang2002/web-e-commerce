@@ -75,15 +75,16 @@ const OrderDetail = () => {
       currency: "VND",
     }).format(amount);
   };
-
   const getStatusColor = (status) => {
     const statusColors = {
       Processing: "bg-yellow-100 text-yellow-800 border-yellow-200",
       Confirmed: "bg-blue-100 text-blue-800 border-blue-200",
       Shipping: "bg-purple-100 text-purple-800 border-purple-200",
       Delivered: "bg-green-100 text-green-800 border-green-200",
+      Completed: "bg-emerald-100 text-emerald-800 border-emerald-200",
       Cancelled: "bg-red-100 text-red-800 border-red-200",
       Failed: "bg-gray-100 text-gray-800 border-gray-200",
+      Refund: "bg-orange-100 text-orange-800 border-orange-200",
     };
     return statusColors[status] || "bg-gray-100 text-gray-800 border-gray-200";
   };
@@ -145,6 +146,7 @@ const OrderDetail = () => {
             </h3>
 
             <div className="flex items-center gap-4">
+              {" "}
               <select
                 value={newStatus}
                 onChange={(e) => setNewStatus(e.target.value)}
@@ -156,10 +158,10 @@ const OrderDetail = () => {
                 <option value="Confirmed">Đã xác nhận</option>
                 <option value="Shipping">Đang giao hàng</option>
                 <option value="Delivered">Đã giao hàng</option>
+                <option value="Completed">Đã hoàn thành</option>
                 <option value="Cancelled">Đã hủy</option>
                 <option value="Failed">Thất bại</option>
               </select>
-
               {newStatus !== order.orderStatus && (
                 <button
                   onClick={handleStatusUpdate}

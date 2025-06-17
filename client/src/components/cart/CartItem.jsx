@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { useUpdateCartItem, useRemoveCartItem } from "../../hooks/useCart";
+import ProductPrice from "../common/ProductPrice";
+import { calculateDiscountedPrice } from "../../utils/formatters";
 import ConfirmModal from "../common/ConfirmModal";
 
 export default function CartItem({ item }) {
@@ -41,10 +43,12 @@ export default function CartItem({ item }) {
       handleUpdateQuantity(quantity - 1);
     }
   };
-
   const productImage = product.images?.[0] || "/images/placeholder.jpg";
-  const productPrice = product.price || 0;
-  const totalPrice = productPrice * quantity;
+  const discountedPrice = calculateDiscountedPrice(
+    product.price || 0,
+    product.discount || 0
+  );
+  const totalPrice = discountedPrice * quantity;
 
   return (
     <div className="p-6">
@@ -60,7 +64,6 @@ export default function CartItem({ item }) {
             }}
           />
         </div>
-
         {/* Product Info */}
         <div className="flex-1 min-w-0">
           <h3 className="text-sm font-medium text-gray-900 truncate">
@@ -73,19 +76,10 @@ export default function CartItem({ item }) {
             Danh mục: {product.category?.name || "Không xác định"}
           </p>
         </div>
-
         {/* Price */}
         <div className="text-right">
-          <p className="text-sm font-medium text-gray-900">
-            {productPrice.toLocaleString("vi-VN")}đ
-          </p>
-          {product.originalPrice && product.originalPrice > productPrice && (
-            <p className="text-xs text-gray-500 line-through">
-              {product.originalPrice.toLocaleString("vi-VN")}đ
-            </p>
-          )}
+          <ProductPrice product={product} size="sm" showDiscount={true} />
         </div>
-
         {/* Quantity Controls */}
         <div className="flex items-center space-x-2">
           <button
@@ -105,15 +99,13 @@ export default function CartItem({ item }) {
           >
             +
           </button>
-        </div>
-
+        </div>{" "}
         {/* Total Price */}
         <div className="text-right min-w-0">
           <p className="text-sm font-semibold text-red-600">
             {totalPrice.toLocaleString("vi-VN")}đ
           </p>
         </div>
-
         {/* Remove Button */}
         <div className="flex-shrink-0">
           <button

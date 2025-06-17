@@ -317,6 +317,7 @@ const router = express.Router();
 
 router.get("/search", productController.searchProducts);
 router.get("/featured", productController.getFeaturedProducts);
+router.get("/hot-deals", productController.getHotDealsProducts);
 router.get("/slug/:slug", productController.getProductBySlug);
 router.get("/", productController.getProducts);
 

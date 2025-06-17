@@ -2,6 +2,8 @@ import React from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
 import { useOrderById, useCancelOrder } from "../hooks/useOrder";
+import ProductPrice from "../components/common/ProductPrice";
+import Breadcrumb from "../components/common/Breadcrumb";
 import {
   FiArrowLeft,
   FiPackage,
@@ -17,8 +19,9 @@ import { toast } from "react-toastify";
 
 const OrderStatusIcon = ({ status }) => {
   const iconProps = { size: 20, className: "inline" };
-
-  switch (status?.toLowerCase()) {
+  // Ưu tiên orderStatus nếu có
+  const s = status?.toLowerCase();
+  switch (s) {
     case "pending":
       return <FiClock {...iconProps} className="text-yellow-500" />;
     case "confirmed":
@@ -35,8 +38,8 @@ const OrderStatusIcon = ({ status }) => {
 };
 
 const OrderStatusBadge = ({ status, size = "md" }) => {
-  const getStatusColor = (status) => {
-    switch (status?.toLowerCase()) {
+  const getStatusColor = (s) => {
+    switch (s) {
       case "pending":
         return "bg-yellow-100 text-yellow-800 border-yellow-200";
       case "confirmed":
@@ -55,21 +58,25 @@ const OrderStatusBadge = ({ status, size = "md" }) => {
   const sizeClasses =
     size === "lg" ? "px-4 py-2 text-base" : "px-3 py-1 text-sm";
 
+  // Ưu tiên orderStatus nếu có
+  const s = status?.toLowerCase();
+
   return (
     <span
       className={`inline-flex items-center gap-2 ${sizeClasses} rounded-full font-medium border ${getStatusColor(
-        status
+        s
       )}`}
     >
-      <OrderStatusIcon status={status} />
-      {status?.charAt(0).toUpperCase() + status?.slice(1) || "Unknown"}
+      <OrderStatusIcon status={s} />
+      {s?.charAt(0).toUpperCase() + s?.slice(1) || "Unknown"}
     </span>
   );
 };
 
 const OrderTimeline = ({ order }) => {
   const getTimelineStatus = () => {
-    const status = order.status?.toLowerCase();
+    // Sử dụng orderStatus nếu có, fallback về status
+    const status = (order.orderStatus || order.status)?.toLowerCase();
     const timeline = [
       { key: "pending", label: "Order Placed", icon: FiClock, active: true },
       {
@@ -93,7 +100,8 @@ const OrderTimeline = ({ order }) => {
   };
 
   const timelineItems = getTimelineStatus();
-  const isCancelled = order.status?.toLowerCase() === "cancelled";
+  const isCancelled =
+    (order.orderStatus || order.status)?.toLowerCase() === "cancelled";
 
   if (isCancelled) {
     return (
@@ -176,6 +184,9 @@ const OrderDetail = () => {
   const { data, isLoading, error, refetch } = useOrderById(orderId);
   const order = data?.data;
 
+  // Lấy status chuẩn
+  const status = order?.orderStatus || order?.status;
+
   const handleCancelOrder = async () => {
     if (window.confirm("Are you sure you want to cancel this order?")) {
       try {
@@ -250,205 +261,216 @@ const OrderDetail = () => {
     );
   }
 
-  const canCancelOrder = order.status?.toLowerCase() === "pending";
-
+  // Sử dụng status chuẩn
+  const canCancelOrder = status?.toLowerCase() === "pending";
   return (
-    <div className="min-h-screen bg-gray-50 py-8">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
-        <div className="flex items-center gap-4 mb-8">
-          <button
-            onClick={() => navigate("/orders")}
-            className="flex items-center gap-2 text-gray-600 hover:text-gray-900 transition-colors"
-          >
-            <FiArrowLeft size={20} />
-            Back to Orders
-          </button>
-        </div>
+    <div className="min-h-screen bg-gray-50">
+      {" "}
+      {/* Breadcrumb */}
+      <Breadcrumb
+        items={[
+          { label: "Đơn hàng của tôi", path: "/orders" },
+          {
+            label: `Đơn hàng #${orderId?.slice(-6)}`,
+            path: `/orders/${orderId}`,
+          },
+        ]}
+      />
+      <div className="py-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Header */}
 
-        <div className="bg-white border border-gray-200 rounded-lg p-6 mb-6">
-          <div className="flex justify-between items-start mb-4">
-            <div>
-              <h1 className="text-2xl font-bold text-gray-900">
-                Order #{order._id?.slice(-8).toUpperCase()}
-              </h1>
-              <p className="text-gray-600 mt-1">
-                Placed on{" "}
-                {new Date(order.createdAt).toLocaleDateString("vi-VN", {
-                  year: "numeric",
-                  month: "long",
-                  day: "numeric",
-                  hour: "2-digit",
-                  minute: "2-digit",
-                })}
-              </p>
-            </div>
-            <div className="flex items-center gap-3">
-              <OrderStatusBadge status={order.status} size="lg" />
-              {canCancelOrder && (
-                <button
-                  onClick={handleCancelOrder}
-                  disabled={cancelOrderMutation.isPending}
-                  className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-red-700 bg-red-50 border border-red-300 rounded-md hover:bg-red-100 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-                >
-                  <FiX size={16} />
-                  {cancelOrderMutation.isPending
-                    ? "Cancelling..."
-                    : "Cancel Order"}
-                </button>
-              )}
-            </div>
-          </div>
-        </div>
-
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-          {/* Main Content */}
-          <div className="lg:col-span-2 space-y-6">
-            {/* Order Items */}
-            <div className="bg-white border border-gray-200 rounded-lg p-6">
-              <h2 className="text-lg font-semibold text-gray-900 mb-4">
-                Order Items
-              </h2>
-              <div className="space-y-4">
-                {order.items?.map((item, index) => (
-                  <div
-                    key={index}
-                    className="flex items-center gap-4 p-4 bg-gray-50 rounded-lg"
-                  >
-                    <img
-                      src={
-                        item.product?.images?.[0] || "/images/placeholder.jpg"
-                      }
-                      alt={item.product?.name}
-                      className="w-16 h-16 object-cover rounded-md"
-                    />
-                    <div className="flex-1 min-w-0">
-                      <h3 className="font-medium text-gray-900">
-                        {item.product?.name || "Product Unavailable"}
-                      </h3>
-                      <p className="text-sm text-gray-500">
-                        Quantity: {item.quantity}
-                      </p>
-                      <p className="text-sm text-gray-500">
-                        Price:{" "}
-                        {new Intl.NumberFormat("vi-VN", {
-                          style: "currency",
-                          currency: "VND",
-                        }).format(item.price)}
-                      </p>
-                    </div>
-                    <div className="text-right">
-                      <p className="font-medium text-gray-900">
-                        {new Intl.NumberFormat("vi-VN", {
-                          style: "currency",
-                          currency: "VND",
-                        }).format(item.quantity * item.price)}
-                      </p>
-                    </div>
-                  </div>
-                ))}
+          <div className="bg-white border border-gray-200 rounded-lg p-6 mb-6">
+            <div className="flex justify-between items-start mb-4">
+              <div>
+                <h1 className="text-2xl font-bold text-gray-900">
+                  Order #{order._id?.slice(-8).toUpperCase()}
+                </h1>
+                <p className="text-gray-600 mt-1">
+                  Placed on{" "}
+                  {new Date(order.createdAt).toLocaleDateString("vi-VN", {
+                    year: "numeric",
+                    month: "long",
+                    day: "numeric",
+                    hour: "2-digit",
+                    minute: "2-digit",
+                  })}
+                </p>
               </div>
-            </div>
-
-            {/* Timeline */}
-            <OrderTimeline order={order} />
-          </div>
-
-          {/* Sidebar */}
-          <div className="space-y-6">
-            {/* Order Summary */}
-            <div className="bg-white border border-gray-200 rounded-lg p-6">
-              <h3 className="text-lg font-semibold text-gray-900 mb-4">
-                Order Summary
-              </h3>
-              <div className="space-y-3">
-                <div className="flex justify-between">
-                  <span className="text-gray-600">Subtotal:</span>
-                  <span>
-                    {new Intl.NumberFormat("vi-VN", {
-                      style: "currency",
-                      currency: "VND",
-                    }).format(order.totalAmount - (order.shippingFee || 0))}
-                  </span>
-                </div>
-                {order.shippingFee > 0 && (
-                  <div className="flex justify-between">
-                    <span className="text-gray-600">Shipping:</span>
-                    <span>
-                      {new Intl.NumberFormat("vi-VN", {
-                        style: "currency",
-                        currency: "VND",
-                      }).format(order.shippingFee)}
-                    </span>
-                  </div>
-                )}
-                {order.voucherDiscount > 0 && (
-                  <div className="flex justify-between text-green-600">
-                    <span>Discount:</span>
-                    <span>
-                      -
-                      {new Intl.NumberFormat("vi-VN", {
-                        style: "currency",
-                        currency: "VND",
-                      }).format(order.voucherDiscount)}
-                    </span>
-                  </div>
-                )}
-                <div className="flex justify-between pt-3 border-t font-semibold text-lg">
-                  <span>Total:</span>
-                  <span>
-                    {new Intl.NumberFormat("vi-VN", {
-                      style: "currency",
-                      currency: "VND",
-                    }).format(order.totalAmount)}
-                  </span>
-                </div>
-              </div>
-            </div>
-
-            {/* Shipping Address */}
-            <div className="bg-white border border-gray-200 rounded-lg p-6">
-              <h3 className="text-lg font-semibold text-gray-900 mb-4">
-                Shipping Information
-              </h3>
-              <div className="space-y-3">
-                <div className="flex items-start gap-3">
-                  <FiMapPin className="text-gray-400 mt-1" size={16} />
-                  <div>
-                    <p className="font-medium text-gray-900">
-                      {order.shippingAddress?.fullName}
-                    </p>
-                    <p className="text-sm text-gray-600">
-                      {order.shippingAddress?.address}
-                    </p>
-                    <p className="text-sm text-gray-600">
-                      {order.shippingAddress?.ward},{" "}
-                      {order.shippingAddress?.district}
-                    </p>
-                    <p className="text-sm text-gray-600">
-                      {order.shippingAddress?.province}
-                    </p>
-                  </div>
-                </div>
-                <div className="flex items-center gap-3">
-                  <FiPhone className="text-gray-400" size={16} />
-                  <span className="text-sm text-gray-600">
-                    {order.shippingAddress?.phoneNumber}
-                  </span>
-                </div>
-              </div>
-            </div>
-
-            {/* Payment Information */}
-            <div className="bg-white border border-gray-200 rounded-lg p-6">
-              <h3 className="text-lg font-semibold text-gray-900 mb-4">
-                Payment Information
-              </h3>
               <div className="flex items-center gap-3">
-                <FiCreditCard className="text-gray-400" size={16} />
-                <span className="text-sm text-gray-600 capitalize">
-                  {order.paymentMethod || "Cash on Delivery"}
-                </span>
+                {/* Truyền status chuẩn */}
+                <OrderStatusBadge status={status} size="lg" />
+                {canCancelOrder && (
+                  <button
+                    onClick={handleCancelOrder}
+                    disabled={cancelOrderMutation.isPending}
+                    className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-red-700 bg-red-50 border border-red-300 rounded-md hover:bg-red-100 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                  >
+                    <FiX size={16} />
+                    {cancelOrderMutation.isPending
+                      ? "Cancelling..."
+                      : "Cancel Order"}
+                  </button>
+                )}
+              </div>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            {/* Main Content */}
+            <div className="lg:col-span-2 space-y-6">
+              {/* Order Items */}
+              <div className="bg-white border border-gray-200 rounded-lg p-6">
+                <h2 className="text-lg font-semibold text-gray-900 mb-4">
+                  Order Items
+                </h2>
+                <div className="space-y-4">
+                  {order.orderItems?.map((item, index) => (
+                    <div
+                      key={index}
+                      className="flex items-center gap-4 p-4 bg-gray-50 rounded-lg"
+                    >
+                      <img
+                        src={
+                          item.product?.images?.[0] || "/images/placeholder.jpg"
+                        }
+                        alt={item.product?.name}
+                        className="w-16 h-16 object-cover rounded-md"
+                      />
+                      <div className="flex-1 min-w-0">
+                        <h3 className="font-medium text-gray-900">
+                          {item.product?.name || "Product Unavailable"}
+                        </h3>{" "}
+                        <p className="text-sm text-gray-500">
+                          Quantity: {item.quantity}
+                        </p>
+                        {item.product && (
+                          <div className="text-sm">
+                            <ProductPrice
+                              product={{
+                                ...item.product,
+                                price: item.price, // Sử dụng giá tại thời điểm đặt hàng
+                              }}
+                              size="sm"
+                              showDiscount={false}
+                            />
+                          </div>
+                        )}
+                      </div>
+                      <div className="text-right">
+                        <p className="font-medium text-gray-900">
+                          {new Intl.NumberFormat("vi-VN", {
+                            style: "currency",
+                            currency: "VND",
+                          }).format(item.quantity * item.price)}
+                        </p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Timeline - truyền order với status chuẩn */}
+              <OrderTimeline order={{ ...order, status }} />
+            </div>
+
+            {/* Sidebar */}
+            <div className="space-y-6">
+              {/* Order Summary */}
+              <div className="bg-white border border-gray-200 rounded-lg p-6">
+                <h3 className="text-lg font-semibold text-gray-900 mb-4">
+                  Order Summary
+                </h3>
+                <div className="space-y-3">
+                  <div className="flex justify-between">
+                    <span className="text-gray-600">Subtotal:</span>
+                    <span>
+                      {new Intl.NumberFormat("vi-VN", {
+                        style: "currency",
+                        currency: "VND",
+                      }).format(order.itemsPrice)}
+                    </span>
+                  </div>
+                  {order.shippingPrice > 0 && (
+                    <div className="flex justify-between">
+                      <span className="text-gray-600">Shipping:</span>
+                      <span>
+                        {new Intl.NumberFormat("vi-VN", {
+                          style: "currency",
+                          currency: "VND",
+                        }).format(order.shippingPrice)}
+                      </span>
+                    </div>
+                  )}
+                  {order.voucherDiscount > 0 && (
+                    <div className="flex justify-between text-green-600">
+                      <span>Discount:</span>
+                      <span>
+                        -
+                        {new Intl.NumberFormat("vi-VN", {
+                          style: "currency",
+                          currency: "VND",
+                        }).format(order.voucherDiscount)}
+                      </span>
+                    </div>
+                  )}
+                  <div className="flex justify-between pt-3 border-t font-semibold text-lg">
+                    <span>Total:</span>
+                    <span>
+                      {new Intl.NumberFormat("vi-VN", {
+                        style: "currency",
+                        currency: "VND",
+                      }).format(order.totalPrice)}
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Shipping Address */}
+              <div className="bg-white border border-gray-200 rounded-lg p-6">
+                <h3 className="text-lg font-semibold text-gray-900 mb-4">
+                  Shipping Information
+                </h3>
+                <div className="space-y-3">
+                  <div className="flex items-start gap-3">
+                    <FiMapPin className="text-gray-400 mt-1" size={16} />
+                    <div>
+                      <p className="font-medium text-gray-900">
+                        {order.shippingInfo?.fullName}
+                      </p>
+                      <p className="text-sm text-gray-600">
+                        {order.shippingInfo?.address}
+                      </p>
+                      <p className="text-sm text-gray-600">
+                        {order.shippingInfo?.ward}
+                        {order.shippingInfo?.ward ? ", " : ""}
+                        {order.shippingInfo?.district}
+                      </p>
+                      <p className="text-sm text-gray-600">
+                        {order.shippingInfo?.province}
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <FiPhone className="text-gray-400" size={16} />
+                    <span className="text-sm text-gray-600">
+                      {order.shippingInfo?.phoneNo}
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Payment Information */}
+              <div className="bg-white border border-gray-200 rounded-lg p-6">
+                <h3 className="text-lg font-semibold text-gray-900 mb-4">
+                  Payment Information
+                </h3>
+                <div className="flex items-center gap-3">
+                  <FiCreditCard className="text-gray-400" size={16} />
+                  <span className="text-sm text-gray-600 capitalize">
+                    {order.paymentMethod || "Cash on Delivery"}
+                  </span>
+                </div>{" "}
               </div>
             </div>
           </div>

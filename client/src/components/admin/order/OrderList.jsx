@@ -166,7 +166,6 @@ const OrderList = () => {
       ? "bg-orange-100 text-orange-800"
       : "bg-green-100 text-green-800";
   };
-
   // Danh sách các trạng thái có thể chọn
   const orderStatuses = [
     {
@@ -188,6 +187,11 @@ const OrderList = () => {
       value: "Delivered",
       label: "Đã giao",
       color: "bg-green-100 text-green-800",
+    },
+    {
+      value: "Completed",
+      label: "Hoàn thành",
+      color: "bg-emerald-100 text-emerald-800",
     },
     { value: "Cancelled", label: "Đã hủy", color: "bg-red-100 text-red-800" },
     { value: "Failed", label: "Thất bại", color: "bg-gray-100 text-gray-800" },

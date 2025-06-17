@@ -1,5 +1,10 @@
 import React, { createContext, useState, useEffect, useContext } from "react";
-import { getCurrentUser, logout } from "../services/authService";
+import {
+  getCurrentUser,
+  logout,
+  updateProfile as updateProfileService,
+  changePassword,
+} from "../services/authService";
 import { useNavigate } from "react-router-dom";
 
 // Create context
@@ -38,6 +43,19 @@ export const AuthProvider = ({ children }) => {
     return user && user.role === "admin";
   };
 
+  // Update profile function
+  const updateProfile = async (profileData) => {
+    const updatedUser = await updateProfileService(profileData);
+    setUser(updatedUser);
+    return updatedUser;
+  };
+
+  // Change password function
+  const changeUserPassword = async (passwordData) => {
+    const result = await changePassword(passwordData);
+    return result;
+  };
+
   // Context value
   const value = {
     user,
@@ -45,6 +63,8 @@ export const AuthProvider = ({ children }) => {
     loginUser,
     logoutUser,
     isAdmin,
+    updateProfile,
+    changePassword: changeUserPassword,
   };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useUserOrders } from "../hooks/useOrder";
 import { FiPackage, FiSearch } from "react-icons/fi";
 import { toast } from "react-toastify";
+import Breadcrumb from "../components/common/Breadcrumb";
 
 // Import OrderStates directly (not lazy) because it has complex structure
 import OrderStates from "../components/order/OrderStates";
@@ -200,173 +201,181 @@ const Orders = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 py-8">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
-        <div className="mb-8">
-          <div className="flex items-center justify-between">
-            <div>
-              <h1 className="text-3xl font-bold text-gray-900 flex items-center gap-3">
-                <FiPackage className="text-indigo-600" />
-                My Orders
-              </h1>
-              <p className="text-gray-600 mt-2">Track and manage your orders</p>
-            </div>{" "}
-            <div className="text-right">
-              <p className="text-sm text-gray-500">
-                Total Orders: {Array.isArray(orders) ? orders.length : 0}
-              </p>
-              <p className="text-sm text-gray-500">
-                Showing:{" "}
-                {Array.isArray(filteredAndSortedOrders)
-                  ? filteredAndSortedOrders.length
-                  : 0}
-              </p>
+    <div className="min-h-screen bg-gray-50">
+      {/* Breadcrumb */}
+      <Breadcrumb items={[{ label: "Đơn hàng của tôi", path: "/orders" }]} />
+
+      <div className="py-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Header */}
+          <div className="mb-8">
+            <div className="flex items-center justify-between">
+              <div>
+                <h1 className="text-3xl font-bold text-gray-900 flex items-center gap-3">
+                  <FiPackage className="text-indigo-600" />
+                  My Orders
+                </h1>
+                <p className="text-gray-600 mt-2">
+                  Track and manage your orders
+                </p>
+              </div>{" "}
+              <div className="text-right">
+                <p className="text-sm text-gray-500">
+                  Total Orders: {Array.isArray(orders) ? orders.length : 0}
+                </p>
+                <p className="text-sm text-gray-500">
+                  Showing:{" "}
+                  {Array.isArray(filteredAndSortedOrders)
+                    ? filteredAndSortedOrders.length
+                    : 0}
+                </p>
+              </div>
             </div>
           </div>
-        </div>
 
-        {/* Filters and Search */}
-        <div className="mb-8">
-          <Suspense
-            fallback={
-              <div className="bg-white p-4 rounded-lg shadow-sm border animate-pulse">
-                <div className="h-10 bg-gray-200 rounded"></div>
-              </div>
-            }
-          >
-            <OrderFilters
-              searchTerm={searchTerm}
-              onSearchChange={handleSearch}
-              statusFilter={statusFilter}
-              onStatusFilterChange={handleStatusFilter}
-              sortBy={sortBy}
-              onSortChange={handleSort}
-            />
-          </Suspense>
-        </div>
-
-        {/* Orders Grid */}
-        {paginatedOrders.length > 0 ? (
-          <>
-            <div className="grid gap-6 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-1 mb-8">
-              {paginatedOrders.map((order) => (
-                <Suspense
-                  key={order._id}
-                  fallback={
-                    <div className="bg-white border border-gray-200 rounded-lg p-6 animate-pulse">
-                      <div className="flex justify-between items-start mb-4">
-                        <div>
-                          <div className="h-5 bg-gray-200 rounded w-32 mb-2"></div>
-                          <div className="h-4 bg-gray-200 rounded w-24"></div>
-                        </div>
-                        <div className="h-6 bg-gray-200 rounded w-20"></div>
-                      </div>
-                      <div className="space-y-2 mb-4">
-                        <div className="h-16 bg-gray-100 rounded-lg"></div>
-                      </div>
-                      <div className="border-t pt-4">
-                        <div className="h-4 bg-gray-200 rounded w-20 ml-auto"></div>
-                      </div>
-                    </div>
-                  }
-                >
-                  <OrderCard
-                    order={order}
-                    onStatusChange={handleOrderStatusChange}
-                  />
-                </Suspense>
-              ))}
-            </div>
-
-            {/* Pagination */}
-            {totalPages > 1 && (
-              <div className="flex justify-center items-center gap-2 mt-8">
-                <button
-                  onClick={() => handlePageChange(currentPage - 1)}
-                  disabled={currentPage === 1}
-                  className="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
-                >
-                  Previous
-                </button>
-
-                <div className="flex gap-1">
-                  {[...Array(totalPages)].map((_, index) => {
-                    const page = index + 1;
-                    const isCurrentPage = page === currentPage;
-
-                    // Show first page, last page, current page, and adjacent pages
-                    if (
-                      page === 1 ||
-                      page === totalPages ||
-                      (page >= currentPage - 1 && page <= currentPage + 1)
-                    ) {
-                      return (
-                        <button
-                          key={page}
-                          onClick={() => handlePageChange(page)}
-                          className={`px-3 py-2 text-sm font-medium rounded-md ${
-                            isCurrentPage
-                              ? "bg-indigo-600 text-white"
-                              : "text-gray-700 bg-white border border-gray-300 hover:bg-gray-50"
-                          }`}
-                        >
-                          {page}
-                        </button>
-                      );
-                    }
-
-                    // Show ellipsis
-                    if (
-                      (page === currentPage - 2 && currentPage > 3) ||
-                      (page === currentPage + 2 && currentPage < totalPages - 2)
-                    ) {
-                      return (
-                        <span
-                          key={page}
-                          className="px-3 py-2 text-sm text-gray-500"
-                        >
-                          ...
-                        </span>
-                      );
-                    }
-
-                    return null;
-                  })}
+          {/* Filters and Search */}
+          <div className="mb-8">
+            <Suspense
+              fallback={
+                <div className="bg-white p-4 rounded-lg shadow-sm border animate-pulse">
+                  <div className="h-10 bg-gray-200 rounded"></div>
                 </div>
-
-                <button
-                  onClick={() => handlePageChange(currentPage + 1)}
-                  disabled={currentPage === totalPages}
-                  className="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
-                >
-                  Next
-                </button>
-              </div>
-            )}
-          </>
-        ) : (
-          /* No results after filtering */
-          <div className="text-center py-12">
-            <FiSearch className="mx-auto h-12 w-12 text-gray-400 mb-4" />
-            <h3 className="text-lg font-medium text-gray-900 mb-2">
-              No orders found
-            </h3>
-            <p className="text-gray-500 mb-6">
-              Try adjusting your search terms or filters.
-            </p>
-            <button
-              onClick={() => {
-                setSearchTerm("");
-                setStatusFilter("all");
-                setCurrentPage(1);
-              }}
-              className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-indigo-600 bg-indigo-100 hover:bg-indigo-200"
+              }
             >
-              Clear filters
-            </button>
+              <OrderFilters
+                searchTerm={searchTerm}
+                onSearchChange={handleSearch}
+                statusFilter={statusFilter}
+                onStatusFilterChange={handleStatusFilter}
+                sortBy={sortBy}
+                onSortChange={handleSort}
+              />
+            </Suspense>
           </div>
-        )}
+
+          {/* Orders Grid */}
+          {paginatedOrders.length > 0 ? (
+            <>
+              <div className="grid gap-6 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-1 mb-8">
+                {paginatedOrders.map((order) => (
+                  <Suspense
+                    key={order._id}
+                    fallback={
+                      <div className="bg-white border border-gray-200 rounded-lg p-6 animate-pulse">
+                        <div className="flex justify-between items-start mb-4">
+                          <div>
+                            <div className="h-5 bg-gray-200 rounded w-32 mb-2"></div>
+                            <div className="h-4 bg-gray-200 rounded w-24"></div>
+                          </div>
+                          <div className="h-6 bg-gray-200 rounded w-20"></div>
+                        </div>
+                        <div className="space-y-2 mb-4">
+                          <div className="h-16 bg-gray-100 rounded-lg"></div>
+                        </div>
+                        <div className="border-t pt-4">
+                          <div className="h-4 bg-gray-200 rounded w-20 ml-auto"></div>
+                        </div>
+                      </div>
+                    }
+                  >
+                    <OrderCard
+                      order={order}
+                      onStatusChange={handleOrderStatusChange}
+                    />
+                  </Suspense>
+                ))}
+              </div>
+
+              {/* Pagination */}
+              {totalPages > 1 && (
+                <div className="flex justify-center items-center gap-2 mt-8">
+                  <button
+                    onClick={() => handlePageChange(currentPage - 1)}
+                    disabled={currentPage === 1}
+                    className="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
+                  >
+                    Previous
+                  </button>
+
+                  <div className="flex gap-1">
+                    {[...Array(totalPages)].map((_, index) => {
+                      const page = index + 1;
+                      const isCurrentPage = page === currentPage;
+
+                      // Show first page, last page, current page, and adjacent pages
+                      if (
+                        page === 1 ||
+                        page === totalPages ||
+                        (page >= currentPage - 1 && page <= currentPage + 1)
+                      ) {
+                        return (
+                          <button
+                            key={page}
+                            onClick={() => handlePageChange(page)}
+                            className={`px-3 py-2 text-sm font-medium rounded-md ${
+                              isCurrentPage
+                                ? "bg-indigo-600 text-white"
+                                : "text-gray-700 bg-white border border-gray-300 hover:bg-gray-50"
+                            }`}
+                          >
+                            {page}
+                          </button>
+                        );
+                      }
+
+                      // Show ellipsis
+                      if (
+                        (page === currentPage - 2 && currentPage > 3) ||
+                        (page === currentPage + 2 &&
+                          currentPage < totalPages - 2)
+                      ) {
+                        return (
+                          <span
+                            key={page}
+                            className="px-3 py-2 text-sm text-gray-500"
+                          >
+                            ...
+                          </span>
+                        );
+                      }
+
+                      return null;
+                    })}
+                  </div>
+
+                  <button
+                    onClick={() => handlePageChange(currentPage + 1)}
+                    disabled={currentPage === totalPages}
+                    className="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
+                  >
+                    Next
+                  </button>
+                </div>
+              )}
+            </>
+          ) : (
+            /* No results after filtering */
+            <div className="text-center py-12">
+              <FiSearch className="mx-auto h-12 w-12 text-gray-400 mb-4" />
+              <h3 className="text-lg font-medium text-gray-900 mb-2">
+                No orders found
+              </h3>
+              <p className="text-gray-500 mb-6">
+                Try adjusting your search terms or filters.
+              </p>
+              <button
+                onClick={() => {
+                  setSearchTerm("");
+                  setStatusFilter("all");
+                  setCurrentPage(1);
+                }}
+                className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-indigo-600 bg-indigo-100 hover:bg-indigo-200"
+              >
+                Clear filters
+              </button>{" "}
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );

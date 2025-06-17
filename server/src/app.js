@@ -80,7 +80,7 @@ if (config.NODE_ENV === "development") {
 }
 
 // Rate limiting
-app.use("/api", globalLimiter);
+//app.use("/api", globalLimiter);
 
 // Health check routes (should be before other routes)
 app.use("/api/health", healthRoutes);

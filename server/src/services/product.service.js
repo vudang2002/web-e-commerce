@@ -224,3 +224,38 @@ export const deleteBulkProducts = async (productIds, userId, isAdmin) => {
     throw error;
   }
 };
+
+// Lấy sản phẩm giảm giá nhiều hơn discountThreshold
+export const getHotDeals = async (discountThreshold = 40, options = {}) => {
+  const { page = 1, limit = 20, sort = "-discount" } = options;
+  const skip = (page - 1) * limit;
+  const filter = { discount: { $gte: discountThreshold } };
+
+  console.log(`[getHotDeals] Filter:`, filter);
+  console.log(`[getHotDeals] discountThreshold:`, discountThreshold);
+
+  const [products, total] = await Promise.all([
+    Product.find(filter)
+      .populate("brand", "name slug logo")
+      .populate("category", "name slug image")
+      .sort(sort)
+      .skip(skip)
+      .limit(limit)
+      .lean(),
+    Product.countDocuments(filter),
+  ]);
+
+  console.log(
+    `[getHotDeals] Found ${products.length} products with total ${total}`
+  );
+
+  return {
+    products,
+    pagination: {
+      total,
+      limit,
+      page,
+      totalPages: Math.ceil(total / limit),
+    },
+  };
+};

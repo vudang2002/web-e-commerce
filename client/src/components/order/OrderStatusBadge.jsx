@@ -9,6 +9,7 @@ const statusStyles = {
   shipped: "bg-purple-100 text-purple-800 border-purple-200",
   shipping: "bg-purple-100 text-purple-800 border-purple-200",
   delivered: "bg-green-100 text-green-800 border-green-200",
+  completed: "bg-emerald-100 text-emerald-800 border-emerald-200",
   cancelled: "bg-red-100 text-red-800 border-red-200",
   default: "bg-gray-100 text-gray-800 border-gray-200",
 };

@@ -141,6 +141,7 @@ export const updateOrderValidationRules = [
       "Confirmed",
       "Shipping",
       "Delivered",
+      "Completed",
       "Cancelled",
       "Failed",
     ])
@@ -156,6 +157,7 @@ export const updateOrderStatusValidationRules = [
       "Confirmed",
       "Shipping",
       "Delivered",
+      "Completed",
       "Cancelled",
       "Failed",
     ])

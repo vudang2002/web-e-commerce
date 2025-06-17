@@ -9,6 +9,38 @@ export const formatCurrency = (amount) => {
   }).format(amount || 0);
 };
 
+// Product price utilities
+export const calculateDiscountedPrice = (price, discount) => {
+  if (!discount || discount <= 0) return price;
+  return Math.round(price * (1 - discount / 100));
+};
+
+export const calculateDiscountAmount = (price, discount) => {
+  if (!discount || discount <= 0) return 0;
+  return Math.round(price * (discount / 100));
+};
+
+export const formatProductPrice = (product) => {
+  if (!product)
+    return { originalPrice: 0, discountedPrice: 0, discountAmount: 0 };
+
+  const originalPrice = product.price || 0;
+  const discount = product.discount || 0;
+  const discountedPrice = calculateDiscountedPrice(originalPrice, discount);
+  const discountAmount = calculateDiscountAmount(originalPrice, discount);
+
+  return {
+    originalPrice,
+    discountedPrice,
+    discountAmount,
+    discount,
+    isOnSale: discount > 0,
+    formattedOriginalPrice: formatCurrency(originalPrice),
+    formattedDiscountedPrice: formatCurrency(discountedPrice),
+    formattedDiscountAmount: formatCurrency(discountAmount),
+  };
+};
+
 // Date formatting utility
 export const formatDate = (dateString) => {
   return new Intl.DateTimeFormat("vi-VN", {

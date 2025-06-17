@@ -307,7 +307,7 @@ const OrderEdit = () => {
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-2">
               Trạng Thái Đơn Hàng
-            </label>
+            </label>{" "}
             <select
               name="orderStatus"
               value={formData.orderStatus}
@@ -318,6 +318,7 @@ const OrderEdit = () => {
               <option value="Confirmed">Đã xác nhận</option>
               <option value="Shipping">Đang giao hàng</option>
               <option value="Delivered">Đã giao hàng</option>
+              <option value="Completed">Đã hoàn thành</option>
               <option value="Cancelled">Đã hủy</option>
               <option value="Failed">Thất bại</option>
             </select>

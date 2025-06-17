@@ -1,14 +1,23 @@
-import React, { useCallback } from "react";
+import React, { useCallback, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useCancelOrder } from "../../hooks/useOrder";
-import { FiEye, FiX } from "react-icons/fi";
+import { useCancelOrder, useUpdateOrderStatus } from "../../hooks/useOrder";
+import { useCreateMultipleReviews } from "../../hooks/useReview";
+import { FiX, FiStar } from "react-icons/fi";
 import OrderItem from "./OrderItem";
 import OrderStatusBadge from "./OrderStatusBadge";
+import ConfirmReceiveModal from "./ConfirmReceiveModal";
+import ReviewModal from "./ReviewModal";
 import { formatCurrency, formatDate } from "../../utils/formatters";
 
 const OrderCard = React.memo(({ order, onStatusChange, isAdmin }) => {
   const navigate = useNavigate();
   const cancelOrderMutation = useCancelOrder();
+  const updateOrderStatusMutation = useUpdateOrderStatus();
+  const createReviewsMutation = useCreateMultipleReviews();
+
+  // Modal states
+  const [showConfirmReceiveModal, setShowConfirmReceiveModal] = useState(false);
+  const [showReviewModal, setShowReviewModal] = useState(false);
 
   // Debug order data
   console.log("OrderCard - Order data:", order);
@@ -31,76 +40,142 @@ const OrderCard = React.memo(({ order, onStatusChange, isAdmin }) => {
       }
     }
   }, [cancelOrderMutation, order._id]);
+  // Handle receive confirmation
+  const handleConfirmReceive = useCallback(async () => {
+    try {
+      await updateOrderStatusMutation.mutateAsync({
+        orderId: order._id,
+        status: "Completed",
+      });
+      setShowConfirmReceiveModal(false);
+    } catch {
+      // Error is handled by the mutation hook
+    }
+  }, [updateOrderStatusMutation, order._id]);
 
-  const handleViewDetails = useCallback(() => {
-    navigate(`/orders/${order._id}`);
-  }, [navigate, order._id]);
+  // Handle review submission
+  const handleReviewSubmit = useCallback(
+    async (reviewsArray) => {
+      try {
+        await createReviewsMutation.mutateAsync(reviewsArray);
+        setShowReviewModal(false);
+      } catch {
+        // Error is handled by the mutation hook
+      }
+    },
+    [createReviewsMutation]
+  );
 
   const canCancelOrder =
     (order.orderStatus || order.status)?.toLowerCase() === "pending";
 
+  const isDelivered =
+    (order.orderStatus || order.status)?.toLowerCase() === "delivered";
+
+  const isCompleted =
+    (order.orderStatus || order.status)?.toLowerCase() === "completed";
+
   return (
-    <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow">
-      <div className="flex justify-between items-start mb-4">
-        <div>
-          <h3 className="text-lg font-semibold text-gray-900">
-            Order #{order._id.slice(-8).toUpperCase()}
-          </h3>
-          <p className="text-sm text-gray-600 mt-1">
-            Đặt hàng lúc {formatDate(order.createdAt)}
-          </p>
-        </div>{" "}
-        <OrderStatusBadge
-          orderStatus={order.orderStatus || order.status}
-          onChange={isAdmin ? handleStatusChange : undefined}
-        />
-      </div>
-      <div className="border-t border-gray-200 pt-4 mb-4">
-        <h4 className="text-sm font-medium text-gray-900 mb-3">
-          Sản phẩm đã đặt
-        </h4>
-        <div className="space-y-2">
-          {order.orderItems?.map((item, index) => (
-            <OrderItem key={`${item.product?._id}-${index}`} item={item} />
-          ))}
-        </div>
-      </div>{" "}
-      <div className="border-t border-gray-200 pt-4">
-        <div className="flex justify-between items-center mb-4">
-          <div className="text-sm text-gray-600">
-            <p>Giao hàng đến: {order.shippingInfo.address}</p>
-            <p>Số điện thoại: {order.shippingInfo.phoneNo}</p>
-          </div>
-          <div className="text-right">
-            {" "}
-            <p className="text-lg font-bold text-gray-900">
-              Tổng tiền: {formatCurrency(order.totalPrice || order.totalAmount)}
+    <>
+      <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow">
+        <div className="flex justify-between items-start mb-4">
+          <div>
+            <h3 className="text-lg font-semibold text-gray-900">
+              Order #{order._id.slice(-8).toUpperCase()}
+            </h3>
+            <p className="text-sm text-gray-600 mt-1">
+              Đặt hàng lúc {formatDate(order.createdAt)}
             </p>
           </div>
+          <OrderStatusBadge
+            orderStatus={order.orderStatus || order.status}
+            onChange={isAdmin ? handleStatusChange : undefined}
+          />
         </div>
+        <div className="border-t border-gray-200 pt-4 mb-4">
+          <h4 className="text-sm font-medium text-gray-900 mb-3">
+            Sản phẩm đã đặt
+          </h4>
+          <div className="space-y-2">
+            {order.orderItems?.map((item, index) => (
+              <div
+                key={`${item.product?._id}-${index}`}
+                onClick={() => navigate(`/orders/${order._id}`)}
+                className="cursor-pointer hover:bg-gray-50 rounded transition-colors"
+              >
+                <OrderItem item={item} />
+              </div>
+            ))}
+          </div>
+        </div>
+        <div className="border-t border-gray-200 pt-4">
+          <div className="flex justify-between items-center mb-4">
+            <div className="text-sm text-gray-600">
+              <p>Giao hàng đến: {order.shippingInfo.address}</p>
+              <p>Số điện thoại: {order.shippingInfo.phoneNo}</p>
+            </div>
+            <div className="text-right">
+              <p className="text-lg font-bold text-gray-900">
+                Tổng tiền:{" "}
+                {formatCurrency(order.totalPrice || order.totalAmount)}
+              </p>
+            </div>
+          </div>
 
-        {/* Action Buttons */}
-        <div className="flex gap-3 pt-4 border-t">
-          <button
-            onClick={handleViewDetails}
-            className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 border border-gray-300 rounded-md hover:bg-gray-200 transition-colors"
-          >
-            <FiEye size={16} />
-            Xem chi tiết
-          </button>
-          {canCancelOrder && (
-            <button
-              onClick={handleCancelOrder}
-              disabled={cancelOrderMutation.isPending}
-              className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-red-700 bg-red-50 border border-red-300 rounded-md hover:bg-red-100 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-            >
-              <FiX size={16} />
-              {cancelOrderMutation.isPending ? "Cancelling..." : "Cancel Order"}
-            </button>
-          )}
+          {/* Action Buttons */}
+          <div className="flex gap-3 pt-4 border-t">
+            {canCancelOrder && (
+              <button
+                onClick={handleCancelOrder}
+                disabled={cancelOrderMutation.isPending}
+                className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-red-700 bg-red-50 border border-red-300 rounded-md hover:bg-red-100 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                <FiX size={16} />
+                {cancelOrderMutation.isPending
+                  ? "Cancelling..."
+                  : "Cancel Order"}
+              </button>
+            )}
+
+            {/* Nút Đã Nhận Được Hàng / Đánh giá */}
+            {isDelivered && (
+              <button
+                onClick={() => setShowConfirmReceiveModal(true)}
+                className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-green-700 bg-green-50 border border-green-300 rounded-md hover:bg-green-100 transition-colors"
+              >
+                Đã Nhận Được Hàng
+              </button>
+            )}
+
+            {isCompleted && (
+              <button
+                onClick={() => setShowReviewModal(true)}
+                className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-blue-700 bg-blue-50 border border-blue-300 rounded-md hover:bg-blue-100 transition-colors"
+              >
+                <FiStar size={16} />
+                Đánh giá sản phẩm
+              </button>
+            )}
+          </div>
         </div>
       </div>
-    </div>
+
+      {/* Modals */}
+      <ConfirmReceiveModal
+        isOpen={showConfirmReceiveModal}
+        onClose={() => setShowConfirmReceiveModal(false)}
+        onConfirm={handleConfirmReceive}
+        orderDetails={order}
+      />
+
+      <ReviewModal
+        isOpen={showReviewModal}
+        onClose={() => setShowReviewModal(false)}
+        onSubmit={handleReviewSubmit}
+        orderDetails={order}
+        isSubmitting={createReviewsMutation.isPending}
+      />
+    </>
   );
 });
 

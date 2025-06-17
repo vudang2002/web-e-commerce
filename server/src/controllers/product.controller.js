@@ -349,3 +349,30 @@ export const checkStockAvailability = async (req, res) => {
     });
   }
 };
+
+export const getHotDealsProducts = async (req, res) => {
+  try {
+    const discount = parseInt(req.query.discount_gte) || 40;
+    const page = parseInt(req.query.page) || 1;
+    const limit = parseInt(req.query.limit) || 20;
+    const sort = req.query.sort || "-discount";
+
+    const result = await productService.getHotDeals(discount, {
+      page,
+      limit,
+      sort,
+    });
+
+    // Trả về đúng định dạng cho client: data là object có thuộc tính products
+    const response = formatResponse(
+      true,
+      "Hot deals products fetched successfully",
+      { products: result.products },
+      result.pagination
+    );
+    res.json(response);
+  } catch (error) {
+    console.error("[getHotDealsProducts] Error:", error);
+    res.status(500).json(formatResponse(false, error.message));
+  }
+};

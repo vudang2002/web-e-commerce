@@ -47,3 +47,26 @@ export const register = async (data) => {
   }
   throw new Error("Registration failed. Please try again.");
 };
+
+export const updateProfile = async (data) => {
+  const response = await axiosClient.put("/auth/profile", data);
+  if (response && response.data) {
+    // Handle both success response formats
+    const updatedUser =
+      response.data.data?.user || response.data.user || response.data;
+
+    // Update user info in localStorage
+    localStorage.setItem("user", JSON.stringify(updatedUser));
+
+    return updatedUser;
+  }
+  throw new Error("Profile update failed. Please try again.");
+};
+
+export const changePassword = async (data) => {
+  const response = await axiosClient.put("/auth/change-password", data);
+  if (response && response.data) {
+    return response.data;
+  }
+  throw new Error("Password change failed. Please try again.");
+};

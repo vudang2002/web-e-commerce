@@ -32,12 +32,15 @@ const orderSchema = new mongoose.Schema(
         "Confirmed",
         "Shipping",
         "Delivered",
+        "Completed",
         "Cancelled",
         "Failed",
+        "Refunded",
       ],
       default: "Processing",
     },
     deliveredAt: { type: Date },
+    completedAt: { type: Date },
   },
   { timestamps: true }
 );

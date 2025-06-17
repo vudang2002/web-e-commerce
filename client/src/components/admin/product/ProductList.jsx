@@ -11,6 +11,7 @@ import { FiChevronLeft, FiChevronRight, FiEdit } from "react-icons/fi";
 import { BsCheckSquare, BsSquare } from "react-icons/bs";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { ToastContainer, toast } from "react-toastify";
+import ProductPrice from "../../common/ProductPrice";
 import "react-toastify/dist/ReactToastify.css";
 import ConfirmModal from "../../common/ConfirmModal";
 
@@ -439,7 +440,11 @@ const ProductList = () => {
                         {product.brand?.name || ""}
                       </td>
                       <td className="px-4 py-4 text-sm text-gray-700">
-                        {product.price?.toLocaleString() || ""}
+                        <ProductPrice
+                          product={product}
+                          size="sm"
+                          showDiscount={true}
+                        />
                       </td>
                       <td className="px-4 py-4 text-sm text-gray-700">
                         {product.stock}

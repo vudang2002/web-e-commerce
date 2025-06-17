@@ -234,4 +234,47 @@ router.delete(
   userController.deleteUser
 );
 
+// Profile routes
+const profileValidationRules = [
+  body("name")
+    .optional()
+    .trim()
+    .isLength({ min: 1 })
+    .withMessage("Name cannot be empty"),
+  body("email")
+    .optional()
+    .isEmail()
+    .withMessage("Please provide a valid email"),
+];
+
+router.put(
+  "/auth/profile",
+  authMiddleware(),
+  profileValidationRules,
+  validate(profileValidationRules),
+  userController.updateProfile
+);
+
+router.put(
+  "/auth/change-password",
+  authMiddleware(),
+  [
+    body("currentPassword")
+      .notEmpty()
+      .withMessage("Current password is required"),
+    body("newPassword")
+      .isLength({ min: 6 })
+      .withMessage("New password must be at least 6 characters long"),
+  ],
+  validate([
+    body("currentPassword")
+      .notEmpty()
+      .withMessage("Current password is required"),
+    body("newPassword")
+      .isLength({ min: 6 })
+      .withMessage("New password must be at least 6 characters long"),
+  ]),
+  userController.changePassword
+);
+
 export default router;

@@ -152,6 +152,7 @@
 import express from "express";
 import * as reviewController from "../controllers/review.controller.js";
 import { authMiddleware } from "../middlewares/auth.middleware.js";
+import { checkReviewPermission } from "../middlewares/review.middleware.js";
 import { createReviewValidationRules } from "../validators/review.validator.js";
 import { validate } from "../middlewares/validate.middleware.js";
 
@@ -161,6 +162,7 @@ router.post(
   "/",
   authMiddleware(),
   validate(createReviewValidationRules),
+  checkReviewPermission,
   reviewController.createReview
 );
 router.get("/:productId", reviewController.getReviewsByProduct);

@@ -20,22 +20,30 @@ export default function UserMenu({ user, onLogout }) {
           alt="Avatar"
           className="w-8 h-8 rounded-full"
         />
-      </button>
+      </button>{" "}
       {isMenuOpen && (
         <div className="absolute right-0 mt-2 w-48 bg-white shadow-md rounded">
-          <p className="px-4 py-2">{user.name}</p>
-          <button
-            onClick={onLogout}
-            className="block w-full text-left px-4 py-2 hover:bg-gray-100"
+          <p className="px-4 py-2 font-medium text-gray-900 border-b border-gray-100">
+            {user.name}
+          </p>
+          <Link
+            to="/profile"
+            className="block w-full text-left px-4 py-2 hover:bg-gray-100 text-gray-700"
           >
-            Log out
-          </button>
+            Thông tin cá nhân
+          </Link>
           <Link
             to="/orders"
-            className="block w-full text-left px-4 py-2 hover:bg-gray-100"
+            className="block w-full text-left px-4 py-2 hover:bg-gray-100 text-gray-700"
           >
-            Order
+            Đơn hàng
           </Link>
+          <button
+            onClick={onLogout}
+            className="block w-full text-left px-4 py-2 hover:bg-gray-100 text-red-600"
+          >
+            Đăng xuất
+          </button>
         </div>
       )}
     </div>
