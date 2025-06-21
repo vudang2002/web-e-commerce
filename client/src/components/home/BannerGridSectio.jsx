@@ -10,7 +10,7 @@ const BannerGridSection = () => {
       <BannerCard
         image="/images/banner/ps5.png"
         title="PlayStation 5"
-        description="Black and White version of the PS5 coming out on sale."
+        description="Với phiên bản 2 màu mới nhất đang hot nhất hiện nay"
         large
       />
 

@@ -249,7 +249,7 @@ const ProductUpdate = () => {
               </div>
             </div>{" "}
             {/* Status, Price and Featured in one row */}
-            <div className="grid grid-cols-3 gap-4">
+            <div className="grid grid-cols-4 gap-4">
               {/* Status */}
               <div className="space-y-2">
                 <label className="block text-sm font-medium text-gray-700">
@@ -263,6 +263,7 @@ const ProductUpdate = () => {
                 >
                   <option value="active">Active</option>
                   <option value="inactive">Inactive</option>
+                  <option value="out-of-stock">Out of Stock</option>
                 </select>
               </div>
               {/* Price */}
@@ -275,6 +276,21 @@ const ProductUpdate = () => {
                   name="price"
                   className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none"
                   value={formData.price || 0}
+                  onChange={handleInputChange}
+                />
+              </div>
+              {/* Discount */}
+              <div className="space-y-2">
+                <label className="block text-sm font-medium text-gray-700">
+                  Giảm Giá (%)
+                </label>
+                <input
+                  type="number"
+                  name="discount"
+                  min={0}
+                  max={100}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none"
+                  value={formData.discount || 0}
                   onChange={handleInputChange}
                 />
               </div>

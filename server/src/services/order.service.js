@@ -36,10 +36,12 @@ export const getOrdersByUser = async (userId, page = 1, limit = 10) => {
 export const updateOrderStatus = async (orderId, status) => {
   const order = await Order.findById(orderId);
   if (!order) throw new Error("Order not found");
-
   order.orderStatus = status;
   if (status === "Delivered") {
     order.deliveredAt = new Date();
+  }
+  if (status === "Completed") {
+    order.completedAt = new Date();
   }
 
   return await order.save();

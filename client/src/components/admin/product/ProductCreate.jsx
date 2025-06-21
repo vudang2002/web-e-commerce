@@ -73,6 +73,9 @@ const ProductCreate = () => {
       .min(0, "Số lượng tồn kho không được âm")
       .integer("Số lượng tồn kho phải là số nguyên"),
     status: Yup.string().required("Trạng thái là bắt buộc"),
+    discount: Yup.number()
+      .min(0, "Giảm giá không được nhỏ hơn 0%")
+      .max(100, "Giảm giá không được lớn hơn 100%"),
   });
 
   // Initialize React Hook Form
@@ -93,6 +96,7 @@ const ProductCreate = () => {
       stock: 0,
       status: "active",
       attributes: [],
+      discount: 0,
     },
   });
 
@@ -586,67 +590,50 @@ const ProductCreate = () => {
               </div>
             </div>
             {/* Status and Price in one row */}
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-3 gap-4">
               {/* Status */}
               <div className="space-y-2">
-                <label
-                  htmlFor="status"
-                  className="block text-sm font-medium text-gray-700"
-                >
+                <label className="block text-sm font-medium text-gray-700">
                   Trạng Thái
                 </label>
-                <Controller
+                <select
                   name="status"
-                  control={control}
-                  render={({ field }) => (
-                    <select
-                      {...field}
-                      id="status"
-                      className={`w-full px-3 py-2 border ${
-                        errors.status ? "border-red-500" : "border-gray-300"
-                      } rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 bg-white`}
-                    >
-                      <option value="active">Active</option>
-                      <option value="inactive">Inactive</option>
-                      <option value="out-of-stock">Out of Stock</option>
-                    </select>
-                  )}
-                />
-                {errors.status && (
-                  <p className="text-red-500 text-xs mt-1">
-                    {errors.status.message}
-                  </p>
-                )}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none"
+                  value={getValues("status")}
+                  onChange={(e) => setValue("status", e.target.value)}
+                >
+                  <option value="active">Active</option>
+                  <option value="inactive">Inactive</option>
+                  <option value="out-of-stock">Out of Stock</option>
+                </select>
               </div>
-
               {/* Price */}
               <div className="space-y-2">
-                <label
-                  htmlFor="price"
-                  className="block text-sm font-medium text-gray-700"
-                >
+                <label className="block text-sm font-medium text-gray-700">
                   Giá Sản Phẩm
                 </label>
-                <Controller
+                <input
+                  type="number"
                   name="price"
-                  control={control}
-                  render={({ field }) => (
-                    <input
-                      {...field}
-                      id="price"
-                      type="number"
-                      className={`w-full px-3 py-2 border ${
-                        errors.price ? "border-red-500" : "border-gray-300"
-                      } rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500`}
-                      placeholder="Enter price"
-                    />
-                  )}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none"
+                  value={getValues("price")}
+                  onChange={(e) => setValue("price", e.target.value)}
                 />
-                {errors.price && (
-                  <p className="text-red-500 text-xs mt-1">
-                    {errors.price.message}
-                  </p>
-                )}
+              </div>
+              {/* Discount */}
+              <div className="space-y-2">
+                <label className="block text-sm font-medium text-gray-700">
+                  Giảm Giá (%)
+                </label>
+                <input
+                  type="number"
+                  name="discount"
+                  min={0}
+                  max={100}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none"
+                  value={getValues("discount")}
+                  onChange={(e) => setValue("discount", e.target.value)}
+                />
               </div>
             </div>
           </div>

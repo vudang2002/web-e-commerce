@@ -1,6 +1,7 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay } from "swiper/modules";
+import { Link } from "react-router-dom";
 import "swiper/css";
 import "swiper/css/navigation";
 import FlashSaleProductCard from "./FlashSaleProductCard";
@@ -24,12 +25,6 @@ const fallbackProducts = [
 ];
 
 // Countdown renderer
-const renderer = ({ hours, minutes, seconds }) => (
-  <span className="ml-2 text-white bg-black text-xs font-mono px-2 py-1 rounded">
-    {String(hours).padStart(2, "0")} :{String(minutes).padStart(2, "0")} :
-    {String(seconds).padStart(2, "0")}
-  </span>
-);
 
 const FlashSaleSection = () => {
   // Sử dụng React Query hook để lấy sản phẩm nổi bật
@@ -71,17 +66,13 @@ const FlashSaleSection = () => {
           <h2 className="text-xl font-bold text-red-600 uppercase ml-4">
             Sản Phẩm Nổi Bật
           </h2>
-          <Countdown
-            date={Date.now() + 2 * 60 * 60 * 1000}
-            renderer={renderer}
-          />
         </div>
-        <a
-          href="/featured-products"
+        <Link
+          to="/featured-products"
           className="text-sm text-red-500 hover:underline"
         >
           Xem tất cả &gt;
-        </a>
+        </Link>
       </div>{" "}
       <Swiper
         modules={[Navigation, Autoplay]}

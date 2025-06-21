@@ -36,3 +36,12 @@ export const deleteBulkProducts = async (productIds) => {
 export const getFeaturedProducts = async () => {
   return await axiosClient.get(`${API_URL}/featured`);
 };
+
+// Lấy sản phẩm giảm giá nhiều hơn discountThreshold
+export const getHotDealsProducts = async (discountThreshold = 40) => {
+  const res = await axiosClient.get(
+    `${API_URL}/hot-deals?discount_gte=${discountThreshold}`
+  );
+  console.log("getHotDealsProducts response:", res.data);
+  return res.data;
+};

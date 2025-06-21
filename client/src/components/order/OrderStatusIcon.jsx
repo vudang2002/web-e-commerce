@@ -1,5 +1,12 @@
 import React from "react";
-import { FiPackage, FiTruck, FiCheck, FiX, FiClock } from "react-icons/fi";
+import {
+  FiPackage,
+  FiTruck,
+  FiCheck,
+  FiX,
+  FiClock,
+  FiCheckCircle,
+} from "react-icons/fi";
 
 const OrderStatusIcon = ({ status, size = 16, className = "" }) => {
   const iconProps = { size, className: `inline ${className}` };
@@ -23,7 +30,16 @@ const OrderStatusIcon = ({ status, size = 16, className = "" }) => {
       return (
         <FiCheck {...iconProps} className={`text-green-500 ${className}`} />
       );
+    case "completed":
+      return (
+        <FiCheckCircle
+          {...iconProps}
+          className={`text-emerald-500 ${className}`}
+        />
+      );
     case "cancelled":
+      return <FiX {...iconProps} className={`text-red-500 ${className}`} />;
+    case "refund":
       return <FiX {...iconProps} className={`text-red-500 ${className}`} />;
     default:
       return (

@@ -76,12 +76,38 @@ productSchema.pre("save", function (next) {
   next();
 });
 
+// Virtual field để tính giá sau khi giảm
+productSchema.virtual("discountedPrice").get(function () {
+  if (this.discount > 0) {
+    return Math.round(this.price * (1 - this.discount / 100));
+  }
+  return this.price;
+});
+
+// Virtual field để tính số tiền được giảm
+productSchema.virtual("discountAmount").get(function () {
+  if (this.discount > 0) {
+    return Math.round(this.price * (this.discount / 100));
+  }
+  return 0;
+});
+
+// Virtual field để kiểm tra có đang giảm giá không
+productSchema.virtual("isOnSale").get(function () {
+  return this.discount > 0;
+});
+
+// Đảm bảo virtual fields được bao gồm khi convert to JSON
+productSchema.set("toJSON", { virtuals: true });
+productSchema.set("toObject", { virtuals: true });
+
 // Thêm indexes để tối ưu hóa tìm kiếm
 productSchema.index({ name: "text", description: "text", tags: "text" }); // Text index để tìm kiếm nhanh
 productSchema.index({ normalizedName: 1 }); // Index cho tìm kiếm không dấu
 productSchema.index({ category: 1 }); // Index cho tìm kiếm theo danh mục
 productSchema.index({ brand: 1 }); // Index cho tìm kiếm theo thương hiệu
 productSchema.index({ price: 1 }); // Index cho tìm kiếm và sắp xếp theo giá
+productSchema.index({ discount: 1 }); // Index cho tìm kiếm theo discount
 productSchema.index({ createdAt: -1 }); // Index cho sắp xếp theo ngày tạo
 productSchema.index({ slug: 1 }, { unique: true }); // Đảm bảo slug là duy nhất
 productSchema.index({ isFeatured: 1 }); // Index cho việc tìm kiếm sản phẩm nổi bật

@@ -32,6 +32,7 @@ export const ORDER_STATUS = {
   CONFIRMED: "Confirmed",
   SHIPPING: "Shipping",
   DELIVERED: "Delivered",
+  COMPLETED: "Completed",
   CANCELLED: "Cancelled",
   FAILED: "Failed",
 };

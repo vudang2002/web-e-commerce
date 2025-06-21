@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import AddToCartButton from "../cart/AddToCartButton";
+import ProductPrice from "../common/ProductPrice";
 
 const ProductCard = ({
   product,
@@ -21,12 +22,10 @@ const ProductCard = ({
     discount: discount,
     badge: badge,
   };
-
   const {
     _id: productId,
     images,
     name,
-    price: productPrice,
     sold: productSold,
     discount: productDiscount,
     badge: productBadge,
@@ -62,12 +61,15 @@ const ProductCard = ({
                 <span className="absolute bottom-2 left-2 bg-orange-400 text-white text-xs px-1 py-0.5 rounded">
                   {productBadge}
                 </span>
-              )}
+              )}{" "}
             </div>
             <p className="mt-2 text-sm font-medium line-clamp-2">{name}</p>
-            <p className="text-red-500 font-bold mt-1 text-sm">
-              ₫{productPrice?.toLocaleString()}
-            </p>
+            <ProductPrice
+              product={productData}
+              size="sm"
+              className="mt-1"
+              showDiscount={true}
+            />
             <p className="text-xs text-gray-500 mt-1">Đã bán {productSold}</p>
           </div>
         </div>

@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useCartStats } from "../../../hooks/useCart";
+import ProductPrice from "../../common/ProductPrice";
 
 const CartPreview = () => {
   const { cartItems, totalItems } = useCartStats();
@@ -29,13 +30,18 @@ const CartPreview = () => {
                 src={item.product.images?.[0] || "/images/placeholder.jpg"}
                 alt={item.product.name}
                 className="w-12 h-12 object-cover rounded border"
-              />
+              />{" "}
               <div className="flex-1 min-w-0">
                 <div className="font-medium text-sm truncate">
                   {item.product.name}
                 </div>
-                <div className="text-xs text-gray-500 mt-1">
-                  {item.product.price?.toLocaleString("vi-VN")}đ
+                <div className="text-xs mt-1">
+                  <ProductPrice
+                    product={item.product}
+                    size="sm"
+                    showDiscount={false}
+                    className="text-xs"
+                  />
                 </div>
               </div>
               <div className="text-xs text-gray-500 ml-2">x{item.quantity}</div>

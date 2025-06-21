@@ -144,3 +144,84 @@ export const deleteUser = async (req, res) => {
     res.status(400).json(formatResponse(false, error.message));
   }
 };
+
+export const updateProfile = async (req, res) => {
+  try {
+    const userId = req.user.id;
+    const { name, email } = req.body;
+
+    const updateData = {};
+    if (name) updateData.name = name;
+    if (email) updateData.email = email;
+
+    const user = await userService.updateUser(userId, updateData);
+    if (!user) {
+      return res.status(404).json(formatResponse(false, "User not found"));
+    }
+
+    // Remove password from response - handle both Mongoose document and plain object
+    let userWithoutPassword;
+    if (user.toObject) {
+      const { password, ...rest } = user.toObject();
+      userWithoutPassword = rest;
+    } else {
+      const { password, ...rest } = user;
+      userWithoutPassword = rest;
+    }
+
+    res.status(200).json(
+      formatResponse(true, "Profile updated successfully", {
+        user: userWithoutPassword,
+      })
+    );
+  } catch (error) {
+    console.error("Profile update error:", error);
+    res
+      .status(500)
+      .json(formatResponse(false, "Profile update failed. Please try again."));
+  }
+};
+
+export const changePassword = async (req, res) => {
+  try {
+    const userId = req.user.id;
+    const { currentPassword, newPassword } = req.body;
+
+    if (!currentPassword || !newPassword) {
+      return res
+        .status(400)
+        .json(
+          formatResponse(
+            false,
+            "Current password and new password are required"
+          )
+        );
+    }
+
+    if (newPassword.length < 6) {
+      return res
+        .status(400)
+        .json(
+          formatResponse(
+            false,
+            "New password must be at least 6 characters long"
+          )
+        );
+    }
+
+    const result = await userService.changePassword(
+      userId,
+      currentPassword,
+      newPassword
+    );
+
+    res.status(200).json(formatResponse(true, "Password changed successfully"));
+  } catch (error) {
+    if (error.message === "Current password is incorrect") {
+      return res
+        .status(400)
+        .json(formatResponse(false, "Mật khẩu hiện tại không đúng"));
+    }
+    res.status(400).json(formatResponse(false, error.message));
+  }
+};
