@@ -35,7 +35,7 @@ const CartSummary = ({
             {clearCartLoading ? "Đang xóa..." : "Xóa tất cả"}
           </button>
         </div>
-        
+
         <div className="flex-1 flex flex-col md:flex-row md:items-center md:justify-end gap-2">
           <div className="flex items-center gap-2">
             <span className="text-gray-600 text-sm">Shopee Voucher</span>
@@ -48,7 +48,7 @@ const CartSummary = ({
               Áp dụng
             </button>
           </div>
-          
+
           <div className="flex items-center gap-2">
             <span className="text-gray-600 text-sm">
               Tổng cộng ({selectedTotalItems} sản phẩm):
@@ -57,7 +57,7 @@ const CartSummary = ({
               {selectedTotalPrice.toLocaleString("vi-VN")}đ
             </span>
           </div>
-          
+
           <button
             onClick={onCheckout}
             disabled={selectedItems.length === 0}

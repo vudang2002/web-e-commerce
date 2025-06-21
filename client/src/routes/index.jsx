@@ -13,6 +13,7 @@ const OrderDetail = lazy(() => import("../pages/OrderDetail"));
 const SearchResults = lazy(() => import("../pages/SearchResults"));
 const CategoryPage = lazy(() => import("../pages/CategoryPage"));
 const HotDealsPage = lazy(() => import("../pages/HotDealsPage"));
+const FeaturedProducts = lazy(() => import("../pages/FeaturedProducts"));
 const Profile = lazy(() => import("../pages/Profile"));
 
 const routes = [
@@ -107,12 +108,19 @@ const routes = [
         <SearchResults />
       </Suspense>
     ),
-  },
-  {
+  },  {
     path: "/hot-deals",
     element: (
       <Suspense fallback={<div>Loading...</div>}>
         <HotDealsPage />
+      </Suspense>
+    ),
+  },
+  {
+    path: "/featured-products",
+    element: (
+      <Suspense fallback={<div>Loading...</div>}>
+        <FeaturedProducts />
       </Suspense>
     ),
   },

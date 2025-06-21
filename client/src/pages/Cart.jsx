@@ -40,7 +40,8 @@ export default function Cart() {
     [cartItems, selectedItems]
   );
 
-  const { selectedCartItems, selectedTotalPrice, selectedTotalItems } = selectedData;
+  const { selectedCartItems, selectedTotalPrice, selectedTotalItems } =
+    selectedData;
 
   // Debug logs with condition
   logger.log("Cart.jsx - cartItems:", cartItems);
@@ -61,7 +62,7 @@ export default function Cart() {
       },
       onError: (error) => {
         toast.error("Có lỗi xảy ra khi xóa giỏ hàng: " + error.message);
-      }
+      },
     });
     setShowClearCartModal(false);
   }, [clearCartMutation]);
@@ -84,28 +85,31 @@ export default function Cart() {
     );
   }, []);
 
-  const handleUpdateQuantity = useCallback((productId, newQuantity) => {
-    if (newQuantity < 1) {
-      // Nếu số lượng < 1, hiển thị modal xác nhận xóa
-      setItemToDelete(productId);
-      setShowDeleteItemModal(true);
-      return;
-    }
-    updateCartItemMutation.mutate(
-      {
-        productId,
-        quantity: newQuantity,
-      },
-      {
-        onSuccess: () => {
-          toast.success("Đã cập nhật số lượng!");
-        },
-        onError: (error) => {
-          toast.error("Có lỗi xảy ra: " + error.message);
-        }
+  const handleUpdateQuantity = useCallback(
+    (productId, newQuantity) => {
+      if (newQuantity < 1) {
+        // Nếu số lượng < 1, hiển thị modal xác nhận xóa
+        setItemToDelete(productId);
+        setShowDeleteItemModal(true);
+        return;
       }
-    );
-  }, [updateCartItemMutation]);
+      updateCartItemMutation.mutate(
+        {
+          productId,
+          quantity: newQuantity,
+        },
+        {
+          onSuccess: () => {
+            toast.success("Đã cập nhật số lượng!");
+          },
+          onError: (error) => {
+            toast.error("Có lỗi xảy ra: " + error.message);
+          },
+        }
+      );
+    },
+    [updateCartItemMutation]
+  );
 
   const handleRemoveItem = useCallback((productId) => {
     setItemToDelete(productId);
@@ -117,11 +121,11 @@ export default function Cart() {
       removeCartItemMutation.mutate(itemToDelete, {
         onSuccess: () => {
           toast.success("Đã xóa sản phẩm khỏi giỏ hàng!");
-          setSelectedItems(prev => prev.filter(id => id !== itemToDelete));
+          setSelectedItems((prev) => prev.filter((id) => id !== itemToDelete));
         },
         onError: (error) => {
           toast.error("Có lỗi xảy ra khi xóa sản phẩm: " + error.message);
-        }
+        },
       });
       setItemToDelete(null);
     }
@@ -152,7 +156,13 @@ export default function Cart() {
       JSON.stringify(selectedCheckoutData)
     );
     navigate("/checkout");
-  }, [selectedItems.length, selectedCartItems, selectedTotalPrice, selectedTotalItems, navigate]);
+  }, [
+    selectedItems.length,
+    selectedCartItems,
+    selectedTotalPrice,
+    selectedTotalItems,
+    navigate,
+  ]);
 
   // Nếu user chưa đăng nhập
   if (!user) {
@@ -276,7 +286,7 @@ export default function Cart() {
     <div className="min-h-screen bg-gray-50">
       {/* Breadcrumb */}
       <Breadcrumb items={[{ label: "Giỏ hàng", path: "/cart" }]} />
-      
+
       <div className="py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Cart Table */}
