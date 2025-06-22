@@ -55,6 +55,10 @@ const OrderList = lazy(() => import("../components/admin/order/OrderList"));
 const OrderCreate = lazy(() => import("../components/admin/order/OrderCreate"));
 const OrderDetail = lazy(() => import("../components/admin/order/OrderDetail"));
 const OrderEdit = lazy(() => import("../components/admin/order/OrderEdit"));
+// Chatbot management
+const ChatbotManagement = lazy(() =>
+  import("../pages/admin/ChatbotManagement")
+);
 
 const adminRoutes = [
   {
@@ -260,6 +264,14 @@ const adminRoutes = [
     element: (
       <Suspense fallback={<div>Loading...</div>}>
         <OrderEdit />
+      </Suspense>
+    ),
+  },
+  {
+    path: "chatbot",
+    element: (
+      <Suspense fallback={<div>Loading...</div>}>
+        <ChatbotManagement />
       </Suspense>
     ),
   },

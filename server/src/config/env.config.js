@@ -55,6 +55,11 @@ const config = {
   // CORS
   CORS_ORIGIN: process.env.CORS_ORIGIN || "http://localhost:3000",
 
+  // OpenRouter AI Configuration
+  OPENROUTER_API_KEY: process.env.OPENROUTER_API_KEY,
+  SITE_URL: process.env.SITE_URL || "http://localhost:5173",
+  SITE_NAME: process.env.SITE_NAME || "E-Commerce Chat",
+
   // Logging
   LOG_LEVEL: process.env.LOG_LEVEL || "info",
 };

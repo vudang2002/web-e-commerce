@@ -1407,3 +1407,51 @@
 {"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-21 09:49:41:4941"}
 {"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-21 09:49:41:4941"}
 {"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-21 09:49:41:4941"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-21 11:00:12:012"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-21 11:00:12:012"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-21 11:00:12:012"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-21 11:00:12:012"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-21 11:12:27:1227"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-21 11:12:27:1227"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-21 11:12:27:1227"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-21 11:12:27:1227"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-21 11:13:08:138"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-21 11:13:08:138"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-21 11:13:08:138"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-21 11:13:08:138"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-21 11:13:08:138"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-21 11:13:08:138"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-21 11:13:08:138"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-21 11:13:08:138"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-21 11:13:39:1339"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-21 11:13:39:1339"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-21 11:13:39:1339"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-21 11:13:39:1339"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-21 11:13:39:1339"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-21 11:13:39:1339"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-21 11:13:39:1339"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-21 11:13:39:1339"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-21 11:13:47:1347"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-21 11:13:47:1347"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-21 11:13:47:1347"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-21 11:13:47:1347"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-21 11:13:47:1347"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-21 11:13:47:1347"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-21 11:13:47:1347"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-21 11:13:47:1347"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-21 11:14:21:1421"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-21 11:14:21:1421"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-21 11:14:21:1421"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-21 11:14:21:1421"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-21 11:14:21:1421"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-21 11:14:21:1421"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-21 11:14:21:1421"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-21 11:14:21:1421"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-22 13:56:46:5646"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-22 13:56:46:5646"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-22 13:56:46:5646"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-22 13:56:46:5646"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-06-22 14:06:55:655"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-06-22 14:06:55:655"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-06-22 14:06:55:655"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-06-22 14:06:55:655"}

@@ -51,7 +51,7 @@ const voucherSchema = new mongoose.Schema(
 );
 
 // Index để tối ưu tìm kiếm
-voucherSchema.index({ code: 1 });
+// code đã có unique: true trong schema, không cần thêm index riêng
 voucherSchema.index({ isActive: 1 });
 voucherSchema.index({ expireAt: 1 });
 
