@@ -108,7 +108,8 @@ const routes = [
         <SearchResults />
       </Suspense>
     ),
-  },  {
+  },
+  {
     path: "/hot-deals",
     element: (
       <Suspense fallback={<div>Loading...</div>}>

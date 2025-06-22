@@ -9,6 +9,7 @@ import {
   FiUsers,
   FiTag,
   FiShoppingCart,
+  FiMessageCircle,
 } from "react-icons/fi";
 
 const AdminSidebar = () => {
@@ -36,7 +37,6 @@ const AdminSidebar = () => {
           <FiLayout size={16} />
           Dashboard
         </Link>
-
         <Link
           to="/admin/products"
           className={`flex items-center gap-2 px-3 py-2 rounded ${
@@ -48,7 +48,6 @@ const AdminSidebar = () => {
           <FiShoppingBag size={16} />
           Product Management
         </Link>
-
         <Link
           to="/admin/orders"
           className={`flex items-center gap-2 px-3 py-2 rounded ${
@@ -60,7 +59,6 @@ const AdminSidebar = () => {
           <FiShoppingCart size={16} />
           Order Management
         </Link>
-
         <Link
           to="/admin/users"
           className={`flex items-center gap-2 px-3 py-2 rounded ${
@@ -72,7 +70,6 @@ const AdminSidebar = () => {
           <FiUsers size={16} />
           User Management
         </Link>
-
         <Link
           to="/admin/brands"
           className={`flex items-center gap-2 px-3 py-2 rounded ${
@@ -94,8 +91,7 @@ const AdminSidebar = () => {
         >
           <FiFileText size={16} />
           Category Management
-        </Link>
-
+        </Link>{" "}
         <Link
           to="/admin/vouchers"
           className={`flex items-center gap-2 px-3 py-2 rounded ${
@@ -106,6 +102,17 @@ const AdminSidebar = () => {
         >
           <FiFileText size={16} />
           Voucher Management
+        </Link>
+        <Link
+          to="/admin/chatbot"
+          className={`flex items-center gap-2 px-3 py-2 rounded ${
+            isActive("/admin/chatbot")
+              ? "bg-blue-900 text-white"
+              : "text-gray-700 hover:bg-gray-100"
+          }`}
+        >
+          <FiMessageCircle size={16} />
+          Chatbot AI
         </Link>
       </nav>
 

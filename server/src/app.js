@@ -16,6 +16,7 @@ import uploadRoutes from "./routes/upload.route.js";
 import voucherRoutes from "./routes/voucher.route.js";
 import healthRoutes from "./routes/health.route.js";
 import searchRoutes from "./routes/search.route.js";
+import chatbotRoutes from "./routes/chatbot.routes.js";
 import setupSwagger from "./swagger.js";
 import { errorHandler, notFoundHandler } from "./middlewares/errorHandler.js";
 import {
@@ -110,6 +111,7 @@ app.use("/api/orders", orderRoutes);
 app.use("/api/vouchers", voucherRoutes);
 app.use("/api/upload", uploadRoutes);
 app.use("/api/search", searchRoutes);
+app.use("/api/chatbot", chatbotRoutes);
 
 // Error handling middleware
 app.use(notFoundHandler);

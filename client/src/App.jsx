@@ -7,6 +7,7 @@ import NotFound from "./pages/NotFound";
 import AdminLayout from "./components/admin/layout/AdminLayout";
 import AdminProtectedRoute from "./components/auth/AdminProtectedRoute";
 import AdminLogin from "./pages/admin/AdminLogin";
+import Chatbox from "./components/common/Chatbox";
 
 function App() {
   return (
@@ -30,10 +31,16 @@ function App() {
               {adminRoutes.map(({ path, element }, idx) => (
                 <Route key={idx} path={path} element={element} />
               ))}
-            </Route>
+            </Route>{" "}
           </Route>
         </Routes>
       </div>
+
+      {/* Chatbox - only show on user pages, not admin */}
+      <Routes>
+        <Route path="/admin/*" element={null} />
+        <Route path="*" element={<Chatbox />} />
+      </Routes>
     </div>
   );
 }

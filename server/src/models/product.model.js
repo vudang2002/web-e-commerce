@@ -109,7 +109,7 @@ productSchema.index({ brand: 1 }); // Index cho tìm kiếm theo thương hiệu
 productSchema.index({ price: 1 }); // Index cho tìm kiếm và sắp xếp theo giá
 productSchema.index({ discount: 1 }); // Index cho tìm kiếm theo discount
 productSchema.index({ createdAt: -1 }); // Index cho sắp xếp theo ngày tạo
-productSchema.index({ slug: 1 }, { unique: true }); // Đảm bảo slug là duy nhất
+// slug đã có unique: true trong schema, không cần thêm index riêng
 productSchema.index({ isFeatured: 1 }); // Index cho việc tìm kiếm sản phẩm nổi bật
 productSchema.index({ status: 1 }); // Index cho tìm kiếm theo status
 productSchema.index({ tags: 1 }); // Index cho tìm kiếm theo tags

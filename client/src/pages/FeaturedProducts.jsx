@@ -25,7 +25,7 @@ const FeaturedProducts = () => {
 
   const handlePageChange = (pageNumber) => {
     setCurrentPage(pageNumber);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
   if (isLoading) {
     return (
@@ -64,7 +64,9 @@ const FeaturedProducts = () => {
       {/* Thống kê */}
       <div className="mb-6">
         <p className="text-sm text-gray-600">
-          Hiển thị {indexOfFirstProduct + 1}-{Math.min(indexOfLastProduct, featuredProducts.length)} trong tổng số {featuredProducts.length} sản phẩm
+          Hiển thị {indexOfFirstProduct + 1}-
+          {Math.min(indexOfLastProduct, featuredProducts.length)} trong tổng số{" "}
+          {featuredProducts.length} sản phẩm
         </p>
       </div>
 
@@ -118,7 +120,7 @@ const FeaturedProducts = () => {
           {[...Array(totalPages)].map((_, index) => {
             const pageNumber = index + 1;
             const isCurrentPage = pageNumber === currentPage;
-            
+
             // Hiển thị trang đầu, cuối và các trang xung quanh trang hiện tại
             if (
               pageNumber === 1 ||

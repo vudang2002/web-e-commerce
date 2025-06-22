@@ -133,3 +133,27 @@
 [31m    at ModuleJob.run (node:internal/modules/esm/module_job:271:25)[39m
 [31m    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:578:26)[39m
 [31m    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:116:5)[39m
+2025-06-21 10:56:54:5654 [31merror[39m: [31muncaughtException: The OPENAI_API_KEY environment variable is missing or empty; either provide it, or instantiate the OpenAI client with an apiKey option, like new OpenAI({ apiKey: 'My API Key' }).[39m
+[31mError: The OPENAI_API_KEY environment variable is missing or empty; either provide it, or instantiate the OpenAI client with an apiKey option, like new OpenAI({ apiKey: 'My API Key' }).[39m
+[31m    at new OpenAI (file:///E:/Javascript/web-e-commerce/server/node_modules/openai/client.mjs:80:19)[39m
+[31m    at new ChatbotService (file:///E:/Javascript/web-e-commerce/server/src/services/chatbot.service.js:9:19)[39m
+[31m    at file:///E:/Javascript/web-e-commerce/server/src/services/chatbot.service.js:171:16[39m
+[31m    at ModuleJob.run (node:internal/modules/esm/module_job:271:25)[39m
+[31m    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:578:26)[39m
+[31m    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:116:5)[39m
+2025-06-21 10:57:43:5743 [31merror[39m: [31muncaughtException: The OPENAI_API_KEY environment variable is missing or empty; either provide it, or instantiate the OpenAI client with an apiKey option, like new OpenAI({ apiKey: 'My API Key' }).[39m
+[31mError: The OPENAI_API_KEY environment variable is missing or empty; either provide it, or instantiate the OpenAI client with an apiKey option, like new OpenAI({ apiKey: 'My API Key' }).[39m
+[31m    at new OpenAI (file:///E:/Javascript/web-e-commerce/server/node_modules/openai/client.mjs:80:19)[39m
+[31m    at new ChatbotService (file:///E:/Javascript/web-e-commerce/server/src/services/chatbot.service.js:9:19)[39m
+[31m    at file:///E:/Javascript/web-e-commerce/server/src/services/chatbot.service.js:171:16[39m
+[31m    at ModuleJob.run (node:internal/modules/esm/module_job:271:25)[39m
+[31m    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:578:26)[39m
+[31m    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:116:5)[39m
+2025-06-21 10:57:49:5749 [31merror[39m: [31muncaughtException: The OPENAI_API_KEY environment variable is missing or empty; either provide it, or instantiate the OpenAI client with an apiKey option, like new OpenAI({ apiKey: 'My API Key' }).[39m
+[31mError: The OPENAI_API_KEY environment variable is missing or empty; either provide it, or instantiate the OpenAI client with an apiKey option, like new OpenAI({ apiKey: 'My API Key' }).[39m
+[31m    at new OpenAI (file:///E:/Javascript/web-e-commerce/server/node_modules/openai/client.mjs:80:19)[39m
+[31m    at new ChatbotService (file:///E:/Javascript/web-e-commerce/server/src/services/chatbot.service.js:9:19)[39m
+[31m    at file:///E:/Javascript/web-e-commerce/server/src/services/chatbot.service.js:171:16[39m
+[31m    at ModuleJob.run (node:internal/modules/esm/module_job:271:25)[39m
+[31m    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:578:26)[39m
+[31m    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:116:5)[39m
