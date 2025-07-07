@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useMemo } from "react";
+import { useTranslation } from "react-i18next";
 import { searchProducts, getFilterOptions } from "../services/searchService";
 import ProductCard from "../components/home/ProductCard";
 import SearchHeader from "../components/search/SearchHeader";
@@ -8,6 +9,7 @@ import useSearchFilters from "../hooks/useSearchFilters";
 import { FiFilter } from "react-icons/fi";
 
 const SearchResults = () => {
+  const { t } = useTranslation();
   const { filters, handleFilterChange, handlePageChange, clearFilters } =
     useSearchFilters();
 
@@ -24,14 +26,14 @@ const SearchResults = () => {
   // Sort options
   const sortOptions = useMemo(
     () => [
-      { value: "relevance", label: "Phù hợp nhất" },
-      { value: "newest", label: "Mới nhất" },
-      { value: "price_asc", label: "Giá thấp đến cao" },
-      { value: "price_desc", label: "Giá cao đến thấp" },
-      { value: "rating", label: "Đánh giá cao nhất" },
-      { value: "sales", label: "Bán chạy nhất" },
+      { value: "relevance", label: t('search.sort_options.relevance') },
+      { value: "newest", label: t('search.sort_options.newest') },
+      { value: "price_asc", label: t('search.sort_options.price_asc') },
+      { value: "price_desc", label: t('search.sort_options.price_desc') },
+      { value: "rating", label: t('search.sort_options.rating') },
+      { value: "sales", label: t('search.sort_options.sales') },
     ],
-    []
+    [t]
   );
 
   // Load filter options on component mount
@@ -108,12 +110,12 @@ const SearchResults = () => {
                   className="lg:hidden flex items-center gap-2 px-4 py-2 border rounded-lg hover:bg-gray-50 transition-colors"
                 >
                   <FiFilter size={16} />
-                  Bộ lọc
+                  {t('search.filters')}
                 </button>
 
                 <div className="flex items-center gap-4 ml-auto">
                   <span className="text-sm font-medium text-gray-700">
-                    Sắp xếp theo:
+                    {t('search.sort_by')}
                   </span>
                   <div className="flex gap-2">
                     {sortOptions.map((option) => (
@@ -140,12 +142,12 @@ const SearchResults = () => {
                 <span className="text-sm text-gray-600">
                   {pagination.totalCount > 0 && (
                     <>
-                      Hiển thị {(pagination.currentPage - 1) * 20 + 1}-
+                      {t('search.showing_results')} {(pagination.currentPage - 1) * 20 + 1}-
                       {Math.min(
                         pagination.currentPage * 20,
                         pagination.totalCount
                       )}{" "}
-                      trong {pagination.totalCount} sản phẩm
+                      {t('search.of_total')} {pagination.totalCount} {t('search.products')}
                     </>
                   )}
                 </span>
@@ -165,24 +167,23 @@ const SearchResults = () => {
                 <div className="text-center py-16">
                   <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-red-600 mx-auto"></div>
                   <p className="mt-6 text-gray-600 text-lg">
-                    Đang tìm kiếm sản phẩm...
+                    {t('search.searching')}
                   </p>
                 </div>
               ) : products.length === 0 ? (
                 <div className="text-center py-16 bg-white rounded-lg shadow-sm">
                   <div className="text-8xl text-gray-300 mb-6">🔍</div>
                   <h3 className="text-2xl font-medium text-gray-900 mb-3">
-                    Không tìm thấy sản phẩm nào
+                    {t('search.no_products_found')}
                   </h3>
                   <p className="text-gray-600 mb-6 max-w-md mx-auto">
-                    Hãy thử thay đổi từ khóa tìm kiếm hoặc điều chỉnh bộ lọc để
-                    tìm được sản phẩm phù hợp.
+                    {t('search.no_products_message')}
                   </p>
                   <button
                     onClick={clearFilters}
                     className="bg-red-500 text-white px-6 py-3 rounded-lg hover:bg-red-600 transition-colors font-medium"
                   >
-                    Xóa bộ lọc
+                    {t('search.clear_filters')}
                   </button>
                 </div>
               ) : (
@@ -210,7 +211,7 @@ const SearchResults = () => {
                           disabled={!pagination.hasPrev}
                           className="px-4 py-2 rounded-lg border border-gray-300 disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-50 transition-colors font-medium"
                         >
-                          ← Trước
+                          ← {t('search.previous')}
                         </button>
 
                         {[...Array(Math.min(pagination.totalPages, 10))].map(
@@ -239,7 +240,7 @@ const SearchResults = () => {
                           disabled={!pagination.hasNext}
                           className="px-4 py-2 rounded-lg border border-gray-300 disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-50 transition-colors font-medium"
                         >
-                          Sau →
+                          {t('search.next')} →
                         </button>
                       </nav>
                     </div>

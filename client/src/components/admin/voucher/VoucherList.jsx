@@ -192,7 +192,7 @@ const VoucherList = () => {
                         </td>
                         <td className="px-4 py-4 font-medium">
                           <Link
-                            to={`/admin/vouchers/${voucher._id}`}
+                            to={`/admin/vouchers/detail/${voucher._id}`}
                             className="text-blue-600 hover:underline"
                           >
                             {voucher.title}

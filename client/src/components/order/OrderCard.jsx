@@ -1,5 +1,6 @@
 import React, { useCallback, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { useCancelOrder, useUpdateOrderStatus } from "../../hooks/useOrder";
 import { useCreateMultipleReviews } from "../../hooks/useReview";
 import { FiX, FiStar } from "react-icons/fi";
@@ -11,6 +12,7 @@ import { formatCurrency, formatDate } from "../../utils/formatters";
 
 const OrderCard = React.memo(({ order, onStatusChange, isAdmin }) => {
   const navigate = useNavigate();
+  const { t } = useTranslation();
   const cancelOrderMutation = useCancelOrder();
   const updateOrderStatusMutation = useUpdateOrderStatus();
   const createReviewsMutation = useCreateMultipleReviews();
@@ -32,14 +34,14 @@ const OrderCard = React.memo(({ order, onStatusChange, isAdmin }) => {
   );
 
   const handleCancelOrder = useCallback(async () => {
-    if (window.confirm("Are you sure you want to cancel this order?")) {
+    if (window.confirm(t('orders.card.cancel_confirm'))) {
       try {
         await cancelOrderMutation.mutateAsync(order._id);
       } catch {
         // Error is handled by the mutation hook
       }
     }
-  }, [cancelOrderMutation, order._id]);
+  }, [cancelOrderMutation, order._id, t]);
   // Handle receive confirmation
   const handleConfirmReceive = useCallback(async () => {
     try {
@@ -81,10 +83,10 @@ const OrderCard = React.memo(({ order, onStatusChange, isAdmin }) => {
         <div className="flex justify-between items-start mb-4">
           <div>
             <h3 className="text-lg font-semibold text-gray-900">
-              Order #{order._id.slice(-8).toUpperCase()}
+              {t('orders.card.order_id')} #{order._id.slice(-8).toUpperCase()}
             </h3>
             <p className="text-sm text-gray-600 mt-1">
-              Đặt hàng lúc {formatDate(order.createdAt)}
+              {t('orders.card.ordered_at')} {formatDate(order.createdAt)}
             </p>
           </div>
           <OrderStatusBadge
@@ -94,7 +96,7 @@ const OrderCard = React.memo(({ order, onStatusChange, isAdmin }) => {
         </div>
         <div className="border-t border-gray-200 pt-4 mb-4">
           <h4 className="text-sm font-medium text-gray-900 mb-3">
-            Sản phẩm đã đặt
+            {t('orders.card.ordered_products')}
           </h4>
           <div className="space-y-2">
             {order.orderItems?.map((item, index) => (
@@ -111,12 +113,12 @@ const OrderCard = React.memo(({ order, onStatusChange, isAdmin }) => {
         <div className="border-t border-gray-200 pt-4">
           <div className="flex justify-between items-center mb-4">
             <div className="text-sm text-gray-600">
-              <p>Giao hàng đến: {order.shippingInfo.address}</p>
-              <p>Số điện thoại: {order.shippingInfo.phoneNo}</p>
+              <p>{t('orders.card.delivery_to')} {order.shippingInfo.address}</p>
+              <p>{t('orders.card.phone_number')} {order.shippingInfo.phoneNo}</p>
             </div>
             <div className="text-right">
               <p className="text-lg font-bold text-gray-900">
-                Tổng tiền:{" "}
+                {t('orders.card.total_amount')}{" "}
                 {formatCurrency(order.totalPrice || order.totalAmount)}
               </p>
             </div>
@@ -132,8 +134,8 @@ const OrderCard = React.memo(({ order, onStatusChange, isAdmin }) => {
               >
                 <FiX size={16} />
                 {cancelOrderMutation.isPending
-                  ? "Cancelling..."
-                  : "Cancel Order"}
+                  ? t('orders.card.cancelling')
+                  : t('orders.card.cancel_order')}
               </button>
             )}
 
@@ -143,7 +145,7 @@ const OrderCard = React.memo(({ order, onStatusChange, isAdmin }) => {
                 onClick={() => setShowConfirmReceiveModal(true)}
                 className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-green-700 bg-green-50 border border-green-300 rounded-md hover:bg-green-100 transition-colors"
               >
-                Đã Nhận Được Hàng
+                {t('orders.card.received_goods')}
               </button>
             )}
 
@@ -153,7 +155,7 @@ const OrderCard = React.memo(({ order, onStatusChange, isAdmin }) => {
                 className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-blue-700 bg-blue-50 border border-blue-300 rounded-md hover:bg-blue-100 transition-colors"
               >
                 <FiStar size={16} />
-                Đánh giá sản phẩm
+                {t('orders.card.review_product')}
               </button>
             )}
           </div>

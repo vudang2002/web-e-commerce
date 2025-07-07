@@ -163,7 +163,7 @@ const CategoryList = () => {
                       </td>
                       <td className="px-4 py-4 font-medium">
                         <Link
-                          to={`/admin/categories/${category._id}`}
+                          to={`/admin/categories/detail/${category._id}`}
                           className="text-blue-600 hover:underline"
                         >
                           {category.name}

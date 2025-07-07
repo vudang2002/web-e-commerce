@@ -30,89 +30,89 @@ const AdminSidebar = () => {
           to="/admin"
           className={`flex items-center gap-2 px-3 py-2 rounded ${
             isActive("/admin")
-              ? "bg-blue-900 text-white"
+              ? "bg-primary text-white"
               : "text-gray-700 hover:bg-gray-100"
           }`}
         >
           <FiLayout size={16} />
-          Dashboard
+          Trang Chủ
         </Link>
         <Link
           to="/admin/products"
           className={`flex items-center gap-2 px-3 py-2 rounded ${
             isActive("/admin/products")
-              ? "bg-blue-900 text-white"
+              ? "bg-primary text-white"
               : "text-gray-700 hover:bg-gray-100"
           }`}
         >
           <FiShoppingBag size={16} />
-          Product Management
+          Quản Lý Sản Phẩm
         </Link>
         <Link
           to="/admin/orders"
           className={`flex items-center gap-2 px-3 py-2 rounded ${
             isActive("/admin/orders")
-              ? "bg-blue-900 text-white"
+              ? "bg-primary text-white"
               : "text-gray-700 hover:bg-gray-100"
           }`}
         >
           <FiShoppingCart size={16} />
-          Order Management
+          Quản Lý Đơn Hàng
         </Link>
         <Link
           to="/admin/users"
           className={`flex items-center gap-2 px-3 py-2 rounded ${
             isActive("/admin/users")
-              ? "bg-blue-900 text-white"
+              ? "bg-primary text-white"
               : "text-gray-700 hover:bg-gray-100"
           }`}
         >
           <FiUsers size={16} />
-          User Management
+          Quản Lý Người Dùng
         </Link>
         <Link
           to="/admin/brands"
           className={`flex items-center gap-2 px-3 py-2 rounded ${
             isActive("/admin/brands")
-              ? "bg-blue-900 text-white"
+              ? "bg-primary text-white"
               : "text-gray-700 hover:bg-gray-100"
           }`}
         >
           <FiFileText size={16} />
-          Brand Management
+          Quản Lý Thương Hiệu
         </Link>
         <Link
           to="/admin/categories"
           className={`flex items-center gap-2 px-3 py-2 rounded ${
             isActive("/admin/categories")
-              ? "bg-blue-900 text-white"
+              ? "bg-primary text-white"
               : "text-gray-700 hover:bg-gray-100"
           }`}
         >
           <FiFileText size={16} />
-          Category Management
+          Quản Lý Danh Mục
         </Link>{" "}
         <Link
           to="/admin/vouchers"
           className={`flex items-center gap-2 px-3 py-2 rounded ${
             isActive("/admin/vouchers")
-              ? "bg-blue-900 text-white"
+              ? "bg-primary text-white"
               : "text-gray-700 hover:bg-gray-100"
           }`}
         >
           <FiFileText size={16} />
-          Voucher Management
+          Quản Lý Voucher
         </Link>
         <Link
           to="/admin/chatbot"
           className={`flex items-center gap-2 px-3 py-2 rounded ${
             isActive("/admin/chatbot")
-              ? "bg-blue-900 text-white"
+              ? "bg-primary text-white"
               : "text-gray-700 hover:bg-gray-100"
           }`}
         >
           <FiMessageCircle size={16} />
-          Chatbot AI
+          Quản Lý Chatbot
         </Link>
       </nav>
 

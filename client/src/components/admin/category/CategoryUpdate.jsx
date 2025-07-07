@@ -109,7 +109,7 @@ const CategoryUpdate = () => {
 
         if (response?.success) {
           toast.success("Cập nhật danh mục thành công!");
-          setTimeout(() => navigate(`/admin/categories/${id}`), 1200);
+          setTimeout(() => navigate(`/admin/categories/detail/${id}`), 1200);
         } else {
           toast.error(response?.message || "Cập nhật danh mục thất bại");
         }

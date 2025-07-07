@@ -1,22 +1,25 @@
 import React, { useMemo, useCallback } from "react";
+import { useTranslation } from "react-i18next";
 import { FiFilter, FiSearch } from "react-icons/fi";
 import useProductSearch from "../../hooks/useProductSearch";
 
 const OrderFilters = React.memo(
   ({ searchTerm, onSearchChange, statusFilter, onStatusFilterChange }) => {
+    const { t } = useTranslation();
+    
     const statusOptions = useMemo(
       () => [
-        { value: "all", label: "All Orders" },
-        { value: "processing", label: "Processing", color: "text-yellow-600" },
-        { value: "confirmed", label: "Confirmed", color: "text-blue-600" },
-        { value: "shipping", label: "Shipping", color: "text-purple-600" },
-        { value: "delivered", label: "Delivered", color: "text-green-600" },
-        { value: "completed", label: "Completed", color: "text-emerald-600" },
-        { value: "cancelled", label: "Cancelled", color: "text-red-600" },
-        { value: "failed", label: "Failed", color: "text-gray-600" },
-        { value: "refunded", label: "Refunded", color: "text-orange-600" },
+        { value: "all", label: t('orders.filters.all_orders') },
+        { value: "processing", label: t('orders.filters.processing'), color: "text-yellow-600" },
+        { value: "confirmed", label: t('orders.filters.confirmed'), color: "text-blue-600" },
+        { value: "shipping", label: t('orders.filters.shipping'), color: "text-purple-600" },
+        { value: "delivered", label: t('orders.filters.delivered'), color: "text-green-600" },
+        { value: "completed", label: t('orders.filters.completed'), color: "text-emerald-600" },
+        { value: "cancelled", label: t('orders.filters.cancelled'), color: "text-red-600" },
+        { value: "failed", label: t('orders.filters.failed'), color: "text-gray-600" },
+        { value: "refunded", label: t('orders.filters.refunded'), color: "text-orange-600" },
       ],
-      []
+      [t]
     );
 
     const { suggestions, isLoading, search, clear } = useProductSearch();
@@ -72,7 +75,7 @@ const OrderFilters = React.memo(
             <FiSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
             <input
               type="text"
-              placeholder="Bạn có thể tìm kiếm theo tên Shop, ID đơn hàng hoặc Tên Sản phẩm"
+              placeholder={t('orders.filters.search_placeholder')}
               value={searchTerm}
               onChange={handleSearchChange}
               className="w-full pl-10 pr-4 py-2 border border-gray-200 bg-gray-50 rounded-lg focus:ring-2 focus:ring-red-400 focus:border-red-400 transition-colors text-gray-700"
@@ -82,7 +85,7 @@ const OrderFilters = React.memo(
               <div className="absolute left-0 right-0 top-full bg-white border border-gray-200 rounded-lg shadow-lg z-10 mt-1 max-h-60 overflow-y-auto">
                 {isLoading ? (
                   <div className="p-3 text-center text-gray-500">
-                    Đang tìm kiếm...
+                    {t('orders.filters.searching')}
                   </div>
                 ) : (
                   suggestions.map((item, idx) => (

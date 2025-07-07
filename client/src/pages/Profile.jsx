@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useAuth } from "../contexts/AuthContext";
 import { toast } from "react-toastify";
+import { useTranslation } from "react-i18next";
 import {
   FiUser,
   FiLock,
@@ -12,6 +13,7 @@ import {
 
 export default function Profile() {
   const { user, updateProfile, changePassword } = useAuth();
+  const { t } = useTranslation();
   const [isLoading, setIsLoading] = useState(false);
   const [showCurrentPassword, setShowCurrentPassword] = useState(false);
   const [showNewPassword, setShowNewPassword] = useState(false);
@@ -22,7 +24,7 @@ export default function Profile() {
     name: user?.name || "",
     email: user?.email || "",
     phoneNo: user?.phoneNo || "",
-    gender: user?.gender || "Nam",
+    gender: user?.gender || t('profile.gender_options.male'),
     birthDate: {
       day: "",
       month: "",
@@ -60,13 +62,13 @@ export default function Profile() {
     if (file) {
       // Validate file size (max 1MB)
       if (file.size > 1024 * 1024) {
-        toast.error("Kích thước file không được vượt quá 1MB");
+        toast.error(t('profile.file_size_error'));
         return;
       }
 
       // Validate file type
       if (!file.type.match(/^image\/(jpeg|jpg|png)$/)) {
-        toast.error("Chỉ chấp nhận file JPEG, JPG hoặc PNG");
+        toast.error(t('profile.file_type_error'));
         return;
       }
 
@@ -105,11 +107,11 @@ export default function Profile() {
         await updateProfile(updateData);
       }
 
-      toast.success("Cập nhật thông tin thành công!");
+      toast.success(t('profile.update_success'));
       setAvatarFile(null); // Clear the file after successful upload
     } catch (error) {
       toast.error(
-        error.response?.data?.message || "Có lỗi xảy ra khi cập nhật thông tin"
+        error.response?.data?.message || t('profile.update_error')
       );
       console.error("Profile update error:", error);
     } finally {
@@ -122,12 +124,12 @@ export default function Profile() {
 
     // Validate passwords
     if (passwordForm.newPassword !== passwordForm.confirmPassword) {
-      toast.error("Mật khẩu mới và xác nhận mật khẩu không khớp");
+      toast.error(t('profile.password_mismatch'));
       return;
     }
 
     if (passwordForm.newPassword.length < 6) {
-      toast.error("Mật khẩu mới phải có ít nhất 6 ký tự");
+      toast.error(t('profile.password_length_error'));
       return;
     }
 
@@ -138,7 +140,7 @@ export default function Profile() {
         currentPassword: passwordForm.currentPassword,
         newPassword: passwordForm.newPassword,
       });
-      toast.success("Đổi mật khẩu thành công!");
+      toast.success(t('profile.password_change_success'));
       setPasswordForm({
         currentPassword: "",
         newPassword: "",
@@ -146,7 +148,7 @@ export default function Profile() {
       });
     } catch (error) {
       toast.error(
-        error.response?.data?.message || "Có lỗi xảy ra khi đổi mật khẩu"
+        error.response?.data?.message || t('profile.password_change_error')
       );
       console.error("Password change error:", error);
     } finally {
@@ -159,10 +161,7 @@ export default function Profile() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="mb-8">
-          <h1 className="text-2xl font-bold text-gray-900">Hồ Sơ Của Tôi</h1>
-          <p className="mt-1 text-gray-600">
-            Quản lý thông tin hồ sơ để bảo mật tài khoản
-          </p>
+          <h1 className="text-2xl font-bold text-gray-900">{t('profile.title')}</h1>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
@@ -173,7 +172,7 @@ export default function Profile() {
                 {/* Username */}
                 <div className="grid grid-cols-12 items-center gap-4">
                   <label className="col-span-3 text-sm text-gray-600">
-                    Tên đăng nhập
+                    {t('profile.username')}
                   </label>
                   <div className="col-span-9">
                     <input
@@ -188,7 +187,7 @@ export default function Profile() {
                 {/* Name */}
                 <div className="grid grid-cols-12 items-center gap-4">
                   <label className="col-span-3 text-sm text-gray-600">
-                    Tên
+                    {t('name')}
                   </label>
                   <div className="col-span-9">
                     <input
@@ -205,7 +204,7 @@ export default function Profile() {
                 {/* Email */}
                 <div className="grid grid-cols-12 items-center gap-4">
                   <label className="col-span-3 text-sm text-gray-600">
-                    Email
+                    {t('email')}
                   </label>
                   <div className="col-span-9 flex items-center">
                     <input
@@ -220,7 +219,7 @@ export default function Profile() {
                       type="button"
                       className="ml-2 text-blue-600 text-sm hover:underline"
                     >
-                      Thay Đổi
+                      {t('profile.change')}
                     </button>
                   </div>
                 </div>
@@ -228,7 +227,7 @@ export default function Profile() {
                 {/* Phone */}
                 <div className="grid grid-cols-12 items-center gap-4">
                   <label className="col-span-3 text-sm text-gray-600">
-                    Số điện thoại
+                    {t('profile.phone_number')}
                   </label>
                   <div className="col-span-9 flex items-center">
                     <input
@@ -243,7 +242,7 @@ export default function Profile() {
                       type="button"
                       className="ml-2 text-blue-600 text-sm hover:underline"
                     >
-                      Thay Đổi
+                      {t('profile.change')}
                     </button>
                   </div>
                 </div>
@@ -251,41 +250,41 @@ export default function Profile() {
                 {/* Gender */}
                 <div className="grid grid-cols-12 items-center gap-4">
                   <label className="col-span-3 text-sm text-gray-600">
-                    Giới tính
+                    {t('profile.gender')}
                   </label>
                   <div className="col-span-9 flex space-x-6">
                     <label className="flex items-center">
                       <input
                         type="radio"
                         name="gender"
-                        value="Nam"
-                        checked={profileForm.gender === "Nam"}
+                        value={t('profile.gender_options.male')}
+                        checked={profileForm.gender === t('profile.gender_options.male')}
                         onChange={handleProfileChange}
                         className="mr-2"
                       />
-                      <span className="text-sm">Nam</span>
+                      <span className="text-sm">{t('profile.gender_options.male')}</span>
                     </label>
                     <label className="flex items-center">
                       <input
                         type="radio"
                         name="gender"
-                        value="Nữ"
-                        checked={profileForm.gender === "Nữ"}
+                        value={t('profile.gender_options.female')}
+                        checked={profileForm.gender === t('profile.gender_options.female')}
                         onChange={handleProfileChange}
                         className="mr-2"
                       />
-                      <span className="text-sm">Nữ</span>
+                      <span className="text-sm">{t('profile.gender_options.female')}</span>
                     </label>
                     <label className="flex items-center">
                       <input
                         type="radio"
                         name="gender"
-                        value="Khác"
-                        checked={profileForm.gender === "Khác"}
+                        value={t('profile.gender_options.other')}
+                        checked={profileForm.gender === t('profile.gender_options.other')}
                         onChange={handleProfileChange}
                         className="mr-2"
                       />
-                      <span className="text-sm">Khác</span>
+                      <span className="text-sm">{t('profile.gender_options.other')}</span>
                     </label>
                   </div>
                 </div>
@@ -293,7 +292,7 @@ export default function Profile() {
                 {/* Birth Date */}
                 <div className="grid grid-cols-12 items-center gap-4">
                   <label className="col-span-3 text-sm text-gray-600">
-                    Ngày sinh
+                    {t('profile.birth_date')}
                   </label>
                   <div className="col-span-9 grid grid-cols-3 gap-2">
                     <select
@@ -307,7 +306,7 @@ export default function Profile() {
                       }
                       className="px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                     >
-                      <option value="">Ngày</option>
+                      <option value="">{t('profile.day')}</option>
                       {Array.from({ length: 31 }, (_, i) => (
                         <option key={i + 1} value={i + 1}>
                           {i + 1}
@@ -328,10 +327,10 @@ export default function Profile() {
                       }
                       className="px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                     >
-                      <option value="">Tháng</option>
+                      <option value="">{t('profile.month')}</option>
                       {Array.from({ length: 12 }, (_, i) => (
                         <option key={i + 1} value={i + 1}>
-                          Tháng {i + 1}
+                          {t('profile.month')} {i + 1}
                         </option>
                       ))}
                     </select>
@@ -349,7 +348,7 @@ export default function Profile() {
                       }
                       className="px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                     >
-                      <option value="">Năm</option>
+                      <option value="">{t('profile.year')}</option>
                       {Array.from({ length: 100 }, (_, i) => {
                         const year = new Date().getFullYear() - i;
                         return (
@@ -371,7 +370,7 @@ export default function Profile() {
                       disabled={isLoading}
                       className="px-6 py-2 bg-primary text-white rounded-md hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-orange-500 disabled:opacity-50 transition-colors"
                     >
-                      {isLoading ? "Đang lưu..." : "Lưu"}
+                      {isLoading ? t('profile.saving') : t('profile.save')}
                     </button>
                   </div>
                 </div>
@@ -406,7 +405,7 @@ export default function Profile() {
                     htmlFor="avatar-upload"
                     className="inline-block px-4 py-2 border border-gray-300 rounded-md cursor-pointer hover:bg-gray-50 transition-colors"
                   >
-                    Chọn Ảnh
+                    {t('profile.choose_image')}
                   </label>
                   <input
                     id="avatar-upload"
@@ -419,8 +418,8 @@ export default function Profile() {
 
                 {/* File Info */}
                 <div className="text-xs text-gray-500 space-y-1">
-                  <p>Dung lượng file tối đa 1 MB</p>
-                  <p>Định dạng: JPEG, PNG</p>
+                  <p>{t('profile.file_size_limit')}</p>
+                  <p>{t('profile.file_format')}</p>
                 </div>
               </div>
             </div>
@@ -430,14 +429,14 @@ export default function Profile() {
               <div className="flex items-center mb-6">
                 <FiLock className="w-5 h-5 text-red-600 mr-2" />
                 <h2 className="text-lg font-semibold text-gray-900">
-                  Đổi mật khẩu
+                  {t('change_password')}
                 </h2>
               </div>
 
               <form onSubmit={handlePasswordSubmit} className="space-y-4">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">
-                    Mật khẩu hiện tại
+                    {t('current_password')}
                   </label>
                   <div className="relative">
                     <input
@@ -446,7 +445,7 @@ export default function Profile() {
                       value={passwordForm.currentPassword}
                       onChange={handlePasswordChange}
                       className="w-full px-3 py-2 pr-10 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                      placeholder="Nhập mật khẩu hiện tại"
+                      placeholder={t('profile.current_password_placeholder')}
                       required
                     />
                     <button
@@ -467,7 +466,7 @@ export default function Profile() {
 
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">
-                    Mật khẩu mới
+                    {t('new_password')}
                   </label>
                   <div className="relative">
                     <input
@@ -476,7 +475,7 @@ export default function Profile() {
                       value={passwordForm.newPassword}
                       onChange={handlePasswordChange}
                       className="w-full px-3 py-2 pr-10 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                      placeholder="Nhập mật khẩu mới"
+                      placeholder={t('profile.new_password_placeholder')}
                       required
                     />
                     <button
@@ -495,7 +494,7 @@ export default function Profile() {
 
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">
-                    Xác nhận mật khẩu mới
+                    {t('confirm_password')}
                   </label>
                   <div className="relative">
                     <input
@@ -504,7 +503,7 @@ export default function Profile() {
                       value={passwordForm.confirmPassword}
                       onChange={handlePasswordChange}
                       className="w-full px-3 py-2 pr-10 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                      placeholder="Xác nhận mật khẩu mới"
+                      placeholder={t('profile.confirm_password_placeholder')}
                       required
                     />
                     <button
@@ -529,7 +528,7 @@ export default function Profile() {
                   className="w-full flex items-center justify-center px-4 py-2 bg-red-600 text-white rounded-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 disabled:opacity-50 transition-colors"
                 >
                   <FiLock className="w-4 h-4 mr-2" />
-                  {isLoading ? "Đang đổi mật khẩu..." : "Đổi mật khẩu"}
+                  {isLoading ? t('profile.changing_password') : t('change_password')}
                 </button>
               </form>
             </div>

@@ -422,7 +422,7 @@ const ProductList = () => {
                       </td>
                       <td className="px-4 py-4 font-medium">
                         <Link
-                          to={`/admin/products/${product._id}`}
+                          to={`/admin/products/detail/${product._id}`}
                           className="text-blue-600 hover:underline"
                         >
                           {product.name}
