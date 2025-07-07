@@ -2,25 +2,25 @@ import FooterColumn from "./FooterColumn";
 
 const Footer = () => {
   const customerService = [
-    { label: "Trung Tâm Trợ Giúp Shopee", link: "#" },
-    { label: "Shopee Blog", link: "#" },
-    { label: "Shopee Mall", link: "#" },
+    { label: "Trung Tâm Trợ Giúp SafeBuy", link: "#" },
+    { label: "SafeBuy Blog", link: "#" },
+    { label: "SafeBuy Mall", link: "#" },
     { label: "Hướng Dẫn Mua Hàng/Đặt Hàng", link: "#" },
     { label: "Hướng Dẫn Bán Hàng", link: "#" },
-    { label: "Ví ShopeePay", link: "#" },
-    { label: "Shopee Xu", link: "#" },
+    { label: "Ví SafeBuyPay", link: "#" },
+    { label: "SafeBuy Xu", link: "#" },
     { label: "Đơn Hàng", link: "#" },
     { label: "Trả Hàng/Hoàn Tiền", link: "#" },
-    { label: "Liên Hệ Shopee", link: "#" },
+    { label: "Liên Hệ SafeBuy", link: "#" },
     { label: "Chính Sách Bảo Hành", link: "#" },
   ];
 
-  const aboutShopee = [
-    { label: "Về Shopee", link: "#" },
+  const aboutSafeBuy = [
+    { label: "Về SafeBuy", link: "#" },
     { label: "Tuyển Dụng", link: "#" },
-    { label: "Điều Khoản Shopee", link: "#" },
+    { label: "Điều Khoản SafeBuy", link: "#" },
     { label: "Chính Sách Bảo Mật", link: "#" },
-    { label: "Shopee Mall", link: "#" },
+    { label: "SafeBuy Mall", link: "#" },
     { label: "Kênh Người Bán", link: "#" },
     { label: "Flash Sale", link: "#" },
     { label: "Tiếp Thị Liên Kết", link: "#" },
@@ -37,11 +37,11 @@ const Footer = () => {
     <footer className="bg-gray-100 pt-10 pb-6 text-sm text-gray-700 border-t-8 border-primary">
       <div className="w-full sm:w-[90%] md:w-[85%] lg:w-[75%] xl:w-[66%] mx-auto grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
         <FooterColumn title="Dịch Vụ Khách Hàng" items={customerService} />
-        <FooterColumn title="Shopee Việt Nam" items={aboutShopee} />
-        <FooterColumn title="Theo Dõi Shopee" items={socialMedia} />
+        <FooterColumn title="SafeBuy Việt Nam" items={aboutSafeBuy} />
+        <FooterColumn title="Theo Dõi SafeBuy" items={socialMedia} />
         <div>
           <h4 className="text-sm font-semibold mb-3 uppercase">
-            Tải Ứng Dụng Shopee
+            Tải Ứng Dụng SafeBuy
           </h4>
           <img src="/images/qr.png" alt="QR" className="w-20 mb-2" />
           <div className="flex gap-2">
@@ -56,7 +56,7 @@ const Footer = () => {
       </div>
 
       <div className="text-center mt-8 pt-4 border-t text-xs text-gray-500">
-        © 2025 Shopee. Tất cả các quyền được bảo lưu.
+        © 2025 SafeBuy. Tất cả các quyền được bảo lưu.
       </div>
     </footer>
   );

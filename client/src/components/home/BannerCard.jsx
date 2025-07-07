@@ -1,10 +1,4 @@
-const BannerCard = ({
-  image,
-  title,
-  description,
-  cta = "Shop Now",
-  large = false,
-}) => {
+const BannerCard = ({ image, title, description, cta = "", large = false }) => {
   return (
     <div
       className={`relative overflow-hidden rounded-lg ${
@@ -16,7 +10,7 @@ const BannerCard = ({
         alt={title}
         className="absolute inset-0 w-full h-full object-cover"
       />
-      <div className="absolute inset-0 bg-black/40" />
+      <div className="absolute inset-0 " />
       <div className="relative z-10 p-4 text-white flex flex-col justify-end h-full">
         <h3 className="text-lg md:text-xl font-semibold">{title}</h3>
         {description && (

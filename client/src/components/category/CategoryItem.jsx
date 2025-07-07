@@ -10,8 +10,8 @@ const CategoryItem = ({ icon, label, link }) => {
       duration-200 "
     >
       <div
-        className="w-20 h-20 mx-auto rounded-full overflow-hidden hover:scale-105
-       flex items-center justify-center bg-gray-100 border mt-2"
+        className="w-20 h-20 overflow-hidden hover:scale-105
+       flex items-center justify-center   mt-2"
       >
         <img src={icon} alt={label} className="w-16 h-16 object-contain " />
       </div>

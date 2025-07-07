@@ -1,15 +1,15 @@
 import { useState } from "react";
+import { useEffect } from "react";
+import { useNavigate, Link } from "react-router-dom";
 import TopBanner from "./TopBanner";
 import SearchBox from "./SearchBox";
 import CartIcon from "./CartIcon";
-import UserMenu from "./UserMenu";
-import { useEffect } from "react";
 import { logout } from "../../../services/authService";
 import AuthModal from "../../auth/AuthModal";
-import { useNavigate } from "react-router-dom";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [showUserMenu, setShowUserMenu] = useState(false);
   const navigate = useNavigate();
 
   const [user, setUser] = useState(null);
@@ -63,12 +63,66 @@ const Header = () => {
         <div className="flex items-center gap-4 justify-end">
           <CartIcon />
           {user ? (
-            <UserMenu user={user} onLogout={handleLogout} />
+            <div
+              className="relative"
+              onMouseEnter={() => setShowUserMenu(true)}
+              onMouseLeave={() => setShowUserMenu(false)}
+            >
+              {/* User Avatar/Button */}
+              <div className="cursor-pointer flex items-center gap-2 border border-gray-300 rounded-full p-2 hover:bg-gray-50 transition-colors">
+                <img
+                  src={user.avatar || "/default-avatar.png"}
+                  alt="Avatar"
+                  className="w-8 h-8 rounded-full object-cover"
+                />
+              </div>
+
+              {/* User Menu Dropdown */}
+              {showUserMenu && (
+                <>
+                  {/* Invisible bridge to prevent menu from disappearing */}
+                  <div className="absolute right-0 top-full w-48 h-1 z-40"></div>
+
+                  <div
+                    className="absolute right-0 top-full mt-1 z-50 w-48 bg-white shadow-lg rounded-lg border border-gray-200 py-2"
+                    onMouseEnter={() => setShowUserMenu(true)}
+                    onMouseLeave={() => setShowUserMenu(false)}
+                  >
+                    <div className="px-4 py-2 font-medium text-gray-900 border-b border-gray-100">
+                      {user.name}
+                    </div>
+                    <Link
+                      to="/profile"
+                      className="block w-full text-left px-4 py-2 hover:bg-gray-100 text-gray-700 transition-colors"
+                      onClick={() => setShowUserMenu(false)}
+                    >
+                      Thông tin cá nhân
+                    </Link>
+                    <Link
+                      to="/orders"
+                      className="block w-full text-left px-4 py-2 hover:bg-gray-100 text-gray-700 transition-colors"
+                      onClick={() => setShowUserMenu(false)}
+                    >
+                      Đơn hàng
+                    </Link>
+                    <button
+                      onClick={() => {
+                        handleLogout();
+                        setShowUserMenu(false);
+                      }}
+                      className="block w-full text-left px-4 py-2 hover:bg-gray-100 text-red-600 transition-colors"
+                    >
+                      Đăng xuất
+                    </button>
+                  </div>
+                </>
+              )}
+            </div>
           ) : (
             <button
               onClick={() => setIsOpen(true)}
               className="py-1 px-3 text-sm bg-primary h-9 text-white  rounded-lg 
-              flex items-center"
+              flex items-center hover:bg-primary-dark transition-colors"
               aria-label="Open login modal"
             >
               Tài Khoản

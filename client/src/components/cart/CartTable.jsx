@@ -12,7 +12,7 @@ const CartTable = ({
   onRemoveItem,
 }) => {
   return (
-    <div className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-x-auto">
+    <div className="bg-white  shadow-sm border border-gray-200 overflow-x-auto">
       <table className="min-w-full">
         <thead>
           <tr className="bg-gray-50 text-xs text-gray-500 uppercase">
@@ -26,7 +26,7 @@ const CartTable = ({
             <th className="px-4 py-3 text-left">Sản phẩm</th>
             <th className="px-4 py-3 text-center">Đơn giá</th>
             <th className="px-4 py-3 text-center">Số lượng</th>
-            <th className="px-4 py-3 text-center">Số tiền</th>
+            <th className="px-4 py-3 text-center">Tổng tiền</th>
             <th className="px-4 py-3 text-center">Thao tác</th>
           </tr>
         </thead>
@@ -54,17 +54,11 @@ const CartTable = ({
                   <img
                     src={productImage}
                     alt={product.name}
-                    className="w-16 h-16 object-cover rounded border"
+                    className="w-20 h-20 object-cover rounded border"
                   />
                   <div>
                     <div className="font-medium text-gray-900 line-clamp-2">
                       {product.name}
-                    </div>
-                    <div className="text-xs text-gray-500 mt-1">
-                      Phân loại: {product.category?.name || "-"}
-                    </div>
-                    <div className="text-xs text-gray-500">
-                      Thương hiệu: {product.brand?.name || "-"}
                     </div>
                   </div>
                 </td>
@@ -78,7 +72,7 @@ const CartTable = ({
                 <td className="px-4 py-4 text-center">
                   <div className="inline-flex items-center border rounded overflow-hidden">
                     <button
-                      className="w-8 h-8 flex items-center justify-center border-r border-gray-200 bg-gray-50 hover:bg-gray-100"
+                      className="w-8 h-8 flex items-center justify-center border-r border-gray-200 bg-white hover:bg-gray-100"
                       onClick={() =>
                         onUpdateQuantity(product._id, item.quantity - 1)
                       }
@@ -87,7 +81,7 @@ const CartTable = ({
                     </button>
                     <span className="w-10 text-center">{item.quantity}</span>
                     <button
-                      className="w-8 h-8 flex items-center justify-center border-l border-gray-200 bg-gray-50 hover:bg-gray-100"
+                      className="w-8 h-8 flex items-center justify-center border-l border-gray-200 bg-white hover:bg-gray-100"
                       onClick={() =>
                         onUpdateQuantity(product._id, item.quantity + 1)
                       }
@@ -103,13 +97,10 @@ const CartTable = ({
                 </td>
                 <td className="px-4 py-4 text-center">
                   <button
-                    className="text-red-600 hover:underline text-xs mr-2"
+                    className="text-red-600 hover:underline text-sm mr-2"
                     onClick={() => onRemoveItem(product._id)}
                   >
                     Xóa
-                  </button>
-                  <button className="text-blue-600 hover:underline text-xs">
-                    Tìm sản phẩm tương tự
                   </button>
                 </td>
               </tr>

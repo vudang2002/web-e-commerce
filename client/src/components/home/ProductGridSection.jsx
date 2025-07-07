@@ -3,8 +3,8 @@ import { useRecentProducts } from "../../hooks/useProductData";
 import { toast } from "react-toastify";
 
 const ProductGridSection = () => {
-  // Sử dụng React Query hook để lấy 35 sản phẩm gần đây
-  const { data: products = [], isLoading, error } = useRecentProducts(35);
+  // Sử dụng React Query hook để lấy 36 sản phẩm gần đây
+  const { data: products = [], isLoading, error } = useRecentProducts(36);
 
   // Hiển thị thông báo lỗi nếu có
   if (error) {
@@ -21,12 +21,12 @@ const ProductGridSection = () => {
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-red-500"></div>
         </div>
       ) : (
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
           {products.map((product) => (
             <ProductCard
               key={product._id}
               id={product._id}
-              image={product.images || "/images/products/manhinh.png"}
+              image={product.images[0] || "/images/products/manhinh.png"}
               title={product.name}
               price={product.price}
               sold={product.sold}

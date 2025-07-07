@@ -20,10 +20,10 @@ const FlashSaleProductCard = ({ image, price, badge, discount, name, id }) => {
         <img
           src={image}
           alt={name || "product"}
-          className="w-[180px] h-[170px]  object-contain mb-2"
+          className="w-full h-full object-contain mb-2"
         />{" "}
         <h3 className="text-sm line-clamp-2 h-10 mb-1 text-gray-800">{name}</h3>
-        <ProductPrice product={product} size="sm" showDiscount={true} />
+        <ProductPrice product={product} size="xl" showDiscount={true} />
         <p className="text-xs bg-gradient-to-r from-orange-400 to-red-500 text-white py-1 rounded mt-1">
           {badge}
         </p>

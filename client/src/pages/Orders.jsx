@@ -212,24 +212,10 @@ const Orders = () => {
             <div className="flex items-center justify-between">
               <div>
                 <h1 className="text-3xl font-bold text-gray-900 flex items-center gap-3">
-                  <FiPackage className="text-indigo-600" />
+                  <FiPackage className="text-primary" />
                   My Orders
                 </h1>
-                <p className="text-gray-600 mt-2">
-                  Track and manage your orders
-                </p>
               </div>{" "}
-              <div className="text-right">
-                <p className="text-sm text-gray-500">
-                  Total Orders: {Array.isArray(orders) ? orders.length : 0}
-                </p>
-                <p className="text-sm text-gray-500">
-                  Showing:{" "}
-                  {Array.isArray(filteredAndSortedOrders)
-                    ? filteredAndSortedOrders.length
-                    : 0}
-                </p>
-              </div>
             </div>
           </div>
 

@@ -13,7 +13,10 @@ const ProductCard = ({ product }) => {
   } = product || {};
 
   return (
-    <div className="bg-[#ffffff] rounded-xl p-4 shadow-sm w-full max-w-xs mx-auto border border-primary hover:shadow-md transition-shadow duration-200">
+    <div
+      className="bg-[#ffffff] rounded-xl p-4 shadow-sm w-full max-w-xs  
+    border border-primary hover:shadow-md transition-shadow duration-200"
+    >
       {/* Top: Image + menu */}
       <div className="flex items-start gap-3">
         <img
