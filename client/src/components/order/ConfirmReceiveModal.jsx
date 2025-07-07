@@ -4,7 +4,7 @@ import { FiPackage, FiX } from "react-icons/fi";
 
 const ConfirmReceiveModal = ({ isOpen, onClose, onConfirm, orderDetails }) => {
   const { t } = useTranslation();
-  
+
   if (!isOpen) return null;
 
   return (
@@ -17,7 +17,7 @@ const ConfirmReceiveModal = ({ isOpen, onClose, onConfirm, orderDetails }) => {
               <FiPackage className="text-green-600" size={20} />
             </div>
             <h2 className="text-lg font-semibold text-gray-900">
-              {t('orders.modals.confirm_receive.title')}
+              {t("orders.modals.confirm_receive.title")}
             </h2>
           </div>
           <button
@@ -31,23 +31,27 @@ const ConfirmReceiveModal = ({ isOpen, onClose, onConfirm, orderDetails }) => {
         {/* Content */}
         <div className="mb-6">
           <p className="text-gray-600 mb-4">
-            {t('orders.modals.confirm_receive.message')}
+            {t("orders.modals.confirm_receive.message")}
           </p>
 
           {orderDetails && (
             <div className="bg-gray-50 rounded-lg p-4">
               <p className="text-sm font-medium text-gray-900 mb-2">
-                {t('orders.modals.confirm_receive.order_id')} #{orderDetails._id?.slice(-8).toUpperCase()}
+                {t("orders.modals.confirm_receive.order_id")} #
+                {orderDetails._id?.slice(-8).toUpperCase()}
               </p>
               <p className="text-sm text-gray-600">
-                {t('orders.modals.confirm_receive.product_count')} {orderDetails.orderItems?.length || 0} {t('orders.modals.confirm_receive.products')}
+                {t("orders.modals.confirm_receive.product_count")}{" "}
+                {orderDetails.orderItems?.length || 0}{" "}
+                {t("orders.modals.confirm_receive.products")}
               </p>
             </div>
           )}
 
           <div className="mt-4 p-3 bg-blue-50 rounded-lg">
             <p className="text-sm text-blue-800">
-              <strong>{t('orders.modals.confirm_receive.note_title')}</strong> {t('orders.modals.confirm_receive.note_message')}
+              <strong>{t("orders.modals.confirm_receive.note_title")}</strong>{" "}
+              {t("orders.modals.confirm_receive.note_message")}
             </p>
           </div>
         </div>
@@ -58,13 +62,13 @@ const ConfirmReceiveModal = ({ isOpen, onClose, onConfirm, orderDetails }) => {
             onClick={onClose}
             className="flex-1 px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 border border-gray-300 rounded-md hover:bg-gray-200 transition-colors"
           >
-            {t('orders.modals.confirm_receive.cancel')}
+            {t("orders.modals.confirm_receive.cancel")}
           </button>
           <button
             onClick={onConfirm}
             className="flex-1 px-4 py-2 text-sm font-medium text-white bg-green-600 border border-green-600 rounded-md hover:bg-green-700 transition-colors"
           >
-            {t('orders.modals.confirm_receive.confirm')}
+            {t("orders.modals.confirm_receive.confirm")}
           </button>
         </div>
       </div>

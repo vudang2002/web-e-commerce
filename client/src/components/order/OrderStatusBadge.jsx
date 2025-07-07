@@ -17,7 +17,7 @@ const statusStyles = {
 
 const OrderStatusBadge = ({ orderStatus, size = "md" }) => {
   const { t } = useTranslation();
-  
+
   // Debug props
   console.log("OrderStatusBadge - Received orderStatus:", orderStatus);
 
@@ -35,12 +35,13 @@ const OrderStatusBadge = ({ orderStatus, size = "md" }) => {
 
   // Get translated status text
   const getStatusText = () => {
-    if (!orderStatus) return t('orders.status.unknown');
+    if (!orderStatus) return t("orders.status.unknown");
     const statusKey = `orders.status.${normalizedStatus}`;
     const translatedStatus = t(statusKey);
     // If translation key doesn't exist, fallback to original capitalized text
-    return translatedStatus !== statusKey ? translatedStatus : 
-           (orderStatus?.charAt(0).toUpperCase() + orderStatus?.slice(1));
+    return translatedStatus !== statusKey
+      ? translatedStatus
+      : orderStatus?.charAt(0).toUpperCase() + orderStatus?.slice(1);
   };
 
   return (

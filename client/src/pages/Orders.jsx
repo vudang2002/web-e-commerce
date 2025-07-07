@@ -136,7 +136,7 @@ const Orders = () => {
   const handleOrderStatusChange = useCallback(
     (orderId, newStatus) => {
       // This would typically trigger a mutation to update order status
-      toast.success(`${t('orders.order_status_updated')} ${newStatus}`);
+      toast.success(`${t("orders.order_status_updated")} ${newStatus}`);
       refetch();
     },
     [refetch, t]
@@ -182,19 +182,21 @@ const Orders = () => {
           {/* Debug info */}
           <div className="mt-8 p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
             <h3 className="text-sm font-medium text-yellow-800 mb-2">
-              {t('orders.debug_info')}
+              {t("orders.debug_info")}
             </h3>
             <p className="text-xs text-yellow-700">
-              {t('orders.orders_length')} {orders?.length}
+              {t("orders.orders_length")} {orders?.length}
             </p>
             <p className="text-xs text-yellow-700">
-              {t('orders.is_array')} {Array.isArray(orders) ? t('orders.yes') : t('orders.no')}
+              {t("orders.is_array")}{" "}
+              {Array.isArray(orders) ? t("orders.yes") : t("orders.no")}
             </p>
             <p className="text-xs text-yellow-700">
-              {t('orders.loading')} {isLoading ? t('orders.yes') : t('orders.no')}
+              {t("orders.loading")}{" "}
+              {isLoading ? t("orders.yes") : t("orders.no")}
             </p>
             <p className="text-xs text-yellow-700">
-              {t('orders.error')} {error ? error.message : t('orders.none')}
+              {t("orders.error")} {error ? error.message : t("orders.none")}
             </p>
           </div>
         </div>
@@ -205,7 +207,7 @@ const Orders = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Breadcrumb */}
-      <Breadcrumb items={[{ label: t('orders.title'), path: "/orders" }]} />
+      <Breadcrumb items={[{ label: t("orders.title"), path: "/orders" }]} />
 
       <div className="py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -215,7 +217,7 @@ const Orders = () => {
               <div>
                 <h1 className="text-3xl font-bold text-gray-900 flex items-center gap-3">
                   <FiPackage className="text-primary" />
-                  {t('orders.my_orders')}
+                  {t("orders.my_orders")}
                 </h1>
               </div>{" "}
             </div>
@@ -282,7 +284,7 @@ const Orders = () => {
                     disabled={currentPage === 1}
                     className="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
                   >
-                    {t('orders.previous')}
+                    {t("orders.previous")}
                   </button>
 
                   <div className="flex gap-1">
@@ -336,7 +338,7 @@ const Orders = () => {
                     disabled={currentPage === totalPages}
                     className="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
                   >
-                    {t('orders.next')}
+                    {t("orders.next")}
                   </button>
                 </div>
               )}
@@ -346,10 +348,10 @@ const Orders = () => {
             <div className="text-center py-12">
               <FiSearch className="mx-auto h-12 w-12 text-gray-400 mb-4" />
               <h3 className="text-lg font-medium text-gray-900 mb-2">
-                {t('orders.no_orders_found')}
+                {t("orders.no_orders_found")}
               </h3>
               <p className="text-gray-500 mb-6">
-                {t('orders.no_orders_message')}
+                {t("orders.no_orders_message")}
               </p>
               <button
                 onClick={() => {
@@ -359,7 +361,7 @@ const Orders = () => {
                 }}
                 className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-indigo-600 bg-indigo-100 hover:bg-indigo-200"
               >
-                {t('orders.clear_filters')}
+                {t("orders.clear_filters")}
               </button>{" "}
             </div>
           )}
