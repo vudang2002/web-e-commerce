@@ -37,7 +37,8 @@ const ProductCard = ({
         className="text-inherit no-underline block"
       >
         <div
-          className="group bg-white rounded hover:rounded-b-none shadow-sm border p-2 hover:shadow-md transition
+          className="group bg-white  hover:rounded-b-none shadow-sm border 
+           hover:shadow-md transition
        hover:border-red-500 relative flex flex-col justify-between"
           style={{ minHeight: "250px" }}
         >
@@ -50,27 +51,34 @@ const ProductCard = ({
                     : "/images/products/manhinh.png"
                 }
                 alt={name}
-                className="w-full h-40 object-cover rounded"
+                className="w-full h-40 object-cover"
               />
               {productDiscount && productDiscount > 0 && (
-                <span className="absolute top-2 left-2 bg-red-500 text-white text-xs px-1 py-0.5 rounded">
+                <span
+                  className="absolute top-0 right-0 bg-primary text-white text-sm 
+                px-1 py-0.5"
+                >
                   -{productDiscount}%
                 </span>
               )}
+            </div>{" "}
+            <p className="mt-2 text-sm line-clamp-2 m-2">
               {productBadge && (
-                <span className="absolute bottom-2 left-2 bg-orange-400 text-white text-xs px-1 py-0.5 rounded">
+                <span className="bg-primary text-white text-xs px-1 py-0.5 rounded mr-1">
                   {productBadge}
                 </span>
-              )}{" "}
-            </div>
-            <p className="mt-2 text-sm font-medium line-clamp-2">{name}</p>
+              )}
+              {name}
+            </p>
             <ProductPrice
               product={productData}
               size="sm"
-              className="mt-1"
+              className="mt-1 m-2"
               showDiscount={true}
             />
-            <p className="text-xs text-gray-500 mt-1">Đã bán {productSold}</p>
+            <p className="text-xs text-gray-500 mt-1 m-2">
+              Đã bán {productSold}
+            </p>
           </div>
         </div>
       </Link>

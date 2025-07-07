@@ -1,4 +1,5 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import OrderStatusIcon from "./OrderStatusIcon";
 
 // Status styles mapping
@@ -15,6 +16,8 @@ const statusStyles = {
 };
 
 const OrderStatusBadge = ({ orderStatus, size = "md" }) => {
+  const { t } = useTranslation();
+
   // Debug props
   console.log("OrderStatusBadge - Received orderStatus:", orderStatus);
 
@@ -30,13 +33,23 @@ const OrderStatusBadge = ({ orderStatus, size = "md" }) => {
     lg: "px-4 py-2 text-base",
   };
 
+  // Get translated status text
+  const getStatusText = () => {
+    if (!orderStatus) return t("orders.status.unknown");
+    const statusKey = `orders.status.${normalizedStatus}`;
+    const translatedStatus = t(statusKey);
+    // If translation key doesn't exist, fallback to original capitalized text
+    return translatedStatus !== statusKey
+      ? translatedStatus
+      : orderStatus?.charAt(0).toUpperCase() + orderStatus?.slice(1);
+  };
+
   return (
     <span
       className={`inline-flex items-center gap-1 ${sizeClasses[size]} rounded-full font-medium border ${colorClass}`}
     >
       <OrderStatusIcon status={orderStatus} size={size === "lg" ? 20 : 16} />
-      {orderStatus?.charAt(0).toUpperCase() + orderStatus?.slice(1) ||
-        "Unknown"}
+      {getStatusText()}
     </span>
   );
 };

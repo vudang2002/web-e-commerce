@@ -158,6 +158,95 @@ import { validate } from "../middlewares/validate.middleware.js";
 
 const router = express.Router();
 
+// Debug route - xóa sau khi fix xong
+router.get("/debug/orders/:productId", authMiddleware(), async (req, res) => {
+  try {
+    const { productId } = req.params;
+    const userId = req.user._id;
+
+    const Order = (await import("../models/order.model.js")).default;
+
+    const orders = await Order.find({
+      user: userId,
+      "orderItems.product": productId,
+    });
+
+    res.json({
+      success: true,
+      data: {
+        userId,
+        productId,
+        ordersCount: orders.length,
+        orders: orders.map((order) => ({
+          id: order._id,
+          status: order.orderStatus,
+          createdAt: order.createdAt,
+          orderItems: order.orderItems,
+        })),
+      },
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: error.message,
+    });
+  }
+});
+
+// Debug route - tạo đơn hàng test (xóa sau khi fix xong)
+router.post(
+  "/debug/create-test-order/:productId",
+  authMiddleware(),
+  async (req, res) => {
+    try {
+      const { productId } = req.params;
+      const userId = req.user._id;
+
+      const Order = (await import("../models/order.model.js")).default;
+
+      const testOrder = new Order({
+        user: userId,
+        orderItems: [
+          {
+            product: productId,
+            quantity: 1,
+          },
+        ],
+        shippingInfo: {
+          address: "Test Address",
+          phoneNo: "0123456789",
+        },
+        paymentMethod: "COD",
+        itemsPrice: 100000,
+        shippingPrice: 30000,
+        totalPrice: 130000,
+        orderStatus: "Completed", // Đặt trạng thái là Completed để có thể review
+      });
+
+      await testOrder.save();
+
+      res.json({
+        success: true,
+        message: "Test order created successfully",
+        data: testOrder,
+      });
+    } catch (error) {
+      res.status(500).json({
+        success: false,
+        message: error.message,
+      });
+    }
+  }
+);
+
+// Route tạo review không cần kiểm tra đơn hàng (để test)
+router.post(
+  "/test",
+  authMiddleware(),
+  validate(createReviewValidationRules),
+  reviewController.createReview
+);
+
 router.post(
   "/",
   authMiddleware(),

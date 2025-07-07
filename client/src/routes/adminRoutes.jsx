@@ -86,7 +86,7 @@ const adminRoutes = [
     ),
   },
   {
-    path: "products/:id",
+    path: "products/detail/:id",
     element: (
       <Suspense fallback={<div>Loading...</div>}>
         <ProductDetail />
@@ -119,7 +119,7 @@ const adminRoutes = [
     ),
   },
   {
-    path: "categories/:id",
+    path: "categories/detail/:id",
     element: (
       <Suspense fallback={<div>Loading...</div>}>
         <CategoryDetail />
@@ -186,7 +186,7 @@ const adminRoutes = [
     ),
   },
   {
-    path: "users/:id",
+    path: "users/detail/:id",
     element: (
       <Suspense fallback={<div>Loading...</div>}>
         <UserDetail />
@@ -219,7 +219,7 @@ const adminRoutes = [
     ),
   },
   {
-    path: "vouchers/:id",
+    path: "vouchers/detail/:id",
     element: (
       <Suspense fallback={<div>Loading...</div>}>
         <VoucherDetail />
@@ -252,7 +252,7 @@ const adminRoutes = [
     ),
   },
   {
-    path: "orders/:id",
+    path: "orders/detail/:id",
     element: (
       <Suspense fallback={<div>Loading...</div>}>
         <OrderDetail />

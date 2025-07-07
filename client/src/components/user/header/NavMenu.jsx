@@ -22,12 +22,6 @@ const NavMenu = ({ isMobile }) => {
         <Link to="/about" className={linkClass}>
           {t("navbar.about")}
         </Link>
-        <Link to="/about" className={linkClass}>
-          {t("navbar.about")}
-        </Link>
-        <Link to="/about" className={linkClass}>
-          {t("navbar.about")}
-        </Link>
       </nav>
     </>
   );

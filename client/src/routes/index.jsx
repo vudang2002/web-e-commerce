@@ -84,21 +84,17 @@ const routes = [
   {
     path: "/about",
     element: (
-      <UserLayout>
-        <Suspense fallback={<div>Loading...</div>}>
-          <About />
-        </Suspense>
-      </UserLayout>
+      <Suspense fallback={<div>Loading...</div>}>
+        <About />
+      </Suspense>
     ),
   },
   {
     path: "/contact",
     element: (
-      <UserLayout>
-        <Suspense fallback={<div>Loading...</div>}>
-          <Contact />
-        </Suspense>
-      </UserLayout>
+      <Suspense fallback={<div>Loading...</div>}>
+        <Contact />
+      </Suspense>
     ),
   },
   {

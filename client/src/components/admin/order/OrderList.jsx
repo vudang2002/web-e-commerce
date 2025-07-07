@@ -360,7 +360,7 @@ const OrderList = () => {
                       <td className="px-4 py-3 text-right">
                         <div className="flex justify-end space-x-2">
                           <Link
-                            to={`/admin/orders/${order._id}`}
+                            to={`/admin/orders/detail/${order._id}`}
                             className="text-blue-600 hover:text-blue-800"
                           >
                             <FiEye size={18} />

@@ -81,10 +81,10 @@ const FlashSaleSection = () => {
         breakpoints={{
           640: { slidesPerView: 3 },
           768: { slidesPerView: 4 },
-          1024: { slidesPerView: 5 },
+          1024: { slidesPerView: 6 },
         }}
         autoplay={{ delay: 5000 }}
-        loop={displayProducts.length > 5}
+        loop={displayProducts.length > 6}
       >
         {" "}
         {displayProducts.map((product, index) => (
@@ -96,7 +96,7 @@ const FlashSaleSection = () => {
                   : product.images || "/images/products/manhinh.png"
               }
               price={product.price}
-              badge="NỔI BẬT"
+              badge="Đang bán chạy"
               name={product.name}
               id={product._id}
               discount={product.discount ? `-${product.discount}%` : null}

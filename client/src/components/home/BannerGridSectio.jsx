@@ -8,9 +8,9 @@ const BannerGridSection = () => {
     >
       {/* Left large banner */}
       <BannerCard
-        image="/images/banner/ps5.png"
-        title="PlayStation 5"
-        description="Với phiên bản 2 màu mới nhất đang hot nhất hiện nay"
+        image="/images/banner/banner4.png"
+        title=""
+        description=""
         large
       />
 
@@ -18,21 +18,21 @@ const BannerGridSection = () => {
       <div className="grid grid-cols-1  ">
         <div className="grid grid-cols-1 gap-4 mb-4">
           <BannerCard
-            image="/images/banner/women.png"
-            title="Women’s Collections"
-            description="Featured woman collections that give you another vibe."
+            image="/images/banner/banner5.jpg"
+            title=""
+            description=""
           />
         </div>
         <div className="grid grid-cols-2 gap-4">
           <BannerCard
-            image="/images/banner/speaker.png"
-            title="Speakers"
-            description="Amazon wireless speakers"
+            image="/images/banner/banner6.jpg"
+            title=""
+            description=""
           />
           <BannerCard
-            image="/images/banner/perfume.png"
-            title="Perfume"
-            description="GUCCI INTENSE OUD EDP"
+            image="/images/banner/banner7.jpg"
+            title=""
+            description=""
           />
         </div>
       </div>

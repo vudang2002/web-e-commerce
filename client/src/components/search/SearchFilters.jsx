@@ -9,7 +9,7 @@ const SearchFilters = ({
 }) => {
   return (
     <div
-      className={`w-80 flex-shrink-0 ${
+      className={`w-70 flex-shrink-0 ${
         showFilters ? "block" : "hidden lg:block"
       }`}
     >

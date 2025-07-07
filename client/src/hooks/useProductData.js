@@ -15,6 +15,97 @@ import {
 import orderService from "../services/orderService";
 import { searchProducts } from "../services/searchService";
 
+// ===== UTILITY FUNCTIONS =====
+// Các utility functions giúp tái sử dụng logic xử lý response từ API
+
+/**
+ * Tiện ích để trích xuất mảng từ response API
+ * Xử lý các định dạng phản hồi khác nhau từ backend
+ * @param {*} response - Response từ API
+ * @param {string} dataType - Loại dữ liệu (để log)
+ * @returns {Array} - Mảng dữ liệu hoặc mảng rỗng
+ */
+const extractArrayFromResponse = (response, dataType = "data") => {
+  // Xử lý các định dạng phản hồi khác nhau
+  if (response?.success && Array.isArray(response?.data)) {
+    return response.data;
+  } else if (Array.isArray(response)) {
+    return response;
+  } else if (response && typeof response === "object") {
+    // Tìm mảng trong object
+    const possibleArray = Object.values(response).find((val) =>
+      Array.isArray(val)
+    );
+    if (possibleArray) {
+      return possibleArray;
+    }
+  }
+
+  // Trường hợp không tìm thấy dữ liệu
+  console.warn(`Không thể tìm thấy mảng ${dataType} trong response:`, response);
+  return [];
+};
+
+/**
+ * Tiện ích để trích xuất products từ response với cấu trúc đặc biệt
+ * @param {*} response - Response từ API
+ * @param {string} dataType - Loại dữ liệu (để log)
+ * @returns {Array} - Mảng products hoặc mảng rỗng
+ */
+const extractProductsFromResponse = (response, dataType = "products") => {
+  // Xử lý phản hồi từ API products
+  if (response?.success && response?.data?.products) {
+    return response.data.products;
+  } else if (response?.success && Array.isArray(response.data)) {
+    return response.data;
+  } else if (Array.isArray(response)) {
+    return response;
+  } else {
+    console.warn(
+      `Cấu trúc phản hồi API ${dataType} không như mong đợi:`,
+      response
+    );
+    return [];
+  }
+};
+
+/**
+ * Tiện ích để trích xuất object từ response API
+ * @param {*} response - Response từ API
+ * @returns {Object|null} - Object dữ liệu hoặc null
+ */
+const extractObjectFromResponse = (response) => {
+  // Xử lý phản hồi từ API
+  if (response?.success && response?.data) {
+    return response.data;
+  } else if (
+    response &&
+    typeof response === "object" &&
+    !Array.isArray(response)
+  ) {
+    // Nếu API trả về object trực tiếp
+    return response;
+  }
+  return null;
+};
+
+/**
+ * Tiện ích để trích xuất products và pagination từ response
+ * @param {*} response - Response từ API
+ * @returns {Object} - Object với products và pagination
+ */
+const extractProductsWithPagination = (response) => {
+  if (response?.success && response?.data) {
+    return {
+      products: response.data.products || [],
+      pagination: response.data.pagination || {},
+    };
+  }
+  return { products: [], pagination: {} };
+};
+
+// ===== HOOKS =====
+
 // Hook để fetch danh sách brands
 export const useBrands = () => {
   return useQuery(
@@ -22,25 +113,7 @@ export const useBrands = () => {
     async () => {
       console.log("Đang fetch danh sách brands...");
       const response = await getBrands();
-
-      // Xử lý các định dạng phản hồi khác nhau
-      if (response?.success && Array.isArray(response?.data)) {
-        return response.data;
-      } else if (Array.isArray(response)) {
-        return response;
-      } else if (response && typeof response === "object") {
-        // Tìm mảng trong object
-        const possibleArray = Object.values(response).find((val) =>
-          Array.isArray(val)
-        );
-        if (possibleArray) {
-          return possibleArray;
-        }
-      }
-
-      // Trường hợp không tìm thấy dữ liệu
-      console.warn("Không thể tìm thấy mảng brands trong response:", response);
-      return [];
+      return extractArrayFromResponse(response, "brands");
     },
     {
       refetchOnWindowFocus: false,
@@ -58,28 +131,7 @@ export const useCategories = () => {
     async () => {
       console.log("Đang fetch danh sách categories...");
       const response = await getCategories();
-
-      // Xử lý các định dạng phản hồi khác nhau
-      if (response?.success && Array.isArray(response?.data)) {
-        return response.data;
-      } else if (Array.isArray(response)) {
-        return response;
-      } else if (response && typeof response === "object") {
-        // Tìm mảng trong object
-        const possibleArray = Object.values(response).find((val) =>
-          Array.isArray(val)
-        );
-        if (possibleArray) {
-          return possibleArray;
-        }
-      }
-
-      // Trường hợp không tìm thấy dữ liệu
-      console.warn(
-        "Không thể tìm thấy mảng categories trong response:",
-        response
-      );
-      return [];
+      return extractArrayFromResponse(response, "categories");
     },
     {
       refetchOnWindowFocus: false,
@@ -99,14 +151,7 @@ export const useRecentProducts = (limit = 35) => {
       const response = await getProducts(
         `?limit=${limit}&sortBy=createdAt&sortOrder=desc`
       );
-
-      // Xử lý phản hồi từ API
-      if (response?.success && response?.data?.products) {
-        return response.data.products;
-      } else {
-        console.warn("Cấu trúc phản hồi API không như mong đợi:", response);
-        return [];
-      }
+      return extractProductsFromResponse(response, "sản phẩm gần đây");
     },
     {
       refetchOnWindowFocus: false,
@@ -127,14 +172,9 @@ export const useFeaturedProducts = () => {
       const response = await getFeaturedProducts();
       console.log("Phản hồi API sản phẩm nổi bật:", response);
 
-      // Xử lý phản hồi từ API
-      if (response?.success && Array.isArray(response.data)) {
-        console.log(`Tìm thấy ${response.data.length} sản phẩm nổi bật`);
-        return response.data;
-      } else {
-        console.warn("Cấu trúc phản hồi API không như mong đợi:", response);
-        return [];
-      }
+      const products = extractArrayFromResponse(response, "sản phẩm nổi bật");
+      console.log(`Tìm thấy ${products.length} sản phẩm nổi bật`);
+      return products;
     },
     {
       refetchOnWindowFocus: false,
@@ -155,26 +195,7 @@ export const useBrandsByCategory = (categoryId) => {
 
       console.log(`Đang fetch brands theo category ID: ${categoryId}...`);
       const response = await getBrands(`?categoryId=${categoryId}`);
-
-      // Xử lý các định dạng phản hồi khác nhau
-      if (response?.success && Array.isArray(response?.data)) {
-        console.log(`Tìm thấy ${response.data.length} brands thuộc danh mục`);
-        return response.data;
-      } else if (Array.isArray(response)) {
-        return response;
-      } else if (response && typeof response === "object") {
-        // Tìm mảng trong object
-        const possibleArray = Object.values(response).find((val) =>
-          Array.isArray(val)
-        );
-        if (possibleArray) {
-          return possibleArray;
-        }
-      }
-
-      // Trường hợp không tìm thấy dữ liệu
-      console.warn("Không thể tìm thấy mảng brands trong response:", response);
-      return [];
+      return extractArrayFromResponse(response, "brands");
     },
     {
       refetchOnWindowFocus: false,
@@ -193,14 +214,7 @@ export const useProductDetail = (id) => {
     async () => {
       if (!id) return null;
       const response = await getProductById(id);
-      // Xử lý phản hồi từ API
-      if (response?.success && response?.data) {
-        return response.data;
-      } else if (response && typeof response === "object") {
-        // Nếu API trả về object sản phẩm trực tiếp
-        return response;
-      }
-      return null;
+      return extractObjectFromResponse(response);
     },
     {
       enabled: !!id,
@@ -219,28 +233,7 @@ export const useVouchers = () => {
     async () => {
       console.log("Đang fetch danh sách vouchers...");
       const response = await getVouchers();
-
-      // Xử lý các định dạng phản hồi khác nhau
-      if (response?.success && Array.isArray(response?.data)) {
-        return response.data;
-      } else if (Array.isArray(response)) {
-        return response;
-      } else if (response && typeof response === "object") {
-        // Tìm mảng trong object
-        const possibleArray = Object.values(response).find((val) =>
-          Array.isArray(val)
-        );
-        if (possibleArray) {
-          return possibleArray;
-        }
-      }
-
-      // Trường hợp không tìm thấy dữ liệu
-      console.warn(
-        "Không thể tìm thấy mảng vouchers trong response:",
-        response
-      );
-      return [];
+      return extractArrayFromResponse(response, "vouchers");
     },
     {
       refetchOnWindowFocus: false,
@@ -258,14 +251,7 @@ export const useVoucherDetail = (id) => {
     async () => {
       if (!id) return null;
       const response = await getVoucherById(id);
-      // Xử lý phản hồi từ API
-      if (response?.success && response?.data) {
-        return response.data;
-      } else if (response && typeof response === "object") {
-        // Nếu API trả về object voucher trực tiếp
-        return response;
-      }
-      return null;
+      return extractObjectFromResponse(response);
     },
     {
       enabled: !!id,
@@ -284,28 +270,7 @@ export const useActiveVouchers = () => {
     async () => {
       console.log("Đang fetch danh sách vouchers hoạt động...");
       const response = await getActiveVouchers();
-
-      // Xử lý các định dạng phản hồi khác nhau
-      if (response?.success && Array.isArray(response?.data)) {
-        return response.data;
-      } else if (Array.isArray(response)) {
-        return response;
-      } else if (response && typeof response === "object") {
-        // Tìm mảng trong object
-        const possibleArray = Object.values(response).find((val) =>
-          Array.isArray(val)
-        );
-        if (possibleArray) {
-          return possibleArray;
-        }
-      }
-
-      // Trường hợp không tìm thấy dữ liệu
-      console.warn(
-        "Không thể tìm thấy mảng active vouchers trong response:",
-        response
-      );
-      return [];
+      return extractArrayFromResponse(response, "active vouchers");
     },
     {
       refetchOnWindowFocus: false,
@@ -324,25 +289,7 @@ export const useOrders = () => {
     async () => {
       console.log("Đang fetch danh sách orders...");
       const response = await orderService.getAllOrders();
-
-      // Xử lý các định dạng phản hồi khác nhau
-      if (response?.success && Array.isArray(response?.data)) {
-        return response.data;
-      } else if (Array.isArray(response)) {
-        return response;
-      } else if (response && typeof response === "object") {
-        // Tìm mảng trong object
-        const possibleArray = Object.values(response).find((val) =>
-          Array.isArray(val)
-        );
-        if (possibleArray) {
-          return possibleArray;
-        }
-      }
-
-      // Trường hợp không tìm thấy dữ liệu
-      console.warn("Không thể tìm thấy mảng orders trong response:", response);
-      return [];
+      return extractArrayFromResponse(response, "orders");
     },
     {
       refetchOnWindowFocus: false,
@@ -405,11 +352,30 @@ export const useDeleteVoucher = () => {
   });
 };
 
+// Hook để fetch chi tiết category theo slug
+export const useCategory = (slug) => {
+  return useQuery(
+    ["category", slug],
+    async () => {
+      if (!slug) return null;
+      const { getCategoryBySlug } = await import("../services/categoryService");
+      const response = await getCategoryBySlug(slug);
+      return extractObjectFromResponse(response);
+    },
+    {
+      enabled: !!slug,
+      refetchOnWindowFocus: false,
+      onError: (error) => {
+        console.error("Lỗi khi lấy chi tiết category:", error);
+      },
+    }
+  );
+};
+
 // Hook để fetch sản phẩm theo category
 export const useProductsByCategory = (categoryId, filters = {}) => {
   const {
     page = 1,
-    limit = 20,
     sortBy = "createdAt",
     sortOrder = "desc",
     minPrice,
@@ -425,25 +391,35 @@ export const useProductsByCategory = (categoryId, filters = {}) => {
 
       const searchFilters = {
         category: categoryId,
-        sortBy,
-        sortOrder,
         page,
-        limit,
+        limit: 25, // 5 sản phẩm x 5 dòng = 25 sản phẩm mỗi trang
       };
 
+      // Map sorting to backend expected format
+      if (sortBy === "price") {
+        searchFilters.sortBy = sortOrder === "asc" ? "price_asc" : "price_desc";
+      } else if (sortBy === "createdAt") {
+        searchFilters.sortBy = sortOrder === "asc" ? "createdAt" : "newest";
+      } else if (sortBy === "name") {
+        searchFilters.sortBy = sortOrder === "asc" ? "name_asc" : "name_desc";
+      } else if (sortBy === "sold") {
+        searchFilters.sortBy = "sales";
+      } else if (sortBy === "rating") {
+        searchFilters.sortBy = "rating";
+      } else {
+        searchFilters.sortBy = "newest"; // default
+      }
+
+      // Add price filters if they exist
       if (minPrice) searchFilters.minPrice = minPrice;
       if (maxPrice) searchFilters.maxPrice = maxPrice;
 
+      console.log("Loading products with filters:", searchFilters);
+
       const response = await searchProducts(searchFilters);
+      console.log("Products response:", response);
 
-      if (response?.success && response?.data) {
-        return {
-          products: response.data.products || [],
-          pagination: response.data.pagination || {},
-        };
-      }
-
-      return { products: [], pagination: {} };
+      return extractProductsWithPagination(response);
     },
     {
       enabled: !!categoryId,

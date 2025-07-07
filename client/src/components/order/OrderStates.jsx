@@ -1,4 +1,5 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { FiPackage, FiAlertCircle, FiRefreshCw } from "react-icons/fi";
 
 // Loading Skeleton Component
@@ -58,47 +59,56 @@ const LoadingSkeleton = React.memo(({ count = 3 }) => (
 ));
 
 // Empty State Component
-const EmptyState = React.memo(({ onCreateOrder }) => (
-  <div className="text-center py-16">
-    <div className="w-24 h-24 mx-auto mb-6 bg-gray-100 rounded-full flex items-center justify-center">
-      <FiPackage className="w-12 h-12 text-gray-400" />
+const EmptyState = React.memo(({ onCreateOrder }) => {
+  const { t } = useTranslation();
+
+  return (
+    <div className="text-center py-16">
+      <div className="w-24 h-24 mx-auto mb-6 bg-gray-100 rounded-full flex items-center justify-center">
+        <FiPackage className="w-12 h-12 text-gray-400" />
+      </div>
+      <h2 className="text-2xl font-semibold text-gray-900 mb-2">
+        {t("orders.states.no_orders_yet")}
+      </h2>
+      <p className="text-gray-600 mb-8 max-w-sm mx-auto">
+        {t("orders.states.no_orders_message")}
+      </p>
+      <button
+        onClick={onCreateOrder}
+        className="inline-flex items-center px-6 py-3 bg-indigo-600 text-white font-medium rounded-lg hover:bg-indigo-700 transition-colors focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+      >
+        <FiPackage className="w-5 h-5 mr-2" />
+        {t("orders.states.start_shopping")}
+      </button>
     </div>
-    <h2 className="text-2xl font-semibold text-gray-900 mb-2">No orders yet</h2>
-    <p className="text-gray-600 mb-8 max-w-sm mx-auto">
-      You haven't placed any orders yet. Start shopping to see your orders here.
-    </p>
-    <button
-      onClick={onCreateOrder}
-      className="inline-flex items-center px-6 py-3 bg-indigo-600 text-white font-medium rounded-lg hover:bg-indigo-700 transition-colors focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-    >
-      <FiPackage className="w-5 h-5 mr-2" />
-      Start Shopping
-    </button>
-  </div>
-));
+  );
+});
 
 // Error State Component
-const ErrorState = React.memo(({ message, onRetry }) => (
-  <div className="text-center py-16">
-    <div className="w-24 h-24 mx-auto mb-6 bg-red-100 rounded-full flex items-center justify-center">
-      <FiAlertCircle className="w-12 h-12 text-red-500" />
+const ErrorState = React.memo(({ message, onRetry }) => {
+  const { t } = useTranslation();
+
+  return (
+    <div className="text-center py-16">
+      <div className="w-24 h-24 mx-auto mb-6 bg-red-100 rounded-full flex items-center justify-center">
+        <FiAlertCircle className="w-12 h-12 text-red-500" />
+      </div>
+      <h2 className="text-2xl font-semibold text-gray-900 mb-2">
+        {t("orders.states.failed_to_load")}
+      </h2>
+      <p className="text-gray-600 mb-8 max-w-sm mx-auto">
+        {message || t("orders.states.error_message")}
+      </p>
+      <button
+        onClick={onRetry}
+        className="inline-flex items-center px-6 py-3 bg-indigo-600 text-white font-medium rounded-lg hover:bg-indigo-700 transition-colors focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+      >
+        <FiRefreshCw className="w-5 h-5 mr-2" />
+        {t("orders.states.try_again")}
+      </button>
     </div>
-    <h2 className="text-2xl font-semibold text-gray-900 mb-2">
-      Failed to load orders
-    </h2>
-    <p className="text-gray-600 mb-8 max-w-sm mx-auto">
-      {message ||
-        "Something went wrong while loading your orders. Please try again."}
-    </p>
-    <button
-      onClick={onRetry}
-      className="inline-flex items-center px-6 py-3 bg-indigo-600 text-white font-medium rounded-lg hover:bg-indigo-700 transition-colors focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-    >
-      <FiRefreshCw className="w-5 h-5 mr-2" />
-      Try Again
-    </button>
-  </div>
-));
+  );
+});
 
 // Set display names
 LoadingSkeleton.displayName = "LoadingSkeleton";

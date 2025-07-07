@@ -284,9 +284,9 @@ export default function Cart() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Breadcrumb */}
-      <Breadcrumb items={[{ label: "Giỏ hàng", path: "/cart" }]} />
-
+      <h2 className="text-center text-lg font-bold uppercase  pb-2 mx-auto mt-4 text-red-600">
+        Giỏ hàng của bạn
+      </h2>
       <div className="py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Cart Table */}

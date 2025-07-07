@@ -130,7 +130,7 @@ const OrderEdit = () => {
 
       if (response?.success) {
         toast.success("Cập nhật đơn hàng thành công!");
-        navigate(`/admin/orders/${id}`);
+        navigate(`/admin/orders/detail/${id}`);
       } else {
         toast.error(response?.message || "Có lỗi xảy ra khi cập nhật đơn hàng");
       }
@@ -153,7 +153,7 @@ const OrderEdit = () => {
     <div className="bg-white rounded-lg shadow-sm p-6">
       <div className="flex items-center mb-6">
         <button
-          onClick={() => navigate(`/admin/orders/${id}`)}
+          onClick={() => navigate(`/admin/orders/detail/${id}`)}
           className="mr-4 p-2 hover:bg-gray-100 rounded"
         >
           <FiArrowLeft size={20} />
@@ -352,7 +352,7 @@ const OrderEdit = () => {
         <div className="flex justify-end gap-4">
           <button
             type="button"
-            onClick={() => navigate(`/admin/orders/${id}`)}
+            onClick={() => navigate(`/admin/orders/detail/${id}`)}
             className="px-6 py-2 border border-gray-300 text-gray-700 rounded-md hover:bg-gray-50"
           >
             Hủy
