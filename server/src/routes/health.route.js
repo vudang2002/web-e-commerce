@@ -7,9 +7,20 @@ const router = express.Router();
 
 /**
  * @swagger
+ * tags:
+ *   name: Health
+ *   description: API for system health monitoring and diagnostics
+ */
+
+/**
+ * @swagger
  * /api/health:
  *   get:
  *     summary: Health check endpoint
+ *     description: |
+ *       Basic health check endpoint that confirms if the API is running correctly.
+ *       This endpoint checks database connectivity, API response time, and server uptime.
+ *       Use this endpoint for monitoring and alerting systems.
  *     tags: [Health]
  *     responses:
  *       200:
@@ -30,18 +41,80 @@ const router = express.Router();
  *                   properties:
  *                     status:
  *                       type: string
+ *                       enum: [healthy, degraded]
  *                       example: healthy
  *                     timestamp:
  *                       type: string
+ *                       format: date-time
  *                       example: 2023-12-01T10:00:00.000Z
  *                     uptime:
  *                       type: number
+ *                       description: Server uptime in seconds
  *                       example: 3600
+ *                     processMemory:
+ *                       type: object
+ *                       properties:
+ *                         rss:
+ *                           type: string
+ *                           description: Resident Set Size memory usage
+ *                           example: "120MB"
+ *                         heapTotal:
+ *                           type: string
+ *                           description: Total heap memory allocated
+ *                           example: "80MB"
+ *                         heapUsed:
+ *                           type: string
+ *                           description: Heap memory in use
+ *                           example: "65MB"
+ *                         external:
+ *                           type: string
+ *                           description: External memory usage
+ *                           example: "10MB"
  *                     database:
+ *                       type: object
+ *                       properties:
+ *                         status:
+ *                           type: string
+ *                           enum: [connected, disconnected]
+ *                           example: connected
+ *                         responseTime:
+ *                           type: number
+ *                           description: Database ping time in ms
+ *                           example: 5
+ *                     version:
  *                       type: string
- *                       example: connected
+ *                       description: API version
+ *                       example: "1.0.0"
+ *                     environment:
+ *                       type: string
+ *                       enum: [development, testing, production]
+ *                       example: "production"
  *       503:
  *         description: Application is unhealthy
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 success:
+ *                   type: boolean
+ *                   example: false
+ *                 message:
+ *                   type: string
+ *                   example: Application health check failed
+ *                 error:
+ *                   type: string
+ *                   example: Database connection failed
+ *                 data:
+ *                   type: object
+ *                   properties:
+ *                     status:
+ *                       type: string
+ *                       example: unhealthy
+ *                     timestamp:
+ *                       type: string
+ *                       format: date-time
+ *                       example: 2023-12-01T10:00:00.000Z
  */
 router.get("/", async (req, res) => {
   try {

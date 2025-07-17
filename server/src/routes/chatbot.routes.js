@@ -9,7 +9,8 @@ const router = express.Router();
  * @swagger
  * /api/chatbot/chat:
  *   post:
- *     summary: Chat với AI assistant
+ *     summary: Chat with AI assistant
+ *     description: Send a message to the AI assistant and get a response based on conversation context
  *     tags: [Chatbot]
  *     requestBody:
  *       required: true
@@ -17,24 +18,34 @@ const router = express.Router();
  *         application/json:
  *           schema:
  *             type: object
+ *             required:
+ *               - message
  *             properties:
  *               message:
  *                 type: string
- *                 description: Tin nhắn từ người dùng
+ *                 description: User message
+ *                 example: "What are your bestselling products?"
  *               conversationHistory:
  *                 type: array
+ *                 description: Previous conversation history for context
  *                 items:
  *                   type: object
  *                   properties:
  *                     role:
  *                       type: string
  *                       enum: [user, assistant]
+ *                       description: Who sent the message
  *                     content:
  *                       type: string
- *                 description: Lịch sử hội thoại
+ *                       description: Message content
+ *                 example:
+ *                   - role: "user"
+ *                     content: "Hello"
+ *                   - role: "assistant"
+ *                     content: "Hi there! How can I help you with our products today?"
  *     responses:
  *       200:
- *         description: Phản hồi từ AI
+ *         description: AI response
  *         content:
  *           application/json:
  *             schema:
@@ -42,10 +53,60 @@ const router = express.Router();
  *               properties:
  *                 success:
  *                   type: boolean
- *                 message:
- *                   type: string
- *                 usage:
+ *                   example: true
+ *                 data:
  *                   type: object
+ *                   properties:
+ *                     message:
+ *                       type: string
+ *                       description: AI assistant response
+ *                       example: "Our bestselling products this month include the Ultra HD Smart TV, Premium Wireless Headphones, and Ergonomic Office Chair. Would you like more details about any of these products?"
+ *                     usage:
+ *                       type: object
+ *                       properties:
+ *                         promptTokens:
+ *                           type: number
+ *                           example: 45
+ *                         completionTokens:
+ *                           type: number
+ *                           example: 73
+ *                         totalTokens:
+ *                           type: number
+ *                           example: 118
+ *       400:
+ *         description: Validation error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 success:
+ *                   type: boolean
+ *                   example: false
+ *                 errors:
+ *                   type: array
+ *                   items:
+ *                     type: object
+ *                     properties:
+ *                       msg:
+ *                         type: string
+ *                       param:
+ *                         type: string
+ *                   example:
+ *                     - msg: "Message cannot be empty"
+ *                       param: "message"
+ *       429:
+ *         description: Rate limit exceeded
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/ErrorResponse'
+ *       500:
+ *         description: Server error or AI service unavailable
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/ErrorResponse'
  */
 router.post(
   "/chat",

@@ -26,23 +26,161 @@ import {
  * /api/products:
  *   get:
  *     summary: Get all products
+ *     description: Retrieve a list of all products. Supports pagination, filtering, and sorting.
  *     tags: [Products]
+ *     parameters:
+ *       - in: query
+ *         name: page
+ *         schema:
+ *           type: integer
+ *           default: 1
+ *         description: Page number for pagination
+ *       - in: query
+ *         name: limit
+ *         schema:
+ *           type: integer
+ *           default: 10
+ *         description: Number of items per page
+ *       - in: query
+ *         name: sortBy
+ *         schema:
+ *           type: string
+ *           enum: [name, price, createdAt, updatedAt]
+ *           default: createdAt
+ *         description: Field to sort by
+ *       - in: query
+ *         name: sortOrder
+ *         schema:
+ *           type: string
+ *           enum: [asc, desc]
+ *           default: desc
+ *         description: Sort order (ascending or descending)
+ *       - in: query
+ *         name: category
+ *         schema:
+ *           type: string
+ *         description: Filter by category ID
+ *       - in: query
+ *         name: brand
+ *         schema:
+ *           type: string
+ *         description: Filter by brand ID
+ *       - in: query
+ *         name: minPrice
+ *         schema:
+ *           type: number
+ *         description: Minimum price filter
+ *       - in: query
+ *         name: maxPrice
+ *         schema:
+ *           type: number
+ *         description: Maximum price filter
  *     responses:
  *       200:
  *         description: List of products
  *         content:
  *           application/json:
  *             schema:
- *               type: array
- *               items:
- *                 type: object
- *                 properties:
- *                   id:
- *                     type: string
- *                   name:
- *                     type: string
- *                   price:
- *                     type: number
+ *               type: object
+ *               properties:
+ *                 success:
+ *                   type: boolean
+ *                   example: true
+ *                 data:
+ *                   type: object
+ *                   properties:
+ *                     products:
+ *                       type: array
+ *                       items:
+ *                         type: object
+ *                         properties:
+ *                           _id:
+ *                             type: string
+ *                             description: Product ID
+ *                           name:
+ *                             type: string
+ *                             description: Product name
+ *                           description:
+ *                             type: string
+ *                             description: Product description
+ *                           price:
+ *                             type: number
+ *                             description: Product price
+ *                           salePrice:
+ *                             type: number
+ *                             description: Discounted price (if applicable)
+ *                           images:
+ *                             type: array
+ *                             items:
+ *                               type: string
+ *                             description: Array of image URLs
+ *                           category:
+ *                             type: object
+ *                             properties:
+ *                               _id:
+ *                                 type: string
+ *                               name:
+ *                                 type: string
+ *                             description: Category information
+ *                           brand:
+ *                             type: object
+ *                             properties:
+ *                               _id:
+ *                                 type: string
+ *                               name:
+ *                                 type: string
+ *                             description: Brand information
+ *                           stock:
+ *                             type: number
+ *                             description: Available stock quantity
+ *                           rating:
+ *                             type: number
+ *                             description: Average rating
+ *                           numReviews:
+ *                             type: number
+ *                             description: Number of reviews
+ *                           createdBy:
+ *                             type: string
+ *                             description: User ID of product creator
+ *                           createdAt:
+ *                             type: string
+ *                             format: date-time
+ *                           updatedAt:
+ *                             type: string
+ *                             format: date-time
+ *                     pagination:
+ *                       type: object
+ *                       properties:
+ *                         totalDocs:
+ *                           type: number
+ *                           description: Total number of products
+ *                         limit:
+ *                           type: number
+ *                           description: Number of products per page
+ *                         page:
+ *                           type: number
+ *                           description: Current page number
+ *                         totalPages:
+ *                           type: number
+ *                           description: Total number of pages
+ *                         hasNextPage:
+ *                           type: boolean
+ *                           description: Whether there is a next page
+ *                         hasPrevPage:
+ *                           type: boolean
+ *                           description: Whether there is a previous page
+ *       400:
+ *         description: Invalid request parameters
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/ErrorResponse'
+ *       500:
+ *         description: Server error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/ErrorResponse'
  */
 
 /**

@@ -20,8 +20,11 @@ const router = express.Router();
  * @swagger
  * /api/upload/upload:
  *   post:
- *     summary: Upload 1 ảnh chung lên Cloudinary
+ *     summary: Upload a single image to Cloudinary
+ *     description: Upload a general-purpose image to Cloudinary storage
  *     tags: [Upload]
+ *     security:
+ *       - bearerAuth: []
  *     requestBody:
  *       required: true
  *       content:
@@ -32,22 +35,56 @@ const router = express.Router();
  *               image:
  *                 type: string
  *                 format: binary
+ *                 description: Image file to upload (JPG, PNG, WEBP, max 2MB)
  *     responses:
  *       200:
- *         description: Trả về URL ảnh đã upload
+ *         description: Returns the URL of the uploaded image
  *         content:
  *           application/json:
  *             schema:
  *               type: object
  *               properties:
- *                 url:
- *                   type: string
- *                   example: https://res.cloudinary.com/your_cloud_name/image/upload/v1234567890/ecommerce_uploads/abc.jpg
+ *                 success:
+ *                   type: boolean
+ *                   example: true
+ *                 data:
+ *                   type: object
+ *                   properties:
+ *                     url:
+ *                       type: string
+ *                       example: https://res.cloudinary.com/your_cloud_name/image/upload/v1234567890/ecommerce_uploads/abc.jpg
+ *                     public_id:
+ *                       type: string
+ *                       example: ecommerce_uploads/abc
+ *                     format:
+ *                       type: string
+ *                       example: jpg
+ *                     resource_type:
+ *                       type: string
+ *                       example: image
  *       400:
- *         description: Không có file được upload
+ *         description: No file uploaded or invalid file format
  *         content:
  *           application/json:
  *             schema:
+ *               type: object
+ *               properties:
+ *                 success:
+ *                   type: boolean
+ *                   example: false
+ *                 error:
+ *                   type: string
+ *                   example: No file uploaded or Invalid file format
+ *       401:
+ *         description: Unauthorized, authentication required
+ *       413:
+ *         description: File too large (max 2MB)
+ *       500:
+ *         description: Server error during upload
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/ErrorResponse'
  *               type: object
  *               properties:
  *                 message:
