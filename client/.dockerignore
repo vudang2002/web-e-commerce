@@ -1,0 +1,22 @@
+# Node modules không cần đưa vào Docker image
+node_modules
+npm-debug.log
+
+# Bỏ các bản build cũ nếu có
+dist
+build
+.next
+
+# File môi trường thực tế
+.env
+.env.local
+
+# Git và VSCode
+.git
+.gitignore
+.vscode
+
+# Cache hoặc lock files không cần thiết
+*.lock
+.cache
+.DS_Store

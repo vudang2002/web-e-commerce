@@ -37,7 +37,7 @@
  *         - name
  *         - email
  *         - password
- * 
+ *
  *     Product:
  *       type: object
  *       properties:
@@ -111,7 +111,7 @@
  *         - price
  *         - category
  *         - stock
- * 
+ *
  *     Category:
  *       type: object
  *       properties:
@@ -144,7 +144,7 @@
  *           format: date-time
  *       required:
  *         - name
- * 
+ *
  *     Brand:
  *       type: object
  *       properties:
@@ -174,7 +174,7 @@
  *           format: date-time
  *       required:
  *         - name
- * 
+ *
  *     Review:
  *       type: object
  *       properties:
@@ -223,7 +223,7 @@
  *         - user
  *         - product
  *         - rating
- * 
+ *
  *     Order:
  *       type: object
  *       properties:
@@ -346,7 +346,7 @@
  *         - items
  *         - shippingAddress
  *         - paymentMethod
- * 
+ *
  *     Voucher:
  *       type: object
  *       properties:
@@ -412,7 +412,7 @@
  *         - type
  *         - value
  *         - expireAt
- * 
+ *
  *     ErrorResponse:
  *       type: object
  *       properties:
@@ -423,7 +423,7 @@
  *           type: string
  *           description: Error message
  *           example: "Resource not found"
- * 
+ *
  *     ValidationErrorResponse:
  *       type: object
  *       properties:

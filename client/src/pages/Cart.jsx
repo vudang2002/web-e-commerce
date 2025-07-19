@@ -1,168 +1,47 @@
-import React, { useState, useMemo, useCallback } from "react";
+import React from "react";
 import CartTable from "../components/cart/CartTable";
 import CartSummary from "../components/cart/CartSummary";
-import {
-  useCart,
-  useCartStats,
-  useClearCart,
-  useUpdateCartItem,
-  useRemoveCartItem,
-} from "../hooks/useCart";
-import { useNavigate } from "react-router-dom";
-import { useAuth } from "../contexts/AuthContext";
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import Breadcrumb from "../components/common/Breadcrumb";
 import ConfirmModal from "../components/common/ConfirmModal";
-import { calculateSelectedData, logger } from "../utils/cartUtils";
 import "react-toastify/dist/ReactToastify.css";
+import { useCartPageLogic } from "../hooks/useCartPageLogic";
 
 export default function Cart() {
-  const { user } = useAuth();
-  const { isLoading, error } = useCart();
-  const { cartItems, totalItems, isEmpty } = useCartStats();
-  const clearCartMutation = useClearCart();
-  const updateCartItemMutation = useUpdateCartItem();
-  const removeCartItemMutation = useRemoveCartItem();
-  const navigate = useNavigate();
-  const [showClearCartModal, setShowClearCartModal] = useState(false);
-  const [showDeleteItemModal, setShowDeleteItemModal] = useState(false);
-  const [itemToDelete, setItemToDelete] = useState(null);
-  const [selectedItems, setSelectedItems] = useState([]);
+  const {
+    // State
+    user,
+    isLoading,
+    error,
+    isEmpty,
+    cartItems,
+    selectedItems,
+    showClearCartModal,
+    showDeleteItemModal,
 
-  // Computed values using useMemo
-  const allSelected = useMemo(
-    () => cartItems.length > 0 && selectedItems.length === cartItems.length,
-    [cartItems.length, selectedItems.length]
-  );
-
-  const selectedData = useMemo(
-    () => calculateSelectedData(cartItems, selectedItems),
-    [cartItems, selectedItems]
-  );
-
-  const { selectedCartItems, selectedTotalPrice, selectedTotalItems } =
-    selectedData;
-
-  // Debug logs with condition
-  logger.log("Cart.jsx - cartItems:", cartItems);
-  logger.log("Cart.jsx - totalItems:", totalItems);
-  logger.log("Cart.jsx - isEmpty:", isEmpty);
-  logger.log("Cart.jsx - user:", user);
-
-  // Event handlers with useCallback
-  const handleClearCart = useCallback(() => {
-    setShowClearCartModal(true);
-  }, []);
-
-  const handleConfirmClearCart = useCallback(() => {
-    clearCartMutation.mutate(undefined, {
-      onSuccess: () => {
-        toast.success("Đã xóa toàn bộ giỏ hàng!");
-        setSelectedItems([]);
-      },
-      onError: (error) => {
-        toast.error("Có lỗi xảy ra khi xóa giỏ hàng: " + error.message);
-      },
-    });
-    setShowClearCartModal(false);
-  }, [clearCartMutation]);
-
-  const handleCancelClearCart = useCallback(() => {
-    setShowClearCartModal(false);
-  }, []);
-
-  const handleSelectAll = useCallback(() => {
-    if (allSelected) {
-      setSelectedItems([]);
-    } else {
-      setSelectedItems(cartItems.map((item) => item._id));
-    }
-  }, [allSelected, cartItems]);
-
-  const handleSelectItem = useCallback((id) => {
-    setSelectedItems((prev) =>
-      prev.includes(id) ? prev.filter((itemId) => itemId !== id) : [...prev, id]
-    );
-  }, []);
-
-  const handleUpdateQuantity = useCallback(
-    (productId, newQuantity) => {
-      if (newQuantity < 1) {
-        // Nếu số lượng < 1, hiển thị modal xác nhận xóa
-        setItemToDelete(productId);
-        setShowDeleteItemModal(true);
-        return;
-      }
-      updateCartItemMutation.mutate(
-        {
-          productId,
-          quantity: newQuantity,
-        },
-        {
-          onSuccess: () => {
-            toast.success("Đã cập nhật số lượng!");
-          },
-          onError: (error) => {
-            toast.error("Có lỗi xảy ra: " + error.message);
-          },
-        }
-      );
-    },
-    [updateCartItemMutation]
-  );
-
-  const handleRemoveItem = useCallback((productId) => {
-    setItemToDelete(productId);
-    setShowDeleteItemModal(true);
-  }, []);
-
-  const handleConfirmDeleteItem = useCallback(() => {
-    if (itemToDelete) {
-      removeCartItemMutation.mutate(itemToDelete, {
-        onSuccess: () => {
-          toast.success("Đã xóa sản phẩm khỏi giỏ hàng!");
-          setSelectedItems((prev) => prev.filter((id) => id !== itemToDelete));
-        },
-        onError: (error) => {
-          toast.error("Có lỗi xảy ra khi xóa sản phẩm: " + error.message);
-        },
-      });
-      setItemToDelete(null);
-    }
-    setShowDeleteItemModal(false);
-  }, [itemToDelete, removeCartItemMutation]);
-
-  const handleCancelDeleteItem = useCallback(() => {
-    setItemToDelete(null);
-    setShowDeleteItemModal(false);
-  }, []);
-
-  const handleCheckout = useCallback(() => {
-    if (selectedItems.length === 0) {
-      toast.error("Vui lòng chọn ít nhất một sản phẩm để mua hàng!");
-      return;
-    }
-
-    // Lưu thông tin sản phẩm đã chọn vào sessionStorage
-    const selectedCheckoutData = {
-      items: selectedCartItems,
-      totalPrice: selectedTotalPrice,
-      totalItems: selectedTotalItems,
-      isFromCart: true, // Đánh dấu là từ cart (khác với buyNow)
-    };
-
-    sessionStorage.setItem(
-      "checkoutData",
-      JSON.stringify(selectedCheckoutData)
-    );
-    navigate("/checkout");
-  }, [
-    selectedItems.length,
-    selectedCartItems,
+    // Computed values
+    allSelected,
+    // selectedCartItems không được sử dụng trực tiếp trong component này
     selectedTotalPrice,
     selectedTotalItems,
-    navigate,
-  ]);
+
+    // Mutations
+    clearCartMutation,
+
+    // Event handlers
+    handleClearCart,
+    handleConfirmClearCart,
+    handleCancelClearCart,
+    handleSelectAll,
+    handleSelectItem,
+    handleUpdateQuantity,
+    handleRemoveItem,
+    handleConfirmDeleteItem,
+    handleCancelDeleteItem,
+    handleCheckout,
+  } = useCartPageLogic();
+
+  // Không cần định nghĩa navigate vì nó đã được xử lý trong hook
 
   // Nếu user chưa đăng nhập
   if (!user) {
@@ -193,7 +72,7 @@ export default function Cart() {
             </p>
             <div className="space-x-4">
               <button
-                onClick={() => navigate("/")}
+                onClick={() => (window.location.href = "/")}
                 className="bg-gray-100 text-gray-700 px-6 py-3 rounded-md font-medium hover:bg-gray-200 transition-colors"
               >
                 Về trang chủ
@@ -271,7 +150,7 @@ export default function Cart() {
               Bạn chưa có sản phẩm nào trong giỏ hàng.
             </p>
             <button
-              onClick={() => navigate("/")}
+              onClick={() => (window.location.href = "/")}
               className="bg-blue-600 text-white px-6 py-3 rounded-md font-medium hover:bg-blue-700 transition-colors"
             >
               Tiếp tục mua sắm
