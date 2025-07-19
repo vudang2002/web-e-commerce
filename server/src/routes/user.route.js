@@ -39,25 +39,112 @@ const router = express.Router();
  * /api/auth/register:
  *   post:
  *     summary: Register a new user
- *     tags: [Users]
+ *     description: Creates a new user account
+ *     tags: [Authentication]
  *     requestBody:
  *       required: true
  *       content:
  *         application/json:
  *           schema:
  *             type: object
+ *             required:
+ *               - name
+ *               - email
+ *               - password
  *             properties:
  *               name:
  *                 type: string
+ *                 description: User's full name
+ *                 example: John Doe
+ *                 minLength: 2
+ *                 maxLength: 50
  *               email:
  *                 type: string
+ *                 format: email
+ *                 description: User's email address
+ *                 example: john.doe@example.com
  *               password:
  *                 type: string
+ *                 format: password
+ *                 description: User's password (min 6 characters)
+ *                 example: "securePassword123"
+ *                 minLength: 6
+ *               avatar:
+ *                 type: string
+ *                 format: uri
+ *                 description: URL to user's avatar image (optional)
+ *               isSeller:
+ *                 type: boolean
+ *                 description: Whether the user is a seller (optional)
+ *                 default: false
  *     responses:
  *       201:
  *         description: User registered successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 success:
+ *                   type: boolean
+ *                   example: true
+ *                 data:
+ *                   type: object
+ *                   properties:
+ *                     user:
+ *                       type: object
+ *                       properties:
+ *                         _id:
+ *                           type: string
+ *                           description: User ID
+ *                         name:
+ *                           type: string
+ *                           description: User's name
+ *                         email:
+ *                           type: string
+ *                           description: User's email
+ *                         avatar:
+ *                           type: string
+ *                           description: URL to user's avatar image
+ *                         role:
+ *                           type: string
+ *                           description: User's role
+ *                           enum: [user, admin, seller]
+ *                         isSeller:
+ *                           type: boolean
+ *                           description: Whether the user is a seller
+ *                         createdAt:
+ *                           type: string
+ *                           format: date-time
+ *                     token:
+ *                       type: string
+ *                       description: JWT authentication token
  *       400:
  *         description: Validation error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 success:
+ *                   type: boolean
+ *                   example: false
+ *                 error:
+ *                   type: string
+ *                   example: "Email already in use"
+ *                 errors:
+ *                   type: array
+ *                   items:
+ *                     type: object
+ *                     properties:
+ *                       param:
+ *                         type: string
+ *                       msg:
+ *                         type: string
+ *       429:
+ *         description: Too many attempts, please try again later
+ *       500:
+ *         description: Server error
  */
 
 /**
@@ -65,23 +152,94 @@ const router = express.Router();
  * /api/auth/login:
  *   post:
  *     summary: Login a user
- *     tags: [Users]
+ *     description: Authenticates a user and returns a JWT token
+ *     tags: [Authentication]
  *     requestBody:
  *       required: true
  *       content:
  *         application/json:
  *           schema:
  *             type: object
+ *             required:
+ *               - email
+ *               - password
  *             properties:
  *               email:
  *                 type: string
+ *                 format: email
+ *                 description: User's email address
+ *                 example: john.doe@example.com
  *               password:
  *                 type: string
+ *                 format: password
+ *                 description: User's password
+ *                 example: "securePassword123"
  *     responses:
  *       200:
  *         description: User logged in successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 success:
+ *                   type: boolean
+ *                   example: true
+ *                 data:
+ *                   type: object
+ *                   properties:
+ *                     user:
+ *                       type: object
+ *                       properties:
+ *                         _id:
+ *                           type: string
+ *                           description: User ID
+ *                         name:
+ *                           type: string
+ *                           description: User's name
+ *                         email:
+ *                           type: string
+ *                           description: User's email
+ *                         avatar:
+ *                           type: string
+ *                           description: URL to user's avatar image
+ *                         role:
+ *                           type: string
+ *                           description: User's role
+ *                           enum: [user, admin, seller]
+ *                         isSeller:
+ *                           type: boolean
+ *                           description: Whether the user is a seller
+ *                     token:
+ *                       type: string
+ *                       description: JWT authentication token
+ *       400:
+ *         description: Validation error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/ErrorResponse'
  *       401:
  *         description: Invalid credentials
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 success:
+ *                   type: boolean
+ *                   example: false
+ *                 error:
+ *                   type: string
+ *                   example: "Invalid email or password"
+ *       429:
+ *         description: Too many login attempts, please try again later
+ *       500:
+ *         description: Server error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/ErrorResponse'
  */
 
 /**

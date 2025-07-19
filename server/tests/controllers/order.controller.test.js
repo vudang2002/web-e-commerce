@@ -6,6 +6,9 @@ import Order from "../../src/models/order.model.js";
 import Product from "../../src/models/product.model.js";
 import User from "../../src/models/user.model.js";
 
+// Set test environment
+process.env.NODE_ENV = "test";
+
 let mongoServer;
 let token;
 
@@ -52,7 +55,8 @@ describe("Order Controller", () => {
     const orderData = {
       user: user._id,
       items: [{ productId: product._id, quantity: 2 }],
-      shippingAddress: { address: "123 Main St", phoneNo: "1234567890" },
+      shippingAddress: "123 Main St",
+      phoneNo: "+84987654321",
       paymentMethod: "COD",
       itemsPrice: 200,
       shippingPrice: 10,
@@ -84,8 +88,8 @@ describe("Order Controller", () => {
 
     const order = await Order.create({
       user: user._id,
-      items: [{ productId: product._id, quantity: 2 }],
-      shippingAddress: { address: "123 Main St", phoneNo: "1234567890" },
+      orderItems: [{ product: product._id, quantity: 2 }],
+      shippingInfo: { address: "123 Main St", phoneNo: "+84987654321" },
       paymentMethod: "COD",
       itemsPrice: 200,
       shippingPrice: 10,

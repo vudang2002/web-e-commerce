@@ -129,6 +129,7 @@ const searchRateLimit = rateLimitMiddleware({
  * /api/search/suggestions:
  *   get:
  *     summary: Get search suggestions/autocomplete
+ *     description: Returns search suggestions based on partial user input
  *     tags: [Search]
  *     parameters:
  *       - in: query
@@ -136,16 +137,60 @@ const searchRateLimit = rateLimitMiddleware({
  *         required: true
  *         schema:
  *           type: string
- *         description: Search query
+ *         description: Partial search query
+ *         example: "smart"
  *       - in: query
  *         name: limit
  *         schema:
  *           type: integer
  *           default: 10
  *         description: Number of suggestions to return
+ *         example: 5
  *     responses:
  *       200:
  *         description: Search suggestions retrieved successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 success:
+ *                   type: boolean
+ *                   example: true
+ *                 data:
+ *                   type: object
+ *                   properties:
+ *                     suggestions:
+ *                       type: array
+ *                       items:
+ *                         type: object
+ *                         properties:
+ *                           text:
+ *                             type: string
+ *                             example: "smartphone"
+ *                           type:
+ *                             type: string
+ *                             enum: [product, category, brand, term]
+ *                             example: "product"
+ *                           score:
+ *                             type: number
+ *                             example: 0.95
+ *                           id:
+ *                             type: string
+ *                             example: "60d725b4e5449c001f5d5f6e"
+ *                           image:
+ *                             type: string
+ *                             example: "https://example.com/images/smartphone.jpg"
+ *                     duration:
+ *                       type: number
+ *                       description: Search execution time in milliseconds
+ *                       example: 12
+ *       400:
+ *         description: Missing required query parameter
+ *       429:
+ *         description: Rate limit exceeded, too many requests
+ *       500:
+ *         description: Server error
  */
 
 /**
@@ -153,51 +198,171 @@ const searchRateLimit = rateLimitMiddleware({
  * /api/search/products:
  *   get:
  *     summary: Search products with filters
+ *     description: Advanced product search with multiple filtering and sorting options
  *     tags: [Search]
  *     parameters:
  *       - in: query
  *         name: q
  *         schema:
  *           type: string
- *         description: Search query
+ *         description: Search query for product name and description
+ *         example: "smartphone"
  *       - in: query
  *         name: category
  *         schema:
  *           type: string
  *         description: Category ID to filter by
+ *         example: "60d725b4e5449c001f5d5f6e"
  *       - in: query
  *         name: brand
  *         schema:
  *           type: string
  *         description: Brand ID to filter by
+ *         example: "60d725b4e5449c001f5d5f70"
  *       - in: query
  *         name: minPrice
  *         schema:
  *           type: number
  *         description: Minimum price filter
+ *         example: 100
  *       - in: query
  *         name: maxPrice
  *         schema:
  *           type: number
  *         description: Maximum price filter
+ *         example: 1000
+ *       - in: query
+ *         name: onSale
+ *         schema:
+ *           type: boolean
+ *         description: Filter for products on sale
+ *         example: true
+ *       - in: query
+ *         name: inStock
+ *         schema:
+ *           type: boolean
+ *         description: Filter for in-stock products only
+ *         example: true
+ *       - in: query
+ *         name: minRating
+ *         schema:
+ *           type: number
+ *         description: Minimum product rating (1-5)
+ *         example: 4
  *       - in: query
  *         name: sortBy
  *         schema:
  *           type: string
  *           enum: [relevance, price_asc, price_desc, newest, rating, sales]
  *           default: relevance
- *         description: Sort order
+ *         description: Sort order for search results
+ *         example: "price_asc"
  *       - in: query
  *         name: page
  *         schema:
  *           type: integer
  *           default: 1
- *         description: Page number
+ *         description: Page number for pagination
+ *         example: 1
  *       - in: query
  *         name: limit
  *         schema:
  *           type: integer
  *           default: 20
+ *         description: Number of results per page
+ *         example: 20
+ *       - in: query
+ *         name: features
+ *         schema:
+ *           type: string
+ *         description: Comma-separated list of product features to filter by
+ *         example: "waterproof,wireless"
+ *     responses:
+ *       200:
+ *         description: Search results
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 success:
+ *                   type: boolean
+ *                   example: true
+ *                 data:
+ *                   type: object
+ *                   properties:
+ *                     products:
+ *                       type: array
+ *                       items:
+ *                         $ref: '#/components/schemas/Product'
+ *                     filters:
+ *                       type: object
+ *                       properties:
+ *                         categories:
+ *                           type: array
+ *                           items:
+ *                             type: object
+ *                             properties:
+ *                               _id:
+ *                                 type: string
+ *                               name:
+ *                                 type: string
+ *                               count:
+ *                                 type: number
+ *                         brands:
+ *                           type: array
+ *                           items:
+ *                             type: object
+ *                             properties:
+ *                               _id:
+ *                                 type: string
+ *                               name:
+ *                                 type: string
+ *                               count:
+ *                                 type: number
+ *                         priceRange:
+ *                           type: object
+ *                           properties:
+ *                             min:
+ *                               type: number
+ *                             max:
+ *                               type: number
+ *                         ratings:
+ *                           type: array
+ *                           items:
+ *                             type: object
+ *                             properties:
+ *                               rating:
+ *                                 type: number
+ *                               count:
+ *                                 type: number
+ *                     pagination:
+ *                       type: object
+ *                       properties:
+ *                         totalDocs:
+ *                           type: number
+ *                         limit:
+ *                           type: number
+ *                         totalPages:
+ *                           type: number
+ *                         page:
+ *                           type: number
+ *                         hasPrevPage:
+ *                           type: boolean
+ *                         hasNextPage:
+ *                           type: boolean
+ *                     query:
+ *                       type: object
+ *                       description: The query parameters used for the search
+ *                     duration:
+ *                       type: number
+ *                       description: Search execution time in milliseconds
+ *       400:
+ *         description: Invalid search parameters
+ *       429:
+ *         description: Rate limit exceeded, too many requests
+ *       500:
+ *         description: Server error
  *         description: Number of products per page
  *     responses:
  *       200:
