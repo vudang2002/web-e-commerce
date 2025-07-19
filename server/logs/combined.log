@@ -1592,3 +1592,11 @@
 {"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-07-18 12:08:08:88"}
 {"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-07-18 12:08:08:88"}
 {"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-07-18 12:08:08:88"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-07-19 16:46:35:4635"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-07-19 16:46:35:4635"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-07-19 16:46:35:4635"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-07-19 16:46:35:4635"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🚀 Server is running on port 5000\u001b[39m","timestamp":"2025-07-19 16:47:11:4711"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m🌍 Environment: development\u001b[39m","timestamp":"2025-07-19 16:47:11:4711"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m📚 API Documentation: http://localhost:5000/api-docs\u001b[39m","timestamp":"2025-07-19 16:47:11:4711"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32m❤️  Health Check: http://localhost:5000/api/health\u001b[39m","timestamp":"2025-07-19 16:47:11:4711"}

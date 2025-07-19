@@ -8,9 +8,7 @@ const config = {
   NODE_ENV: process.env.NODE_ENV || "development",
 
   // Database Configuration
-  MONGODB_URI:
-    process.env.MONGODB_URI ||
-    "mongodb+srv://vudang30112002:Vudang-30112002@e-commerce.nyfixde.mongodb.net/?retryWrites=true&w=majority&appName=e-commerce",
+  MONGODB_URI: process.env.MONGODB_URI,
 
   // JWT Configuration
   JWT_SECRET: process.env.JWT_SECRET || "Vudang-30112002",
